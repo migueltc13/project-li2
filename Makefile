@@ -1,11 +1,31 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -pedantic -O2
-LFLAGS=-lm -lcurses
+CFLAGS=-Iincludes -Wall -Wextra -pedantic -O2
+DFLAGS=-Iincludes -Wall -Wextra -pedantic -g
+LFLAGS=-lm -lncurses
 
-#SRC=src/ # wildcard src/*.c
-#OBJ=obj/
+BIN=play
 
-.PHONY: all clean
+SRC_DIR=src
+OBJ_DIR=obj
 
-all:
-	# TODO
+SOURCES=$(wildcard $(SRC_DIR)/*.c)
+OBJECTS=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+.PHONY: all $(BIN) clean
+
+all: $(BIN)
+
+$(BIN): $(OBJECTS) $(OBJ_DIR)/main.o
+	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
+
+debug: $(OBJECTS) $(OBJ_DIR)/main.o
+	$(CC) $^ $(DFLAGS) $(LFLAGS) -o $@
+
+install:
+	sudo apt-get install libncurses5-dev libncursesw5-dev gdb valgrind || exit 1
+
+obj/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(BIN) $(OBJ_DIR)/*.o

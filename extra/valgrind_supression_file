@@ -1,0 +1,6 @@
+{
+	<ncurses suppression>
+	Memcheck:Leak
+	fun:initscr
+}
+
