@@ -13,7 +13,7 @@ OBJECTS=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all $(BIN) clean
 
-all: clean $(BIN)
+all: clean $(BIN) # TODO remove the clean
 
 $(BIN): $(OBJECTS) $(OBJ_DIR)/main.o
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
@@ -28,4 +28,4 @@ obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(BIN) $(OBJ_DIR)/*.o
+	@rm -f $(BIN) $(OBJ_DIR)/*.o
