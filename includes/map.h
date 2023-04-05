@@ -7,4 +7,7 @@ typedef struct map {
     int **map;
 } Map;
 
+Map *newMap(int width, int height);
+void freeMap(Map *map);
+
 #endif
