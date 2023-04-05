@@ -5,9 +5,9 @@
 typedef struct position {
     int x;
     int y;
-} *Position;
+} Position;
 
-Position newPosition(int x, int y);
-void freePosition(Position p);
+Position *newPosition(int x, int y);
+void freePosition(Position *p);
 
 #endif

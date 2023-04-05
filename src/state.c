@@ -5,25 +5,25 @@
 #include "player.h"
 #include "position.h"
 
-State newState() {
-    State st = malloc(sizeof(struct state));
-    Position p = newPosition(0,0);
+State *newState() {
+    State *st = (State *) malloc(sizeof(struct state));
+    Position *p = newPosition(0,0);
     st->player = newPlayer('@',p);
     return st;
 }
 
 // TODO movement module
-void do_movement_action(State st, int dx, int dy) {
-	Player player = st->player;
-    Position position = player->position;
+void do_movement_action(State *st, int dx, int dy) {
+	Player *player = st->player;
+    Position *position = player->position;
     position->x += dx;
 	position->y += dy;
 }
 
-void updateState(State st, int input_key) {
+void updateState(State *st, int input_key) {
 
-    Player player = st->player;
-    Position position = player->position;
+    Player *player = st->player;
+    Position *position = player->position;
     int x = position->x;
     int y = position->y;
 
@@ -51,7 +51,7 @@ void updateState(State st, int input_key) {
     mvaddch(x, y, player->symbol);
 }
 
-void freeState(State st) {
+void freeState(State *st) {
     freePlayer(st->player);
     free(st);
 }

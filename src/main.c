@@ -29,9 +29,9 @@ void drawPlayer(int x, int y, char symbol) {
     attroff(COLOR_PAIR(COLOR_WHITE));
 }
 
-void drawState(State st) {
-    Player player = st->player;
-    Position position = player->position;
+void drawState(State *st) {
+    Player* player = st->player;
+    Position *position = player->position;
     int x = position->x;
     int y = position->y;
     
@@ -67,7 +67,7 @@ int main () // int argc, char *argv[]
 
     // printw("Hello, world!");
 
-    State st = newState();
+    State *st = newState();
 
     int input_key;
     while ((input_key = getch()) != 'q' && input_key != 'Q') {

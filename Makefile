@@ -13,7 +13,7 @@ OBJECTS=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all $(BIN) clean
 
-all: $(BIN)
+all: clean $(BIN)
 
 $(BIN): $(OBJECTS) $(OBJ_DIR)/main.o
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
