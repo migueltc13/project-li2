@@ -9,5 +9,8 @@
     "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
     "C_Cpp.autocompleteAddParentheses": true,
     "editor.renderWhitespace": "selection",
-    "editor.accessibilityPageSize": 10
+    "editor.accessibilityPageSize": 10,
+    "files.associations": {
+        "map": "c"
+    }
 }

@@ -1,57 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
 #include "state.h"
-#include "player.h"
-#include "position.h"
+#include "map.h"
 
-State *newState() {
+typedef struct state {
+    Map *map;
+    // Player player;
+    // Monster monster;
+} State;
+
+
+/**
+ * @brief Initialize a new game state
+ * - generate the map
+ * 
+ * @return State*
+ */ 
+State *initState(int width, int height) {
     State *st = (State *) malloc(sizeof(struct state));
-    Position *p = newPosition(0,0);
-    st->player = newPlayer('@',p);
+    st->map = initMap(width, height);
+    generateMap(st->map);
+    // st->player = initPlayer();
     return st;
 }
 
-// TODO movement module
-void do_movement_action(State *st, int dx, int dy) {
-	Player *player = st->player;
-    Position *position = player->position;
-    position->x += dx;
-	position->y += dy;
-}
-
-void updateState(State *st, int input_key) {
-
-    Player *player = st->player;
-    Position *position = player->position;
-    int x = position->x;
-    int y = position->y;
-
-	switch(input_key) {
-		case KEY_A1:
-		case '7': do_movement_action(st, -1, -1); break;
-		case KEY_UP:
-		case '8': do_movement_action(st, -1, +0); break;
-		case KEY_A3:
-		case '9': do_movement_action(st, -1, +1); break;
-		case KEY_LEFT:
-		case '4': do_movement_action(st, +0, -1); break;
-		case KEY_B2:
-		case '5': break;
-		case KEY_RIGHT:
-		case '6': do_movement_action(st, +0, +1); break;
-		case KEY_C1:
-		case '1': do_movement_action(st, +1, -1); break;
-		case KEY_DOWN:
-		case '2': do_movement_action(st, +1, +0); break;
-		case KEY_C3:
-		case '3': do_movement_action(st, +1, +1); break;
-		case 'q': endwin(); exit(0); break;
-	}
-    mvaddch(x, y, player->symbol);
-}
-
-void freeState(State *st) {
-    freePlayer(st->player);
+/**
+ * @brief Free the game state
+ * 
+ * @param void *p (a pointer to a State) 
+ * @return void
+ */
+void freeState(void *p) {
+    State *st = (State *) p;
     free(st);
+}
+
+/**
+ * @brief Update the game state
+ * 
+ * @param State *st 
+ * @param int input_key 
+ * @return void
+ */
+void updateState(State *st, int input_key) {
+    
+}
+
+/**
+ * @brief Draw the game state
+ * 
+ * @param State *st 
+ * @return void
+ */
+void drawState(State *st) {
+    drawMap(st->map);
 }

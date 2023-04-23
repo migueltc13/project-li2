@@ -1,19 +1,11 @@
 #ifndef _STATE_H_
 #define _STATE_H_
 
-typedef struct player Player;
-typedef struct map Map;
+typedef struct state State;
 
-// Struct to hold the state of the game
-typedef struct state {
-    //WINDOW *mainwin; // maybe ?
-    Player *player;
-    //Mobs *mobs;
-    Map *map;
-} State;
-
-State *newState();
+State *initState(int width, int height);
+void freeState(void *p);
 void updateState(State *st, int input_key);
-void freeState(State *st);
+void drawState(State *st);
 
 #endif
