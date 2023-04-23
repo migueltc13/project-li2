@@ -1,0 +1,25 @@
+\hypertarget{state_8h_source}{}\doxysection{state.\+h}
+\label{state_8h_source}\index{/home/z0d1ac/UMinho/22:23/2º Semestre/LI2/project-\/li2/includes/state.h@{/home/z0d1ac/UMinho/22:23/2º Semestre/LI2/project-\/li2/includes/state.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_STATE\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_STATE\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{structplayer}{Player}};}
+\DoxyCodeLine{5 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structmap}{map}} \mbox{\hyperlink{structmap}{Map}};}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{// Struct to hold the state of the game}}
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structstate}{state}} \{}
+\DoxyCodeLine{9     \textcolor{comment}{//WINDOW *mainwin; // maybe ?}}
+\DoxyCodeLine{10     \mbox{\hyperlink{structplayer}{Player}} *\mbox{\hyperlink{structplayer}{player}};}
+\DoxyCodeLine{11     \textcolor{comment}{//Mobs *mobs;}}
+\DoxyCodeLine{12     \mbox{\hyperlink{structmap}{Map}} *\mbox{\hyperlink{structmap}{map}};}
+\DoxyCodeLine{13 \} \mbox{\hyperlink{structstate}{State}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \mbox{\hyperlink{structstate}{State}} *newState();}
+\DoxyCodeLine{16 \textcolor{keywordtype}{void} updateState(\mbox{\hyperlink{structstate}{State}} *st, \textcolor{keywordtype}{int} input\_key);}
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} freeState(\mbox{\hyperlink{structstate}{State}} *st);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
