@@ -5,15 +5,13 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_MAP\_H\_}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_MAP\_H\_}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structmap}{map}} \{}
-\DoxyCodeLine{5     \textcolor{keywordtype}{int} width;}
-\DoxyCodeLine{6     \textcolor{keywordtype}{int} height;}
-\DoxyCodeLine{7     \textcolor{keywordtype}{int} **\mbox{\hyperlink{structmap}{map}};}
-\DoxyCodeLine{8 \} \mbox{\hyperlink{structmap}{Map}};}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \mbox{\hyperlink{structmap}{Map}} *newMap(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
-\DoxyCodeLine{11 \textcolor{keywordtype}{void} freeMap(\mbox{\hyperlink{structmap}{Map}} *\mbox{\hyperlink{structmap}{map}});}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{4 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structmap}{map}} \mbox{\hyperlink{structmap}{Map}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \mbox{\hyperlink{structmap}{Map}} *initMap(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{7 \textcolor{keywordtype}{void} freeMap(\textcolor{keywordtype}{void} *p);}
+\DoxyCodeLine{8 \textcolor{keywordtype}{void} generateMap(\mbox{\hyperlink{structmap}{Map}} *\mbox{\hyperlink{structmap}{map}});}
+\DoxyCodeLine{9 \textcolor{keywordtype}{void} drawMap(\mbox{\hyperlink{structmap}{Map}} *\mbox{\hyperlink{structmap}{map}});}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
