@@ -1,0 +1,20 @@
+- Player:
+	- Inventario (lista ligada)
+	- HP/MP/AMMO
+	- Gold
+- Mob:
+	- Queue de Mobs  
+	- HP
+	- Armor + Def
+	- ATT | ATT | FIREBALL ...
+	- Criticos (Diff att/def)
+	- Kind
+	- Time
+- cell / tile
+	- is walkable
+	- blocks_light
+	- objects (items)
+	- mob*
+- Combat 
+	- 2D4 (2->nr de dados, 4->nr de faces)
+- Count nr de turnos 
