@@ -34,7 +34,8 @@ int main() {
     drawState(st);
 
     char c;
-    while ((c = getch()) != 'q') {
+    while (true) { // while ((c = getch()) != 'q') { 
+        c = getch();
         updateState(st, c);
         drawState(st);
     }

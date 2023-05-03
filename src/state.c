@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "state.h"
+#include "player.h"
 #include "map.h"
 
 typedef struct state {
     Map *map;
-    // Player player;
-    // Monster monster;
+    Player *player;
+    // Monster **monsters;
 } State;
 
 
@@ -20,7 +21,8 @@ State *initState(int width, int height) {
     State *st = (State *) malloc(sizeof(struct state));
     st->map = initMap(width, height);
     generateMap(st->map);
-    // st->player = initPlayer();
+    // TODO Function to get player initial position 
+    st->player = initPlayer(10,10);
     return st;
 }
 
@@ -32,6 +34,8 @@ State *initState(int width, int height) {
  */
 void freeState(void *p) {
     State *st = (State *) p;
+    freeMap(st->map);
+    freePlayer(st->player);
     free(st);
 }
 
@@ -43,7 +47,9 @@ void freeState(void *p) {
  * @return void
  */
 void updateState(State *st, int input_key) {
-    
+    // TODO
+    parseInput(input_key, st->player);
+    drawState(st);
 }
 
 /**
@@ -54,4 +60,5 @@ void updateState(State *st, int input_key) {
  */
 void drawState(State *st) {
     drawMap(st->map);
+    drawPlayer(st->player);
 }

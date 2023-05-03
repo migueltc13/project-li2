@@ -7,6 +7,7 @@ typedef struct map {
     int width; // nCols
     int height; // nRows
     char **tiles; // 2D array of chars; Future: Tile *tiles
+    // Cell **cells; // 2D array of Cells
 } Map;
 
 /**
