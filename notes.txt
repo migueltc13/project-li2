@@ -15,6 +15,6 @@
 	- blocks_light
 	- objects (items)
 	- mob*
-- Combat 
+- Combat
 	- 2D4 (2->nr de dados, 4->nr de faces)
 - Count nr de turnos 

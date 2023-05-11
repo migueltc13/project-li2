@@ -12,5 +12,6 @@
     "editor.accessibilityPageSize": 10,
     "files.associations": {
         "map": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

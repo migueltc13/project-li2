@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-Iincludes -Wall -Wextra -pedantic -O2
-DFLAGS=-Iincludes -Wall -Wextra -pedantic -g
+CFLAGS=-Iinclude -Wall -Wextra -pedantic -O2
+DFLAGS=-Iinclude -Wall -Wextra -pedantic -g
 LFLAGS=-lm -lncurses
 
 BIN=play
