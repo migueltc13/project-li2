@@ -32,4 +32,4 @@ obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(BIN) $(OBJ_DIR)/*.o
+	rm -f $(BIN) $(OBJ_DIR)/*.o
