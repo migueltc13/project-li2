@@ -3,7 +3,8 @@ CFLAGS=-Iinclude -Wall -Wextra -pedantic -O2
 DFLAGS=-Iinclude -Wall -Wextra -pedantic -g
 LFLAGS=-lm -lncurses
 
-BIN=jogo # play
+BIN=jogo
+#BIN=play
 
 SRC_DIR=src
 OBJ_DIR=obj
