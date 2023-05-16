@@ -2,16 +2,6 @@
 #include <stdlib.h>
 #include "cell.h"
 
-typedef struct cell {
-    char symbol;
-    unsigned int x;
-    unsigned int y;
-    unsigned int is_walkable;
-    unsigned int block_light; // is this cell blocking light?
-    // Monster* monster; // monster in this cell, if not NULL
-} Cell;
-
-
 Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light) {
     Cell *cell = (Cell *) malloc(sizeof(struct cell));
     cell->x = x;
@@ -19,6 +9,8 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light) {
     cell->symbol = symbol;
     cell->is_walkable = is_walkable;
     cell->block_light = block_light;
+    cell->distance_to_player = -1;
+    cell->is_visible = 0; // Not visible by default
     return cell;
 }
 
@@ -55,5 +47,6 @@ void freeCell(void *p) {
     cell->symbol = '\0';
     cell->is_walkable = 0;
     cell->block_light = 0;
+    cell->is_visible = 0;
     free(cell);
 }

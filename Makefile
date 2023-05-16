@@ -20,7 +20,7 @@ $(BIN): $(OBJECTS) $(OBJ_DIR)/main.o
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 
 install:
-	sudo apt-get install libncurses5-dev libncursesw5-dev gdb valgrind doxygen || exit 1
+	sudo apt-get install libncurses5-dev libncursesw5-dev gdb valgrind doxygen graphviz || exit 1
 
 debug: $(OBJECTS) $(OBJ_DIR)/main.o
 	$(CC) $^ $(DFLAGS) $(LFLAGS) -o $@

@@ -1,0 +1,69 @@
+void do_generate_map(State *s) {
+    // outer walls
+    FOR_GRID_BORDER(R, C, 2, s)
+        s->map[R][C].is_wall = drand48() < s->prob_wall;
+    
+    // first pass
+    for (int I = 0; I < s->first_pass; I++) {
+        char mapa[s->num_rows][s->num_cols];
+        FOR_GRID_BORDER(R, C, 1, s)
+            mapa[R][C] = (radius_count(s, R, C, 1) >= 5) || (radius_count(s, R, C, 2) <= 2);
+        FOR_GRID_BORDER(R, C, 1, s)
+            s->map[R][C].is_wall = mapa[R][C];
+    }
+
+    // second pass
+    for(int I = 0; I < s->second_pass; I++) {
+        char mapa[s->num_rows][s->num_cols];
+        FOR_GRID_BORDER(R, C, 1, s)
+            mapa[R][C] = (radius_count(s, R, C, 1) >= 5) || (radius_count(s, R, C, 2) <= 2);
+        FOR_GRID_BORDER(R, C, 1, s)
+            s->map[R][C].is_wall = mapa[R][C];
+    }
+}
+
+void generateMap(State *st) {
+    int height = st->num_rows;
+    int width = st->num_cols;
+
+    // Generate walls for the outer border
+    for (int i = 0; i < height; i++) {
+        st->map[i][0] = initCellWall(0, i);
+        st->map[i][width - 1] = initCellWall(width - 1, i);
+    }
+    for (int j = 0; j < width; j++) {
+        st->map[0][j] = initCellWall(j, 0);
+        st->map[height - 1][j] = initCellWall(j, height - 1);
+    }
+
+    // First pass
+    for (int I = 0; I < st->first_pass; I++) {
+        Cell map[s->num_rows][s->num_cols];
+        for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++) {
+                map[R][C] = (radius_count(st, R, C, 1) >= 5) || (radius_count(st, R, C, 2) <= 2) ? initCellWall(C, R) : initCellFloor(C, R);
+            }
+        }
+        for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++) {
+                st->map[R][C] = map[R][C];
+            }
+        }
+    }
+
+    // Second pass
+    for (int I = 0; I < st->second_pass; I++) {
+        Cell map[s->num_rows][s->num_cols];
+        for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++) {
+                map[R][C] = (radius_count(st, R, C, 1) >= 5) || (radius_count(st, R, C, 2) <= 2) ? initCellWall(C, R) : initCellFloor(C, R);
+            }
+        }
+        for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++) {
+                st->map[R][C] = map[R][C];
+            }
+        }
+    }
+}
+

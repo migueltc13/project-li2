@@ -17,4 +17,15 @@
 	- mob*
 - Combat
 	- 2D4 (2->nr de dados, 4->nr de faces)
+- items
+	- increase max vision range
+	- facas espadas clavas
+	- Life healing 
+	- Life max increase
+- Cavernas
+
+- Mapa fix copy cells array for even distribution
+
 - Count nr de turnos 
+
+- Get last digit for distance modes in a faster way 
