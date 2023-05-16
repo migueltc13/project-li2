@@ -89,25 +89,29 @@ void calculateState(State *st, int input_key) {
         case KEY_A1:
         case '7': dx = -1; dy = -1; break;
         case KEY_UP:
+        case 'w':
         case '8': dx =  0; dy = -1; break;
         case KEY_A3:
         case '9': dx =  1; dy = -1; break;
         case KEY_LEFT:
+        case 'a':
         case '4': dx = -1; dy =  0; break;
         case KEY_B2:
         case '5': break;
         case KEY_RIGHT:
+        case 'd':
         case '6': dx =  1; dy =  0; break;
         case KEY_C1:
         case '1': dx = -1; dy =  1; break;
         case KEY_DOWN:
+        case 's':
         case '2': dx =  0; dy =  1; break;
         case KEY_C3:
         case '3': dx =  1; dy =  1; break;
         // Menu keys
         case 'n': st->mode = NORMAL_MODE;   return; // normal view
         case 'v': st->mode = VISION_MODE;   return; // normal view
-        case 'd': st->mode = DISTANCE_MODE; return; // distance view
+        case 'm': st->mode = DISTANCE_MODE; return; // distance view
         case 'q': st->mode = EXIT_MODE;     return; // quit
 	}
     int x = st->player->x, y = st->player->y;
