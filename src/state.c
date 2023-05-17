@@ -29,6 +29,7 @@ State *initState(int width, int height) {
     int x, y; getPlayerInitialPosition(st->map, &x, &y);
     st->player = initPlayer(x,y);
     calculateDistances(st->map, x, y);
+    calculateVision(st->map, x, y);
     return st;
 }
 
@@ -85,7 +86,7 @@ void drawState(State *st) {
 void calculateState(State *st, int input_key) {
     int dx = 0, dy = 0;
     switch(input_key) {
-        // Movement keys
+        // Movement keys, numpad, awsd and arrows keys
         case KEY_A1:
         case '7': dx = -1; dy = -1; break;
         case KEY_UP:
@@ -127,7 +128,9 @@ void calculateState(State *st, int input_key) {
     /*
     else if (isCellMonster(st->map, x, y)) {
         // TODO attack monster (combat.h)
-        return 2;
+    }
+    else if (isCellItem(st->map, x, y)) {
+        // TODO pick up item (inventory.h)
     }
     */
 }

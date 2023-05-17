@@ -9,10 +9,11 @@ typedef struct cell {
     unsigned int block_light; // is this cell blocking light?
     unsigned int is_visible; // is this cell visible?
     int distance_to_player; // initialized to -1
+    int color;
     // Monster* monster; // monster in this cell, if not NULL
 } Cell;
 
-Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light);
+Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int color);
 Cell *initCellFloor(int x, int y);
 Cell *initCellWall(int x, int y);
 char getCellSymbol(Cell *cell);

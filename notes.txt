@@ -3,7 +3,9 @@
 	- HP/MP/AMMO
 	- Gold
 - Mob:
-	- Queue de Mobs  
+	- Queue de Mobs
+		- Spawn Mobs
+		-   
 	- HP
 	- Armor + Def
 	- ATT | ATT | FIREBALL ...
@@ -29,3 +31,5 @@
 - Count nr de turnos 
 
 - Get last digit for distance modes in a faster way 
+TODO: refresh()
+TODO: remove functions like getCellSymbol(), etc

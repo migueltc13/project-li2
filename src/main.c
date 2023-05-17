@@ -26,8 +26,11 @@ int main() {
 	keypad(stdscr, true); // Enable keypad input
 
 	init_pair(COLOR_WHITE, COLOR_WHITE, COLOR_BLACK);
+    init_pair(COLOR_RED, COLOR_RED, COLOR_BLACK);
+    init_pair(COLOR_GREEN, COLOR_GREEN, COLOR_BLACK);
 	init_pair(COLOR_YELLOW, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(COLOR_BLUE, COLOR_BLUE, COLOR_BLACK);
+    init_pair(COLOR_BLUE, COLOR_BLUE, COLOR_BLACK);
+    init_pair(6, COLOR_WHITE, COLOR_BLACK); // add #define COLOR_GREY 6
 
     // Game state
     State *st = initState(ncols, nrows);

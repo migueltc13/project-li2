@@ -10,6 +10,8 @@ typedef struct player {
     unsigned int y;
     char symbol;
     int health;
+    int defense;
+    int attack;
     int vision; // PLAYER_VISION
     // ...
 } Player;

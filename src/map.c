@@ -7,14 +7,6 @@
 #include "cell.h"
 #include "state.h"
 
-/*
-typedef struct map {
-    int width; // nCols
-    int height; // nRows
-    Cell ***cells; // 2D array of Cells
-} Map;
-*/
-
 /**
  * @brief Initialize a new map
  * 
@@ -44,11 +36,12 @@ Map *initMap(int width, int height) {
  */
 void freeMap(void *p) {
     Map *map = (Map *) p;
-    for (int i = 0; i < map->height; i++)
+    for (int i = 0; i < map->height; i++) {
+        for (int j = 0; j < map->width; j++)
+            freeCell(map->cells[i][j]);
         free(map->cells[i]);
+    }
     free(map->cells);
-    map->width  = 0;
-    map->height = 0;
     free(map);
 }
 
@@ -62,7 +55,7 @@ int radius_count(State *s, int row, int col, int radius) {
     for (int i = row - radius; i <= row + radius; i++) {
         for (int j = col - radius; j <= col + radius; j++) {
             if (i >= 0 && i < s->map->height && j >= 0 && j < s->map->width) {
-                if (getCellSymbol(s->map->cells[i][j]) == '#')
+                if (s->map->cells[i][j]->symbol == '#')
                     count++;
             }
         }
@@ -75,9 +68,8 @@ int radius_count(State *s, int row, int col, int radius) {
  * @brief Generate the map based on algorithm TODO explain more
  * - Top, bottom, left and right walls
  * - Fill the rest with 40% walls
- * - Get a valid position for the player
  * 
- * TODO: save map in matrix to enhance algorithm usage
+ * Saves a (int**) map twice
  * 
  * @param Map *map 
  * @return void
@@ -88,10 +80,21 @@ void generateMap(State *st) {
 
     // Generate walls for the outer border
     for (int i = 0; i < height; i++) {
+        // Free the previous cells, if any (avoiding memory leaks by overwriting the pointer)
+        if (st->map->cells[i][0] != NULL)
+            free(st->map->cells[i][0]);
+        if (st->map->cells[i][width - 1] != NULL)
+            free(st->map->cells[i][width - 1]);
+
         st->map->cells[i][0] = initCellWall(0, i);
         st->map->cells[i][width - 1] = initCellWall(width - 1, i);
     }
     for (int j = 0; j < width; j++) {
+        if (st->map->cells[0][j] != NULL)
+            free(st->map->cells[0][j]);
+        if (st->map->cells[height - 1][j] != NULL)
+            free(st->map->cells[height - 1][j]);
+
         st->map->cells[0][j] = initCellWall(j, 0);
         st->map->cells[height - 1][j] = initCellWall(j, height - 1);
     }
@@ -101,20 +104,33 @@ void generateMap(State *st) {
     for (int R = 1; R < height - 1; R++) {
         for (int C = 1; C < width - 1; C++) {
             if (rand() % 100 < st->wall_prob) {  // 40% chance to create a wall
+                if (st->map->cells[R][C] != NULL)
+                    free(st->map->cells[R][C]);
                 st->map->cells[R][C] = initCellWall(C, R);
             } else {
+                if (st->map->cells[R][C] != NULL)
+                    free(st->map->cells[R][C]);
                 st->map->cells[R][C] = initCellFloor(C, R);
             }
         }
     }
 
     // First pass
+    int mapa[st->map->height][st->map->width];
     for (int I = 0; I < st->first_pass; I++) {
         for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++)
+                mapa[R][C] = ((radius_count(st, R, C, 1) >= 5) || (radius_count(st, R, C, 2) <= 2)) ? 1 : 0;
+        }
+        for (int R = 1; R < height - 1; R++) {
             for (int C = 1; C < width - 1; C++) {
-                if (radius_count(st, R, C, 1) >= 5 || radius_count(st, R, C, 2) <= 2) {
+                if (mapa[R][C]) {
+                    if (st->map->cells[R][C] != NULL)
+                        free(st->map->cells[R][C]);
                     st->map->cells[R][C] = initCellWall(C, R);
                 } else {
+                    if (st->map->cells[R][C] != NULL)
+                        free(st->map->cells[R][C]);
                     st->map->cells[R][C] = initCellFloor(C, R);
                 }
             }
@@ -124,10 +140,18 @@ void generateMap(State *st) {
     // Second pass
     for (int I = 0; I < st->second_pass; I++) {
         for (int R = 1; R < height - 1; R++) {
+            for (int C = 1; C < width - 1; C++)
+                mapa[R][C] = ((radius_count(st, R, C, 1) >= 5) || (radius_count(st, R, C, 2) <= 2)) ? 1 : 0;
+        }
+        for (int R = 1; R < height - 1; R++) {
             for (int C = 1; C < width - 1; C++) {
-                if (radius_count(st, R, C, 1) >= 5 || radius_count(st, R, C, 2) <= 2) {
+                if (mapa[R][C]) {
+                    if (st->map->cells[R][C] != NULL)
+                        free(st->map->cells[R][C]);
                     st->map->cells[R][C] = initCellWall(C, R);
                 } else {
+                    if (st->map->cells[R][C] != NULL)
+                        free(st->map->cells[R][C]);
                     st->map->cells[R][C] = initCellFloor(C, R);
                 }
             }
@@ -185,20 +209,34 @@ void drawMap(Map *map, int mode) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
                 int distance = map->cells[i][j]->distance_to_player;
+                // TODO store last distance digit in cell
                 while (distance > 9) {
                     distance %= 10;
                 }
                 char cellDistance = distance + '0';
-                mvaddch(i, j, cellDistance);
+                if (map->cells[i][j]->distance_to_player < 10) {
+                    attron(COLOR_PAIR(COLOR_RED));
+                    mvaddch(i, j, cellDistance);
+                    attroff(COLOR_PAIR(COLOR_RED));
+                }
+                else if (map->cells[i][j]->distance_to_player < 30) {
+                    attron(COLOR_PAIR(COLOR_YELLOW));
+                    mvaddch(i, j, cellDistance);
+                    attroff(COLOR_PAIR(COLOR_YELLOW));
+                }
+                else mvaddch(i, j, cellDistance);
             }
         }
     }
     else if (mode == VISION_MODE) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
-                if(map->cells[i][j]->is_visible == 1)
+                if(map->cells[i][j]->is_visible == 1) {
+                    // TODO: use color pairs
+                    //attron(COLOR_PAIR(map->cells[i][j]->color));
                     mvaddch(i, j, map->cells[i][j]->symbol);
-                else
+                    //attroff(COLOR_PAIR(map->cells[i][j]->color));
+                } else
                     mvaddch(i, j, ' ');
             }
         }
@@ -327,6 +365,7 @@ void calculateVision(Map* map, int x, int y) {
         R = y;
         C = x;
 
+        // TODO: update a ranged grid length 5x5
         // Traverse in the current direction until the vision limit is reached or a blocking cell is encountered
         int visionDistance = 0;
         while (visionDistance < PLAYER_VISION) {
@@ -340,7 +379,7 @@ void calculateVision(Map* map, int x, int y) {
             // Update the cell visibility
             map->cells[R][C]->is_visible = 1;
 
-            // If the cell is a wall, stop
+            // If the cell is a wall or smoke, stop
             if (isCellBlockingLight(map->cells[R][C]))
                 break;
 

@@ -17,14 +17,14 @@ typedef struct monster {
 /**
  * @brief Initialize a new monster
  * 
- * @param int x 
- * @param int y 
- * @param int hp 
- * @param int attack 
- * @param int defense 
- * @param int speed 
- * @param char symbol 
- * @param char *name 
+ * @param x
+ * @param y 
+ * @param hp 
+ * @param attack 
+ * @param defense 
+ * @param speed 
+ * @param symbol 
+ * @param name 
  * @return Monster*
  */
 Monster *initMonster(int x, int y, int hp, int attack, int defense, int speed, char symbol, char *name) {
