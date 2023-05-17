@@ -33,4 +33,4 @@ obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(BIN) $(OBJ_DIR)/*.o
+	rm -f $(BIN) debug $(OBJ_DIR)/*.o
