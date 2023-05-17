@@ -5,6 +5,13 @@
 // #include "window.h"
 #include "state.h"
 
+/**
+ * @brief Main function
+ * 
+ * @details Initializes the ncurses window and the game state, then runs the game loop.
+ * 
+ * @return int exit status
+ */
 int main() {
     // Window
     WINDOW *window  = initscr();

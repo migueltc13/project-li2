@@ -1,13 +1,13 @@
 #ifndef _STATE_H_
 #define _STATE_H_
 
-#include "map.h"
-#include "player.h"
-
 #define NORMAL_MODE 0
 #define DISTANCE_MODE 1
 #define VISION_MODE 2
 #define EXIT_MODE -1
+
+typedef struct map Map; //#include "map.h"
+typedef struct player Player; //#include "player.h"
 
 /**
  * @brief Sructure of the game state

@@ -5,6 +5,7 @@
 #include <ncurses.h>
 #include "map.h"
 #include "cell.h"
+#include "player.h"
 #include "state.h"
 
 /**
@@ -179,7 +180,7 @@ void generateMap(State *st) {
 
             for (int di = -1; di <= 1; di++) {
                 for (int dj = -1; dj <= 1; dj++) {
-                    if (getCellSymbol(map->cells[i + di][j + dj]) != '.') {
+                    if (map->cells[i + di][j + dj]->symbol != '.') {
                         isValidPosition = false;
                         break;
                     }
@@ -245,8 +246,7 @@ void drawMap(Map *map, int mode) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
                 // TODO: use color pairs
-                char cellSymbol = getCellSymbol(map->cells[i][j]); // TODO remove this function
-                mvaddch(i, j, cellSymbol);
+                mvaddch(i, j, map->cells[i][j]->symbol);
             }
         }
     }
@@ -269,7 +269,7 @@ void getPlayerInitialPosition(Map* map, int* x, int* y) {
             
             for (int di = -1; di <= 1; di++) {
                 for (int dj = -1; dj <= 1; dj++) {
-                    if (getCellSymbol(map->cells[i + di][j + dj]) != '.') {
+                    if (map->cells[i + di][j + dj]->symbol != '.') {
                         isValidPosition = false;
                         break;
                     }

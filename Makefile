@@ -28,6 +28,8 @@ debug: $(OBJECTS) $(OBJ_DIR)/main.o
 
 doc:
 	doxygen $(DOC_DIR)/Doxyfile
+	rm -rf $(DOC_DIR)/html
+	mv html $(DOC_DIR)/
 
 obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
