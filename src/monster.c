@@ -40,3 +40,14 @@ Monster *initMonster(int x, int y, int hp, int attack, int defense, int speed, c
     monster->name = name;
     return monster;
 }
+
+/**
+ * @brief Initialize a new monster: rat
+ * 
+ * @param x 
+ * @param y 
+ * @return Monster*
+ */
+/* Monster *initRat(int x, int y) {
+    return initMonster(x, y, 10, 1, 1, 1, 'r', "rat");
+} */
