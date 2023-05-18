@@ -7,6 +7,9 @@
 #include "player.h"
 #include "map.h"
 #include "cell.h"
+#include "item.h"
+
+#define NUMBER_OF_ITEMS 15
 
 /**
  * @brief Initialize a new game state
@@ -28,6 +31,10 @@ State *initState(int width, int height) {
     generateMap(st);
     int x, y; getPlayerInitialPosition(st->map, &x, &y);
     st->player = initPlayer(x,y);
+    
+    Item **items = generateItems(NUMBER_OF_ITEMS);
+    distributeItems(st->map, items, NUMBER_OF_ITEMS);
+
     calculateDistances(st->map, x, y);
     calculateVision(st->map, x, y);
     return st;
@@ -71,8 +78,15 @@ void updateState(State *st, int input_key) {
  * @return void
  */
 void drawState(State *st) {
-    drawMap(st->map, st->mode);
+    drawMap(st->map, st->mode); // TODO: mode outside drawMap()
+
+    if (st->mode == VISION_MODE)
+        drawVisibleItems(st->map, st->map->items, st->map->nr_items);
+    else if (st->mode == NORMAL_MODE)
+        drawAllItems(st->map->items, st->map->nr_items);
+
     drawPlayer(st->player);
+    refresh();
 }
 
 /**
@@ -84,6 +98,7 @@ void drawState(State *st) {
  * (0: normal view, 1: distance view enabled, -1: the player win/lost/quit)
 */
 void calculateState(State *st, int input_key) {
+
     int dx = 0, dy = 0;
     switch(input_key) {
         // Movement keys, numpad, awsd and arrows keys
@@ -115,16 +130,36 @@ void calculateState(State *st, int input_key) {
         case 'm': st->mode = DISTANCE_MODE; return; // distance view
         case 'q': st->mode = EXIT_MODE;     return; // quit
 	}
+    st->turn++;
     int x = st->player->x, y = st->player->y;
     x += dx; y += dy;
 
     if (isCellWalkable(st->map->cells[y][x])) {
         // Moves the player
+        st->map->cells[st->player->y][st->player->x]->has_player = 0; // false
         st->player->x = x;
         st->player->y = y;
+        st->map->cells[y][x]->has_player = 1; // true
         // if the player moves we recalculate the distances and is_visible
         calculateDistances(st->map, x, y); // TODO enhance this (unnecessary calculations) by using updateDistances function
-    }   calculateVision(st->map, x, y);
+        calculateVision(st->map, x, y);
+    }
+    if (isCellItem(st->map->cells[y][x])) {
+        // TODO pick up item (inventory.h)
+        // Find the item in the map->items array
+        Item *item = getItem(st->map->items, st->map->nr_items, x, y);
+        if (item != NULL) {
+            // Add the item to the player's inventory
+            // TODO: addItemToInventory(st->player->inventory, item);
+            // getItem removes the item from the map->items array
+            // so we only need to decrease the number of items
+            st->map->nr_items--;
+        }
+
+    }
+    /* if (isCellExit(st->map->cells[y][x])) {
+        st->mode = EXIT_MODE;
+    } */
     /*
     else if (isCellMonster(st->map, x, y)) {
         // TODO attack monster (combat.h)
