@@ -65,24 +65,305 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">item.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for item.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="item_8c__incl.png" border="0" usemap="#asrc_2item_8c" alt=""/></div>
 <map name="asrc_2item_8c" id="asrc_2item_8c">
-<area shape="rect" title=" " alt="" coords="5,5,92,32"/>
-<area shape="rect" href="item_8h.html" title=" " alt="" coords="17,80,81,107"/>
+<area shape="rect" title=" " alt="" coords="99,5,185,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" title=" " alt="" coords="100,80,184,107"/>
+<area shape="rect" href="item_8h.html" title=" " alt="" coords="209,80,273,107"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6916ee013de70b663494c695d3f244a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a6916ee013de70b663494c695d3f244a0">initItem</a> (char *name, char symbol, int type, int value, int is_picked_up, int x, int y, int damage, int defense, int hp)</td></tr>
+<tr class="memdesc:a6916ee013de70b663494c695d3f244a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item.  <a href="item_8c.html#a6916ee013de70b663494c695d3f244a0">More...</a><br /></td></tr>
+<tr class="separator:a6916ee013de70b663494c695d3f244a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80ec0b08ddc8ace6d33266205665dcc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2">initRock</a> ()</td></tr>
+<tr class="memdesc:a80ec0b08ddc8ace6d33266205665dcc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item: rock (weapon projectile)  <a href="item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2">More...</a><br /></td></tr>
+<tr class="separator:a80ec0b08ddc8ace6d33266205665dcc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb">generateItem</a> ()</td></tr>
+<tr class="memdesc:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item: Smoke bomb (weapon projectile)  <a href="item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb">More...</a><br /></td></tr>
+<tr class="separator:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc7910944cf9aaf581760187854e5e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a6dc7910944cf9aaf581760187854e5e7">generateItems</a> (int n)</td></tr>
+<tr class="memdesc:a6dc7910944cf9aaf581760187854e5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate n <em>random</em> items.  <a href="item_8c.html#a6dc7910944cf9aaf581760187854e5e7">More...</a><br /></td></tr>
+<tr class="separator:a6dc7910944cf9aaf581760187854e5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b69e9087f0060bfb839f21caba8e556"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a9b69e9087f0060bfb839f21caba8e556">pickUpItem</a> ()</td></tr>
+<tr class="separator:a9b69e9087f0060bfb839f21caba8e556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45087ed59f50ec38ee0babf73e70bd17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a45087ed59f50ec38ee0babf73e70bd17">dropItem</a> ()</td></tr>
+<tr class="separator:a45087ed59f50ec38ee0babf73e70bd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b5c80c5e8454e6893bf30a8efd18b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#aa2b5c80c5e8454e6893bf30a8efd18b4">drawItem</a> (<a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *i)</td></tr>
+<tr class="memdesc:aa2b5c80c5e8454e6893bf30a8efd18b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw an item.  <a href="item_8c.html#aa2b5c80c5e8454e6893bf30a8efd18b4">More...</a><br /></td></tr>
+<tr class="separator:aa2b5c80c5e8454e6893bf30a8efd18b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d871b02bb051538680fe130f5444f44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a9d871b02bb051538680fe130f5444f44">freeItem</a> (void *i)</td></tr>
+<tr class="memdesc:a9d871b02bb051538680fe130f5444f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free an item.  <a href="item_8c.html#a9d871b02bb051538680fe130f5444f44">More...</a><br /></td></tr>
+<tr class="separator:a9d871b02bb051538680fe130f5444f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aa2b5c80c5e8454e6893bf30a8efd18b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b5c80c5e8454e6893bf30a8efd18b4">&#9670;&nbsp;</a></span>drawItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw an item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Item to draw </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a45087ed59f50ec38ee0babf73e70bd17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45087ed59f50ec38ee0babf73e70bd17">&#9670;&nbsp;</a></span>dropItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dropItem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d871b02bb051538680fe130f5444f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d871b02bb051538680fe130f5444f44">&#9670;&nbsp;</a></span>freeItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeItem </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free an item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Item to free </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ab07cd855a3a16dfa63834b4e6b0fcacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07cd855a3a16dfa63834b4e6b0fcacb">&#9670;&nbsp;</a></span>generateItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* generateItem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize a new item: Smoke bomb (weapon projectile) </p>
+<p>Initialize a new item: Fire bomb (weapon projectile)</p>
+<p>Initialize a new item: Sword (weapon body)</p>
+<p>Initialize a new item: Pot of gold</p>
+<p>Initialize a new item: Potion of healing</p>
+<p>Initialize a new item: Potion of vision</p>
+<p>Generate a random item</p>
+<p>TODO: Global variables for the probability of each item </p>
+
+</div>
+</div>
+<a id="a6dc7910944cf9aaf581760187854e5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc7910944cf9aaf581760187854e5e7">&#9670;&nbsp;</a></span>generateItems()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>** generateItems </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate n <em>random</em> items. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of items to generate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Item** Array of items </dd></dl>
+
+</div>
+</div>
+<a id="a6916ee013de70b663494c695d3f244a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6916ee013de70b663494c695d3f244a0">&#9670;&nbsp;</a></span>initItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* initItem </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>symbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>is_picked_up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>defense</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize a new item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Item x coordinate on the map if any </td></tr>
+    <tr><td class="paramname">y</td><td>Item y coordinate on the map if any </td></tr>
+    <tr><td class="paramname">name</td><td>Item name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Item* </dd></dl>
+
+</div>
+</div>
+<a id="a80ec0b08ddc8ace6d33266205665dcc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80ec0b08ddc8ace6d33266205665dcc2">&#9670;&nbsp;</a></span>initRock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* initRock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize a new item: rock (weapon projectile) </p>
+<p>Coords: 0, 0 (not on the map) </p>
+
+</div>
+</div>
+<a id="a9b69e9087f0060bfb839f21caba8e556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b69e9087f0060bfb839f21caba8e556">&#9670;&nbsp;</a></span>pickUpItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pickUpItem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 17 2023 07:34:19 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
