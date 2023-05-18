@@ -2,12 +2,27 @@
 #define _MAP_H_
 
 typedef struct cell Cell;
+typedef struct item Item;
 typedef struct state State;
 
+
+/**
+ * @brief Structure that represents a map in the game
+ * 
+ * @details A map is a 2D array of cells with a width and a height.
+ * It also contains an array of items distributed in the map.
+ * 
+ * @param width Width of the map (number of columns)
+ * @param height Height of the map (number of rows)
+ * @param cells 2D array of cells
+ * @param items Array of items in the map
+*/
 typedef struct map {
-    int width; // nCols
-    int height; // nRows
-    Cell ***cells; // 2D array of Cells
+    int width;
+    int height;
+    Cell ***cells;
+    Item **items;
+    int nr_items;
 } Map;
 
 Map *initMap(int width, int height);
@@ -20,5 +35,7 @@ void generateMap(State *st);
 void getPlayerInitialPosition(Map *map, int *x, int *y);
 void calculateDistances(Map* map, int x, int y);
 void calculateVision(Map* map, int x, int y);
+
+void distributeItems(Map* map, Item** items, int nr_items); 
 
 #endif

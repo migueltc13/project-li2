@@ -7,6 +7,8 @@
 #include "cell.h"
 #include "player.h"
 #include "state.h"
+#include "monster.h"
+#include "item.h"
 
 /**
  * @brief Initialize a new map
@@ -26,6 +28,8 @@ Map *initMap(int width, int height) {
         for (int j = 0; j < width; j++)
             map->cells[i][j] = initCellFloor(j, i);
     }
+    // Initialize the items list
+    map->items = (Item **) malloc(sizeof(Item *) * MAX_ITEMS);
     return map;
 }
 
@@ -159,45 +163,6 @@ void generateMap(State *st) {
         }
     }
 }
-
-/* void generateMap_old(Map* map, int* x, int* y) {
-    int height = map->height;
-    int width = map->width;
-
-    // Generate walls for the outer border
-    for (int i = 0; i < height; i++) {
-        map->cells[i][0] = initCellWall(0, i);
-        map->cells[i][width - 1] = initCellWall(width - 1, i);
-    }
-    for (int j = 1; j < width - 1; j++) {
-        map->cells[0][j] = initCellWall(j, 0);
-        map->cells[height - 1][j] = initCellWall(j, height - 1);
-    }
-
-    for (int i = 2; i < height - 2; i++) {
-        for (int j = 2; j < width - 2; j++) {
-            bool isValidPosition = true;
-
-            for (int di = -1; di <= 1; di++) {
-                for (int dj = -1; dj <= 1; dj++) {
-                    if (map->cells[i + di][j + dj]->symbol != '.') {
-                        isValidPosition = false;
-                        break;
-                    }
-                }
-                if (!isValidPosition)
-                    break;
-            }
-
-            if (isValidPosition) {
-                // Save inital player coordenates
-                *x = j;
-                *y = i;
-                return;
-            }
-        }
-    }
-} */
 
 /**
  * @brief Draw the map
@@ -389,25 +354,136 @@ void calculateVision(Map* map, int x, int y) {
     }
 }
 
-
-/* void calculateVision(Map* map, int x, int y) {
-    // start from the player position
-    int R = y;
-    int C = x;
-    // Start from the player position and go to the right
-    while (R < map->width) {
-        // If the distance is greater than the player vision, stop
-        if (map->cells[R][C]->distance_to_player > PLAYER_VISION)
-            break;
-        // Update the cell visibility
-        map->cells[R][C]->is_visible = 1; // true
-        // If the cell is a wall, stop
-        if (isCellBlockingLight(map->cells[R][C]))
-            break;
-        // Go to the next cell
-        C++;
+/**
+ * @brief Distribute the items on the map
+ * 
+ * TODO: replace while loop with for loop
+ * TODO: CHECK if x doesnt have a valid value, then the item is not placed
+*/
+void distributeItems(Map* map, Item** items, int nr_items) {
+    int height = map->height;
+    int width = map->width;
+    int missing_items = 0;
+    for (int i = 0; i < nr_items; i++) {
+        int x = (width / nr_items) * i;
+        if (x >= width) x = width - 2;
+        if (x <= 0) x = 1;
+        int y = 0;
+        // y has 4 options:
+        // 1. 0 -> height - 1
+        // 2. height - 1 -> 0
+        // 3. height / 2 -> height - 1, height / 2 -> 0
+        // 4. height - 1 -> height / 2, 0 -> height / 2
+        int option = rand() % 4;
+        if (option == 0) {
+            for (y = 0; y < height; y++) {
+                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                    map->items[i] = items[i];
+                    break;
+                }
+            }
+            // TODO updateItem function 
+            if (y < height) {
+                items[i]->x = x;
+                items[i]->y = y;
+                map->cells[y][x]->has_item = 1;
+                map->items[i] = items[i];
+                map->nr_items++;
+            }
+            else {
+                missing_items++;
+            }
+            // else TODO try again
+        }
+        else if (option == 1) {
+            for (y = height - 1; y >= 0; y--) {
+                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                    map->items[i] = items[i];
+                    break;
+                }
+            }
+            if (y >= 0) {
+                items[i]->x = x;
+                items[i]->y = y;
+                map->cells[y][x]->has_item = 1;
+                map->items[i] = items[i];
+                map->nr_items++;
+            }
+            else {
+                missing_items++;
+            }
+            // else TODO try again
+        }
+        else if (option == 2) {
+            int found = 0;
+            for (y = height / 2; y < height; y++) {
+                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                    map->items[i] = items[i];
+                    found = 1;
+                    break;
+                }
+            }
+            // if y is not found, search from the top
+            if (!found) {
+                for (y = height / 2; y >= 0; y--) {
+                    if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                        map->items[i] = items[i];
+                        break;
+                    }
+                }
+            }
+            if (y >= 0 && y < height) { 
+                items[i]->x = x;
+                items[i]->y = y;
+                map->cells[y][x]->has_item = 1;
+                map->items[i] = items[i];
+                map->nr_items++;
+            }
+            // else TODO try again
+            else {
+                missing_items++;
+            }
+        }
+        else {
+            for (y = height - 1; y >= height / 2; y--) {
+                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                    map->items[i] = items[i];
+                    break;
+                }
+            }
+            if (map->cells[y][x]->symbol != '.') {
+                for (y = 0; y < height / 2; y++) {
+                    if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
+                        map->items[i] = items[i];
+                        break;
+                    }
+                }
+            }
+            if (y >= 0 && y < height) {
+                items[i]->x = x;
+                items[i]->y = y;
+                map->cells[y][x]->has_item = 1;
+                map->items[i] = items[i];
+                map->nr_items++;
+            }
+            // else TODO try again
+            else {
+                missing_items++;
+            }
+        }
     }
-
-    // TODO - do the same for the other directions
+    // random for missing items
+    while (missing_items > 0) {
+        int x = rand() % width;
+        int y = rand() % height;
+        if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0 && map->cells[y][x]->has_item == 0) {
+            map->items[nr_items - missing_items] = items[nr_items - missing_items];
+            items[nr_items - missing_items]->x = x;
+            items[nr_items - missing_items]->y = y;
+            map->cells[y][x]->has_item = 1;
+            map->items[nr_items - missing_items] = items[nr_items - missing_items];
+            map->nr_items++;
+            missing_items--;
+        }
+    }
 }
- */
