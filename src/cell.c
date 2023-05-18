@@ -21,6 +21,7 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
     cell->block_light = block_light;
     cell->distance_to_player = -1;
     cell->is_visible = 0; // Not visible by default
+    cell->has_item = 0; // No item by default
     cell->color = color; // TODO
     return cell;
 }
@@ -69,6 +70,16 @@ int isCellWalkable(Cell *cell) {
  */
 int isCellBlockingLight(Cell *cell) {
     return cell->block_light;
+}
+
+/**
+ * @brief Checks if a cell is has a item. returns the cell->has_item field.
+ * 
+ * @param cell Cell to check
+ * @return int 1 if the cell has a item, 0 otherwise
+ */
+int isCellItem(Cell *cell) {
+    return cell->has_item;
 }
 
 /* TODO
