@@ -5,6 +5,8 @@
 #include "map.h"
 #include "cell.h"
 
+
+// TODO: monster value in gold
 /**
  * @brief Initialize a new monster
  * 
@@ -37,6 +39,8 @@ Monster *initMonster(int x, int y, int health, int attack, int defense, char sym
     return monster;
 }
 
+// TODO attack and defense
+
 /**
  * @brief Initialize a new monster: rat
  * 
@@ -46,7 +50,7 @@ Monster *initMonster(int x, int y, int health, int attack, int defense, char sym
  * @return Monster*
  */
 Monster *initRat(int x, int y, int index) {
-    return initMonster(x, y, 10, 1, 1, 'r', "rat", COLOR_GREEN, PATHFINDING_RANDOM, index);
+    return initMonster(x, y, 10, 1, 1, RAT_SYMBOL, "rat", RAT_COLOR, PATHFINDING_RANDOM, index);
 }
 
 /**
@@ -58,7 +62,7 @@ Monster *initRat(int x, int y, int index) {
  * @return Monster*
  */
 Monster *initGoblin(int x, int y, int index) {
-    return initMonster(x, y, 20, 2, 2, 'g', "goblin", COLOR_MAGENTA, PATHFINDING_RANDOM, index);
+    return initMonster(x, y, 20, 2, 2, GOBLIN_SYMBOL, "goblin", GOBLIN_COLOR, PATHFINDING_RANDOM, index);
 }
 
 /**
@@ -70,7 +74,7 @@ Monster *initGoblin(int x, int y, int index) {
  * @return Monster*
  */
 Monster *initOrc(int x, int y, int index) {
-    return initMonster(x, y, 30, 3, 3, 'o', "orc", COLOR_BLUE, PATHFINDING_SEARCHING, index);
+    return initMonster(x, y, 30, 3, 3, ORC_SYMBOL, "orc", ORC_COLOR, PATHFINDING_SEARCHING, index);
 }
 
 /**
@@ -83,7 +87,7 @@ Monster *initOrc(int x, int y, int index) {
  */
 Monster *initTroll(int x, int y, int index) {
     // fun: PATHFINING_RECRUITING or PATHFINDING_AWAY_FROM_PLAYER
-    return initMonster(x, y, 40, 4, 4, 't', "troll", COLOR_YELLOW, PATHFINDING_SEARCHING, index);
+    return initMonster(x, y, 40, 4, 4, TROLL_SYMBOL, "troll", TROLL_COLOR, PATHFINDING_SEARCHING, index);
 }
 
 /**
@@ -95,7 +99,7 @@ Monster *initTroll(int x, int y, int index) {
  * @return Monster*
  */
 Monster *initDragon(int x, int y, int index) {
-    return initMonster(x, y, 50, 5, 5, 'd', "dragon", COLOR_RED, PATHFINDING_SEARCHING, index);
+    return initMonster(x, y, 50, 5, 5, DRAGON_SYMBOL, "dragon", DRAGON_COLOR, PATHFINDING_SEARCHING, index);
 }
 
 /**
@@ -113,7 +117,12 @@ void drawMonster(State* st, Monster *monster, int mode) {
             attroff(COLOR_PAIR(monster->color));
         }
     }
-    else { // NORMAL_MODE or DISTANCE_MODE
+    else if (mode == DISTANCE_MODE) {
+        attron(COLOR_PAIR(COLOR_CYAN));
+        mvaddch(monster->y, monster->x, monster->symbol);
+        attroff(COLOR_PAIR(COLOR_CYAN));
+    }
+    else { // NORMASL_MODE
         attron(COLOR_PAIR(monster->color));
         mvaddch(monster->y, monster->x, monster->symbol);
         attroff(COLOR_PAIR(monster->color));

@@ -38,7 +38,7 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
  * @return Cell* Initialized cell as a floor cell
  */
 Cell *initCellFloor(int x, int y) {
-    return initCell(x, y, FLOOR_SYMBOL, 1, 0, 6); // 6 is COLOR_GREY TODO window.h
+    return initCell(x, y, FLOOR_SYMBOL, 1, 0, FLOOR_COLOR);
 }
 
 /**
@@ -51,7 +51,7 @@ Cell *initCellFloor(int x, int y) {
  * @return Cell* Initialized cell as a wall cell
  */
 Cell *initCellWall(int x, int y) {
-    return initCell(x, y, WALL_SYMBOL, 0, 1, COLOR_WHITE); // 0 is COLOR_BLACK TODO window.h
+    return initCell(x, y, WALL_SYMBOL, 0, 1, WALL_COLOR);
 }
 
 /**

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include <stdbool.h>
-// #include <mybool.h> TODO: implement
+// #include <mybool.h> TODO: implement replace
 #include "state.h"
 #include "player.h"
 #include "map.h"
@@ -10,7 +10,7 @@
 #include "item.h"
 #include "inventory.h"
 #include "monster.h"
-// #include "combat.h" TODO: implement
+#include "combat.h"
 #include "menu.h"
 
 #define NUMBER_OF_ITEMS 15
@@ -96,7 +96,8 @@ void drawState(State *st) {
 
     drawMonsters(st);
     drawPlayer(st->player);
-    generateMenu(st);
+    if (st->map->has_menu)
+        generateMenu(st);
     refresh();
 }
 
@@ -110,42 +111,45 @@ void drawState(State *st) {
 */
 void calculateState(State *st, int input_key) {
 
-    int dx = 0, dy = 0;
+    int dx = 0, dy = 0, direction = 0;
     switch(input_key) {
         // Movement keys, numpad, awsd and arrows keys
         case KEY_A1:
-        case '7': dx = -1; dy = -1; break;
+        case '7': dx = -1; dy = -1; direction = 7; break;
         case KEY_UP:
         case 'w':
-        case '8': dx =  0; dy = -1; break;
+        case '8': dx =  0; dy = -1; direction = 8; break;
         case KEY_A3:
-        case '9': dx =  1; dy = -1; break;
+        case '9': dx =  1; dy = -1; direction = 9; break;
         case KEY_LEFT:
         case 'a':
-        case '4': dx = -1; dy =  0; break;
+        case '4': dx = -1; dy =  0; direction = 4; break;
         case KEY_B2:
         case '5': break;
         case KEY_RIGHT:
         case 'd':
-        case '6': dx =  1; dy =  0; break;
+        case '6': dx =  1; dy =  0; direction = 6; break;
         case KEY_C1:
-        case '1': dx = -1; dy =  1; break;
+        case '1': dx = -1; dy =  1; direction = 1; break;
         case KEY_DOWN:
         case 's':
-        case '2': dx =  0; dy =  1; break;
+        case '2': dx =  0; dy =  1; direction = 2; break;
         case KEY_C3:
-        case '3': dx =  1; dy =  1; break;
+        case '3': dx =  1; dy =  1; direction = 3; break;
         // Inventory keys
         case 'i': switchEquippedItem(st->player->inventory); return;   // switch equipped item
         case 'o': sellEquippedItem(st, st->player->inventory); return; // sell equiped item
         // Combat / Potions keys
-        case 'u': useEquippedItem(st); break; // Use equipped item can be a potion or a projectile
+        case KEY_ENTER: // or space
+        case 'u': useEquippedItem(st); return; // Use equipped item, potion or projectile
         // Menu keys
-        case 'n': st->mode = NORMAL_MODE;   return; // normal view
-        case 'v': st->mode = VISION_MODE;   return; // normal view
-        case 'm': st->mode = DISTANCE_MODE; return; // distance view
+        case 'l': legendMenu(st);           return; // legend menu
         case 'q': st->mode = EXIT_MODE;     return; // quit
-	}
+        case 'v': st->mode = VISION_MODE;   return; // normal view         
+        case 'b': st->mode = DISTANCE_MODE; return; // distance / monsters view (optional mode)
+        case 'n': st->mode = NORMAL_MODE;   return; // normal view (optional mode)
+        //case 'm': // TODO                 return; // menu view (optional mode) TODO: implement
+    }
     st->turn++;
     int x = st->player->x, y = st->player->y;
     x += dx; y += dy;
@@ -156,6 +160,7 @@ void calculateState(State *st, int input_key) {
         st->player->x = x;
         st->player->y = y;
         st->map->cells[y][x]->has_player = 1; // true
+        st->player->direction = direction;
         // if the player moves we recalculate the distances and is_visible
         calculateDistances(st->map, x, y); // TODO enhance this (unnecessary calculations) by using updateDistances function
         calculateVision(st->map, x, y);
@@ -171,7 +176,7 @@ void calculateState(State *st, int input_key) {
             // so we only need to decrease the number of items in the map
 
             char *menu_message = (char *) malloc(sizeof(char) * st->map->width);
-            sprintf(menu_message, "You picked up %s", item->name);
+            sprintf(menu_message, "You picked up \"%s\"", item->name);
             sendMenuMessage(st, menu_message);
             free(menu_message);
         }
@@ -179,13 +184,14 @@ void calculateState(State *st, int input_key) {
     if (isCellMonster(st->map->cells[y][x])) {
         char *message = (char *) malloc(sizeof(char) * st->map->width);
         Monster *monster = st->monsters[st->map->cells[y][x]->monster_index];
-        sprintf(message, "You attacked the %s. Monster health: %d", monster->name, monster->health);
+        sprintf(message, "You attacked the \"%s\". Monster health: %d", monster->name, monster->health);
         sendMenuMessage(st, message);
+        free(message);
         // TODO combat monster (combat.h)
     }
     /* if (isCellExit(st->map->cells[y][x])) {
         st->mode = EXIT_MODE;
     } */
-    
     moveMonsters(st->map, st->monsters, st->nMonsters);
+    updateProjectiles(st);
 }

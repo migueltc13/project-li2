@@ -4,6 +4,7 @@
 #define NORMAL_MODE 0
 #define DISTANCE_MODE 1
 #define VISION_MODE 2
+#define CAVERN_MODE 3 // TODO: implement cavern mode
 #define EXIT_MODE -1
 
 typedef struct map Map; // or #include "map.h"

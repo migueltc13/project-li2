@@ -1,10 +1,10 @@
 #ifndef _MAP_H_
 #define _MAP_H_
 
+typedef struct state State;
 typedef struct cell Cell;
 typedef struct item Item;
-typedef struct state State;
-
+typedef struct projectile Projectile;
 
 /**
  * @brief Structure that represents a map in the game
@@ -15,14 +15,24 @@ typedef struct state State;
  * @param width Width of the map (number of columns)
  * @param height Height of the map (number of rows)
  * @param cells 2D array of cells
+ * @param has_menu Does the map have a menu? yes if MENU_HEIGHT > 3 * height
  * @param items Array of items in the map
+ * @param nr_items Number of items in the map
+ * @param projectiles Array of projectiles in the map
+ * @param nr_projectiles Number of projectiles in the map
 */
 typedef struct map {
     int width;
     int height;
     Cell ***cells;
+
+    int has_menu;
+
     Item **items;
     int nr_items;
+
+    Projectile **projectiles;
+    int nr_projectiles;
 } Map;
 
 Map *initMap(int width, int height);

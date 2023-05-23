@@ -6,7 +6,8 @@
 
 typedef struct state State;
 
-void generateMenu(State *st);
 void sendMenuMessage(State *st, char *message);
+void generateMenu(State *st);
+void legendMenu(State *st);
 
 #endif

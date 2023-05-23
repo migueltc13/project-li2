@@ -14,7 +14,7 @@
  */
 int main() {
     // Window
-    WINDOW *window  = initscr();
+    WINDOW *window = initscr();
     if (window == NULL) {
         fprintf(stderr, "Error initialising ncurses.\n");
         exit(EXIT_FAILURE);
@@ -32,13 +32,14 @@ int main() {
 	intrflush(stdscr, false); // Disable flushing on interrupt
 	keypad(stdscr, true); // Enable keypad input
 
-	init_pair(COLOR_WHITE, COLOR_WHITE, COLOR_BLACK);
+    init_pair(COLOR_BLACK, COLOR_BLACK, COLOR_BLACK);
     init_pair(COLOR_RED, COLOR_RED, COLOR_BLACK);
     init_pair(COLOR_GREEN, COLOR_GREEN, COLOR_BLACK);
 	init_pair(COLOR_YELLOW, COLOR_YELLOW, COLOR_BLACK);
     init_pair(COLOR_BLUE, COLOR_BLUE, COLOR_BLACK);
+    init_pair(COLOR_MAGENTA, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(COLOR_CYAN, COLOR_CYAN, COLOR_BLACK);
-    init_pair(6, COLOR_WHITE, COLOR_BLACK); // add #define COLOR_GREY 6
+    init_pair(COLOR_WHITE, COLOR_WHITE, COLOR_BLACK);
 
     // Game state
     State *st = initState(ncols, nrows);

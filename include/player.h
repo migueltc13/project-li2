@@ -20,6 +20,7 @@ typedef struct inventory Inventory;
  * @param attack Attack of the player
  * @param vision Vision of the player set to PLAYER_VISION macro
  * @param max_health Maximum health of the player set to MAX_HEALTH macro
+ * @param direction Direction of the player (used for throwing projectiles)
  * @param inventory Inventory of the player
  */
 typedef struct player {
@@ -31,6 +32,7 @@ typedef struct player {
     int attack;
     int vision; // PLAYER_VISION
     int max_health; // MAX_HEALTH
+    int direction;
     Inventory *inventory;
 } Player;
 

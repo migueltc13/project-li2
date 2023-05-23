@@ -1,9 +1,10 @@
-#include <stdio.h> /// sprintf
+#include <stdio.h> // sprintf
 #include <stdlib.h>
 #include "state.h" // useEquippedItem()
 #include "player.h" // useEquippedItem()
 #include "inventory.h"
 #include "item.h"
+#include "combat.h" // projectiles
 #include "menu.h"
 
 /**
@@ -70,6 +71,7 @@ void removeItem(Inventory *i, Item *item) {
                 else {
                     //i->items[j] = NULL;
                     freeItem(i->items[j]); 
+                    // i->equipped_item = NULL;
                     i->nr_items--;
                 }
                 break;
@@ -178,11 +180,7 @@ void useEquippedItem(State *st) {
 
     if (st->player->inventory->equipped_item->symbol == ROCK_SYMBOL) {
         sendMenuMessage(st, "You threw a rock.");
-        removeItem(st->player->inventory, st->player->inventory->equipped_item);
-        st->player->inventory->equipped_item = NULL;
-        // st->player->inventory->nr_of_rocks--; // deprecated remove item count instead
-        // TODO: !!! the Rock will be item like the other ones (Potions, etc: except gol)
-        // TODO: combat.h throwRock
+        throwRock(st);
         return;
     }
     // TODO check item type if it's necessary

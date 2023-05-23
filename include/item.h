@@ -23,13 +23,14 @@ typedef struct map Map;
  * @param defense the defense of the item if it is armor
  * @param hp the hp of the item if it is a healing potion
  * @param count the number of the same items
+ * @param range the range of the item if it is a projectile
  * @param color the color of the item
 */
 typedef struct item {
     char *name;
     char symbol;
     int type; // 0: body weapon, 1: projectile weapon, 2: armor, 3: potion, 4: gold
-    int value; // TODO: ability to sell items
+    int value;
     // int is_equipped;
     int is_picked_up;
     unsigned int x;
@@ -37,7 +38,8 @@ typedef struct item {
     int damage;
     int defense;
     int hp;
-    int count; // number of the same items
+    int count;
+    int range;
     int color;
 } Item;
 
@@ -57,19 +59,41 @@ typedef struct item {
 #define ROCK_DAMAGE_MIN 5
 #define ROCK_DAMAGE_MAX 7
 #define ROCK_SYMBOL ':'
-#define ROCK_TYPE 1
+#define ROCK_TYPE PROJECTILE
+#define ROCK_RANGE 7 // cells
+#define ROCK_COLOR COLOR_CYAN
+
+// Smoke bomb
+#define SMOKE_BOMB_VALUE 30
+#define SMOKE_BOMB_DAMAGE_MIN 10
+#define SMOKE_BOMB_DAMAGE_MAX 20
+#define SMOKE_BOMB_SYMBOL '*'
+#define SMOKE_BOMB_TYPE PROJECTILE
+#define SMOKE_BOMB_RANGE 5 // cells
+#define SMOKE_BOMB_COLOR COLOR_WHITE
+
+// Fire bomb
+#define FIRE_BOMB_VALUE 50
+#define FIRE_BOMB_DAMAGE_MIN 20
+#define FIRE_BOMB_DAMAGE_MAX 30
+#define FIRE_BOMB_SYMBOL '*'
+#define FIRE_BOMB_TYPE PROJECTILE
+#define FIRE_BOMB_RANGE 6 // cells
+#define FIRE_BOMB_COLOR COLOR_RED
 
 // Potion of healing
 #define POTION_OF_HEALING_SYMBOL '!'
-#define POTION_OF_HEALING_TYPE 3
+#define POTION_OF_HEALING_TYPE POTION
 #define POTION_OF_HEALING_VALUE 20
 #define POTION_OF_HEALING_HP 50
+#define POTION_OF_HEALING_COLOR COLOR_MAGENTA
 
 // Pot of gold
 #define POT_OF_GOLD_SYMBOL 'O'
-#define POT_OF_GOLD_TYPE 4
+#define POT_OF_GOLD_TYPE GOLD
 #define POT_OF_GOLD_VALUE_MIN 10
 #define POT_OF_GOLD_VALUE_MAX 100
+#define POT_OF_GOLD_COLOR COLOR_YELLOW
 
 Item** generateItems(int n);
 

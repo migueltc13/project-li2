@@ -33,7 +33,7 @@ Item *initItem(char *name,
                int color)
 {
     Item *i = (Item *) malloc(sizeof(Item));
-    i->name = name; // Aloccate memory for the name + strdup
+    i->name = name;
     i->symbol = symbol;
     i->type = type;
     i->value = value;
@@ -55,41 +55,61 @@ Item *initItem(char *name,
  */
 Item *initRock() {
     int damage = ROCK_DAMAGE_MIN + rand() % (ROCK_DAMAGE_MAX - ROCK_DAMAGE_MIN + 1);
-    return initItem("rock", ROCK_SYMBOL, ROCK_TYPE, ROCK_VALUE, 0, 0, 0, damage, 0, 0, COLOR_WHITE);
+    return initItem("Rock", ROCK_SYMBOL, ROCK_TYPE, ROCK_VALUE, 0, 0, 0, damage, 0, 0, ROCK_COLOR);
 }
-
-// ----------------
 
 /**
  * @brief Initialize a new item: Smoke bomb (weapon projectile)
+ * 
+ * TODO: Implement smoke bomb effect
  */
+Item *initSmokeBomb() {
+    int damage = SMOKE_BOMB_DAMAGE_MIN + rand() % (SMOKE_BOMB_DAMAGE_MAX - SMOKE_BOMB_DAMAGE_MIN + 1);
+    return initItem("Smoke bomb", SMOKE_BOMB_SYMBOL, SMOKE_BOMB_TYPE, SMOKE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, SMOKE_BOMB_COLOR);
+}
 
 /**
  * @brief Initialize a new item: Fire bomb (weapon projectile)
+ *
+ * TODO: Implement fire bomb effect
  */
+Item *initFireBomb() {
+    int damage = FIRE_BOMB_DAMAGE_MIN + rand() % (FIRE_BOMB_DAMAGE_MAX - FIRE_BOMB_DAMAGE_MIN + 1);
+    return initItem("Fire bomb", FIRE_BOMB_SYMBOL, FIRE_BOMB_TYPE, FIRE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, FIRE_BOMB_COLOR);
+}
 
 /**
  * @brief Initialize a new item: Sword (weapon body)
  */
+/* Item *initSword() {
+    // TODO is_stackable = false
+    int attack = SWORD_ATTACK_MIN + rand() % (SWORD_ATTACK_MAX - SWORD_ATTACK_MIN + 1);
+    return initItem("Sword", SWORD_SYMBOL, SWORD_TYPE, SWORD_VALUE, 0, 0, 0, attack, 0, 0, SWORD_COLOR);
+} */
 
 /**
  * @brief Initialize a new item: Pot of gold
  */
 Item *initPotOfGold() {
     int value = POT_OF_GOLD_VALUE_MIN + rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1);
-    return initItem("pot of gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, COLOR_YELLOW);
+    return initItem("Pot of Gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, POT_OF_GOLD_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Potion of healing
  */
 Item *initPotionOfHealing() {
-    return initItem("potion of healing", POTION_OF_HEALING_SYMBOL, POTION_OF_HEALING_TYPE, POTION_OF_HEALING_VALUE, 0, 0, 0, 0, 0, POTION_OF_HEALING_HP, COLOR_RED);
+    return initItem("Potion of Healing", POTION_OF_HEALING_SYMBOL, POTION_OF_HEALING_TYPE, POTION_OF_HEALING_VALUE, 0, 0, 0, 0, 0, POTION_OF_HEALING_HP, POTION_OF_HEALING_COLOR);
 }
 
 /**
- * @brief Initialize a new item: Potion of vision
+ * @brief Initialize a new item: Sensory Potion
+ *
+ * TODO: Implement sensory potion effect
  */
+/* Item *initSensoryPotion() {
+    return initItem("Sensory Potion", SENSORY_POTION_SYMBOL, SENSORY_POTION_TYPE, SENSORY_POTION_VALUE, 0, 0, 0, 0, 0, SENSORY_POTION_HP, SENSORY_POTION_COLOR);
+} */
 
 // ----------------
 
@@ -106,11 +126,11 @@ Item* generateItem() {
     
     // 10% chance of generating a smoke bomb
     if (r < 30)
-        return initRock(); // TODO: initSmokeBomb();
+        return initSmokeBomb();
     
     // 10% chance of generating a fire bomb
     if (r < 40)
-        return initRock(); // TODO: initFireBomb();
+        return initFireBomb();
     
     // 10% chance of generating a sword
     if (r < 50)
@@ -214,6 +234,8 @@ void drawVisibleItems(Map* map, Item **items, int n) {
 
 /**
  * @brief Get item at (x, y) in the map, also removes it from the array
+ * 
+ * TODO: use cell->item_index instead of x, y
 */
 Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
     for (int i = 0; i < nr_items; i++) {

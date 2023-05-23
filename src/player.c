@@ -18,6 +18,7 @@ Player *initPlayer(int x, int y) {
     p->health = MAX_HEALTH;
     p->vision = PLAYER_VISION;
     p->max_health = MAX_HEALTH;
+    p->direction = 0;
     p->inventory = initInventory();
     return p;
 }
@@ -48,6 +49,7 @@ void freePlayer(void *p) {
     player->symbol = '\0';
     player->health = 0;
     player->vision = 0;
+    player->direction = 0;
     freeInventory(player->inventory);
     free(player);
 }

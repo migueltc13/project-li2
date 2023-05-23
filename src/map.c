@@ -9,19 +9,28 @@
 #include "state.h"
 #include "monster.h"
 #include "item.h"
+#include "combat.h"
 #include "menu.h" // macro for height of the menu
 
 /**
  * @brief Initialize a new map
  * 
- * @param width 
- * @param height 
+ * @param width Map width
+ * @param height Map height
  * @return Map*
  */
 Map *initMap(int width, int height) {
     Map *map = (Map *) malloc(sizeof(struct map));
     map->width = width;
-    map->height = height - MENU_HEIGHT;
+    // Determine if the map height is enough to fit the menu comfortably
+    if (height >= 3*MENU_HEIGHT) {
+        map->has_menu = 1; // true has menu
+        map->height = height - MENU_HEIGHT;
+    }
+    else {
+        map->has_menu = 0; // false no menu
+        map->height = height;
+    }
     // TODO: check if malloc fails
     map->cells = (Cell ***) malloc(sizeof(Cell **) * height);
     for (int i = 0; i < height; i++) {
@@ -30,8 +39,13 @@ Map *initMap(int width, int height) {
             map->cells[i][j] = initCellFloor(j, i);
         }
     }
-    // Initialize the items list
+    // Initialize the items array
     map->items = (Item **) malloc(sizeof(Item *) * MAX_ITEMS);
+    map->nr_items = 0;
+
+    // Initialize the projectiles array
+    map->projectiles = (Projectile **) malloc(sizeof(Projectile *) * MAX_PROJECTILES);
+    map->nr_projectiles = 0;
     return map;
 }
 
@@ -53,14 +67,20 @@ void freeMap(void *p) {
         if (map->items[i] != NULL)
             freeItem(map->items[i]);
     }
+    // TODO free items and projectilesif any
     free(map->items);
     free(map);
 }
 
 /**
- * @brief Couns the number of walls within a given radius around a specific position
+ * @brief Counts the number of walls within a given radius around a specific position
+ * 
+ * @param s State to count the walls
+ * @param row Row of the position
+ * @param col Column of the position
+ * @param radius Radius around the position
+ * @return int Number of walls
 */
-
 int radius_count(State *s, int row, int col, int radius) {
     int count = 0;
 
@@ -79,7 +99,7 @@ int radius_count(State *s, int row, int col, int radius) {
 /**
  * @brief Generate the map based on algorithm TODO explain more
  * - Top, bottom, left and right walls
- * - Fill the rest with 40% walls
+ * - Fill the rest with a 40% chance of generating walls
  * 
  * Saves a (int**) map twice
  * 
@@ -206,10 +226,9 @@ void drawMap(Map *map, int mode) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
                 if(map->cells[i][j]->is_visible == 1) {
-                    // TODO: use color pairs
-                    //attron(COLOR_PAIR(map->cells[i][j]->color));
+                    attron(COLOR_PAIR(map->cells[i][j]->color));
                     mvaddch(i, j, map->cells[i][j]->symbol);
-                    //attroff(COLOR_PAIR(map->cells[i][j]->color));
+                    attroff(COLOR_PAIR(map->cells[i][j]->color));
                 } else
                     mvaddch(i, j, ' ');
             }
@@ -218,11 +237,14 @@ void drawMap(Map *map, int mode) {
     else {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
-                // TODO: use color pairs
+                attron(COLOR_PAIR(map->cells[i][j]->color));
                 mvaddch(i, j, map->cells[i][j]->symbol);
+                attroff(COLOR_PAIR(map->cells[i][j]->color));
             }
         }
     }
+    // draw projectiles in all modes
+    drawProjectiles(map);
 }
 
 /**
@@ -389,8 +411,7 @@ void calculateVision(Map* map, int x, int y) {
  * @param items Array of items to distribute
  * @param nr_items Number of items in the array
  * 
- * TODO: replace while loop with for loop
- * TODO: CHECK if x doesnt have a valid value, then the item is not placed
+ * TODO: replace this function with a better one
 */
 void distributeItems(Map* map, Item** items, int nr_items) {
     int height = map->height;

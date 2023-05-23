@@ -37,7 +37,7 @@ typedef struct monster {
     // Item drop; // TODO
 } Monster;
 
-#define NUMBER_OF_MONSTERS 4
+#define NUMBER_OF_MONSTERS 5
 
 // Pathfinding types
 #define PATHFINDING_RANDOM 0
@@ -45,6 +45,26 @@ typedef struct monster {
 #define PATHFINDING_TOWARDS_PLAYER 2
 #define PATHFINDING_AWAY_FROM_PLAYER 3
 #define PATHFINDING_RECRUITING 4
+
+// Rat
+#define RAT_SYMBOL 'r'
+#define RAT_COLOR COLOR_GREEN
+
+// Goblin
+#define GOBLIN_SYMBOL 'g'
+#define GOBLIN_COLOR COLOR_MAGENTA
+
+// Orc
+#define ORC_SYMBOL 'o'
+#define ORC_COLOR COLOR_RED
+
+// Troll
+#define TROLL_SYMBOL 't'
+#define TROLL_COLOR COLOR_YELLOW
+
+// Dragon
+#define DRAGON_SYMBOL 'd'
+#define DRAGON_COLOR COLOR_BLUE
 
 Monster *initMonster(int x, int y, int health, int attack, int defense, char symbol, char *name, int color, int pathfinding, int index);
 void moveMonster(Monster* monster, Map *map, int x, int y);
