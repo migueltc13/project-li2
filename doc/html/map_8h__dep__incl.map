@@ -1,5 +1,8 @@
 <map id="include/map.h" name="include/map.h">
-<area shape="rect" id="node1" title=" " alt="" coords="47,5,161,32"/>
-<area shape="rect" id="node2" href="$map_8c.html" title=" " alt="" coords="5,80,91,107"/>
-<area shape="rect" id="node3" href="$state_8c.html" title=" " alt="" coords="115,80,205,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="215,5,330,32"/>
+<area shape="rect" id="node2" href="$item_8c.html" title=" " alt="" coords="5,80,92,107"/>
+<area shape="rect" id="node3" href="$map_8c.html" title=" " alt="" coords="117,80,202,107"/>
+<area shape="rect" id="node4" href="$menu_8c.html" title=" " alt="" coords="226,80,319,107"/>
+<area shape="rect" id="node5" href="$monster_8c.html" title=" " alt="" coords="343,80,453,107"/>
+<area shape="rect" id="node6" href="$state_8c.html" title=" " alt="" coords="477,80,567,107"/>
 </map>

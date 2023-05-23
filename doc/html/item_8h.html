@@ -66,7 +66,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">item.h File Reference</div>  </div>
 </div><!--header-->
@@ -76,8 +79,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="item_8h__dep__incl.png" border="0" usemap="#ainclude_2item_8hdep" alt=""/></div>
 <map name="ainclude_2item_8hdep" id="ainclude_2item_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,120,32"/>
-<area shape="rect" href="item_8c.html" title=" " alt="" coords="19,80,106,107"/>
+<area shape="rect" title=" " alt="" coords="315,5,430,32"/>
+<area shape="rect" href="combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
+<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
+<area shape="rect" href="item_8c.html" title=" " alt="" coords="275,80,361,107"/>
+<area shape="rect" href="map_8c.html" title=" " alt="" coords="386,80,471,107"/>
+<area shape="rect" href="menu_8c.html" title=" " alt="" coords="495,80,589,107"/>
+<area shape="rect" href="state_8c.html" title=" " alt="" coords="613,80,703,107"/>
 </map>
 </div>
 </div>
@@ -86,27 +94,110 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem.html">item</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item structure represents an item in the game.  <a href="structitem.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">: the name of the item</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp1c0b6b3a2c35384ea9419984195357b2"></a>struct item - represents an item in the game</p>
-<p>This struct represents an item in the game.</p>
-<p>@symbol: the symbol that represents the item @type: the type of item @value: the value of the item in gold @is_picked_up: whether the item has been picked up @x: the x coordinate of the item @y: the y coordinate of the item @damage: the damage of the item if it is a weapon @defense: the defense of the item if it is armor @hp: the hp of the item if it is a potion </p>
-</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
 <tr class="memitem:a1b40ceb455086d9cdb68ed3d3bf2775f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a1b40ceb455086d9cdb68ed3d3bf2775f">MAX_ITEMS</a>&#160;&#160;&#160;100</td></tr>
 <tr class="separator:a1b40ceb455086d9cdb68ed3d3bf2775f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ccc512e6849dda545be45ee41fd05c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a76ccc512e6849dda545be45ee41fd05c">MAX_ITEM_NAME</a>&#160;&#160;&#160;20</td></tr>
 <tr class="separator:a76ccc512e6849dda545be45ee41fd05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe8809d29fbc486cd3f820135d7fc874"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#afe8809d29fbc486cd3f820135d7fc874">ROCK_VALUE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a520f43eff993fc00cc6277024d53fa47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a520f43eff993fc00cc6277024d53fa47">WEAPON</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a520f43eff993fc00cc6277024d53fa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7daef4640edf9527180dfc9a11acf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a9e7daef4640edf9527180dfc9a11acf6">PROJECTILE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a9e7daef4640edf9527180dfc9a11acf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95960d9d91ca3dafaf4b5a41ea0c738"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#af95960d9d91ca3dafaf4b5a41ea0c738">ARMOR</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:af95960d9d91ca3dafaf4b5a41ea0c738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82ef6b1e17b519d16cd146e18f6b5fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#af82ef6b1e17b519d16cd146e18f6b5fd">POTION</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:af82ef6b1e17b519d16cd146e18f6b5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af468028083c9e52aa2c94ef3b9940450"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#af468028083c9e52aa2c94ef3b9940450">GOLD</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:af468028083c9e52aa2c94ef3b9940450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8809d29fbc486cd3f820135d7fc874"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#afe8809d29fbc486cd3f820135d7fc874">ROCK_VALUE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:afe8809d29fbc486cd3f820135d7fc874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb900767866ce0c393f4034fbfad82cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#afb900767866ce0c393f4034fbfad82cc">ROCK_DAMAGE_MIN</a>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:afb900767866ce0c393f4034fbfad82cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e3094ce0e0a3f171559ee4c5f072e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a53e3094ce0e0a3f171559ee4c5f072e5">ROCK_DAMAGE_MAX</a>&#160;&#160;&#160;7</td></tr>
 <tr class="separator:a53e3094ce0e0a3f171559ee4c5f072e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230fd93b890dcd066a55a66de9a580e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a230fd93b890dcd066a55a66de9a580e7">ROCK_SYMBOL</a>&#160;&#160;&#160;':'</td></tr>
+<tr class="separator:a230fd93b890dcd066a55a66de9a580e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333f849b1e6269878a44db0d406224e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a333f849b1e6269878a44db0d406224e2">ROCK_TYPE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a333f849b1e6269878a44db0d406224e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac201a446214f9d59b64469be0796b6b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#ac201a446214f9d59b64469be0796b6b7">POTION_OF_HEALING_SYMBOL</a>&#160;&#160;&#160;'!'</td></tr>
+<tr class="separator:ac201a446214f9d59b64469be0796b6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55bb8aecc6fbe2f8c17938679609c521"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a55bb8aecc6fbe2f8c17938679609c521">POTION_OF_HEALING_TYPE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a55bb8aecc6fbe2f8c17938679609c521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd466a59de7b7ae55e5f691979fbeaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#adfd466a59de7b7ae55e5f691979fbeaa">POTION_OF_HEALING_VALUE</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:adfd466a59de7b7ae55e5f691979fbeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf08614b5b15edf1b64e0efc75175364"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#acf08614b5b15edf1b64e0efc75175364">POTION_OF_HEALING_HP</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:acf08614b5b15edf1b64e0efc75175364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb323231d4a56bd26c665d0dc89a9e34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#abb323231d4a56bd26c665d0dc89a9e34">POT_OF_GOLD_SYMBOL</a>&#160;&#160;&#160;'O'</td></tr>
+<tr class="separator:abb323231d4a56bd26c665d0dc89a9e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e674fe75d4f5debe5a923ffed66b26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a11e674fe75d4f5debe5a923ffed66b26">POT_OF_GOLD_TYPE</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a11e674fe75d4f5debe5a923ffed66b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0902a52e84d8e4b329fb9036ab17a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#ac0902a52e84d8e4b329fb9036ab17a82">POT_OF_GOLD_VALUE_MIN</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:ac0902a52e84d8e4b329fb9036ab17a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad420bf6bd6a688ba4029736e4eada922"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#ad420bf6bd6a688ba4029736e4eada922">POT_OF_GOLD_VALUE_MAX</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:ad420bf6bd6a688ba4029736e4eada922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5a8967383654d2c24444433ae32cdadb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structmap.html">map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td></tr>
+<tr class="separator:a5a8967383654d2c24444433ae32cdadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9007ca88cf4d3425bfc53b599de25066"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structitem.html">item</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a></td></tr>
+<tr class="memdesc:a9007ca88cf4d3425bfc53b599de25066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item structure represents an item in the game.  <a href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">More...</a><br /></td></tr>
 <tr class="separator:a9007ca88cf4d3425bfc53b599de25066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6dc7910944cf9aaf581760187854e5e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a6dc7910944cf9aaf581760187854e5e7">generateItems</a> (int n)</td></tr>
+<tr class="memdesc:a6dc7910944cf9aaf581760187854e5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate n <em>random</em> items.  <a href="item_8h.html#a6dc7910944cf9aaf581760187854e5e7">More...</a><br /></td></tr>
+<tr class="separator:a6dc7910944cf9aaf581760187854e5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad80079b4decdc5f923f51622ad8ba883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#ad80079b4decdc5f923f51622ad8ba883">drawItem</a> (<a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *<a class="el" href="structitem.html">item</a>)</td></tr>
+<tr class="memdesc:ad80079b4decdc5f923f51622ad8ba883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw an item.  <a href="item_8h.html#ad80079b4decdc5f923f51622ad8ba883">More...</a><br /></td></tr>
+<tr class="separator:ad80079b4decdc5f923f51622ad8ba883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9855354d8821f3a5f7e4bedb9d79efee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a9855354d8821f3a5f7e4bedb9d79efee">drawAllItems</a> (<a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int n)</td></tr>
+<tr class="memdesc:a9855354d8821f3a5f7e4bedb9d79efee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all items in the Map.  <a href="item_8h.html#a9855354d8821f3a5f7e4bedb9d79efee">More...</a><br /></td></tr>
+<tr class="separator:a9855354d8821f3a5f7e4bedb9d79efee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa649a2c312ca326f678717c9f25eec3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#aa649a2c312ca326f678717c9f25eec3c">drawVisibleItems</a> (<a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int n)</td></tr>
+<tr class="memdesc:aa649a2c312ca326f678717c9f25eec3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all visible items in the Map.  <a href="item_8h.html#aa649a2c312ca326f678717c9f25eec3c">More...</a><br /></td></tr>
+<tr class="separator:aa649a2c312ca326f678717c9f25eec3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553ba87bf2c0d4f6e9365778dbd3c30a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a553ba87bf2c0d4f6e9365778dbd3c30a">getItem</a> (<a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int nr_items, unsigned int x, unsigned int y)</td></tr>
+<tr class="memdesc:a553ba87bf2c0d4f6e9365778dbd3c30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get item at (x, y) in the map, also removes it from the array.  <a href="item_8h.html#a553ba87bf2c0d4f6e9365778dbd3c30a">More...</a><br /></td></tr>
+<tr class="separator:a553ba87bf2c0d4f6e9365778dbd3c30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d871b02bb051538680fe130f5444f44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8h.html#a9d871b02bb051538680fe130f5444f44">freeItem</a> (void *i)</td></tr>
+<tr class="memdesc:a9d871b02bb051538680fe130f5444f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free an item.  <a href="item_8h.html#a9d871b02bb051538680fe130f5444f44">More...</a><br /></td></tr>
+<tr class="separator:a9d871b02bb051538680fe130f5444f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af95960d9d91ca3dafaf4b5a41ea0c738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95960d9d91ca3dafaf4b5a41ea0c738">&#9670;&nbsp;</a></span>ARMOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ARMOR&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af468028083c9e52aa2c94ef3b9940450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af468028083c9e52aa2c94ef3b9940450">&#9670;&nbsp;</a></span>GOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GOLD&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a76ccc512e6849dda545be45ee41fd05c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76ccc512e6849dda545be45ee41fd05c">&#9670;&nbsp;</a></span>MAX_ITEM_NAME</h2>
 
@@ -129,6 +220,146 @@ Classes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define MAX_ITEMS&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb323231d4a56bd26c665d0dc89a9e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb323231d4a56bd26c665d0dc89a9e34">&#9670;&nbsp;</a></span>POT_OF_GOLD_SYMBOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POT_OF_GOLD_SYMBOL&#160;&#160;&#160;'O'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11e674fe75d4f5debe5a923ffed66b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e674fe75d4f5debe5a923ffed66b26">&#9670;&nbsp;</a></span>POT_OF_GOLD_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POT_OF_GOLD_TYPE&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad420bf6bd6a688ba4029736e4eada922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad420bf6bd6a688ba4029736e4eada922">&#9670;&nbsp;</a></span>POT_OF_GOLD_VALUE_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POT_OF_GOLD_VALUE_MAX&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0902a52e84d8e4b329fb9036ab17a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0902a52e84d8e4b329fb9036ab17a82">&#9670;&nbsp;</a></span>POT_OF_GOLD_VALUE_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POT_OF_GOLD_VALUE_MIN&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af82ef6b1e17b519d16cd146e18f6b5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af82ef6b1e17b519d16cd146e18f6b5fd">&#9670;&nbsp;</a></span>POTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POTION&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf08614b5b15edf1b64e0efc75175364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf08614b5b15edf1b64e0efc75175364">&#9670;&nbsp;</a></span>POTION_OF_HEALING_HP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POTION_OF_HEALING_HP&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac201a446214f9d59b64469be0796b6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac201a446214f9d59b64469be0796b6b7">&#9670;&nbsp;</a></span>POTION_OF_HEALING_SYMBOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POTION_OF_HEALING_SYMBOL&#160;&#160;&#160;'!'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55bb8aecc6fbe2f8c17938679609c521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bb8aecc6fbe2f8c17938679609c521">&#9670;&nbsp;</a></span>POTION_OF_HEALING_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POTION_OF_HEALING_TYPE&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfd466a59de7b7ae55e5f691979fbeaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd466a59de7b7ae55e5f691979fbeaa">&#9670;&nbsp;</a></span>POTION_OF_HEALING_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POTION_OF_HEALING_VALUE&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e7daef4640edf9527180dfc9a11acf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7daef4640edf9527180dfc9a11acf6">&#9670;&nbsp;</a></span>PROJECTILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROJECTILE&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -163,6 +394,34 @@ Classes</h2></td></tr>
 
 </div>
 </div>
+<a id="a230fd93b890dcd066a55a66de9a580e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230fd93b890dcd066a55a66de9a580e7">&#9670;&nbsp;</a></span>ROCK_SYMBOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROCK_SYMBOL&#160;&#160;&#160;':'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a333f849b1e6269878a44db0d406224e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333f849b1e6269878a44db0d406224e2">&#9670;&nbsp;</a></span>ROCK_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROCK_TYPE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afe8809d29fbc486cd3f820135d7fc874"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe8809d29fbc486cd3f820135d7fc874">&#9670;&nbsp;</a></span>ROCK_VALUE</h2>
 
@@ -170,7 +429,21 @@ Classes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ROCK_VALUE&#160;&#160;&#160;1</td>
+          <td class="memname">#define ROCK_VALUE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a520f43eff993fc00cc6277024d53fa47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520f43eff993fc00cc6277024d53fa47">&#9670;&nbsp;</a></span>WEAPON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WEAPON&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,17 +458,258 @@ Classes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structitem.html">item</a> <a class="el" href="item_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a></td>
+          <td class="memname">typedef struct <a class="el" href="structitem.html">item</a> <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Item structure represents an item in the game. </p>
+<p>This struct represents an item in the game. It can be a weapon, armor, potion or gold. Items are drawn in the map if the cell is visible. They are picked up by the player when he steps on them. And they are added to the player inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the item </td></tr>
+    <tr><td class="paramname">symbol</td><td>the symbol that represents the item </td></tr>
+    <tr><td class="paramname">type</td><td>the type of item </td></tr>
+    <tr><td class="paramname">value</td><td>the value of the item in gold </td></tr>
+    <tr><td class="paramname">is_picked_up</td><td>whether the item has been picked up </td></tr>
+    <tr><td class="paramname">x</td><td>the x coordinate of the item </td></tr>
+    <tr><td class="paramname">y</td><td>the y coordinate of the item </td></tr>
+    <tr><td class="paramname">damage</td><td>the damage of the item if it is a weapon </td></tr>
+    <tr><td class="paramname">defense</td><td>the defense of the item if it is armor </td></tr>
+    <tr><td class="paramname">hp</td><td>the hp of the item if it is a healing potion </td></tr>
+    <tr><td class="paramname">count</td><td>the number of the same items </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the item </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a8967383654d2c24444433ae32cdadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8967383654d2c24444433ae32cdadb">&#9670;&nbsp;</a></span>Map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structmap.html">map</a> <a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a9855354d8821f3a5f7e4bedb9d79efee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9855354d8821f3a5f7e4bedb9d79efee">&#9670;&nbsp;</a></span>drawAllItems()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawAllItems </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw all items in the Map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>Array of items to draw </td></tr>
+    <tr><td class="paramname">n</td><td>Number of items in the array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ad80079b4decdc5f923f51622ad8ba883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80079b4decdc5f923f51622ad8ba883">&#9670;&nbsp;</a></span>drawItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw an item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Item to draw </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa649a2c312ca326f678717c9f25eec3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa649a2c312ca326f678717c9f25eec3c">&#9670;&nbsp;</a></span>drawVisibleItems()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawVisibleItems </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw all visible items in the Map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Map </td></tr>
+    <tr><td class="paramname">items</td><td>Array of items to draw </td></tr>
+    <tr><td class="paramname">n</td><td>Number of items in the array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a9d871b02bb051538680fe130f5444f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d871b02bb051538680fe130f5444f44">&#9670;&nbsp;</a></span>freeItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeItem </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free an item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Item to free </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a6dc7910944cf9aaf581760187854e5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc7910944cf9aaf581760187854e5e7">&#9670;&nbsp;</a></span>generateItems()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>** generateItems </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate n <em>random</em> items. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of items to generate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Item** Array of items </dd></dl>
+
+</div>
+</div>
+<a id="a553ba87bf2c0d4f6e9365778dbd3c30a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553ba87bf2c0d4f6e9365778dbd3c30a">&#9670;&nbsp;</a></span>getItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* getItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nr_items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get item at (x, y) in the map, also removes it from the array. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

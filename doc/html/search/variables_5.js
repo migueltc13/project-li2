@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['health_159',['health',['../structplayer.html#a46e908a72ca54baf54330861bbc56713',1,'player']]],
-  ['height_160',['height',['../structmap.html#a9958bc4a129d86b6e0b1b61a6ae16c41',1,'map']]],
-  ['hp_161',['hp',['../structitem.html#a1538bcf4556a702ce0ffced9dd53c37b',1,'item::hp()'],['../structmonster.html#a841238b6cd308ba7b54f5f71e7c2c4d4',1,'monster::hp()']]]
+  ['first_5fpass_281',['first_pass',['../structstate.html#a2934f770b1d4386dc1af8974ebe54fa6',1,'state']]]
 ];

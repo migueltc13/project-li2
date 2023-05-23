@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">state.c File Reference</div>  </div>
@@ -79,12 +80,16 @@ $(function() {
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cell_8h_source.html">cell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventory_8h_source.html">inventory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="monster_8h_source.html">monster.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for state.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="state_8c__incl.png" border="0" usemap="#asrc_2state_8c" alt=""/></div>
 <map name="asrc_2state_8c" id="asrc_2state_8c">
-<area shape="rect" title=" " alt="" coords="346,5,435,32"/>
+<area shape="rect" title=" " alt="" coords="537,5,626,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,72,107"/>
 <area shape="rect" title=" " alt="" coords="97,80,167,107"/>
 <area shape="rect" title=" " alt="" coords="191,80,275,107"/>
@@ -93,27 +98,51 @@ Include dependency graph for state.c:</div>
 <area shape="rect" href="player_8h.html" title=" " alt="" coords="497,80,572,107"/>
 <area shape="rect" href="map_8h.html" title=" " alt="" coords="597,80,659,107"/>
 <area shape="rect" href="cell_8h.html" title=" " alt="" coords="683,80,741,107"/>
+<area shape="rect" href="item_8h.html" title=" " alt="" coords="765,80,829,107"/>
+<area shape="rect" href="inventory_8h.html" title=" " alt="" coords="854,80,949,107"/>
+<area shape="rect" href="monster_8h.html" title=" " alt="" coords="973,80,1059,107"/>
+<area shape="rect" href="menu_8h.html" title=" " alt="" coords="1083,80,1154,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2172d2375b05f0cc892cd4e736af7445"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a2172d2375b05f0cc892cd4e736af7445">NUMBER_OF_ITEMS</a>&#160;&#160;&#160;15</td></tr>
+<tr class="separator:a2172d2375b05f0cc892cd4e736af7445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a8bf2101425edf8571ed6de882ee1e9e7">initState</a> (int width, int height)</td></tr>
+<tr class="memitem:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a8bf2101425edf8571ed6de882ee1e9e7">initState</a> (int width, int height)</td></tr>
 <tr class="memdesc:a8bf2101425edf8571ed6de882ee1e9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new game state.  <a href="state_8c.html#a8bf2101425edf8571ed6de882ee1e9e7">More...</a><br /></td></tr>
 <tr class="separator:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa213845b6ea1ac7c1e8feea118117a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#aa213845b6ea1ac7c1e8feea118117a72">freeState</a> (void *p)</td></tr>
 <tr class="memdesc:aa213845b6ea1ac7c1e8feea118117a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the game state.  <a href="state_8c.html#aa213845b6ea1ac7c1e8feea118117a72">More...</a><br /></td></tr>
 <tr class="separator:aa213845b6ea1ac7c1e8feea118117a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
+<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
 <tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state.  <a href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
 <tr class="separator:a2d5371342aa920f618224b2ba7b01116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:aa3fd511fa3b3109efdfb5864c9923bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game state.  <a href="state_8c.html#aa3fd511fa3b3109efdfb5864c9923bac">More...</a><br /></td></tr>
 <tr class="separator:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af53922b589069acb84e4df013d6207d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#af53922b589069acb84e4df013d6207d7">calculateState</a> (<a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
+<tr class="memitem:af53922b589069acb84e4df013d6207d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#af53922b589069acb84e4df013d6207d7">calculateState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
 <tr class="memdesc:af53922b589069acb84e4df013d6207d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulates the state based on the input key.  <a href="state_8c.html#af53922b589069acb84e4df013d6207d7">More...</a><br /></td></tr>
 <tr class="separator:af53922b589069acb84e4df013d6207d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a2172d2375b05f0cc892cd4e736af7445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2172d2375b05f0cc892cd4e736af7445">&#9670;&nbsp;</a></span>NUMBER_OF_ITEMS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUMBER_OF_ITEMS&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af53922b589069acb84e4df013d6207d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af53922b589069acb84e4df013d6207d7">&#9670;&nbsp;</a></span>calculateState()</h2>
@@ -124,7 +153,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void calculateState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
@@ -144,8 +173,8 @@ Functions</h2></td></tr>
 <p>Calulates the state based on the input key. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">State</td><td>*st </td></tr>
-    <tr><td class="paramname">int</td><td>input_key </td></tr>
+    <tr><td class="paramname">st</td><td>Calculated state </td></tr>
+    <tr><td class="paramname">input_key</td><td>Input keyboard key </td></tr>
   </table>
   </dd>
 </dl>
@@ -162,7 +191,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void drawState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em></td><td>)</td>
           <td></td>
         </tr>
@@ -199,7 +228,7 @@ Functions</h2></td></tr>
 <p>Free the game state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">void</td><td>*p (a pointer to a State) </td></tr>
+    <tr><td class="paramname">p</td><td>a pointer to the State to free </td></tr>
   </table>
   </dd>
 </dl>
@@ -214,7 +243,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a>* initState </td>
+          <td class="memname"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a>* initState </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>width</em>, </td>
@@ -248,7 +277,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void updateState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="map_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
@@ -279,7 +308,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

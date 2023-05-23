@@ -78,16 +78,23 @@ Collaboration diagram for state:</div>
 <div class="dyncontent">
 <div class="center"><img src="structstate__coll__graph.png" border="0" usemap="#astate_coll__map" alt="Collaboration graph"/></div>
 <map name="astate_coll__map" id="astate_coll__map">
-<area shape="rect" title="Sructure of the game state." alt="" coords="45,184,99,211"/>
-<area shape="rect" href="structmap.html" title=" " alt="" coords="5,95,56,121"/>
-<area shape="rect" href="structcell.html" title="Structure of a cell." alt="" coords="8,5,53,32"/>
-<area shape="rect" href="structplayer.html" title="Structure of a player." alt="" coords="81,95,143,121"/>
+<area shape="rect" title="Sructure of the game state." alt="" coords="120,288,175,315"/>
+<area shape="rect" href="structmap.html" title="Structure that represents a map in the game." alt="" coords="134,109,185,136"/>
+<area shape="rect" href="structitem.html" title="Item structure represents an item in the game." alt="" coords="67,5,119,32"/>
+<area shape="rect" href="structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="5,109,89,136"/>
+<area shape="rect" href="structcell.html" title="Structure of a cell." alt="" coords="209,5,254,32"/>
+<area shape="rect" href="structmonster.html" title="Structure of a monster." alt="" coords="205,199,281,225"/>
+<area shape="rect" href="structplayer.html" title="Structure of a player." alt="" coords="28,199,91,225"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4316c288a22e46fb0bc480dd884e8188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="map_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a4316c288a22e46fb0bc480dd884e8188">map</a></td></tr>
+<tr class="memitem:a2353ce8b613c2aebb31637030dcfcfa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a2353ce8b613c2aebb31637030dcfcfa1">turn</a></td></tr>
+<tr class="separator:a2353ce8b613c2aebb31637030dcfcfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf68a3ff88e678a7c06cecea76920655"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#aaf68a3ff88e678a7c06cecea76920655">mode</a></td></tr>
+<tr class="separator:aaf68a3ff88e678a7c06cecea76920655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4316c288a22e46fb0bc480dd884e8188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a4316c288a22e46fb0bc480dd884e8188">map</a></td></tr>
 <tr class="separator:a4316c288a22e46fb0bc480dd884e8188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2934f770b1d4386dc1af8974ebe54fa6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a2934f770b1d4386dc1af8974ebe54fa6">first_pass</a></td></tr>
 <tr class="separator:a2934f770b1d4386dc1af8974ebe54fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,19 +104,27 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a305feef1cde04ce9471e83cb472c0b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33cf7c3fce3893b7e08d26d62b791d2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="player_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a33cf7c3fce3893b7e08d26d62b791d2c">player</a></td></tr>
 <tr class="separator:a33cf7c3fce3893b7e08d26d62b791d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2353ce8b613c2aebb31637030dcfcfa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a2353ce8b613c2aebb31637030dcfcfa1">turn</a></td></tr>
-<tr class="separator:a2353ce8b613c2aebb31637030dcfcfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf68a3ff88e678a7c06cecea76920655"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#aaf68a3ff88e678a7c06cecea76920655">mode</a></td></tr>
-<tr class="separator:aaf68a3ff88e678a7c06cecea76920655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eb4f3b5a2f61c39c99193da05dd8778"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a9eb4f3b5a2f61c39c99193da05dd8778">monsters</a></td></tr>
+<tr class="separator:a9eb4f3b5a2f61c39c99193da05dd8778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a927e25e1d7ebf96250a962f6158dbf2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstate.html#a927e25e1d7ebf96250a962f6158dbf2c">nMonsters</a></td></tr>
+<tr class="separator:a927e25e1d7ebf96250a962f6158dbf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sructure of the game state. </p>
-<p>Includes:</p><ul>
-<li>Map</li>
-<li>Player</li>
-<li>Monsters (Queue)</li>
-<li>Turn number </li>
-</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turn</td><td>The turn of the game </td></tr>
+    <tr><td class="paramname">mode</td><td>The mode of the game, 0: normal, 1: distance, 2 vision, -1: exit mode </td></tr>
+    <tr><td class="paramname">map</td><td>The map of the game </td></tr>
+    <tr><td class="paramname">first_pass</td><td>The first pass is used in the generation of the map </td></tr>
+    <tr><td class="paramname">second_pass</td><td>The second pass is used in the generation of the map as well </td></tr>
+    <tr><td class="paramname">wall_prob</td><td>The probability of a wall to be generated, default is 40% </td></tr>
+    <tr><td class="paramname">player</td><td>The player of the game </td></tr>
+    <tr><td class="paramname">monsters</td><td>The monsters of the game </td></tr>
+    <tr><td class="paramname">nMonsters</td><td>The number of monsters </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a2934f770b1d4386dc1af8974ebe54fa6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2934f770b1d4386dc1af8974ebe54fa6">&#9670;&nbsp;</a></span>first_pass</h2>
@@ -132,7 +147,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="map_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a>* state::map</td>
+          <td class="memname"><a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a>* state::map</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,6 +162,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int state::mode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9eb4f3b5a2f61c39c99193da05dd8778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb4f3b5a2f61c39c99193da05dd8778">&#9670;&nbsp;</a></span>monsters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a>** state::monsters</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a927e25e1d7ebf96250a962f6158dbf2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927e25e1d7ebf96250a962f6158dbf2c">&#9670;&nbsp;</a></span>nMonsters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int state::nMonsters</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -215,7 +258,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -78,10 +79,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="cell_8h__dep__incl.png" border="0" usemap="#ainclude_2cell_8hdep" alt=""/></div>
 <map name="ainclude_2cell_8hdep" id="ainclude_2cell_8hdep">
-<area shape="rect" title=" " alt="" coords="97,5,205,32"/>
+<area shape="rect" title=" " alt="" coords="208,5,316,32"/>
 <area shape="rect" href="cell_8c.html" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" href="map_8c.html" title=" " alt="" coords="109,80,194,107"/>
-<area shape="rect" href="state_8c.html" title=" " alt="" coords="219,80,308,107"/>
+<area shape="rect" href="item_8c.html" title=" " alt="" coords="108,80,195,107"/>
+<area shape="rect" href="map_8c.html" title=" " alt="" coords="219,80,305,107"/>
+<area shape="rect" href="monster_8c.html" title=" " alt="" coords="329,80,438,107"/>
+<area shape="rect" href="state_8c.html" title=" " alt="" coords="463,80,552,107"/>
 </map>
 </div>
 </div>
@@ -92,6 +95,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html">cell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of a cell.  <a href="structcell.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ad0ea84156b939763d90c3ee5589522cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#ad0ea84156b939763d90c3ee5589522cb">FLOOR_SYMBOL</a>&#160;&#160;&#160;'.'</td></tr>
+<tr class="separator:ad0ea84156b939763d90c3ee5589522cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a9fa8f982b6403d8b98ad6be3dc879"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#ab0a9fa8f982b6403d8b98ad6be3dc879">WALL_SYMBOL</a>&#160;&#160;&#160;'#'</td></tr>
+<tr class="separator:ab0a9fa8f982b6403d8b98ad6be3dc879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -116,10 +126,45 @@ Functions</h2></td></tr>
 <tr class="memitem:a4b3d401c7a8c7dee9509d3fd1c72e643"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#a4b3d401c7a8c7dee9509d3fd1c72e643">isCellBlockingLight</a> (<a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *<a class="el" href="structcell.html">cell</a>)</td></tr>
 <tr class="memdesc:a4b3d401c7a8c7dee9509d3fd1c72e643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a cell is blocking light. returns the cell-&gt;block_light field.  <a href="cell_8h.html#a4b3d401c7a8c7dee9509d3fd1c72e643">More...</a><br /></td></tr>
 <tr class="separator:a4b3d401c7a8c7dee9509d3fd1c72e643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a26b3b45580f4fad26b413337994a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#ad2a26b3b45580f4fad26b413337994a6">isCellItem</a> (<a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *<a class="el" href="structcell.html">cell</a>)</td></tr>
+<tr class="memdesc:ad2a26b3b45580f4fad26b413337994a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a cell is has a item. returns the cell-&gt;has_item field.  <a href="cell_8h.html#ad2a26b3b45580f4fad26b413337994a6">More...</a><br /></td></tr>
+<tr class="separator:ad2a26b3b45580f4fad26b413337994a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac177bf8088bd4198a8090d5583eeba79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#ac177bf8088bd4198a8090d5583eeba79">isCellMonster</a> (<a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *<a class="el" href="structcell.html">cell</a>)</td></tr>
+<tr class="memdesc:ac177bf8088bd4198a8090d5583eeba79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a cell is has a monster.  <a href="cell_8h.html#ac177bf8088bd4198a8090d5583eeba79">More...</a><br /></td></tr>
+<tr class="separator:ac177bf8088bd4198a8090d5583eeba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659f7a114fb0932cae279d47c7355d4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#a659f7a114fb0932cae279d47c7355d4c">freeCell</a> (void *p)</td></tr>
 <tr class="memdesc:a659f7a114fb0932cae279d47c7355d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for a cell by <a class="el" href="cell_8c.html#a5a8fb4802d26e3d7a7e9df0aef2458fc" title="Initializes a new cell. Allocates memory for a new cell and initializes its fields.">initCell()</a>. Sets all the cell fields to 0.  <a href="cell_8h.html#a659f7a114fb0932cae279d47c7355d4c">More...</a><br /></td></tr>
 <tr class="separator:a659f7a114fb0932cae279d47c7355d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ad0ea84156b939763d90c3ee5589522cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ea84156b939763d90c3ee5589522cb">&#9670;&nbsp;</a></span>FLOOR_SYMBOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FLOOR_SYMBOL&#160;&#160;&#160;'.'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0a9fa8f982b6403d8b98ad6be3dc879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a9fa8f982b6403d8b98ad6be3dc879">&#9670;&nbsp;</a></span>WALL_SYMBOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WALL_SYMBOL&#160;&#160;&#160;'#'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a5a015017629833d016e38b49dca7b1c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a015017629833d016e38b49dca7b1c3">&#9670;&nbsp;</a></span>Cell</h2>
@@ -144,6 +189,9 @@ Functions</h2></td></tr>
     <tr><td class="paramname">block_light</td><td>1 if the cell blocks light, 0 otherwise </td></tr>
     <tr><td class="paramname">is_visible</td><td>1 if the cell is visible, 0 otherwise </td></tr>
     <tr><td class="paramname">distance_to_player</td><td>Distance to the player, initialized to -1 </td></tr>
+    <tr><td class="paramname">has_item</td><td>1 if the cell has an item, 0 otherwise </td></tr>
+    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
+    <tr><td class="paramname">has_player</td><td>1 if the cell has the player, 0 otherwise </td></tr>
     <tr><td class="paramname">color</td><td>Color of the cell TODO:</td></tr>
     <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL </td></tr>
   </table>
@@ -350,6 +398,60 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad2a26b3b45580f4fad26b413337994a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a26b3b45580f4fad26b413337994a6">&#9670;&nbsp;</a></span>isCellItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isCellItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a cell is has a item. returns the cell-&gt;has_item field. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if the cell has a item, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ac177bf8088bd4198a8090d5583eeba79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac177bf8088bd4198a8090d5583eeba79">&#9670;&nbsp;</a></span>isCellMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isCellMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a cell is has a monster. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if the cell has a monster, 0 otherwise </dd></dl>
+
+</div>
+</div>
 <a id="a33cc13c88c64f69e65203b3bcef656b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33cc13c88c64f69e65203b3bcef656b5">&#9670;&nbsp;</a></span>isCellWalkable()</h2>
 
@@ -380,7 +482,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

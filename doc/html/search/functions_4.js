@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['initcell_136',['initCell',['../cell_8c.html#a5a8fb4802d26e3d7a7e9df0aef2458fc',1,'initCell(int x, int y, char symbol, int is_walkable, int block_light, int color):&#160;cell.c'],['../cell_8h.html#a5a8fb4802d26e3d7a7e9df0aef2458fc',1,'initCell(int x, int y, char symbol, int is_walkable, int block_light, int color):&#160;cell.c']]],
-  ['initcellfloor_137',['initCellFloor',['../cell_8h.html#a0ff3d82ae734c798051a528745fee18b',1,'initCellFloor(int x, int y):&#160;cell.c'],['../cell_8c.html#a0ff3d82ae734c798051a528745fee18b',1,'initCellFloor(int x, int y):&#160;cell.c']]],
-  ['initcellwall_138',['initCellWall',['../cell_8h.html#ab3d5ddc0d609371663ec9f4ad5f9c78d',1,'initCellWall(int x, int y):&#160;cell.c'],['../cell_8c.html#ab3d5ddc0d609371663ec9f4ad5f9c78d',1,'initCellWall(int x, int y):&#160;cell.c']]],
-  ['inititem_139',['initItem',['../item_8c.html#a6916ee013de70b663494c695d3f244a0',1,'item.c']]],
-  ['initmap_140',['initMap',['../map_8h.html#ab52408e79480eba894d6ac546b2db176',1,'initMap(int width, int height):&#160;map.c'],['../map_8c.html#ab52408e79480eba894d6ac546b2db176',1,'initMap(int width, int height):&#160;map.c']]],
-  ['initmonster_141',['initMonster',['../monster_8c.html#ab9cf38cad74145499dbb31f8f5fa1eab',1,'monster.c']]],
-  ['initplayer_142',['initPlayer',['../player_8h.html#aad6d0fdcac0735fc6d08821797018737',1,'initPlayer(int x, int y):&#160;player.c'],['../player_8c.html#aad6d0fdcac0735fc6d08821797018737',1,'initPlayer(int x, int y):&#160;player.c']]],
-  ['initrock_143',['initRock',['../item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2',1,'item.c']]],
-  ['initstate_144',['initState',['../state_8h.html#a8bf2101425edf8571ed6de882ee1e9e7',1,'initState(int width, int height):&#160;state.c'],['../state_8c.html#a8bf2101425edf8571ed6de882ee1e9e7',1,'initState(int width, int height):&#160;state.c']]],
-  ['iscellblockinglight_145',['isCellBlockingLight',['../cell_8h.html#a4b3d401c7a8c7dee9509d3fd1c72e643',1,'isCellBlockingLight(Cell *cell):&#160;cell.c'],['../cell_8c.html#a4b3d401c7a8c7dee9509d3fd1c72e643',1,'isCellBlockingLight(Cell *cell):&#160;cell.c']]],
-  ['iscellwalkable_146',['isCellWalkable',['../cell_8h.html#a33cc13c88c64f69e65203b3bcef656b5',1,'isCellWalkable(Cell *cell):&#160;cell.c'],['../cell_8c.html#a33cc13c88c64f69e65203b3bcef656b5',1,'isCellWalkable(Cell *cell):&#160;cell.c']]]
+  ['generateitem_228',['generateItem',['../item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb',1,'item.c']]],
+  ['generateitems_229',['generateItems',['../item_8h.html#a6dc7910944cf9aaf581760187854e5e7',1,'generateItems(int n):&#160;item.c'],['../item_8c.html#a6dc7910944cf9aaf581760187854e5e7',1,'generateItems(int n):&#160;item.c']]],
+  ['generatemap_230',['generateMap',['../map_8h.html#a4dea10023544c292e2d205de94c6db13',1,'generateMap(State *st):&#160;map.c'],['../map_8c.html#a4dea10023544c292e2d205de94c6db13',1,'generateMap(State *st):&#160;map.c']]],
+  ['generatemenu_231',['generateMenu',['../menu_8h.html#ac984ebbdeffff42634edb6e9d3746090',1,'generateMenu(State *st):&#160;menu.c'],['../menu_8c.html#ac984ebbdeffff42634edb6e9d3746090',1,'generateMenu(State *st):&#160;menu.c']]],
+  ['generatemonster_232',['generateMonster',['../monster_8c.html#aafcfc30f57384153acaade6a7f6a7ec3',1,'monster.c']]],
+  ['generatemonsters_233',['generateMonsters',['../monster_8h.html#af43d7f6f15ecb65735a6bc9deb49fcbc',1,'generateMonsters(Map *map):&#160;monster.c'],['../monster_8c.html#af43d7f6f15ecb65735a6bc9deb49fcbc',1,'generateMonsters(Map *map):&#160;monster.c']]],
+  ['getitem_234',['getItem',['../item_8h.html#a553ba87bf2c0d4f6e9365778dbd3c30a',1,'getItem(Item **items, int nr_items, unsigned int x, unsigned int y):&#160;item.c'],['../item_8c.html#a553ba87bf2c0d4f6e9365778dbd3c30a',1,'getItem(Item **items, int nr_items, unsigned int x, unsigned int y):&#160;item.c']]],
+  ['getplayerinitialposition_235',['getPlayerInitialPosition',['../map_8h.html#a1918cc640c7d9392e47f09ecff790fdf',1,'getPlayerInitialPosition(Map *map, int *x, int *y):&#160;map.c'],['../map_8c.html#a1918cc640c7d9392e47f09ecff790fdf',1,'getPlayerInitialPosition(Map *map, int *x, int *y):&#160;map.c']]],
+  ['getrandomcoordinates_236',['getRandomCoordinates',['../map_8h.html#a32ffb4ee443f17d3de749b3e5e8eddaa',1,'getRandomCoordinates(Map *map, int *x, int *y):&#160;map.c'],['../map_8c.html#a32ffb4ee443f17d3de749b3e5e8eddaa',1,'getRandomCoordinates(Map *map, int *x, int *y):&#160;map.c']]]
 ];

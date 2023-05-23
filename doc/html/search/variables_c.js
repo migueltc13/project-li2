@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['value_175',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
-  ['vision_176',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]]
+  ['second_5fpass_305',['second_pass',['../structstate.html#a7bc1000b0d0091df313d19d7d623180b',1,'state']]],
+  ['symbol_306',['symbol',['../structcell.html#a6492716ceb15df53b691c46383f9592a',1,'cell::symbol()'],['../structitem.html#ac4b9d4144d1d8014b55e24161e560360',1,'item::symbol()'],['../structmonster.html#a50fdad9ba0f10f490fc0e72110b9c30d',1,'monster::symbol()'],['../structplayer.html#abedab1469b7383d826a360f376cbd0c8',1,'player::symbol()']]]
 ];

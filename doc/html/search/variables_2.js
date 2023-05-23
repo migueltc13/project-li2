@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['cells_153',['cells',['../structmap.html#a44a00caf76a078a5c5774b126dbf07f5',1,'map']]],
-  ['color_154',['color',['../structcell.html#aca19b21960f06b4fbfd5549af2622710',1,'cell']]]
+  ['cells_273',['cells',['../structmap.html#a44a00caf76a078a5c5774b126dbf07f5',1,'map']]],
+  ['color_274',['color',['../structcell.html#aca19b21960f06b4fbfd5549af2622710',1,'cell::color()'],['../structitem.html#ab595ffca2742c41d9351e203a569ac7c',1,'item::color()'],['../structmonster.html#a26b7f6f524f0cc66bcede30f1729e7ba',1,'monster::color()']]],
+  ['count_275',['count',['../structitem.html#a84ad511a7e7fc725743a4399fa240c61',1,'item']]]
 ];

@@ -1,6 +1,9 @@
 <map id="state" name="state">
-<area shape="rect" id="node1" title="Sructure of the game state." alt="" coords="45,184,99,211"/>
-<area shape="rect" id="node2" href="$structmap.html" title=" " alt="" coords="5,95,56,121"/>
-<area shape="rect" id="node3" href="$structcell.html" title="Structure of a cell." alt="" coords="8,5,53,32"/>
-<area shape="rect" id="node4" href="$structplayer.html" title="Structure of a player." alt="" coords="81,95,143,121"/>
+<area shape="rect" id="node1" title="Sructure of the game state." alt="" coords="120,288,175,315"/>
+<area shape="rect" id="node2" href="$structmap.html" title="Structure that represents a map in the game." alt="" coords="134,109,185,136"/>
+<area shape="rect" id="node3" href="$structitem.html" title="Item structure represents an item in the game." alt="" coords="67,5,119,32"/>
+<area shape="rect" id="node7" href="$structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="5,109,89,136"/>
+<area shape="rect" id="node4" href="$structcell.html" title="Structure of a cell." alt="" coords="209,5,254,32"/>
+<area shape="rect" id="node5" href="$structmonster.html" title="Structure of a monster." alt="" coords="205,199,281,225"/>
+<area shape="rect" id="node6" href="$structplayer.html" title="Structure of a player." alt="" coords="28,199,91,225"/>
 </map>

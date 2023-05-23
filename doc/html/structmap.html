@@ -69,14 +69,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Structure that represents a map in the game.  
+ <a href="structmap.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="map_8h_source.html">map.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for map:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmap__coll__graph.png" border="0" usemap="#amap_coll__map" alt="Collaboration graph"/></div>
 <map name="amap_coll__map" id="amap_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,56,121"/>
-<area shape="rect" href="structcell.html" title="Structure of a cell." alt="" coords="8,5,53,32"/>
+<area shape="rect" title="Structure that represents a map in the game." alt="" coords="42,95,93,121"/>
+<area shape="rect" href="structitem.html" title="Item structure represents an item in the game." alt="" coords="5,5,57,32"/>
+<area shape="rect" href="structcell.html" title="Structure of a cell." alt="" coords="82,5,127,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -88,8 +92,24 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a9958bc4a129d86b6e0b1b61a6ae16c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44a00caf76a078a5c5774b126dbf07f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap.html#a44a00caf76a078a5c5774b126dbf07f5">cells</a></td></tr>
 <tr class="separator:a44a00caf76a078a5c5774b126dbf07f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77851152f629e4bfbb432ce7f83c8787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap.html#a77851152f629e4bfbb432ce7f83c8787">items</a></td></tr>
+<tr class="separator:a77851152f629e4bfbb432ce7f83c8787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad784072d11071aea4dc47a1edc99d1c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap.html#ad784072d11071aea4dc47a1edc99d1c3">nr_items</a></td></tr>
+<tr class="separator:ad784072d11071aea4dc47a1edc99d1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure that represents a map in the game. </p>
+<p>A map is a 2D array of cells with a width and a height. It also contains an array of items distributed in the map.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of the map (number of columns) </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the map (number of rows) </td></tr>
+    <tr><td class="paramname">cells</td><td>2D array of cells </td></tr>
+    <tr><td class="paramname">items</td><td>Array of items in the map </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a44a00caf76a078a5c5774b126dbf07f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44a00caf76a078a5c5774b126dbf07f5">&#9670;&nbsp;</a></span>cells</h2>
 
@@ -118,6 +138,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a77851152f629e4bfbb432ce7f83c8787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77851152f629e4bfbb432ce7f83c8787">&#9670;&nbsp;</a></span>items</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>** map::items</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad784072d11071aea4dc47a1edc99d1c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad784072d11071aea4dc47a1edc99d1c3">&#9670;&nbsp;</a></span>nr_items</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int map::nr_items</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a34b43c4ecce8de3a5228b7f4e6d66740"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34b43c4ecce8de3a5228b7f4e6d66740">&#9670;&nbsp;</a></span>width</h2>
 
@@ -138,7 +186,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

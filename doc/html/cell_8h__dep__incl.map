@@ -1,6 +1,8 @@
 <map id="include/cell.h" name="include/cell.h">
-<area shape="rect" id="node1" title=" " alt="" coords="97,5,205,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="208,5,316,32"/>
 <area shape="rect" id="node2" href="$cell_8c.html" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" href="$map_8c.html" title=" " alt="" coords="109,80,194,107"/>
-<area shape="rect" id="node4" href="$state_8c.html" title=" " alt="" coords="219,80,308,107"/>
+<area shape="rect" id="node3" href="$item_8c.html" title=" " alt="" coords="108,80,195,107"/>
+<area shape="rect" id="node4" href="$map_8c.html" title=" " alt="" coords="219,80,305,107"/>
+<area shape="rect" id="node5" href="$monster_8c.html" title=" " alt="" coords="329,80,438,107"/>
+<area shape="rect" id="node6" href="$state_8c.html" title=" " alt="" coords="463,80,552,107"/>
 </map>

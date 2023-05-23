@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['generateitem_132',['generateItem',['../item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb',1,'item.c']]],
-  ['generateitems_133',['generateItems',['../item_8c.html#a6dc7910944cf9aaf581760187854e5e7',1,'item.c']]],
-  ['generatemap_134',['generateMap',['../map_8h.html#a4dea10023544c292e2d205de94c6db13',1,'generateMap(State *st):&#160;map.c'],['../map_8c.html#a4dea10023544c292e2d205de94c6db13',1,'generateMap(State *st):&#160;map.c']]],
-  ['getplayerinitialposition_135',['getPlayerInitialPosition',['../map_8h.html#a1918cc640c7d9392e47f09ecff790fdf',1,'getPlayerInitialPosition(Map *map, int *x, int *y):&#160;map.c'],['../map_8c.html#a1918cc640c7d9392e47f09ecff790fdf',1,'getPlayerInitialPosition(Map *map, int *x, int *y):&#160;map.c']]]
+  ['freecell_221',['freeCell',['../cell_8h.html#a659f7a114fb0932cae279d47c7355d4c',1,'freeCell(void *p):&#160;cell.c'],['../cell_8c.html#a659f7a114fb0932cae279d47c7355d4c',1,'freeCell(void *p):&#160;cell.c']]],
+  ['freeinventory_222',['freeInventory',['../inventory_8h.html#ac2909d02352bce9232b9c2aef91c5efb',1,'freeInventory(void *p):&#160;inventory.c'],['../inventory_8c.html#ac2909d02352bce9232b9c2aef91c5efb',1,'freeInventory(void *p):&#160;inventory.c']]],
+  ['freeitem_223',['freeItem',['../item_8h.html#a9d871b02bb051538680fe130f5444f44',1,'freeItem(void *i):&#160;item.c'],['../item_8c.html#a9d871b02bb051538680fe130f5444f44',1,'freeItem(void *i):&#160;item.c']]],
+  ['freemap_224',['freeMap',['../map_8h.html#ab1825a3005df59494e46e058dee3700b',1,'freeMap(void *p):&#160;map.c'],['../map_8c.html#ab1825a3005df59494e46e058dee3700b',1,'freeMap(void *p):&#160;map.c']]],
+  ['freemonster_225',['freeMonster',['../monster_8h.html#a0e7a1e017091a69a49b4bf5a6687e816',1,'freeMonster(void *p):&#160;monster.c'],['../monster_8c.html#a0e7a1e017091a69a49b4bf5a6687e816',1,'freeMonster(void *p):&#160;monster.c']]],
+  ['freeplayer_226',['freePlayer',['../player_8h.html#aaaa1224401fcdab1ec7e2c5eed3532c2',1,'freePlayer(void *p):&#160;player.c'],['../player_8c.html#aaaa1224401fcdab1ec7e2c5eed3532c2',1,'freePlayer(void *p):&#160;player.c']]],
+  ['freestate_227',['freeState',['../state_8h.html#aa213845b6ea1ac7c1e8feea118117a72',1,'freeState(void *p):&#160;state.c'],['../state_8c.html#aa213845b6ea1ac7c1e8feea118117a72',1,'freeState(void *p):&#160;state.c']]]
 ];

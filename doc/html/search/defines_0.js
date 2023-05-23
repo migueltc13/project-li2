@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distance_5fmode_187',['DISTANCE_MODE',['../state_8h.html#abf03150cb283b35c2e17e6f50c20e8c8',1,'state.h']]]
+  ['armor_322',['ARMOR',['../item_8h.html#af95960d9d91ca3dafaf4b5a41ea0c738',1,'item.h']]]
 ];

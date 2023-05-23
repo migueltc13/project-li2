@@ -69,6 +69,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Item structure represents an item in the game.  
+ <a href="structitem.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="item_8h_source.html">item.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -93,8 +96,60 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a191dd22a36d91a1ef2b97edcb91ff861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1538bcf4556a702ce0ffced9dd53c37b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem.html#a1538bcf4556a702ce0ffced9dd53c37b">hp</a></td></tr>
 <tr class="separator:a1538bcf4556a702ce0ffced9dd53c37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ad511a7e7fc725743a4399fa240c61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem.html#a84ad511a7e7fc725743a4399fa240c61">count</a></td></tr>
+<tr class="separator:a84ad511a7e7fc725743a4399fa240c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab595ffca2742c41d9351e203a569ac7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem.html#ab595ffca2742c41d9351e203a569ac7c">color</a></td></tr>
+<tr class="separator:ab595ffca2742c41d9351e203a569ac7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Item structure represents an item in the game. </p>
+<p>This struct represents an item in the game. It can be a weapon, armor, potion or gold. Items are drawn in the map if the cell is visible. They are picked up by the player when he steps on them. And they are added to the player inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the item </td></tr>
+    <tr><td class="paramname">symbol</td><td>the symbol that represents the item </td></tr>
+    <tr><td class="paramname">type</td><td>the type of item </td></tr>
+    <tr><td class="paramname">value</td><td>the value of the item in gold </td></tr>
+    <tr><td class="paramname">is_picked_up</td><td>whether the item has been picked up </td></tr>
+    <tr><td class="paramname">x</td><td>the x coordinate of the item </td></tr>
+    <tr><td class="paramname">y</td><td>the y coordinate of the item </td></tr>
+    <tr><td class="paramname">damage</td><td>the damage of the item if it is a weapon </td></tr>
+    <tr><td class="paramname">defense</td><td>the defense of the item if it is armor </td></tr>
+    <tr><td class="paramname">hp</td><td>the hp of the item if it is a healing potion </td></tr>
+    <tr><td class="paramname">count</td><td>the number of the same items </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the item </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab595ffca2742c41d9351e203a569ac7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab595ffca2742c41d9351e203a569ac7c">&#9670;&nbsp;</a></span>color</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int item::color</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84ad511a7e7fc725743a4399fa240c61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ad511a7e7fc725743a4399fa240c61">&#9670;&nbsp;</a></span>count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int item::count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0e66086ec351f97065ae173a53afa3f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e66086ec351f97065ae173a53afa3f7">&#9670;&nbsp;</a></span>damage</h2>
 
@@ -241,7 +296,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

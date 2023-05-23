@@ -1,0 +1,6 @@
+<map id="include/monster.h" name="include/monster.h">
+<area shape="rect" id="node1" title=" " alt="" coords="100,5,239,32"/>
+<area shape="rect" id="node2" href="$map_8c.html" title=" " alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$monster_8c.html" title=" " alt="" coords="115,80,224,107"/>
+<area shape="rect" id="node4" href="$state_8c.html" title=" " alt="" coords="249,80,338,107"/>
+</map>

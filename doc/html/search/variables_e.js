@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_179',['x',['../structcell.html#a030d56015aec1d0443b392355557b038',1,'cell::x()'],['../structitem.html#af66ae9b5a130c8087659dced2d6e7a39',1,'item::x()'],['../structplayer.html#a2dad990073f30c562e966063bbf781e2',1,'player::x()'],['../structmonster.html#ab3366fe21e72335d60b2107a2a64e242',1,'monster::x()']]]
+  ['value_309',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
+  ['vision_310',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]]
 ];

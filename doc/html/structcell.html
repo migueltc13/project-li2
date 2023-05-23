@@ -90,6 +90,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a34011cec37eb9f73f1a994c433edd4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e02e750b47eb9dadb79aa9a7c33a29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#ab4e02e750b47eb9dadb79aa9a7c33a29">distance_to_player</a></td></tr>
 <tr class="separator:ab4e02e750b47eb9dadb79aa9a7c33a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa469d0357ebc5dac55d89604091a5f25"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#aa469d0357ebc5dac55d89604091a5f25">has_item</a></td></tr>
+<tr class="separator:aa469d0357ebc5dac55d89604091a5f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0efd3ba16669971675f8f0f23e2a1f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#a7d0efd3ba16669971675f8f0f23e2a1f">has_player</a></td></tr>
+<tr class="separator:a7d0efd3ba16669971675f8f0f23e2a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75d683b636605bb03e15e116fe26990"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#ad75d683b636605bb03e15e116fe26990">monster_index</a></td></tr>
+<tr class="separator:ad75d683b636605bb03e15e116fe26990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca19b21960f06b4fbfd5549af2622710"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#aca19b21960f06b4fbfd5549af2622710">color</a></td></tr>
 <tr class="separator:aca19b21960f06b4fbfd5549af2622710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -105,6 +111,9 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">block_light</td><td>1 if the cell blocks light, 0 otherwise </td></tr>
     <tr><td class="paramname">is_visible</td><td>1 if the cell is visible, 0 otherwise </td></tr>
     <tr><td class="paramname">distance_to_player</td><td>Distance to the player, initialized to -1 </td></tr>
+    <tr><td class="paramname">has_item</td><td>1 if the cell has an item, 0 otherwise </td></tr>
+    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
+    <tr><td class="paramname">has_player</td><td>1 if the cell has the player, 0 otherwise </td></tr>
     <tr><td class="paramname">color</td><td>Color of the cell TODO:</td></tr>
     <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL </td></tr>
   </table>
@@ -153,6 +162,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa469d0357ebc5dac55d89604091a5f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa469d0357ebc5dac55d89604091a5f25">&#9670;&nbsp;</a></span>has_item</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int cell::has_item</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d0efd3ba16669971675f8f0f23e2a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0efd3ba16669971675f8f0f23e2a1f">&#9670;&nbsp;</a></span>has_player</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int cell::has_player</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a34011cec37eb9f73f1a994c433edd4ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34011cec37eb9f73f1a994c433edd4ed">&#9670;&nbsp;</a></span>is_visible</h2>
 
@@ -175,6 +212,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">unsigned int cell::is_walkable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad75d683b636605bb03e15e116fe26990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75d683b636605bb03e15e116fe26990">&#9670;&nbsp;</a></span>monster_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cell::monster_index</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -229,7 +280,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exit_5fmode_188',['EXIT_MODE',['../state_8h.html#a48e94406e407db738f2e93571cd86fbc',1,'state.h']]]
+  ['distance_5fmode_323',['DISTANCE_MODE',['../state_8h.html#abf03150cb283b35c2e17e6f50c20e8c8',1,'state.h']]]
 ];

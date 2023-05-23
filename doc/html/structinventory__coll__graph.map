@@ -1,0 +1,4 @@
+<map id="inventory" name="inventory">
+<area shape="rect" id="node1" title="Inventory structure represents the player inventory." alt="" coords="5,109,89,136"/>
+<area shape="rect" id="node2" href="$structitem.html" title="Item structure represents an item in the game." alt="" coords="21,5,73,32"/>
+</map>

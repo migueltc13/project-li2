@@ -73,6 +73,16 @@ $(function() {
  <a href="structplayer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="player_8h_source.html">player.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for player:</div>
+<div class="dyncontent">
+<div class="center"><img src="structplayer__coll__graph.png" border="0" usemap="#aplayer_coll__map" alt="Collaboration graph"/></div>
+<map name="aplayer_coll__map" id="aplayer_coll__map">
+<area shape="rect" title="Structure of a player." alt="" coords="16,199,79,225"/>
+<area shape="rect" href="structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="5,109,89,136"/>
+<area shape="rect" href="structitem.html" title="Item structure represents an item in the game." alt="" coords="21,5,73,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -90,6 +100,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa306bf47e2f9ca12900e7f8d1e9ea4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a002ad0026a5847221f836a2172c887e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a002ad0026a5847221f836a2172c887e0">vision</a></td></tr>
 <tr class="separator:a002ad0026a5847221f836a2172c887e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fc8acb686b7f64db35b125812e89a00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a5fc8acb686b7f64db35b125812e89a00">max_health</a></td></tr>
+<tr class="separator:a5fc8acb686b7f64db35b125812e89a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f3b32366d6f07416f0e69947b44c9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#ae9f3b32366d6f07416f0e69947b44c9d">inventory</a></td></tr>
+<tr class="separator:ae9f3b32366d6f07416f0e69947b44c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure of a player. </p>
@@ -102,7 +116,8 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">health</td><td>Health of the player </td></tr>
     <tr><td class="paramname">defense</td><td>Defense of the player </td></tr>
     <tr><td class="paramname">attack</td><td>Attack of the player </td></tr>
-    <tr><td class="paramname">vision</td><td>Vision of the player set to PLAYER_VISION macro TODO:</td></tr>
+    <tr><td class="paramname">vision</td><td>Vision of the player set to PLAYER_VISION macro </td></tr>
+    <tr><td class="paramname">max_health</td><td>Maximum health of the player set to MAX_HEALTH macro </td></tr>
     <tr><td class="paramname">inventory</td><td>Inventory of the player </td></tr>
   </table>
   </dd>
@@ -144,6 +159,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int player::health</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9f3b32366d6f07416f0e69947b44c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f3b32366d6f07416f0e69947b44c9d">&#9670;&nbsp;</a></span>inventory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a>* player::inventory</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fc8acb686b7f64db35b125812e89a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fc8acb686b7f64db35b125812e89a00">&#9670;&nbsp;</a></span>max_health</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int player::max_health</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -212,7 +255,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 18 2023 18:16:36 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

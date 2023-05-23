@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['value_92',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
-  ['vision_93',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]],
-  ['vision_5fmode_94',['VISION_MODE',['../state_8h.html#af4bbb90a8308b1e280415a62de208dec',1,'state.h']]]
+  ['value_172',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
+  ['vision_173',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]],
+  ['vision_5fmode_174',['VISION_MODE',['../state_8h.html#af4bbb90a8308b1e280415a62de208dec',1,'state.h']]]
 ];
