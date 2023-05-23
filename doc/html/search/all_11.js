@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['wall_5fprob_175',['wall_prob',['../structstate.html#a305feef1cde04ce9471e83cb472c0b01',1,'state']]],
-  ['wall_5fsymbol_176',['WALL_SYMBOL',['../cell_8h.html#ab0a9fa8f982b6403d8b98ad6be3dc879',1,'cell.h']]],
-  ['weapon_177',['WEAPON',['../item_8h.html#a520f43eff993fc00cc6277024d53fa47',1,'item.h']]],
-  ['width_178',['width',['../structmap.html#a34b43c4ecce8de3a5228b7f4e6d66740',1,'map']]]
+  ['updateprojectile_223',['updateProjectile',['../combat_8c.html#a7c74d7d7228b057b768298b078fab060',1,'combat.c']]],
+  ['updateprojectiles_224',['updateProjectiles',['../combat_8h.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c'],['../combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c']]],
+  ['updatestate_225',['updateState',['../state_8h.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c'],['../state_8c.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c']]],
+  ['useequippeditem_226',['useEquippedItem',['../inventory_8h.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c'],['../inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c']]]
 ];

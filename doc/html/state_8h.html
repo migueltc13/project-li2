@@ -79,13 +79,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="state_8h__dep__incl.png" border="0" usemap="#ainclude_2state_8hdep" alt=""/></div>
 <map name="ainclude_2state_8hdep" id="ainclude_2state_8hdep">
-<area shape="rect" title=" " alt="" coords="299,5,417,32"/>
-<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="5,80,121,107"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="145,80,235,107"/>
-<area shape="rect" href="map_8c.html" title=" " alt="" coords="259,80,345,107"/>
-<area shape="rect" href="menu_8c.html" title=" " alt="" coords="369,80,462,107"/>
-<area shape="rect" href="monster_8c.html" title=" " alt="" coords="486,80,595,107"/>
-<area shape="rect" href="state_8c.html" title=" " alt="" coords="620,80,709,107"/>
+<area shape="rect" title=" " alt="" coords="372,5,491,32"/>
+<area shape="rect" href="combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
+<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="275,80,364,107"/>
+<area shape="rect" href="map_8c.html" title=" " alt="" coords="389,80,474,107"/>
+<area shape="rect" href="menu_8c.html" title=" " alt="" coords="498,80,591,107"/>
+<area shape="rect" href="monster_8c.html" title=" " alt="" coords="615,80,725,107"/>
+<area shape="rect" href="state_8c.html" title=" " alt="" coords="749,80,839,107"/>
 </map>
 </div>
 </div>
@@ -105,6 +106,8 @@ Macros</h2></td></tr>
 <tr class="separator:abf03150cb283b35c2e17e6f50c20e8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4bbb90a8308b1e280415a62de208dec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#af4bbb90a8308b1e280415a62de208dec">VISION_MODE</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:af4bbb90a8308b1e280415a62de208dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02588408ee73da60dd1d82473039206"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#ab02588408ee73da60dd1d82473039206">CAVERN_MODE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:ab02588408ee73da60dd1d82473039206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e94406e407db738f2e93571cd86fbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a48e94406e407db738f2e93571cd86fbc">EXIT_MODE</a>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a48e94406e407db738f2e93571cd86fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -122,23 +125,37 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a8bf2101425edf8571ed6de882ee1e9e7">initState</a> (int width, int height)</td></tr>
+<tr class="memitem:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a8bf2101425edf8571ed6de882ee1e9e7">initState</a> (int width, int height)</td></tr>
 <tr class="memdesc:a8bf2101425edf8571ed6de882ee1e9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new game state.  <a href="state_8h.html#a8bf2101425edf8571ed6de882ee1e9e7">More...</a><br /></td></tr>
 <tr class="separator:a8bf2101425edf8571ed6de882ee1e9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa213845b6ea1ac7c1e8feea118117a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#aa213845b6ea1ac7c1e8feea118117a72">freeState</a> (void *p)</td></tr>
 <tr class="memdesc:aa213845b6ea1ac7c1e8feea118117a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the game state.  <a href="state_8h.html#aa213845b6ea1ac7c1e8feea118117a72">More...</a><br /></td></tr>
 <tr class="separator:aa213845b6ea1ac7c1e8feea118117a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
+<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
 <tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state.  <a href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
 <tr class="separator:a2d5371342aa920f618224b2ba7b01116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:aa3fd511fa3b3109efdfb5864c9923bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game state.  <a href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">More...</a><br /></td></tr>
 <tr class="separator:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af53922b589069acb84e4df013d6207d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#af53922b589069acb84e4df013d6207d7">calculateState</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
+<tr class="memitem:af53922b589069acb84e4df013d6207d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#af53922b589069acb84e4df013d6207d7">calculateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
 <tr class="memdesc:af53922b589069acb84e4df013d6207d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulates the state based on the input key.  <a href="state_8h.html#af53922b589069acb84e4df013d6207d7">More...</a><br /></td></tr>
 <tr class="separator:af53922b589069acb84e4df013d6207d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ab02588408ee73da60dd1d82473039206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02588408ee73da60dd1d82473039206">&#9670;&nbsp;</a></span>CAVERN_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAVERN_MODE&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abf03150cb283b35c2e17e6f50c20e8c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf03150cb283b35c2e17e6f50c20e8c8">&#9670;&nbsp;</a></span>DISTANCE_MODE</h2>
 
@@ -203,7 +220,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structmap.html">map</a> <a class="el" href="item_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td>
+          <td class="memname">typedef struct <a class="el" href="structmap.html">map</a> <a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -245,7 +262,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structstate.html">state</a> <a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a></td>
+          <td class="memname">typedef struct <a class="el" href="structstate.html">state</a> <a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -278,7 +295,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void calculateState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
@@ -316,7 +333,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void drawState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em></td><td>)</td>
           <td></td>
         </tr>
@@ -368,7 +385,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a>* initState </td>
+          <td class="memname"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a>* initState </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>width</em>, </td>
@@ -402,7 +419,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void updateState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
@@ -433,7 +450,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

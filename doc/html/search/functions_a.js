@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['updatestate_269',['updateState',['../state_8h.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c'],['../state_8c.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c']]],
-  ['useequippeditem_270',['useEquippedItem',['../inventory_8h.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c'],['../inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c']]]
+  ['sellequippeditem_334',['sellEquippedItem',['../inventory_8h.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d',1,'sellEquippedItem(State *st, Inventory *i):&#160;inventory.c'],['../inventory_8c.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d',1,'sellEquippedItem(State *st, Inventory *i):&#160;inventory.c']]],
+  ['sendmenumessage_335',['sendMenuMessage',['../menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146',1,'sendMenuMessage(State *st, char *message):&#160;menu.c'],['../menu_8c.html#aa7ab6967d6b12df56f62e7fcb70a7146',1,'sendMenuMessage(State *st, char *message):&#160;menu.c']]],
+  ['switchequippeditem_336',['switchEquippedItem',['../inventory_8h.html#a5770d9ff8818daabdf39121ef7513dae',1,'switchEquippedItem(Inventory *i):&#160;inventory.c'],['../inventory_8c.html#a5770d9ff8818daabdf39121ef7513dae',1,'switchEquippedItem(Inventory *i):&#160;inventory.c']]]
 ];

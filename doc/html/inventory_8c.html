@@ -77,27 +77,29 @@ $(function() {
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="inventory_8h_source.html">inventory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="combat_8h_source.html">combat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for inventory.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="inventory_8c__incl.png" border="0" usemap="#asrc_2inventory_8c" alt=""/></div>
 <map name="asrc_2inventory_8c" id="asrc_2inventory_8c">
-<area shape="rect" title=" " alt="" coords="262,5,378,32"/>
+<area shape="rect" title=" " alt="" coords="317,5,433,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,72,107"/>
 <area shape="rect" title=" " alt="" coords="97,80,167,107"/>
 <area shape="rect" href="state_8h.html" title=" " alt="" coords="192,80,259,107"/>
 <area shape="rect" href="player_8h.html" title=" " alt="" coords="283,80,357,107"/>
 <area shape="rect" href="inventory_8h.html" title=" " alt="" coords="382,80,477,107"/>
 <area shape="rect" href="item_8h.html" title=" " alt="" coords="501,80,565,107"/>
-<area shape="rect" href="menu_8h.html" title=" " alt="" coords="590,80,661,107"/>
+<area shape="rect" href="combat_8h.html" title=" " alt="" coords="589,80,672,107"/>
+<area shape="rect" href="menu_8h.html" title=" " alt="" coords="697,80,767,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abd2a13016df288614b0cc800286706b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#abd2a13016df288614b0cc800286706b8">initInventory</a> ()</td></tr>
-<tr class="memdesc:abd2a13016df288614b0cc800286706b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprintf  <a href="inventory_8c.html#abd2a13016df288614b0cc800286706b8">More...</a><br /></td></tr>
+<tr class="memdesc:abd2a13016df288614b0cc800286706b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new inventory. Allocates memory for a new inventory and initializes its fields.  <a href="inventory_8c.html#abd2a13016df288614b0cc800286706b8">More...</a><br /></td></tr>
 <tr class="separator:abd2a13016df288614b0cc800286706b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a662361cd02e37e8d0e06c157577c74db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a662361cd02e37e8d0e06c157577c74db">addItem</a> (<a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *i, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *<a class="el" href="structitem.html">item</a>)</td></tr>
 <tr class="memdesc:a662361cd02e37e8d0e06c157577c74db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the inventory.  <a href="inventory_8c.html#a662361cd02e37e8d0e06c157577c74db">More...</a><br /></td></tr>
@@ -105,7 +107,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ac1d5908b93f46a1d0310fcdfc437f0e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#ac1d5908b93f46a1d0310fcdfc437f0e3">removeItem</a> (<a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *i, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *<a class="el" href="structitem.html">item</a>)</td></tr>
 <tr class="memdesc:ac1d5908b93f46a1d0310fcdfc437f0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from the inventory.  <a href="inventory_8c.html#ac1d5908b93f46a1d0310fcdfc437f0e3">More...</a><br /></td></tr>
 <tr class="separator:ac1d5908b93f46a1d0310fcdfc437f0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b4082fcd4bb2bce71899d1c4fbf0e9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d">sellEquippedItem</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *i)</td></tr>
+<tr class="memitem:a1b4082fcd4bb2bce71899d1c4fbf0e9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d">sellEquippedItem</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *i)</td></tr>
 <tr class="memdesc:a1b4082fcd4bb2bce71899d1c4fbf0e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sells the equipped item.  <a href="inventory_8c.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d">More...</a><br /></td></tr>
 <tr class="separator:a1b4082fcd4bb2bce71899d1c4fbf0e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5770d9ff8818daabdf39121ef7513dae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a5770d9ff8818daabdf39121ef7513dae">switchEquippedItem</a> (<a class="el" href="inventory_8h.html#ad8e20a0d22a054c1c1004342fff71de7">Inventory</a> *i)</td></tr>
@@ -114,7 +116,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ac2909d02352bce9232b9c2aef91c5efb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#ac2909d02352bce9232b9c2aef91c5efb">freeInventory</a> (void *p)</td></tr>
 <tr class="memdesc:ac2909d02352bce9232b9c2aef91c5efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for an inventory.  <a href="inventory_8c.html#ac2909d02352bce9232b9c2aef91c5efb">More...</a><br /></td></tr>
 <tr class="separator:ac2909d02352bce9232b9c2aef91c5efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a014c1f54ecde3aedb64e90249f5b4f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b">useEquippedItem</a> (<a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memitem:a014c1f54ecde3aedb64e90249f5b4f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b">useEquippedItem</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:a014c1f54ecde3aedb64e90249f5b4f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the equipped item.  <a href="inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b">More...</a><br /></td></tr>
 <tr class="separator:a014c1f54ecde3aedb64e90249f5b4f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -201,8 +203,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprintf </p>
-<p>Initializes a new inventory. Allocates memory for a new inventory and initializes its fields.</p>
+<p>Initializes a new inventory. Allocates memory for a new inventory and initializes its fields. </p>
 <dl class="section return"><dt>Returns</dt><dd>Inventory* Initialized inventory </dd></dl>
 
 </div>
@@ -255,7 +256,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void sellEquippedItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
@@ -322,7 +323,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void useEquippedItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="inventory_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
           <td class="paramname"><em>st</em></td><td>)</td>
           <td></td>
         </tr>
@@ -344,7 +345,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

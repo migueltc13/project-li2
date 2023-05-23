@@ -69,25 +69,27 @@ $(function() {
 <div class="title">menu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="menu_8h.html#a8763d8a99781dd928e6f2dc5c128a329">    1</a></span>&#160;<span class="preprocessor">#ifndef MENU_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MENU_H</span></div>
+<a href="menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="menu_8h.html#a8763d8a99781dd928e6f2dc5c128a329">    1</a></span>&#160;<span class="preprocessor">#ifndef _MENU_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _MENU_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="menu_8h.html#aaa3f89d08a9fcf0af415b012b8138ebf">    4</a></span>&#160;<span class="preprocessor">#define MENU_HEIGHT 6</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="menu_8h.html#aa8f321bb04597e48bd72ec1013d7d8c2">    5</a></span>&#160;<span class="preprocessor">#define MENU_BORDERS_COLOR COLOR_BLUE</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structstate.html">state</a> <a class="code" href="structstate.html">State</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#ac984ebbdeffff42634edb6e9d3746090">generateMenu</a>(<a class="code" href="structstate.html">State</a> *st);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146">sendMenuMessage</a>(<a class="code" href="structstate.html">State</a> *st, <span class="keywordtype">char</span> *message);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="amenu_8h_html_aa7ab6967d6b12df56f62e7fcb70a7146"><div class="ttname"><a href="menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146">sendMenuMessage</a></div><div class="ttdeci">void sendMenuMessage(State *st, char *message)</div><div class="ttdoc">Sends a message to the menu.</div><div class="ttdef"><b>Definition:</b> menu.c:15</div></div>
-<div class="ttc" id="amenu_8h_html_ac984ebbdeffff42634edb6e9d3746090"><div class="ttname"><a href="menu_8h.html#ac984ebbdeffff42634edb6e9d3746090">generateMenu</a></div><div class="ttdeci">void generateMenu(State *st)</div><div class="ttdoc">Generates and display the menu.</div><div class="ttdef"><b>Definition:</b> menu.c:30</div></div>
-<div class="ttc" id="astructstate_html"><div class="ttname"><a href="structstate.html">state</a></div><div class="ttdoc">Sructure of the game state.</div><div class="ttdef"><b>Definition:</b> state.h:26</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146">sendMenuMessage</a>(<a class="code" href="structstate.html">State</a> *st, <span class="keywordtype">char</span> *message);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#ac984ebbdeffff42634edb6e9d3746090">generateMenu</a>(<a class="code" href="structstate.html">State</a> *st);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#aa59df74ae8256ad1100369237b6d0672">legendMenu</a>(<a class="code" href="structstate.html">State</a> *st);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amenu_8h_html_aa59df74ae8256ad1100369237b6d0672"><div class="ttname"><a href="menu_8h.html#aa59df74ae8256ad1100369237b6d0672">legendMenu</a></div><div class="ttdeci">void legendMenu(State *st)</div><div class="ttdef"><b>Definition:</b> menu.c:102</div></div>
+<div class="ttc" id="amenu_8h_html_aa7ab6967d6b12df56f62e7fcb70a7146"><div class="ttname"><a href="menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146">sendMenuMessage</a></div><div class="ttdeci">void sendMenuMessage(State *st, char *message)</div><div class="ttdoc">Sends a message to the menu.</div><div class="ttdef"><b>Definition:</b> menu.c:16</div></div>
+<div class="ttc" id="amenu_8h_html_ac984ebbdeffff42634edb6e9d3746090"><div class="ttname"><a href="menu_8h.html#ac984ebbdeffff42634edb6e9d3746090">generateMenu</a></div><div class="ttdeci">void generateMenu(State *st)</div><div class="ttdoc">Generates and display the menu.</div><div class="ttdef"><b>Definition:</b> menu.c:31</div></div>
+<div class="ttc" id="astructstate_html"><div class="ttname"><a href="structstate.html">state</a></div><div class="ttdoc">Sructure of the game state.</div><div class="ttdef"><b>Definition:</b> state.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

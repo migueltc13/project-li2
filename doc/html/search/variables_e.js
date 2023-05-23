@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['value_309',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
-  ['vision_310',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]]
+  ['turn_385',['turn',['../structstate.html#a2353ce8b613c2aebb31637030dcfcfa1',1,'state']]],
+  ['turns_5fleft_386',['turns_left',['../structprojectile.html#a3d501c2a5e8e66a5d6f1bcf4443ea06b',1,'projectile']]],
+  ['type_387',['type',['../structitem.html#a932f3f0cefdda86cbc43d699337114aa',1,'item']]]
 ];

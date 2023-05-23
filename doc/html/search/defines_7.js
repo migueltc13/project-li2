@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['normal_5fmode_333',['NORMAL_MODE',['../state_8h.html#aa045b6864425ecb90f2c253e8440d21c',1,'state.h']]],
-  ['number_5fof_5fitems_334',['NUMBER_OF_ITEMS',['../state_8c.html#a2172d2375b05f0cc892cd4e736af7445',1,'state.c']]],
-  ['number_5fof_5fmonsters_335',['NUMBER_OF_MONSTERS',['../monster_8h.html#a777d88496a75e553f07f4fa375807a60',1,'monster.h']]]
+  ['max_5fhealth_421',['MAX_HEALTH',['../player_8h.html#a2cf38e1cf676620c959917828e2eac9d',1,'player.h']]],
+  ['max_5fitem_5fname_422',['MAX_ITEM_NAME',['../item_8h.html#a76ccc512e6849dda545be45ee41fd05c',1,'item.h']]],
+  ['max_5fitems_423',['MAX_ITEMS',['../item_8h.html#a1b40ceb455086d9cdb68ed3d3bf2775f',1,'item.h']]],
+  ['max_5fprojectiles_424',['MAX_PROJECTILES',['../combat_8h.html#adbc131e9b147b67d84003e054b355365',1,'combat.h']]],
+  ['menu_5fborders_5fcolor_425',['MENU_BORDERS_COLOR',['../menu_8h.html#aa8f321bb04597e48bd72ec1013d7d8c2',1,'menu.h']]],
+  ['menu_5fheight_426',['MENU_HEIGHT',['../menu_8h.html#aaa3f89d08a9fcf0af415b012b8138ebf',1,'menu.h']]]
 ];

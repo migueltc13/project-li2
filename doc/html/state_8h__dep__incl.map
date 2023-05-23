@@ -1,9 +1,10 @@
 <map id="include/state.h" name="include/state.h">
-<area shape="rect" id="node1" title=" " alt="" coords="299,5,417,32"/>
-<area shape="rect" id="node2" href="$inventory_8c.html" title=" " alt="" coords="5,80,121,107"/>
-<area shape="rect" id="node3" href="$main_8c.html" title=" " alt="" coords="145,80,235,107"/>
-<area shape="rect" id="node4" href="$map_8c.html" title=" " alt="" coords="259,80,345,107"/>
-<area shape="rect" id="node5" href="$menu_8c.html" title=" " alt="" coords="369,80,462,107"/>
-<area shape="rect" id="node6" href="$monster_8c.html" title=" " alt="" coords="486,80,595,107"/>
-<area shape="rect" id="node7" href="$state_8c.html" title=" " alt="" coords="620,80,709,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="372,5,491,32"/>
+<area shape="rect" id="node2" href="$combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title=" " alt="" coords="275,80,364,107"/>
+<area shape="rect" id="node5" href="$map_8c.html" title=" " alt="" coords="389,80,474,107"/>
+<area shape="rect" id="node6" href="$menu_8c.html" title=" " alt="" coords="498,80,591,107"/>
+<area shape="rect" id="node7" href="$monster_8c.html" title=" " alt="" coords="615,80,725,107"/>
+<area shape="rect" id="node8" href="$state_8c.html" title=" " alt="" coords="749,80,839,107"/>
 </map>

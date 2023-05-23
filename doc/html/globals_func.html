@@ -108,12 +108,19 @@ $(function() {
 : <a class="el" href="monster_8c.html#a28a6946a8c35779600fa7e277f109060">monster.c</a>
 </li>
 <li>drawMonsters()
-: <a class="el" href="monster_8h.html#a67b441a3c2eb91e979bb9ba96d4e03b7">monster.h</a>
-, <a class="el" href="monster_8c.html#a67b441a3c2eb91e979bb9ba96d4e03b7">monster.c</a>
+: <a class="el" href="monster_8c.html#a67b441a3c2eb91e979bb9ba96d4e03b7">monster.c</a>
+, <a class="el" href="monster_8h.html#a67b441a3c2eb91e979bb9ba96d4e03b7">monster.h</a>
 </li>
 <li>drawPlayer()
 : <a class="el" href="player_8h.html#aa5ed3d2e3149b89a28a1dfb5535a523d">player.h</a>
 , <a class="el" href="player_8c.html#aa5ed3d2e3149b89a28a1dfb5535a523d">player.c</a>
+</li>
+<li>drawProjectile()
+: <a class="el" href="combat_8c.html#a83de671b1f5f05dc80551f7e0c830f30">combat.c</a>
+</li>
+<li>drawProjectiles()
+: <a class="el" href="combat_8h.html#a382a071812386c8d56d38641ed254eb0">combat.h</a>
+, <a class="el" href="combat_8c.html#a382a071812386c8d56d38641ed254eb0">combat.c</a>
 </li>
 <li>drawState()
 : <a class="el" href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">state.h</a>
@@ -153,6 +160,10 @@ $(function() {
 <li>freePlayer()
 : <a class="el" href="player_8h.html#aaaa1224401fcdab1ec7e2c5eed3532c2">player.h</a>
 , <a class="el" href="player_8c.html#aaaa1224401fcdab1ec7e2c5eed3532c2">player.c</a>
+</li>
+<li>freeProjectile()
+: <a class="el" href="combat_8h.html#a862eb7ef45e61ac443f4473effd15cf9">combat.h</a>
+, <a class="el" href="combat_8c.html#a862eb7ef45e61ac443f4473effd15cf9">combat.c</a>
 </li>
 <li>freeState()
 : <a class="el" href="state_8h.html#aa213845b6ea1ac7c1e8feea118117a72">state.h</a>
@@ -215,6 +226,9 @@ $(function() {
 <li>initDragon()
 : <a class="el" href="monster_8c.html#a1b8cbd9c57067a0e33e4dee0b9311f63">monster.c</a>
 </li>
+<li>initFireBomb()
+: <a class="el" href="item_8c.html#aa287c9f2f2bed4ef00cc28015bcb192f">item.c</a>
+</li>
 <li>initGoblin()
 : <a class="el" href="monster_8c.html#a9ebeba67339d52e559cbb680b12d3685">monster.c</a>
 </li>
@@ -237,8 +251,8 @@ $(function() {
 : <a class="el" href="monster_8c.html#a178c7351711f24a5777ced98e6b52c0e">monster.c</a>
 </li>
 <li>initPlayer()
-: <a class="el" href="player_8h.html#aad6d0fdcac0735fc6d08821797018737">player.h</a>
-, <a class="el" href="player_8c.html#aad6d0fdcac0735fc6d08821797018737">player.c</a>
+: <a class="el" href="player_8c.html#aad6d0fdcac0735fc6d08821797018737">player.c</a>
+, <a class="el" href="player_8h.html#aad6d0fdcac0735fc6d08821797018737">player.h</a>
 </li>
 <li>initPotionOfHealing()
 : <a class="el" href="item_8c.html#a719c96bdb1c90e6aafa0a08d3ee24d51">item.c</a>
@@ -246,11 +260,17 @@ $(function() {
 <li>initPotOfGold()
 : <a class="el" href="item_8c.html#abfc6dae1c459fa0cd688a79f6e5cb4f0">item.c</a>
 </li>
+<li>initProjectile()
+: <a class="el" href="combat_8c.html#ad2bbc0bd9437cf1f768d7f179437083b">combat.c</a>
+</li>
 <li>initRat()
 : <a class="el" href="monster_8c.html#a7d8b9f212558737e9abcc2d015a86bab">monster.c</a>
 </li>
 <li>initRock()
 : <a class="el" href="item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2">item.c</a>
+</li>
+<li>initSmokeBomb()
+: <a class="el" href="item_8c.html#af26c555bd4ef5e307d9eb99a3d4e4d8c">item.c</a>
 </li>
 <li>initState()
 : <a class="el" href="state_8h.html#a8bf2101425edf8571ed6de882ee1e9e7">state.h</a>
@@ -258,6 +278,9 @@ $(function() {
 </li>
 <li>initTroll()
 : <a class="el" href="monster_8c.html#ab5b3f331ba9a0ac370e13fca5873aee5">monster.c</a>
+</li>
+<li>insertProjectile()
+: <a class="el" href="combat_8c.html#a0cd159ed854d99760354d2f8c27c4f07">combat.c</a>
 </li>
 <li>isCellBlockingLight()
 : <a class="el" href="cell_8h.html#a4b3d401c7a8c7dee9509d3fd1c72e643">cell.h</a>
@@ -274,6 +297,14 @@ $(function() {
 <li>isCellWalkable()
 : <a class="el" href="cell_8h.html#a33cc13c88c64f69e65203b3bcef656b5">cell.h</a>
 , <a class="el" href="cell_8c.html#a33cc13c88c64f69e65203b3bcef656b5">cell.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>legendMenu()
+: <a class="el" href="menu_8h.html#aa59df74ae8256ad1100369237b6d0672">menu.h</a>
+, <a class="el" href="menu_8c.html#aa59df74ae8256ad1100369237b6d0672">menu.c</a>
 </li>
 </ul>
 
@@ -296,6 +327,9 @@ $(function() {
 : <a class="el" href="monster_8h.html#a9575b4c2b7e6ed5135d5907177fea161">monster.h</a>
 , <a class="el" href="monster_8c.html#a9575b4c2b7e6ed5135d5907177fea161">monster.c</a>
 </li>
+<li>moveProjectile()
+: <a class="el" href="combat_8c.html#aa2187ee82e17c65051a6cc36f6673e90">combat.c</a>
+</li>
 </ul>
 
 
@@ -313,6 +347,9 @@ $(function() {
 <li>removeItem()
 : <a class="el" href="inventory_8h.html#ac1d5908b93f46a1d0310fcdfc437f0e3">inventory.h</a>
 , <a class="el" href="inventory_8c.html#ac1d5908b93f46a1d0310fcdfc437f0e3">inventory.c</a>
+</li>
+<li>removeProjectile()
+: <a class="el" href="combat_8c.html#a702a344c6871840e9b50bc152f098de3">combat.c</a>
 </li>
 </ul>
 
@@ -333,7 +370,26 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>throwProjectile()
+: <a class="el" href="combat_8h.html#af2ccb67f5b1c049ddfb03f1cf667bee2">combat.h</a>
+, <a class="el" href="combat_8c.html#af2ccb67f5b1c049ddfb03f1cf667bee2">combat.c</a>
+</li>
+<li>throwRock()
+: <a class="el" href="combat_8h.html#abff1af54e4cb9fccc38d1a27fafe0cd0">combat.h</a>
+, <a class="el" href="combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0">combat.c</a>
+</li>
+</ul>
+
+
 <h3><a id="index_u"></a>- u -</h3><ul>
+<li>updateProjectile()
+: <a class="el" href="combat_8c.html#a7c74d7d7228b057b768298b078fab060">combat.c</a>
+</li>
+<li>updateProjectiles()
+: <a class="el" href="combat_8h.html#a5643d2845d06f765b94bcd1628f5ffed">combat.h</a>
+, <a class="el" href="combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed">combat.c</a>
+</li>
 <li>updateState()
 : <a class="el" href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">state.h</a>
 , <a class="el" href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">state.c</a>
@@ -346,7 +402,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

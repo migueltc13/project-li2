@@ -65,30 +65,465 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">combat.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="combat_8h_source.html">combat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="state_8h_source.html">state.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cell_8h_source.html">cell.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="inventory_8h_source.html">inventory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="monster_8h_source.html">monster.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventory_8h_source.html">inventory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for combat.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="combat_8c__incl.png" border="0" usemap="#asrc_2combat_8c" alt=""/></div>
 <map name="asrc_2combat_8c" id="asrc_2combat_8c">
-<area shape="rect" title=" " alt="" coords="140,5,245,32"/>
+<area shape="rect" title=" " alt="" coords="469,5,575,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" href="player_8h.html" title=" " alt="" coords="101,80,175,107"/>
-<area shape="rect" href="inventory_8h.html" title=" " alt="" coords="200,80,295,107"/>
-<area shape="rect" href="item_8h.html" title=" " alt="" coords="319,80,383,107"/>
+<area shape="rect" title=" " alt="" coords="100,80,184,107"/>
+<area shape="rect" href="combat_8h.html" title=" " alt="" coords="209,80,291,107"/>
+<area shape="rect" href="state_8h.html" title=" " alt="" coords="315,80,382,107"/>
+<area shape="rect" href="map_8h.html" title=" " alt="" coords="407,80,469,107"/>
+<area shape="rect" href="cell_8h.html" title=" " alt="" coords="493,80,551,107"/>
+<area shape="rect" href="player_8h.html" title=" " alt="" coords="575,80,650,107"/>
+<area shape="rect" href="monster_8h.html" title=" " alt="" coords="675,80,761,107"/>
+<area shape="rect" href="item_8h.html" title=" " alt="" coords="786,80,850,107"/>
+<area shape="rect" href="inventory_8h.html" title=" " alt="" coords="875,80,969,107"/>
+<area shape="rect" href="menu_8h.html" title=" " alt="" coords="993,80,1064,107"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprojectile.html">projectile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of a thrown projectile.  <a href="structprojectile.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac8d36819f4d293e453482f3b58276e0c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structprojectile.html">projectile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a></td></tr>
+<tr class="memdesc:ac8d36819f4d293e453482f3b58276e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of a thrown projectile.  <a href="combat_8c.html#ac8d36819f4d293e453482f3b58276e0c">More...</a><br /></td></tr>
+<tr class="separator:ac8d36819f4d293e453482f3b58276e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad2bbc0bd9437cf1f768d7f179437083b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#ad2bbc0bd9437cf1f768d7f179437083b">initProjectile</a> (int x, int y, int direction, int range, int effect, int damage, char symbol, int color)</td></tr>
+<tr class="memdesc:ad2bbc0bd9437cf1f768d7f179437083b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new projectile.  <a href="combat_8c.html#ad2bbc0bd9437cf1f768d7f179437083b">More...</a><br /></td></tr>
+<tr class="separator:ad2bbc0bd9437cf1f768d7f179437083b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2187ee82e17c65051a6cc36f6673e90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#aa2187ee82e17c65051a6cc36f6673e90">moveProjectile</a> (<a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *p)</td></tr>
+<tr class="memdesc:aa2187ee82e17c65051a6cc36f6673e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a projectile. Reduces the number of turns left by 1.  <a href="combat_8c.html#aa2187ee82e17c65051a6cc36f6673e90">More...</a><br /></td></tr>
+<tr class="separator:aa2187ee82e17c65051a6cc36f6673e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd159ed854d99760354d2f8c27c4f07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a0cd159ed854d99760354d2f8c27c4f07">insertProjectile</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *p)</td></tr>
+<tr class="separator:a0cd159ed854d99760354d2f8c27c4f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702a344c6871840e9b50bc152f098de3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a702a344c6871840e9b50bc152f098de3">removeProjectile</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int index)</td></tr>
+<tr class="separator:a702a344c6871840e9b50bc152f098de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c74d7d7228b057b768298b078fab060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a7c74d7d7228b057b768298b078fab060">updateProjectile</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *<a class="el" href="structprojectile.html">projectile</a>, int index)</td></tr>
+<tr class="memdesc:a7c74d7d7228b057b768298b078fab060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a projectile within the game state.  <a href="combat_8c.html#a7c74d7d7228b057b768298b078fab060">More...</a><br /></td></tr>
+<tr class="separator:a7c74d7d7228b057b768298b078fab060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5643d2845d06f765b94bcd1628f5ffed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed">updateProjectiles</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="separator:a5643d2845d06f765b94bcd1628f5ffed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862eb7ef45e61ac443f4473effd15cf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a862eb7ef45e61ac443f4473effd15cf9">freeProjectile</a> (void *p)</td></tr>
+<tr class="separator:a862eb7ef45e61ac443f4473effd15cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff1af54e4cb9fccc38d1a27fafe0cd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0">throwRock</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memdesc:abff1af54e4cb9fccc38d1a27fafe0cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to throw a rock projectile.  <a href="combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0">More...</a><br /></td></tr>
+<tr class="separator:abff1af54e4cb9fccc38d1a27fafe0cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ccb67f5b1c049ddfb03f1cf667bee2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#af2ccb67f5b1c049ddfb03f1cf667bee2">throwProjectile</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="separator:af2ccb67f5b1c049ddfb03f1cf667bee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83de671b1f5f05dc80551f7e0c830f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a83de671b1f5f05dc80551f7e0c830f30">drawProjectile</a> (<a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *p)</td></tr>
+<tr class="memdesc:a83de671b1f5f05dc80551f7e0c830f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a projectile.  <a href="combat_8c.html#a83de671b1f5f05dc80551f7e0c830f30">More...</a><br /></td></tr>
+<tr class="separator:a83de671b1f5f05dc80551f7e0c830f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a382a071812386c8d56d38641ed254eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a382a071812386c8d56d38641ed254eb0">drawProjectiles</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
+<tr class="memdesc:a382a071812386c8d56d38641ed254eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all visible projectiles.  <a href="combat_8c.html#a382a071812386c8d56d38641ed254eb0">More...</a><br /></td></tr>
+<tr class="separator:a382a071812386c8d56d38641ed254eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ac8d36819f4d293e453482f3b58276e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8d36819f4d293e453482f3b58276e0c">&#9670;&nbsp;</a></span>Projectile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structprojectile.html">projectile</a> <a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Structure of a thrown projectile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The current x coordinate of the projectile </td></tr>
+    <tr><td class="paramname">y</td><td>The current y coordinate of the projectile </td></tr>
+    <tr><td class="paramname">direction</td><td>The ongoing direction of the projectile </td></tr>
+    <tr><td class="paramname">turns_left</td><td>The number of turns left for the projectile to disappear/have an effect </td></tr>
+    <tr><td class="paramname">effect</td><td>The effect of the projectile </td></tr>
+    <tr><td class="paramname">damage</td><td>The damage of the projectile </td></tr>
+    <tr><td class="paramname">color</td><td>The color of the projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a83de671b1f5f05dc80551f7e0c830f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83de671b1f5f05dc80551f7e0c830f30">&#9670;&nbsp;</a></span>drawProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a projectile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Projectile to draw </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a382a071812386c8d56d38641ed254eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382a071812386c8d56d38641ed254eb0">&#9670;&nbsp;</a></span>drawProjectiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawProjectiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw all visible projectiles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Map to draw visible projectiles </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a862eb7ef45e61ac443f4473effd15cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862eb7ef45e61ac443f4473effd15cf9">&#9670;&nbsp;</a></span>freeProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeProjectile </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2bbc0bd9437cf1f768d7f179437083b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bbc0bd9437cf1f768d7f179437083b">&#9670;&nbsp;</a></span>initProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a>* initProjectile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>effect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>symbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes a new projectile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x coordinate of the projectile </td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate of the projectile </td></tr>
+    <tr><td class="paramname">direction</td><td>The direction of the projectile </td></tr>
+    <tr><td class="paramname">range</td><td>The range of the projectile </td></tr>
+    <tr><td class="paramname">effect</td><td>The effect of the projectile </td></tr>
+    <tr><td class="paramname">damage</td><td>The damage of the projectile </td></tr>
+    <tr><td class="paramname">symbol</td><td>The symbol of the projectile </td></tr>
+    <tr><td class="paramname">color</td><td>The color of the projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Projectile* The initialized projectile </dd></dl>
+
+</div>
+</div>
+<a id="a0cd159ed854d99760354d2f8c27c4f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd159ed854d99760354d2f8c27c4f07">&#9670;&nbsp;</a></span>insertProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2187ee82e17c65051a6cc36f6673e90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2187ee82e17c65051a6cc36f6673e90">&#9670;&nbsp;</a></span>moveProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves a projectile. Reduces the number of turns left by 1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The projectile to move </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a702a344c6871840e9b50bc152f098de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a702a344c6871840e9b50bc152f098de3">&#9670;&nbsp;</a></span>removeProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2ccb67f5b1c049ddfb03f1cf667bee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ccb67f5b1c049ddfb03f1cf667bee2">&#9670;&nbsp;</a></span>throwProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void throwProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abff1af54e4cb9fccc38d1a27fafe0cd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff1af54e4cb9fccc38d1a27fafe0cd0">&#9670;&nbsp;</a></span>throwRock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void throwRock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to throw a rock projectile. </p>
+<p>The rock is thrown in the direction the player is facing The rock is thrown until it hits a wall or a monster Update projectile position with moveProjectiles function</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a7c74d7d7228b057b768298b078fab060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c74d7d7228b057b768298b078fab060">&#9670;&nbsp;</a></span>updateProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a> *&#160;</td>
+          <td class="paramname"><em>projectile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates a projectile within the game state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">projectile</td><td>The projectile to update </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the projectile in the map </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>TODO: clear projectiles </p>
+
+</div>
+</div>
+<a id="a5643d2845d06f765b94bcd1628f5ffed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5643d2845d06f765b94bcd1628f5ffed">&#9670;&nbsp;</a></span>updateProjectiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateProjectiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 23 2023 02:24:08 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

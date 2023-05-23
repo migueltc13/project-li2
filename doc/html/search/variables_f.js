@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wall_5fprob_311',['wall_prob',['../structstate.html#a305feef1cde04ce9471e83cb472c0b01',1,'state']]],
-  ['width_312',['width',['../structmap.html#a34b43c4ecce8de3a5228b7f4e6d66740',1,'map']]]
+  ['value_388',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
+  ['vision_389',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]]
 ];

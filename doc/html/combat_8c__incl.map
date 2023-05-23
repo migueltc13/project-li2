@@ -1,7 +1,14 @@
 <map id="src/combat.c" name="src/combat.c">
-<area shape="rect" id="node1" title=" " alt="" coords="140,5,245,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="469,5,575,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" id="node3" href="$player_8h.html" title=" " alt="" coords="101,80,175,107"/>
-<area shape="rect" id="node4" href="$inventory_8h.html" title=" " alt="" coords="200,80,295,107"/>
-<area shape="rect" id="node5" href="$item_8h.html" title=" " alt="" coords="319,80,383,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="100,80,184,107"/>
+<area shape="rect" id="node4" href="$combat_8h.html" title=" " alt="" coords="209,80,291,107"/>
+<area shape="rect" id="node5" href="$state_8h.html" title=" " alt="" coords="315,80,382,107"/>
+<area shape="rect" id="node6" href="$map_8h.html" title=" " alt="" coords="407,80,469,107"/>
+<area shape="rect" id="node7" href="$cell_8h.html" title=" " alt="" coords="493,80,551,107"/>
+<area shape="rect" id="node8" href="$player_8h.html" title=" " alt="" coords="575,80,650,107"/>
+<area shape="rect" id="node9" href="$monster_8h.html" title=" " alt="" coords="675,80,761,107"/>
+<area shape="rect" id="node10" href="$item_8h.html" title=" " alt="" coords="786,80,850,107"/>
+<area shape="rect" id="node11" href="$inventory_8h.html" title=" " alt="" coords="875,80,969,107"/>
+<area shape="rect" id="node12" href="$menu_8h.html" title=" " alt="" coords="993,80,1064,107"/>
 </map>
