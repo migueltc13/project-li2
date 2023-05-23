@@ -9,24 +9,26 @@
 #include "state.h"
 #include "monster.h"
 #include "item.h"
+#include "menu.h" // macro for height of the menu
 
 /**
  * @brief Initialize a new map
  * 
- * @param int width 
- * @param int height 
+ * @param width 
+ * @param height 
  * @return Map*
  */
 Map *initMap(int width, int height) {
     Map *map = (Map *) malloc(sizeof(struct map));
     map->width = width;
-    map->height = height;
+    map->height = height - MENU_HEIGHT;
     // TODO: check if malloc fails
     map->cells = (Cell ***) malloc(sizeof(Cell **) * height);
     for (int i = 0; i < height; i++) {
         map->cells[i] = (Cell **) malloc(sizeof(Cell *) * width);
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++) {
             map->cells[i][j] = initCellFloor(j, i);
+        }
     }
     // Initialize the items list
     map->items = (Item **) malloc(sizeof(Item *) * MAX_ITEMS);
@@ -34,9 +36,9 @@ Map *initMap(int width, int height) {
 }
 
 /**
- * @brief Free the map
+ * @brief Free the map structure
  * 
- * @param void *p (a pointer to a Map) 
+ * @param p a pointer to the map to free 
  * @return void
  */
 void freeMap(void *p) {
@@ -47,6 +49,11 @@ void freeMap(void *p) {
         free(map->cells[i]);
     }
     free(map->cells);
+    for (int i = 0; i < map->nr_items; i++) {
+        if (map->items[i] != NULL)
+            freeItem(map->items[i]);
+    }
+    free(map->items);
     free(map);
 }
 
@@ -76,7 +83,7 @@ int radius_count(State *s, int row, int col, int radius) {
  * 
  * Saves a (int**) map twice
  * 
- * @param Map *map 
+ * @param st State to generate the map 
  * @return void
  */
 void generateMap(State *st) {
@@ -165,9 +172,10 @@ void generateMap(State *st) {
 }
 
 /**
- * @brief Draw the map
+ * @brief Draw the map according to the mode
  * 
- * @param Map *map 
+ * @param map Map to draw
+ * @param mode normal mode, vision mode or distance mode 
  * @return void
  */
 void drawMap(Map *map, int mode) {
@@ -220,9 +228,10 @@ void drawMap(Map *map, int mode) {
 /**
  * @brief Get the player initial (3x3 empty space)
  * 
- * @param Map *map
- * @param int *x
- * @param int *y
+ * @param map Map to get the player initial position
+ * @param x returns the x coordinate
+ * @param y returns the y coordinate
+ * @return void
 */
 void getPlayerInitialPosition(Map* map, int* x, int* y) {
     int height = map->height;
@@ -252,13 +261,32 @@ void getPlayerInitialPosition(Map* map, int* x, int* y) {
 }
 
 /**
+ * @brief Get random coordinates for monsters
+ * 
+ * @param map Map to get the random coordinates
+ * @param x returns the x coordinate
+ * @param y returns the y coordinate
+*/
+void getRandomCoordinates(Map* map, int* x, int* y) {
+    int height = map->height;
+    int width = map->width;
+
+    while (true) {
+        *x = rand() % width;
+        *y = rand() % height;
+        if (map->cells[*y][*x]->symbol == '.' && map->cells[*y][*x]->has_player == 0)
+            return;
+    }
+}
+
+/**
  * @brief Calculate the distances from the player to all the cells
  * 
- * Adjanct cells have a distance of 1
+ * @details The distance is calculated as the maximum between the x and y distance
  * 
- * @param Map *map
- * @param int x
- * @param int y
+ * @param map Map to calculate the distances
+ * @param x Starting x coordinate
+ * @param y Starting y coordinate
 */
 void calculateDistances(Map* map, int x, int y) {
     for (int R = 0; R < map->height; R++) {
@@ -276,9 +304,9 @@ void calculateDistances(Map* map, int x, int y) {
  * 
  * Based on the player position and the distance to the cells, the is_visible field is updated
  * 
- * @param Map *map
- * @param int x
- * @param int y
+ * @param map Map to calculate the vision
+ * @param x Starting x coordinate
+ * @param y Starting y coordinate
 */ 
 void calculateVision(Map* map, int x, int y) {
     // Start from the player position
@@ -356,6 +384,10 @@ void calculateVision(Map* map, int x, int y) {
 
 /**
  * @brief Distribute the items on the map
+ * 
+ * @param map Map to distribute the items
+ * @param items Array of items to distribute
+ * @param nr_items Number of items in the array
  * 
  * TODO: replace while loop with for loop
  * TODO: CHECK if x doesnt have a valid value, then the item is not placed

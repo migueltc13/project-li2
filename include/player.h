@@ -5,6 +5,8 @@
 #define MAX_HEALTH 100
 #define PLAYER_VISION 20 // cells
 
+typedef struct inventory Inventory;
+
 /** @brief Structure of a player
  * 
  * @details A player is a singular game unit with 2D coordinates,
@@ -17,7 +19,8 @@
  * @param defense Defense of the player
  * @param attack Attack of the player
  * @param vision Vision of the player set to PLAYER_VISION macro
- * TODO: @param inventory Inventory of the player
+ * @param max_health Maximum health of the player set to MAX_HEALTH macro
+ * @param inventory Inventory of the player
  */
 typedef struct player {
     unsigned int x;
@@ -27,7 +30,8 @@ typedef struct player {
     int defense;
     int attack;
     int vision; // PLAYER_VISION
-    // ...
+    int max_health; // MAX_HEALTH
+    Inventory *inventory;
 } Player;
 
 Player *initPlayer(int x, int y);

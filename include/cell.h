@@ -15,7 +15,7 @@
  * @param is_visible 1 if the cell is visible, 0 otherwise
  * @param distance_to_player Distance to the player, initialized to -1
  * @param has_item 1 if the cell has an item, 0 otherwise
- * @param has_monster 1 if the cell has a monster, 0 otherwise
+ * @param monster_index 1 if the cell has a monster, 0 otherwise
  * @param has_player 1 if the cell has the player, 0 otherwise
  * @param color Color of the cell
  * TODO: @param monster Monster in this cell, if not NULL
@@ -29,11 +29,13 @@ typedef struct cell {
     unsigned int is_visible; // is this cell visible?
     int distance_to_player; // initialized to -1
     unsigned int has_item; // does this cell have an item?
-    unsigned int has_monster; // does this cell have a monster?
     unsigned int has_player; // does this cell have the player?
+    int monster_index; // does this cell have a monster? -1 if not else index in the monster array
     int color;
-    // Monster* monster; // monster in this cell, if not NULL
 } Cell;
+
+#define FLOOR_SYMBOL '.'
+#define WALL_SYMBOL  '#'
 
 Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int color);
 Cell *initCellFloor(int x, int y);
@@ -41,7 +43,7 @@ Cell *initCellWall(int x, int y);
 int isCellWalkable(Cell *cell);
 int isCellBlockingLight(Cell *cell);
 int isCellItem(Cell *cell);
-// int isCellMonster(Cell *cell);
+int isCellMonster(Cell *cell);
 void freeCell(void *p);
 
 #endif

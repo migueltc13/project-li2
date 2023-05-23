@@ -1,11 +1,10 @@
 - Player:
-	- Inventario (lista ligada)
-	- HP/MP/AMMO
-	- Gold
+	- Inventario done
+	- HP/MP/AMMO done
+	- Gold done inside inventory
 - Mob:
 	- Queue de Mobs
-		- Spawn Mobs
-		-   
+		- Spawn Mobs 
 	- HP
 	- Armor + Def
 	- ATT | ATT | FIREBALL ...
@@ -13,23 +12,22 @@
 	- Kind
 	- Time
 - cell / tile
-	- is walkable
-	- blocks_light
-	- objects (items)
-	- mob*
+	- is walkable done
+	- blocks_light done
+	- objects (items) done
+	- monster_index done (-1 if none)
 - Combat
-	- 2D4 (2->nr de dados, 4->nr de faces)
+	- 2D4 (2->nr de dados, 4->nr de faces) TODO
 - items
-	- increase max vision range
-	- facas espadas clavas
-	- Life healing 
-	- Life max increase
-- Cavernas
-
-- Mapa fix copy cells array for even distribution
-
-- Count nr de turnos 
-
-- Get last digit for distance modes in a faster way 
-TODO: refresh()
-TODO: remove functions like getCellSymbol(), etc
+	- increase max vision range TODO
+	- facas espadas clavas TODO
+	- Life healing:
+		- Potion of Healing done
+		- Other ?
+	- Life max increase TODO
+- Caves (2 or just 1 maybe) TODO
+- Mapa fix copy cells array for even distribution done
+- Count nr de turnos done ? (print in menu TODO)
+- Get last digit for distance modes in a faster way TODO performance issues
+- Use ncurses refresh() done
+- remove functions like getCellSymbol(), etc TODO

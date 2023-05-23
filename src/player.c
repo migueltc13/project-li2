@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "player.h"
+#include "inventory.h"
 
 /**
  * @brief Initializes a new player. Allocates memory for a new player and initializes its fields.
@@ -16,6 +17,8 @@ Player *initPlayer(int x, int y) {
     p->symbol = PLAYER_SYMBOL;
     p->health = MAX_HEALTH;
     p->vision = PLAYER_VISION;
+    p->max_health = MAX_HEALTH;
+    p->inventory = initInventory();
     return p;
 }
 
@@ -45,5 +48,6 @@ void freePlayer(void *p) {
     player->symbol = '\0';
     player->health = 0;
     player->vision = 0;
+    freeInventory(player->inventory);
     free(player);
 }

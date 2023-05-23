@@ -8,6 +8,10 @@
 #include "map.h"
 #include "cell.h"
 #include "item.h"
+#include "inventory.h"
+#include "monster.h"
+// #include "combat.h" TODO: implement
+#include "menu.h"
 
 #define NUMBER_OF_ITEMS 15
 
@@ -35,6 +39,10 @@ State *initState(int width, int height) {
     Item **items = generateItems(NUMBER_OF_ITEMS);
     distributeItems(st->map, items, NUMBER_OF_ITEMS);
 
+    // Generate monsters
+    st->nMonsters = NUMBER_OF_MONSTERS;
+    st->monsters = generateMonsters(st->map);
+
     calculateDistances(st->map, x, y);
     calculateVision(st->map, x, y);
     return st;
@@ -43,13 +51,14 @@ State *initState(int width, int height) {
 /**
  * @brief Free the game state
  * 
- * @param void *p (a pointer to a State) 
+ * @param p a pointer to the State to free 
  * @return void
  */
 void freeState(void *p) {
     State *st = (State *) p;
     freeMap(st->map);
     freePlayer(st->player);
+    // TODO: free monsters
     free(st);
 }
 
@@ -85,15 +94,17 @@ void drawState(State *st) {
     else if (st->mode == NORMAL_MODE)
         drawAllItems(st->map->items, st->map->nr_items);
 
+    drawMonsters(st);
     drawPlayer(st->player);
+    generateMenu(st);
     refresh();
 }
 
 /**
  * @brief Calulates the state based on the input key
  * 
- * @param State *st
- * @param int input_key
+ * @param st Calculated state
+ * @param input_key Input keyboard key
  * @return void 
  * (0: normal view, 1: distance view enabled, -1: the player win/lost/quit)
 */
@@ -124,6 +135,11 @@ void calculateState(State *st, int input_key) {
         case '2': dx =  0; dy =  1; break;
         case KEY_C3:
         case '3': dx =  1; dy =  1; break;
+        // Inventory keys
+        case 'i': switchEquippedItem(st->player->inventory); return;   // switch equipped item
+        case 'o': sellEquippedItem(st, st->player->inventory); return; // sell equiped item
+        // Combat / Potions keys
+        case 'u': useEquippedItem(st); break; // Use equipped item can be a potion or a projectile
         // Menu keys
         case 'n': st->mode = NORMAL_MODE;   return; // normal view
         case 'v': st->mode = VISION_MODE;   return; // normal view
@@ -134,7 +150,7 @@ void calculateState(State *st, int input_key) {
     int x = st->player->x, y = st->player->y;
     x += dx; y += dy;
 
-    if (isCellWalkable(st->map->cells[y][x])) {
+    if (isCellWalkable(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x])) {
         // Moves the player
         st->map->cells[st->player->y][st->player->x]->has_player = 0; // false
         st->player->x = x;
@@ -144,28 +160,32 @@ void calculateState(State *st, int input_key) {
         calculateDistances(st->map, x, y); // TODO enhance this (unnecessary calculations) by using updateDistances function
         calculateVision(st->map, x, y);
     }
-    if (isCellItem(st->map->cells[y][x])) {
+    if (isCellItem(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x])) {
         // TODO pick up item (inventory.h)
         // Find the item in the map->items array
         Item *item = getItem(st->map->items, st->map->nr_items, x, y);
         if (item != NULL) {
-            // Add the item to the player's inventory
-            // TODO: addItemToInventory(st->player->inventory, item);
-            // getItem removes the item from the map->items array
-            // so we only need to decrease the number of items
+            addItem(st->player->inventory, item);
             st->map->nr_items--;
-        }
+            // getItem removes the item from the map->items array by shifting the items to the left
+            // so we only need to decrease the number of items in the map
 
+            char *menu_message = (char *) malloc(sizeof(char) * st->map->width);
+            sprintf(menu_message, "You picked up %s", item->name);
+            sendMenuMessage(st, menu_message);
+            free(menu_message);
+        }
+    }
+    if (isCellMonster(st->map->cells[y][x])) {
+        char *message = (char *) malloc(sizeof(char) * st->map->width);
+        Monster *monster = st->monsters[st->map->cells[y][x]->monster_index];
+        sprintf(message, "You attacked the %s. Monster health: %d", monster->name, monster->health);
+        sendMenuMessage(st, message);
+        // TODO combat monster (combat.h)
     }
     /* if (isCellExit(st->map->cells[y][x])) {
         st->mode = EXIT_MODE;
     } */
-    /*
-    else if (isCellMonster(st->map, x, y)) {
-        // TODO attack monster (combat.h)
-    }
-    else if (isCellItem(st->map, x, y)) {
-        // TODO pick up item (inventory.h)
-    }
-    */
+    
+    moveMonsters(st->map, st->monsters, st->nMonsters);
 }

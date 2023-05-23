@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <ncurses.h>
 #include "cell.h"
 
 /**
@@ -22,6 +23,7 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
     cell->distance_to_player = -1;
     cell->is_visible = 0; // Not visible by default
     cell->has_item = 0; // No item by default
+    cell->monster_index = -1; // No monster by default
     cell->color = color; // TODO
     return cell;
 }
@@ -36,7 +38,7 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
  * @return Cell* Initialized cell as a floor cell
  */
 Cell *initCellFloor(int x, int y) {
-    return initCell(x, y, '.', 1, 0, 6); // 6 is COLOR_GREY TODO window.h
+    return initCell(x, y, FLOOR_SYMBOL, 1, 0, 6); // 6 is COLOR_GREY TODO window.h
 }
 
 /**
@@ -49,7 +51,7 @@ Cell *initCellFloor(int x, int y) {
  * @return Cell* Initialized cell as a wall cell
  */
 Cell *initCellWall(int x, int y) {
-    return initCell(x, y, '#', 0, 1, 0); // 0 is COLOR_BLACK TODO window.h
+    return initCell(x, y, WALL_SYMBOL, 0, 1, COLOR_WHITE); // 0 is COLOR_BLACK TODO window.h
 }
 
 /**
@@ -82,10 +84,15 @@ int isCellItem(Cell *cell) {
     return cell->has_item;
 }
 
-/* TODO
-Monster *isCellMonster(Cell *cell) {
-    return cell->has_monster != NULL;
-}*/
+/**
+ * @brief Checks if a cell is has a monster
+ * 
+ * @param cell Cell to check
+ * @return int 1 if the cell has a monster, 0 otherwise
+ */
+int isCellMonster(Cell *cell) {
+    return cell->monster_index != -1;
+}
 
 /* TODO: deprecated
 void drawCell(Cell *cell) {
@@ -107,5 +114,7 @@ void freeCell(void *p) {
     cell->is_walkable = 0;
     cell->block_light = 0;
     cell->is_visible = 0;
+    cell->has_item = 0;
+    cell->color = 0;
     free(cell);
 }

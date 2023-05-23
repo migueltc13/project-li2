@@ -32,7 +32,10 @@ void drawMap(Map *map, int mode);
 
 //void generateMap(Map *map, int *x, int *y);
 void generateMap(State *st);
+
 void getPlayerInitialPosition(Map *map, int *x, int *y);
+void getRandomCoordinates(Map* map, int* x, int* y);
+
 void calculateDistances(Map* map, int x, int y);
 void calculateVision(Map* map, int x, int y);
 
