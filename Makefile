@@ -15,7 +15,7 @@ OBJECTS=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all $(BIN) install debug doc clean
 
-all: clean $(BIN) # TODO remove the clean
+all: $(BIN)
 
 $(BIN): $(OBJECTS) $(OBJ_DIR)/main.o
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
