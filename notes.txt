@@ -13,12 +13,14 @@
 	- Time
 - cell / tile
 	- is walkable done
+	- is_visible to was_visible TODO update Cell add was_visible
 	- blocks_light done
 	- objects (items) done
 	- monster_index done (-1 if none)
 - Combat
 	- 2D4 (2->nr de dados, 4->nr de faces) TODO
 - items
+	- increas NUMBER_OF_ITEMS
 	- increase max vision range TODO
 	- facas espadas clavas TODO
 	- Life healing:
