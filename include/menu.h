@@ -1,5 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef _MENU_H_
+#define _MENU_H_
 
 #define MENU_HEIGHT 6
 #define MENU_BORDERS_COLOR COLOR_BLUE
