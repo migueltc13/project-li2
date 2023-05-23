@@ -10,6 +10,14 @@
  * @param x Item x coordinate on the map if any
  * @param y Item y coordinate on the map if any
  * @param name Item name
+ * @param symbol Item symbol
+ * @param type Item type
+ * @param value Item value
+ * @param is_picked_up Is the item picked up?
+ * @param damage Item damage
+ * @param defense Item defense
+ * @param hp Item hp (Healing potion)
+ * @param color Item color
  * @return Item*
  */
 Item *initItem(char *name,
@@ -21,7 +29,8 @@ Item *initItem(char *name,
                int y,
                int damage,
                int defense,
-               int hp)
+               int hp,
+               int color)
 {
     Item *i = (Item *) malloc(sizeof(Item));
     i->name = name; // Aloccate memory for the name + strdup
@@ -34,6 +43,8 @@ Item *initItem(char *name,
     i->damage = damage;
     i->defense = defense;
     i->hp = hp;
+    i->count = 1;
+    i->color = color;
     return i;
 }
 
@@ -44,7 +55,7 @@ Item *initItem(char *name,
  */
 Item *initRock() {
     int damage = ROCK_DAMAGE_MIN + rand() % (ROCK_DAMAGE_MAX - ROCK_DAMAGE_MIN + 1);
-    return initItem("rock", ':', 1, ROCK_VALUE, 0, 0, 0, damage, 0, 0);
+    return initItem("rock", ROCK_SYMBOL, ROCK_TYPE, ROCK_VALUE, 0, 0, 0, damage, 0, 0, COLOR_WHITE);
 }
 
 // ----------------
@@ -64,10 +75,17 @@ Item *initRock() {
 /**
  * @brief Initialize a new item: Pot of gold
  */
+Item *initPotOfGold() {
+    int value = POT_OF_GOLD_VALUE_MIN + rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1);
+    return initItem("pot of gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, COLOR_YELLOW);
+}
 
 /**
  * @brief Initialize a new item: Potion of healing
  */
+Item *initPotionOfHealing() {
+    return initItem("potion of healing", POTION_OF_HEALING_SYMBOL, POTION_OF_HEALING_TYPE, POTION_OF_HEALING_VALUE, 0, 0, 0, 0, 0, POTION_OF_HEALING_HP, COLOR_RED);
+}
 
 /**
  * @brief Initialize a new item: Potion of vision
@@ -100,11 +118,11 @@ Item* generateItem() {
     
     // 10% chance of generating a pot of gold
     if (r < 60)
-        return initRock(); // TODO: initPotOfGold();
+        return initPotOfGold();
     
     // 10% chance of generating a potion of healing
     if (r < 70)
-        return initRock(); // TODO: initPotionOfHealing();
+        return initPotionOfHealing();
     
     // 10% chance of generating a potion of vision
     if (r < 80)
@@ -157,8 +175,9 @@ void dropItem() {
  * @return void
  */
 void drawItem(Item *i) {
-    // TODO color
+    attron(COLOR_PAIR(i->color));
     mvaddch(i->y, i->x, i->symbol);
+    attroff(COLOR_PAIR(i->color));
 }
 
 /**
@@ -177,6 +196,7 @@ void drawAllItems(Item **items, int n) {
 /**
  * @brief Draw all visible items in the Map
  * 
+ * @param map Map
  * @param items Array of items to draw
  * @param n Number of items in the array
  * @return void
@@ -216,5 +236,6 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
  * @return void
  */
 void freeItem(void *i) {
+    // free(name); do not because it is a string literal
     free(i);
 }
