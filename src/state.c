@@ -88,6 +88,8 @@ void updateState(State *st, int input_key) {
  */
 void drawState(State *st) {
     drawMap(st->map, st->mode); // TODO: mode outside drawMap()
+    // draw projectiles in all modes
+    drawProjectiles(st->map);
 
     if (st->mode == VISION_MODE)
         drawVisibleItems(st->map, st->map->items, st->map->nr_items);

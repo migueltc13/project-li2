@@ -243,8 +243,6 @@ void drawMap(Map *map, int mode) {
             }
         }
     }
-    // draw projectiles in all modes
-    drawProjectiles(map);
 }
 
 /**
