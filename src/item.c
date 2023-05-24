@@ -168,6 +168,8 @@ Item* generateItem() {
 /**
  * @brief Generate n *random* items
  * 
+ * @details Used to generate items to distribute on the map
+ * 
  * @param n Number of items to generate
  * @return Item** Array of items
  */
@@ -181,10 +183,6 @@ Item** generateItems(int n) {
 }
 
 void pickUpItem() {
-    // TODO
-}
-
-void dropItem() {
     // TODO
 }
 
@@ -244,7 +242,8 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
             // Remove item from the array
             for (int j = i; j < nr_items - 1; j++)
                 items[j] = items[j + 1];
-            
+            items[nr_items - 1] = NULL;
+            // TODO: free item and remove it from the map
             return item;
         }
     }
