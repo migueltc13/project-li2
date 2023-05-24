@@ -3,7 +3,7 @@
 ## Requirements
   - [Ncurses](https://en.wikipedia.org/wiki/Ncurses)
 
-## Install Ncurses
+## Install Ncurses (apt)
 
 ```sh
 apt install libncurses5-dev libncursesw5-dev
