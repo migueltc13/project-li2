@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['orc_5fcolor_430',['ORC_COLOR',['../monster_8h.html#a3b70925318e5486b1f2c613f773ca784',1,'monster.h']]],
-  ['orc_5fsymbol_431',['ORC_SYMBOL',['../monster_8h.html#a2bc1cc378ddf878a9129428142f8af5c',1,'monster.h']]]
+  ['normal_5fmode_594',['NORMAL_MODE',['../state_8h.html#aa045b6864425ecb90f2c253e8440d21c',1,'state.h']]],
+  ['number_5fof_5fitems_595',['NUMBER_OF_ITEMS',['../state_8c.html#a2172d2375b05f0cc892cd4e736af7445',1,'state.c']]],
+  ['number_5fof_5fmonsters_596',['NUMBER_OF_MONSTERS',['../monster_8h.html#a777d88496a75e553f07f4fa375807a60',1,'monster.h']]]
 ];

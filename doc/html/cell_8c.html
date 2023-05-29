@@ -109,6 +109,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac177bf8088bd4198a8090d5583eeba79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8c.html#ac177bf8088bd4198a8090d5583eeba79">isCellMonster</a> (<a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *<a class="el" href="structcell.html">cell</a>)</td></tr>
 <tr class="memdesc:ac177bf8088bd4198a8090d5583eeba79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a cell is has a monster.  <a href="cell_8c.html#ac177bf8088bd4198a8090d5583eeba79">More...</a><br /></td></tr>
 <tr class="separator:ac177bf8088bd4198a8090d5583eeba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe216a0e24a49a9b142ef2eba6df2243"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8c.html#afe216a0e24a49a9b142ef2eba6df2243">isCellExit</a> (<a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *<a class="el" href="structcell.html">cell</a>)</td></tr>
+<tr class="memdesc:afe216a0e24a49a9b142ef2eba6df2243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a cell is the exit cell.  <a href="cell_8c.html#afe216a0e24a49a9b142ef2eba6df2243">More...</a><br /></td></tr>
+<tr class="separator:afe216a0e24a49a9b142ef2eba6df2243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659f7a114fb0932cae279d47c7355d4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8c.html#a659f7a114fb0932cae279d47c7355d4c">freeCell</a> (void *p)</td></tr>
 <tr class="memdesc:a659f7a114fb0932cae279d47c7355d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for a cell by <a class="el" href="cell_8c.html#a5a8fb4802d26e3d7a7e9df0aef2458fc" title="Initializes a new cell. Allocates memory for a new cell and initializes its fields.">initCell()</a>. Sets all the cell fields to 0.  <a href="cell_8c.html#a659f7a114fb0932cae279d47c7355d4c">More...</a><br /></td></tr>
 <tr class="separator:a659f7a114fb0932cae279d47c7355d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,6 +314,33 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afe216a0e24a49a9b142ef2eba6df2243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe216a0e24a49a9b142ef2eba6df2243">&#9670;&nbsp;</a></span>isCellExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isCellExit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cell_8h.html#a5a015017629833d016e38b49dca7b1c3">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a cell is the exit cell. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if the cell is the exit cell, 0 otherwise </dd></dl>
+
+</div>
+</div>
 <a id="ad2a26b3b45580f4fad26b413337994a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2a26b3b45580f4fad26b413337994a6">&#9670;&nbsp;</a></span>isCellItem()</h2>
 
@@ -395,7 +425,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

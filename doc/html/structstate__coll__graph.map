@@ -1,10 +1,10 @@
 <map id="state" name="state">
-<area shape="rect" id="node1" title="Sructure of the game state." alt="" coords="138,288,192,315"/>
-<area shape="rect" id="node2" href="$structmap.html" title="Structure that represents a map in the game." alt="" coords="152,109,202,136"/>
-<area shape="rect" id="node3" href="$structitem.html" title="Item structure represents an item in the game." alt="" coords="48,5,100,32"/>
-<area shape="rect" id="node8" href="$structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="23,109,107,136"/>
-<area shape="rect" id="node4" href="$structcell.html" title="Structure of a cell." alt="" coords="190,5,236,32"/>
-<area shape="rect" id="node5" href="$structprojectile.html" title="Structure of a thrown projectile." alt="" coords="260,5,342,32"/>
-<area shape="rect" id="node6" href="$structmonster.html" title="Structure of a monster." alt="" coords="223,199,299,225"/>
-<area shape="rect" id="node7" href="$structplayer.html" title="Structure of a player." alt="" coords="46,199,108,225"/>
+<area shape="rect" id="node1" title="Sructure of the game state." alt="" coords="151,317,205,344"/>
+<area shape="rect" id="node2" href="$structmap.html" title="Structure that represents a map in the game." alt="" coords="166,139,217,165"/>
+<area shape="rect" id="node3" href="$structitem.html" title="Item structure represents an item in the game." alt="" coords="59,5,111,32"/>
+<area shape="rect" id="node8" href="$structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="33,139,117,165"/>
+<area shape="rect" id="node4" href="$structcell.html" title="Structure of a cell." alt="" coords="205,5,250,32"/>
+<area shape="rect" id="node5" href="$structprojectile.html" title="Structure of a thrown projectile." alt="" coords="274,5,357,32"/>
+<area shape="rect" id="node6" href="$structmonster.html" title="Structure of a monster." alt="" coords="236,228,312,255"/>
+<area shape="rect" id="node7" href="$structplayer.html" title="Structure of a player." alt="" coords="57,228,120,255"/>
 </map>

@@ -78,7 +78,7 @@ Collaboration diagram for inventory:</div>
 <div class="dyncontent">
 <div class="center"><img src="structinventory__coll__graph.png" border="0" usemap="#ainventory_coll__map" alt="Collaboration graph"/></div>
 <map name="ainventory_coll__map" id="ainventory_coll__map">
-<area shape="rect" title="Inventory structure represents the player inventory." alt="" coords="5,109,89,136"/>
+<area shape="rect" title="Inventory structure represents the player inventory." alt="" coords="5,139,89,165"/>
 <area shape="rect" href="structitem.html" title="Item structure represents an item in the game." alt="" coords="21,5,73,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -93,6 +93,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1c75b2decb9236376ed9b4b42ba369f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c9fbdc34940eb27a79508ac7b4d63b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinventory.html#a1c9fbdc34940eb27a79508ac7b4d63b5">equiped_index</a></td></tr>
 <tr class="separator:a1c9fbdc34940eb27a79508ac7b4d63b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac693bd54bc674226e6587a40f88634b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinventory.html#ac693bd54bc674226e6587a40f88634b6">equipped_sword</a></td></tr>
+<tr class="separator:ac693bd54bc674226e6587a40f88634b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad48f6c91748aac5355b10bd5aac0a76f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinventory.html#ad48f6c91748aac5355b10bd5aac0a76f">equipped_armor</a></td></tr>
+<tr class="separator:ad48f6c91748aac5355b10bd5aac0a76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fe903c8bf9e589e47c7e43d570e724"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinventory.html#a20fe903c8bf9e589e47c7e43d570e724">gold</a></td></tr>
 <tr class="separator:a20fe903c8bf9e589e47c7e43d570e724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -105,6 +109,8 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">nr_items</td><td>the number of items in the inventory </td></tr>
     <tr><td class="paramname">equipped_item</td><td>the equipped item </td></tr>
     <tr><td class="paramname">equiped_index</td><td>the index of the equipped item </td></tr>
+    <tr><td class="paramname">equipped_sword</td><td>the equipped sword </td></tr>
+    <tr><td class="paramname">equipped_armor</td><td>the equipped armor </td></tr>
     <tr><td class="paramname">gold</td><td>the amount of gold in the inventory </td></tr>
   </table>
   </dd>
@@ -124,6 +130,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad48f6c91748aac5355b10bd5aac0a76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48f6c91748aac5355b10bd5aac0a76f">&#9670;&nbsp;</a></span>equipped_armor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* inventory::equipped_armor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1c75b2decb9236376ed9b4b42ba369f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c75b2decb9236376ed9b4b42ba369f0">&#9670;&nbsp;</a></span>equipped_item</h2>
 
@@ -132,6 +152,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* inventory::equipped_item</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac693bd54bc674226e6587a40f88634b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac693bd54bc674226e6587a40f88634b6">&#9670;&nbsp;</a></span>equipped_sword</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a>* inventory::equipped_sword</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -186,7 +220,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 24 2023 00:22:47 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

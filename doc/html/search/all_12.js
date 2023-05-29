@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['value_227',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
-  ['vision_228',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]],
-  ['vision_5fmode_229',['VISION_MODE',['../state_8h.html#af4bbb90a8308b1e280415a62de208dec',1,'state.h']]]
+  ['updateprojectile_313',['updateProjectile',['../combat_8c.html#a7c74d7d7228b057b768298b078fab060',1,'combat.c']]],
+  ['updateprojectiles_314',['updateProjectiles',['../combat_8h.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c'],['../combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c']]],
+  ['updatestate_315',['updateState',['../state_8h.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c'],['../state_8c.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c']]],
+  ['useequippeditem_316',['useEquippedItem',['../inventory_8h.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c'],['../inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c']]]
 ];

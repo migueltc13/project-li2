@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['updateprojectile_339',['updateProjectile',['../combat_8c.html#a7c74d7d7228b057b768298b078fab060',1,'combat.c']]],
-  ['updateprojectiles_340',['updateProjectiles',['../combat_8h.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c'],['../combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c']]],
-  ['updatestate_341',['updateState',['../state_8h.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c'],['../state_8c.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c']]],
-  ['useequippeditem_342',['useEquippedItem',['../inventory_8h.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c'],['../inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c']]]
+  ['throwfirebomb_454',['throwFirebomb',['../combat_8c.html#adbacd67b8d84b13e1ac63aa06c1d6237',1,'combat.c']]],
+  ['throwicebomb_455',['throwIcebomb',['../combat_8c.html#a7edda70a83899670f3121fa1b355d628',1,'combat.c']]],
+  ['throwprojectile_456',['throwProjectile',['../combat_8h.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c'],['../combat_8c.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c']]],
+  ['throwrock_457',['throwRock',['../combat_8h.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c'],['../combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c']]],
+  ['throwsmokebomb_458',['throwSmokebomb',['../combat_8c.html#a865443f929aab23a5f0cfe4dd82b00be',1,'combat.c']]]
 ];

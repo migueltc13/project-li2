@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['wall_5fcolor_470',['WALL_COLOR',['../cell_8h.html#a47eb681b9f2c5a8f4f63891a58ab8e2d',1,'cell.h']]],
-  ['wall_5fsymbol_471',['WALL_SYMBOL',['../cell_8h.html#ab0a9fa8f982b6403d8b98ad6be3dc879',1,'cell.h']]],
-  ['weapon_472',['WEAPON',['../item_8h.html#a520f43eff993fc00cc6277024d53fa47',1,'item.h']]]
+  ['troll_5fcolor_652',['TROLL_COLOR',['../monster_8h.html#a2042333b5d2a8623da129d9333313648',1,'monster.h']]],
+  ['troll_5fsymbol_653',['TROLL_SYMBOL',['../monster_8h.html#a08dcac73397d448ef6309f18c9d2c7d5',1,'monster.h']]]
 ];

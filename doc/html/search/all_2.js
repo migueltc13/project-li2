@@ -9,8 +9,14 @@ var searchData=
   ['cell_2ec_10',['cell.c',['../cell_8c.html',1,'']]],
   ['cell_2eh_11',['cell.h',['../cell_8h.html',1,'']]],
   ['cells_12',['cells',['../structmap.html#a44a00caf76a078a5c5774b126dbf07f5',1,'map']]],
-  ['color_13',['color',['../structprojectile.html#af0a32e5aba6bb6c951660baf2da43a8f',1,'projectile::color()'],['../structmonster.html#a26b7f6f524f0cc66bcede30f1729e7ba',1,'monster::color()'],['../structitem.html#ab595ffca2742c41d9351e203a569ac7c',1,'item::color()'],['../structcell.html#aca19b21960f06b4fbfd5549af2622710',1,'cell::color()']]],
-  ['combat_2ec_14',['combat.c',['../combat_8c.html',1,'']]],
-  ['combat_2eh_15',['combat.h',['../combat_8h.html',1,'']]],
-  ['count_16',['count',['../structitem.html#a84ad511a7e7fc725743a4399fa240c61',1,'item']]]
+  ['chainmail_5farmor_5fcolor_13',['CHAINMAIL_ARMOR_COLOR',['../item_8h.html#aa3424da05a04008c4d33e46f34c49254',1,'item.h']]],
+  ['chainmail_5farmor_5fdefense_14',['CHAINMAIL_ARMOR_DEFENSE',['../item_8h.html#a999a507266f33e651fc99e9391c77bf1',1,'item.h']]],
+  ['chainmail_5farmor_5fsymbol_15',['CHAINMAIL_ARMOR_SYMBOL',['../item_8h.html#a743c021ec7cb32a4d1757bdf233d6d10',1,'item.h']]],
+  ['chainmail_5farmor_5ftype_16',['CHAINMAIL_ARMOR_TYPE',['../item_8h.html#a2e790cc9f2dd6d229500024c31684e17',1,'item.h']]],
+  ['chainmail_5farmor_5fvalue_17',['CHAINMAIL_ARMOR_VALUE',['../item_8h.html#ae4ee816d193a8df196bf7c3f5a78488b',1,'item.h']]],
+  ['color_18',['color',['../structprojectile.html#af0a32e5aba6bb6c951660baf2da43a8f',1,'projectile::color()'],['../structmonster.html#a26b7f6f524f0cc66bcede30f1729e7ba',1,'monster::color()'],['../structitem.html#ab595ffca2742c41d9351e203a569ac7c',1,'item::color()'],['../structcell.html#aca19b21960f06b4fbfd5549af2622710',1,'cell::color()']]],
+  ['combat_2ec_19',['combat.c',['../combat_8c.html',1,'']]],
+  ['combat_2eh_20',['combat.h',['../combat_8h.html',1,'']]],
+  ['count_21',['count',['../structitem.html#a84ad511a7e7fc725743a4399fa240c61',1,'item']]],
+  ['createqueue_22',['createQueue',['../queue_8h.html#aa4fc1988b6de9949c88d1247b763b0d4',1,'createQueue():&#160;queue.c'],['../queue_8c.html#aa4fc1988b6de9949c88d1247b763b0d4',1,'createQueue():&#160;queue.c']]]
 ];

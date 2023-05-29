@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['max_5fhealth_421',['MAX_HEALTH',['../player_8h.html#a2cf38e1cf676620c959917828e2eac9d',1,'player.h']]],
-  ['max_5fitem_5fname_422',['MAX_ITEM_NAME',['../item_8h.html#a76ccc512e6849dda545be45ee41fd05c',1,'item.h']]],
-  ['max_5fitems_423',['MAX_ITEMS',['../item_8h.html#a1b40ceb455086d9cdb68ed3d3bf2775f',1,'item.h']]],
-  ['max_5fprojectiles_424',['MAX_PROJECTILES',['../combat_8h.html#adbc131e9b147b67d84003e054b355365',1,'combat.h']]],
-  ['menu_5fborders_5fcolor_425',['MENU_BORDERS_COLOR',['../menu_8h.html#aa8f321bb04597e48bd72ec1013d7d8c2',1,'menu.h']]],
-  ['menu_5fheight_426',['MENU_HEIGHT',['../menu_8h.html#aaa3f89d08a9fcf0af415b012b8138ebf',1,'menu.h']]]
+  ['leather_5farmor_5fcolor_581',['LEATHER_ARMOR_COLOR',['../item_8h.html#a3ce38c9c52744a37ad301146c54d7567',1,'item.h']]],
+  ['leather_5farmor_5fdefense_582',['LEATHER_ARMOR_DEFENSE',['../item_8h.html#a1e47b7991d2404e2788c24512e78c8f8',1,'item.h']]],
+  ['leather_5farmor_5fsymbol_583',['LEATHER_ARMOR_SYMBOL',['../item_8h.html#aea05b10ffeb62c80ffd1c94f318701f0',1,'item.h']]],
+  ['leather_5farmor_5ftype_584',['LEATHER_ARMOR_TYPE',['../item_8h.html#a3df3ada1cc20b45b66a63c8c84568a37',1,'item.h']]],
+  ['leather_5farmor_5fvalue_585',['LEATHER_ARMOR_VALUE',['../item_8h.html#a443cb59c2b2501e45a7eef33afc00d0e',1,'item.h']]],
+  ['legend_5fmenu_5fcolor_586',['LEGEND_MENU_COLOR',['../menu_8h.html#a2bd030119a2f593c53087a095d36612f',1,'menu.h']]],
+  ['legend_5fmenu_5fwidth_587',['LEGEND_MENU_WIDTH',['../menu_8h.html#add5a90d871a8537f25f96e62ca9f36b2',1,'menu.h']]]
 ];
