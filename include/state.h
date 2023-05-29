@@ -3,9 +3,12 @@
 
 #define NORMAL_MODE 0
 #define DISTANCE_MODE 1
-#define VISION_MODE 2
+#define VISION_MODE 2 // default
 #define CAVERN_MODE 3 // TODO: implement cavern mode
 #define EXIT_MODE -1
+#define QUIT_MODE -2
+
+#define EXIT_COST 500 // gold
 
 typedef struct map Map; // or #include "map.h"
 typedef struct player Player; // or #include "player.h"

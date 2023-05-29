@@ -34,10 +34,12 @@ typedef struct cell {
     int color;
 } Cell;
 
+#define EXIT_SYMBOL 'K' // aka Gate Keeper
+#define EXIT_COLOR COLOR_YELLOW
 #define FLOOR_SYMBOL '.'
 #define FLOOR_COLOR COLOR_GREEN
 #define WALL_SYMBOL  '#'
-#define WALL_COLOR COLOR_CYAN
+#define WALL_COLOR COLOR_BLUE
 
 Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int color);
 Cell *initCellFloor(int x, int y);
@@ -46,6 +48,7 @@ int isCellWalkable(Cell *cell);
 int isCellBlockingLight(Cell *cell);
 int isCellItem(Cell *cell);
 int isCellMonster(Cell *cell);
+int isCellExit(Cell *cell);
 void freeCell(void *p);
 
 #endif

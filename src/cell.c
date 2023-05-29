@@ -94,12 +94,22 @@ int isCellMonster(Cell *cell) {
     return cell->monster_index != -1;
 }
 
-/* TODO: deprecated
+/* Deprecated
 void drawCell(Cell *cell) {
     attron(COLOR_PAIR(cell->color));
     mvaddch(cell->y, cell->x, cell->symbol);
     attroff(COLOR_PAIR(cell->color))
 } */
+
+/**
+ * @brief Checks if a cell is the exit cell.
+ * 
+ * @param cell Cell to check
+ * @return int 1 if the cell is the exit cell, 0 otherwise
+*/
+int isCellExit(Cell *cell) {
+    return cell->symbol == EXIT_SYMBOL;
+}
 
 /**
  * @brief Frees the memory allocated for a cell by initCell(). Sets all the cell fields to 0.

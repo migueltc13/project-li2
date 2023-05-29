@@ -19,6 +19,8 @@ typedef struct state State;
  * @param nr_items: the number of items in the inventory
  * @param equipped_item: the equipped item
  * @param equiped_index: the index of the equipped item
+ * @param equipped_sword: the equipped sword
+ * @param equipped_armor: the equipped armor
  * @param gold: the amount of gold in the inventory
 */
 typedef struct inventory {
@@ -26,7 +28,10 @@ typedef struct inventory {
     int nr_items;
 
     Item *equipped_item;
-    int equiped_index;
+    int equiped_index; // TODO remove this
+
+    Item *equipped_sword;
+    Item *equipped_armor;
 
     int gold;
     // ...

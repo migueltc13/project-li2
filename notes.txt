@@ -1,7 +1,4 @@
-- Player:
-	- Inventario done
-	- HP/MP/AMMO done
-	- Gold done inside inventory
+- Monsters speed TODO
 - Mob:
 	- Queue de Mobs
 		- Spawn Mobs 
@@ -19,17 +16,18 @@
 	- monster_index done (-1 if none)
 - Combat
 	- 2D4 (2->nr de dados, 4->nr de faces) TODO
+	- Attack defense relations
 - items
-	- increas NUMBER_OF_ITEMS
+	- increase NUMBER_OF_ITEMS
 	- increase max vision range TODO
-	- facas espadas clavas TODO
+	- facas espadas clavas TODO (swords done)
 	- Life healing:
 		- Potion of Healing done
-		- Other ?
-	- Life max increase TODO
-- Caves (2 or just 1 maybe) TODO
+		- Other ? yes sensory and invincibility
 - Mapa fix copy cells array for even distribution done
 - Count nr de turnos done ? (print in menu TODO)
-- Get last digit for distance modes in a faster way TODO performance issues
-- Use ncurses refresh() done
-- remove functions like getCellSymbol(), etc TODO
+- Get last digit for distance modes in a faster way TODO
+- TODO bomb effects iter map and monsters
+- TODO equiped_sword/armor when is not NULL case
+- TODO fix Items seg fault when pressing N
+- TODO Kill monster with projectiles

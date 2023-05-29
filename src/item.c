@@ -79,20 +79,70 @@ Item *initFireBomb() {
 }
 
 /**
- * @brief Initialize a new item: Sword (weapon body)
+ * @brief Initialize a new item: Ice bomb (weapon projectile)
+ * 
+ * TODO: Implement ice bomb effect
  */
-/* Item *initSword() {
-    // TODO is_stackable = false
-    int attack = SWORD_ATTACK_MIN + rand() % (SWORD_ATTACK_MAX - SWORD_ATTACK_MIN + 1);
-    return initItem("Sword", SWORD_SYMBOL, SWORD_TYPE, SWORD_VALUE, 0, 0, 0, attack, 0, 0, SWORD_COLOR);
-} */
+Item *initIceBomb() {
+    int damage = ICE_BOMB_DAMAGE_MIN + rand() % (ICE_BOMB_DAMAGE_MAX - ICE_BOMB_DAMAGE_MIN + 1);
+    return initItem("Ice bomb", ICE_BOMB_SYMBOL, ICE_BOMB_TYPE, ICE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, ICE_BOMB_COLOR);
+}
 
 /**
- * @brief Initialize a new item: Pot of gold
+ * @brief Initialize a new item: Iron Sword (weapon body)
+ * 
+ * TODO: Implement sword equipping
  */
-Item *initPotOfGold() {
-    int value = POT_OF_GOLD_VALUE_MIN + rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1);
-    return initItem("Pot of Gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, POT_OF_GOLD_COLOR);
+Item *initIronSword() {
+    int attack = IRON_SWORD_DAMAGE_MIN + rand() % (IRON_SWORD_DAMAGE_MAX - IRON_SWORD_DAMAGE_MIN + 1);
+    return initItem("Iron Sword", IRON_SWORD_SYMBOL, IRON_SWORD_TYPE, IRON_SWORD_VALUE, 0, 0, 0, attack, 0, 0, IRON_SWORD_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Gold Sword (weapon body)
+ * 
+ * TODO: Implement sword equipping
+ */
+Item *initGoldSword() {
+    int attack = GOLD_SWORD_DAMAGE_MIN + rand() % (GOLD_SWORD_DAMAGE_MAX - GOLD_SWORD_DAMAGE_MIN + 1);
+    return initItem("Gold Sword", GOLD_SWORD_SYMBOL, GOLD_SWORD_TYPE, GOLD_SWORD_VALUE, 0, 0, 0, attack, 0, 0, GOLD_SWORD_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Diamond Sword (weapon body)
+ *
+ * TODO: Implement sword equipping
+ */
+Item *initDiamondSword() {
+    int attack = DIAMOND_SWORD_DAMAGE_MIN + rand() % (DIAMOND_SWORD_DAMAGE_MAX - DIAMOND_SWORD_DAMAGE_MIN + 1);
+    return initItem("Diamond Sword", DIAMOND_SWORD_SYMBOL, DIAMOND_SWORD_TYPE, DIAMOND_SWORD_VALUE, 0, 0, 0, attack, 0, 0, DIAMOND_SWORD_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Leather armor (armor)
+ * 
+ * @return (Item *) Leather armor 
+ */
+Item *initLeatherArmor() {
+    return initItem("Leather Armor", LEATHER_ARMOR_SYMBOL, LEATHER_ARMOR_TYPE, LEATHER_ARMOR_VALUE, 0, 0, 0, 0, LEATHER_ARMOR_DEFENSE, 0, LEATHER_ARMOR_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Chainmail armor (armor)
+ * 
+ * @return (Item *) Chainmail armor 
+ */
+Item *initChainmailArmor() {
+    return initItem("Chainmail Armor", CHAINMAIL_ARMOR_SYMBOL, CHAINMAIL_ARMOR_TYPE, CHAINMAIL_ARMOR_VALUE, 0, 0, 0, 0, CHAINMAIL_ARMOR_DEFENSE, 0, CHAINMAIL_ARMOR_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Plate armor (armor)
+ * 
+ * @return (Item *) Plate armor 
+ */
+Item *initPlateArmor() {
+    return initItem("Plate Armor", PLATE_ARMOR_SYMBOL, PLATE_ARMOR_TYPE, PLATE_ARMOR_VALUE, 0, 0, 0, 0, PLATE_ARMOR_DEFENSE, 0, PLATE_ARMOR_COLOR);
 }
 
 /**
@@ -107,9 +157,26 @@ Item *initPotionOfHealing() {
  *
  * TODO: Implement sensory potion effect
  */
-/* Item *initSensoryPotion() {
-    return initItem("Sensory Potion", SENSORY_POTION_SYMBOL, SENSORY_POTION_TYPE, SENSORY_POTION_VALUE, 0, 0, 0, 0, 0, SENSORY_POTION_HP, SENSORY_POTION_COLOR);
-} */
+Item *initSensoryPotion() {
+    return initItem("Sensory Potion", SENSORY_POTION_SYMBOL, SENSORY_POTION_TYPE, SENSORY_POTION_VALUE, 0, 0, 0, 0, 0, 0, SENSORY_POTION_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Potion of invincibility
+ * 
+ * TODO: Implement potion of invincibility effect
+ */
+Item *initPotionOfInvincibility() {
+    return initItem("Potion of Invincibility", POTION_OF_INVINCIBILITY_SYMBOL, POTION_OF_INVINCIBILITY_TYPE, POTION_OF_INVINCIBILITY_VALUE, 0, 0, 0, 0, 0, 0, POTION_OF_INVINCIBILITY_COLOR);
+}
+
+/**
+ * @brief Initialize a new item: Pot of gold
+ */
+Item *initPotOfGold() {
+    int value = POT_OF_GOLD_VALUE_MIN + rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1);
+    return initItem("Pot of Gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, POT_OF_GOLD_COLOR);
+}
 
 // ----------------
 
@@ -132,10 +199,18 @@ Item* generateItem() {
     if (r < 40)
         return initFireBomb();
     
-    // 10% chance of generating a sword
-    if (r < 50)
-        return initRock(); // TODO: initSword();
+    // 5% chance of generating a iron sword
+    if (r < 45)
+        return initIronSword();
     
+    // 4% chance of generating a gold sword
+    if (r < 49)
+        return initGoldSword();
+    
+    // 1% chance of generating a diamond sword
+    if (r < 50)
+        return initDiamondSword();
+
     // 10% chance of generating a pot of gold
     if (r < 60)
         return initPotOfGold();
@@ -144,25 +219,29 @@ Item* generateItem() {
     if (r < 70)
         return initPotionOfHealing();
     
-    // 10% chance of generating a potion of vision
+    // 10% chance of generating a sensory potion
     if (r < 80)
-        return initRock(); // TODO: initPotionOfVision();
-    
+        return initSensoryPotion();
+
     // 5% chance of generating a leather armor
     if (r < 85)
-        return initRock(); // TODO: initLeatherArmor();
+        return initLeatherArmor();
     
     // 3% chance of generating a chainmail armor
     if (r < 88)
-        return initRock(); // TODO: initChainmailArmor();
+        return initChainmailArmor();
     
     // 2% chance of generating a plate armor
     if (r < 90)
-        return initRock(); // TODO: initPlateArmor();
+        return initPlateArmor();
     
-    // 10% chance of generating a potion of invincibility
+    // 5% chance of generating a ice bomb
+    if (r < 95)
+        return initIceBomb();
+
+    // 5% chance of generating a potion of invincibility
     else
-        return initRock(); // TODO: initPotionOfInvincibility();
+        return initPotionOfInvincibility();
 }
 
 /**
@@ -250,6 +329,21 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
     return NULL;
 }
 
+/**
+ * @brief insert item into the items array (inventory)
+ * 
+*/
+int insertItem(Item **items, int nr_items, Item *item) {
+    for (int i = 0; i < nr_items; i++) {
+        if (items[i] == NULL) {
+            items[i] = item;
+            nr_items++;
+            return nr_items;
+        }
+    }
+    return nr_items;
+}
+
 /** 
  * @brief Free an item
  * 
@@ -257,6 +351,6 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
  * @return void
  */
 void freeItem(void *i) {
-    // free(name); do not because it is a string literal
+    // free(name); commented because it's a string literal
     free(i);
 }

@@ -3,7 +3,8 @@
 
 #define PLAYER_SYMBOL '@'
 #define MAX_HEALTH 100
-#define PLAYER_VISION 20 // cells
+#define PLAYER_VISION 16 // cells
+#define PLAYER_STARTING_ATTACK 5
 
 typedef struct inventory Inventory;
 
@@ -33,6 +34,7 @@ typedef struct player {
     int vision; // PLAYER_VISION
     int max_health; // MAX_HEALTH
     int direction;
+    // TODO: int color; // Color of the player changes when he takes damage
     Inventory *inventory;
 } Player;
 

@@ -1,5 +1,6 @@
 #include <stdio.h> // sprintf
 #include <stdlib.h>
+#include <ncurses.h> // colors
 #include "state.h" // useEquippedItem()
 #include "player.h" // useEquippedItem()
 #include "inventory.h"
@@ -17,6 +18,9 @@ Inventory *initInventory() {
     i->equipped_item = NULL; 
     i->items = (Item **) malloc(sizeof(Item *) * INVENTORY_SIZE);
     i->nr_items = 0;
+    i->equiped_index = 0;
+    i->equipped_sword = NULL;
+    i->equipped_armor = NULL;
     i->gold = 0;
     return i;
 }
@@ -39,7 +43,7 @@ void addItem(Inventory *i, Item *item) {
         // TODO iterate through the inventory to check if the item is already there if yes increase the count
         for (int x = 0; x < INVENTORY_SIZE; x++) {
             if (i->items[x] != NULL) {
-                if (i->items[x]->symbol == item->symbol) {
+                if (i->items[x]->symbol == item->symbol && i->items[x]->color == item->color) {
                     i->items[x]->count++;
                     // i->nr_items++; // TODO check this
                     return;
@@ -63,15 +67,17 @@ void addItem(Inventory *i, Item *item) {
 void removeItem(Inventory *i, Item *item) {
     for (int j = 0; j < i->nr_items; j++) {
         if (i->items[j] != NULL) {
-            if (i->items[j]->symbol == item->symbol) {
+            if (i->items[j]->symbol == item->symbol && i->items[j]->color == item->color) {
                 // TODO remove 1 from count of items
                 if (i->items[j]->count > 1) {
                     i->items[j]->count--;
                 }
                 else {
-                    //i->items[j] = NULL;
-                    freeItem(i->items[j]); 
-                    // i->equipped_item = NULL;
+                    // left shift the items
+                    for (int x = j; x < i->nr_items - 1; x++) {
+                        i->items[x] = i->items[x + 1];
+                    }
+                    i->items[i->nr_items - 1] = NULL;
                     i->nr_items--;
                 }
                 break;
@@ -92,8 +98,16 @@ void removeItem(Inventory *i, Item *item) {
 void sellEquippedItem(State *st, Inventory *i) {
     if (i->equipped_item == NULL) return;
     
+    // Confirm message
+    char *confirm_message = (char *) malloc(sizeof(char) * 200);
+    sprintf(confirm_message, "Do you want to sell \"%s\" for %d gold? (y/n)", i->equipped_item->name, i->equipped_item->value);
+    sendMenuMessage(st, confirm_message);
+    free(confirm_message);
+    char input = getch();
+    if (input != 'y') { sendMenuMessage(st, ""); return; }
+
     // Menu message
-    char *message = (char *) malloc(sizeof(char) * 1024);
+    char *message = (char *) malloc(sizeof(char) * 200);
     sprintf(message, "You sold \"%s\" for %d gold.", i->equipped_item->name, i->equipped_item->value);
     sendMenuMessage(st, message);
     free(message);
@@ -108,7 +122,6 @@ void sellEquippedItem(State *st, Inventory *i) {
         // remove the equipped item from the inventory
         removeItem(i, i->equipped_item);
         i->equipped_item = NULL;
-        // i->equiped_index = 0; // TODO check inventory implementation
     }
 }
 
@@ -178,29 +191,119 @@ void freeInventory(void *p) {
 void useEquippedItem(State *st) {
     if (st->player->inventory->equipped_item == NULL) return;
 
-    if (st->player->inventory->equipped_item->symbol == ROCK_SYMBOL) {
-        sendMenuMessage(st, "You threw a rock.");
-        throwRock(st);
-        return;
-    }
-    // TODO check item type if it's necessary
-    else if (st->player->inventory->equipped_item->symbol == POTION_OF_HEALING_SYMBOL) {
-        // Encrease player's health by POTION_OF_HEALING_HP (50)
-        if (st->player->health == st->player->max_health) {
-            // dont use the potion
-            sendMenuMessage(st, "You are already at full health.");
+    if (st->player->inventory->equipped_item->type == PROJECTILE)
+    {
+        if (st->player->inventory->equipped_item->symbol == ROCK_SYMBOL) {
+            sendMenuMessage(st, "You threw a rock.");
+            throwRock(st);
+            // Remove the rock from the inventory
+            removeItem(st->player->inventory, st->player->inventory->equipped_item);
+            st->player->inventory->equipped_item = NULL;
             return;
         }
-        else if (st->player->health + POTION_OF_HEALING_HP > st->player->max_health) {
-            st->player->health = st->player->max_health;
+        if (st->player->inventory->equipped_item->symbol == SMOKE_BOMB_SYMBOL
+            && st->player->inventory->equipped_item->color == SMOKE_BOMB_COLOR) {
+            sendMenuMessage(st, "You threw a smoke bomb.");
+            throwProjectile(st);
+            // Remove the smoke bomb from the inventory
             removeItem(st->player->inventory, st->player->inventory->equipped_item);
             st->player->inventory->equipped_item = NULL;
+            return;
         }
-        else {
-            st->player->health += POTION_OF_HEALING_HP;
+        if (st->player->inventory->equipped_item->symbol == FIRE_BOMB_SYMBOL
+            && st->player->inventory->equipped_item->color == FIRE_BOMB_COLOR) {
+            sendMenuMessage(st, "You threw a fire bomb.");
+            throwProjectile(st);
+            // Remove the fire bomb from the inventory
             removeItem(st->player->inventory, st->player->inventory->equipped_item);
             st->player->inventory->equipped_item = NULL;
+            return;
         }
-        sendMenuMessage(st, "You used a potion of healing.");
+        if (st->player->inventory->equipped_item->symbol == ICE_BOMB_SYMBOL
+            && st->player->inventory->equipped_item->color == ICE_BOMB_COLOR) {
+            sendMenuMessage(st, "You threw an ice bomb.");
+            throwProjectile(st);
+            // Remove the ice bomb from the inventory
+            removeItem(st->player->inventory, st->player->inventory->equipped_item);
+            st->player->inventory->equipped_item = NULL;
+            return;
+        }
+    }
+    if (st->player->inventory->equipped_item->type == POTION) {
+        if (st->player->inventory->equipped_item->symbol == POTION_OF_HEALING_SYMBOL &&
+            st->player->inventory->equipped_item->color  == POTION_OF_HEALING_COLOR) 
+        {
+            // Encrease player's health by POTION_OF_HEALING_HP (50)
+            if (st->player->health == st->player->max_health) {
+                // dont use the potion
+                sendMenuMessage(st, "You are already at full health.");
+                return;
+            }
+            else if (st->player->health + POTION_OF_HEALING_HP > st->player->max_health) {
+                st->player->health = st->player->max_health;
+                removeItem(st->player->inventory, st->player->inventory->equipped_item);
+                st->player->inventory->equipped_item = NULL;
+            }
+            else {
+                st->player->health += POTION_OF_HEALING_HP;
+                removeItem(st->player->inventory, st->player->inventory->equipped_item);
+                st->player->inventory->equipped_item = NULL;
+            }
+            sendMenuMessage(st, "You used a potion of healing.");
+            return;
+        }
+        // TODO add other potions: sensory, invisibility, etc
+    }
+    if (st->player->inventory->equipped_item->type == WEAPON)
+    {
+        // If there is a sword equipped, remove the sword attack from the player attack
+        if (st->player->inventory->equipped_sword != NULL) {
+            st->player->attack -= st->player->inventory->equipped_sword->damage;
+            st->player->inventory->nr_items = insertItem(st->player->inventory->items, st->player->inventory->nr_items, st->player->inventory->equipped_sword);
+            st->player->inventory->equipped_sword = NULL;
+        }
+
+        // Equip the sword
+        st->player->inventory->equipped_sword = st->player->inventory->equipped_item;
+        // remove the sword from the inventory
+        removeItem(st->player->inventory, st->player->inventory->equipped_item);
+        st->player->inventory->equipped_item = NULL;
+        
+        // Send menu message
+        char *message = (char *) malloc(sizeof(char) * 200);
+        sprintf(message, "You equipped the \"%s\".", st->player->inventory->equipped_sword->name);
+        sendMenuMessage(st, message);
+        free(message);
+        
+        // Add the sword attack to the player attack
+        st->player->attack += st->player->inventory->equipped_sword->damage;
+        return;
+    }
+
+    if (st->player->inventory->equipped_item->type == ARMOR)
+    {
+        if (st->player->inventory->equipped_armor != NULL) {
+            st->player->defense -= st->player->inventory->equipped_armor->defense;
+            st->player->inventory->nr_items = insertItem(st->player->inventory->items, st->player->inventory->nr_items, st->player->inventory->equipped_armor);
+            // TODO change insertItem
+            // st->player->inventory->nr_items++;
+            st->player->inventory->equipped_armor = NULL;
+        }
+
+        // Equip the armor
+        st->player->inventory->equipped_armor = st->player->inventory->equipped_item;
+        // remove the armor from the inventory
+        removeItem(st->player->inventory, st->player->inventory->equipped_item);
+        st->player->inventory->equipped_item = NULL;
+
+        // Send menu message
+        char *message = (char *) malloc(sizeof(char) * 200);
+        sprintf(message, "You equipped the \"%s\".", st->player->inventory->equipped_armor->name);
+        sendMenuMessage(st, message);
+        free(message);
+
+        // Add the armor defense to the player defense
+        st->player->defense += st->player->inventory->equipped_armor->defense;
+        return;
     }
 }

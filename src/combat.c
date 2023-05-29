@@ -104,6 +104,60 @@ throwProjectile() {
 */
 
 /**
+ * @brief Explodes a projectile
+ * 
+ * @details The explosion is a star shape with radius 5
+ * Various effects are applied to the cells within the explosion
+ * 
+ * TODO: remove effects when the turns are over
+ * 
+ * @param st The game state
+ * @param projectile The projectile to explode
+ */
+void explodeProjectile(State *st, Projectile *projectile) {
+    for (int i = -5; i <= 5; i++) {
+        for (int j = -5; j <= 5; j++) {
+            if (i*i + j*j <= 25) {
+                if (st->map->cells[projectile->y + i][projectile->x + j] == NULL) continue;
+                else if (isCellWalkable(st->map->cells[projectile->y + i][projectile->x + j])) {
+                    if (projectile->effect == 1) { // SMOKE_BOMB_EFFECT
+                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 0;
+                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
+                        // st->map->cells[projectile->y + i][projectile->x + j]->is_smoked = 1; // TODO: implement
+                        // st->map->cells[projectile->y + i][projectile->x + j]->smoke turns = SMOKE_BOMB_TURNS; // TODO: implement
+                    }
+                    else if (projectile->effect == 2) { // FIRE_BOMB_EFFECT
+                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 1;
+                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
+                        // st->map->cells[projectile->y + i][projectile->x + j]->is_burning = 1; // TODO: implement
+                        // st->map->cells[projectile->y + i][projectile->x + j]->burning turns = FIRE_BOMB_TURNS; // TODO: implement
+                    }
+                    else if (projectile->effect == 3) { // ICE_BOMB_EFFECT
+                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 1;
+                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
+                        // (all monsters)->is_iced = 1; // TODO: implement
+                        // (all monsters)->ice turns = ICE_BOMB_TURNS; // TODO: implement
+                    }
+                    if (isCellMonster(st->map->cells[projectile->y + i][projectile->x + j])) {
+                        int monster_index = st->map->cells[projectile->y + i][projectile->x + j]->monster_index;
+                        Monster *monster = st->monsters[monster_index];
+                        monster->health -= projectile->damage;
+                        if (monster->health <= 0) {
+                            // monster is dead
+                            st->map->cells[projectile->y + i][projectile->x + j]->monster_index = -1;
+                            free(monster);
+                            // TODO left shift
+                            st->monsters[monster_index] = NULL;
+                            st->nMonsters--;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
  * @brief Updates a projectile within the game state
  * 
  * @param st The game state
@@ -116,8 +170,8 @@ throwProjectile() {
 void updateProjectile(State *st, Projectile *projectile, int index) {
     if (projectile == NULL) return;
     if (projectile->turns_left == 0) {
-        // TODO smoke and fire
-        // freeProjectile(projectile);
+        if (projectile->effect != 0) explodeProjectile(st, projectile);
+        // freeProjectile(projectile); // TODO check this
         removeProjectile(st->map, index);
     }
     else { 
@@ -145,15 +199,11 @@ void updateProjectile(State *st, Projectile *projectile, int index) {
                 // st->monsters[monster_index] = NULL;
             }
             else sendMenuMessage(st, "You hit a monster!");
-            if (projectile->effect == 2) {
-                // TODO smoke and fire
-            }
+            if (projectile->effect != 0) explodeProjectile(st, projectile);
             removeProjectile(st->map, index);
         }
         else if (!isCellWalkable(st->map->cells[projectile->y][projectile->x])) {
-            if (projectile->effect == 2) {
-                // TODO smoke and fire
-            }
+            if (projectile->effect != 0) explodeProjectile(st, projectile);
             removeProjectile(st->map, index);   
         }
     }
@@ -165,6 +215,7 @@ void updateProjectiles(State *st) {
         else if (i > st->map->nr_projectiles) break;
         updateProjectile(st, st->map->projectiles[i], i);
     }
+    // TODO iter map and monsters to clean effects  
 }
 
 void freeProjectile(void *p) {
@@ -190,24 +241,68 @@ void freeProjectile(void *p) {
  */
 void throwRock(State *st) {
     int damage = ROCK_DAMAGE_MIN + rand() % (ROCK_DAMAGE_MAX - ROCK_DAMAGE_MIN + 1);
-    Projectile *projectile = initProjectile(st->player->x, st->player->y, st->player->direction, ROCK_RANGE, 0, damage, ROCK_SYMBOL, COLOR_RED);
+    Projectile *projectile = initProjectile(st->player->x, st->player->y, st->player->direction, ROCK_RANGE, 0, damage, ROCK_SYMBOL, ROCK_COLOR);
     insertProjectile(st->map, projectile);
-    
-    // TODO: removeItem failled
-    // removeItem(st->player->inventory, st->player->inventory->equipped_item);
 }
 
-// TODO:
-// throwSmokebomb(st);
-// throwFirebomb(st);
-// throwIcebomb(st);
+/**
+ * @brief Function to throw a smoke bomb projectile
+ * 
+ * @details The smoke bomb is thrown in the direction the player is facing
+ * The smoke bomb is thrown until it hits a wall or a monster
+ * 
+ * 
+ * @param st The game state
+ * @return void
+ */
+void throwSmokebomb(State *st) {
+    int damage = SMOKE_BOMB_DAMAGE_MIN + rand() % (SMOKE_BOMB_DAMAGE_MAX - SMOKE_BOMB_DAMAGE_MIN + 1);
+    // TODO #define SMOKE_BOMB_EFFECT 1
+    Projectile *projectile = initProjectile(st->player->x, st->player->y, st->player->direction, SMOKE_BOMB_RANGE, 1, damage, SMOKE_BOMB_SYMBOL, SMOKE_BOMB_COLOR);
+    insertProjectile(st->map, projectile);
+}
+
+/**
+ * @brief Function to throw a fire bomb projectile
+ * 
+ * @details The fire bomb is thrown in the direction the player is facing
+ * The fire bomb is thrown until it hits a wall or a monster
+ * 
+ * 
+ * @param st The game state
+ * @return void
+ */
+void throwFirebomb(State *st) {
+    int damage = FIRE_BOMB_DAMAGE_MIN + rand() % (FIRE_BOMB_DAMAGE_MAX - FIRE_BOMB_DAMAGE_MIN + 1);
+    // TODO #define FIRE_BOMB_EFFECT 2
+    Projectile *projectile = initProjectile(st->player->x, st->player->y, st->player->direction, FIRE_BOMB_RANGE, 2, damage, FIRE_BOMB_SYMBOL, FIRE_BOMB_COLOR);
+    insertProjectile(st->map, projectile);
+}
+
+/**
+ * @brief Function to throw an ice bomb projectile
+ * 
+ * @details The ice bomb is thrown in the direction the player is facing
+ * The ice bomb is thrown until it hits a wall or a monster
+ * 
+ * 
+ * @param st The game state
+ * @return void
+ */
+void throwIcebomb(State *st) {
+    int damage = ICE_BOMB_DAMAGE_MIN + rand() % (ICE_BOMB_DAMAGE_MAX - ICE_BOMB_DAMAGE_MIN + 1);
+    // TODO #define ICE_BOMB_EFFECT 3
+    Projectile *projectile = initProjectile(st->player->x, st->player->y, st->player->direction, ICE_BOMB_RANGE, 3, damage, ICE_BOMB_SYMBOL, ICE_BOMB_COLOR);
+    insertProjectile(st->map, projectile);
+}
 
 void throwProjectile(State *st) {
-    if (st->player->inventory->equipped_item == NULL) return;
-    if (st->player->inventory->equipped_item->symbol == ROCK_SYMBOL) throwRock(st);
-    //else if (st->player->inventory->equipped_item->symbol == SMOKE_BOMB_SYMBOL) throwSmokebomb(st);
-    //else if (st->player->inventory->equipped_item->symbol == FIRE_BOMB_SYMBOL) throwFirebomb(st);
-    //else if (st->player->inventory->equipped_item->symbol == ICE_BOMB_SYMBOL) throwIcebomb(st);
+    Item *item = st->player->inventory->equipped_item;
+    if (item == NULL) return;
+    else if (item->symbol == ROCK_SYMBOL) throwRock(st);
+    else if (item->symbol == SMOKE_BOMB_SYMBOL && item->color == SMOKE_BOMB_COLOR) throwSmokebomb(st);
+    else if (item->symbol == FIRE_BOMB_SYMBOL  && item->color == FIRE_BOMB_COLOR) throwFirebomb(st);
+    else if (item->symbol == ICE_BOMB_SYMBOL   && item->color == ICE_BOMB_COLOR) throwIcebomb(st);
 }
 
 /**

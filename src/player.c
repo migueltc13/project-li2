@@ -16,6 +16,8 @@ Player *initPlayer(int x, int y) {
     p->y = y;
     p->symbol = PLAYER_SYMBOL;
     p->health = MAX_HEALTH;
+    p->defense = 0;
+    p->attack = PLAYER_STARTING_ATTACK;
     p->vision = PLAYER_VISION;
     p->max_health = MAX_HEALTH;
     p->direction = 0;

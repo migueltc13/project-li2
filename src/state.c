@@ -13,7 +13,7 @@
 #include "combat.h"
 #include "menu.h"
 
-#define NUMBER_OF_ITEMS 15
+#define NUMBER_OF_ITEMS 30 // TODO: move to item.h or even map.h
 
 /**
  * @brief Initialize a new game state
@@ -35,7 +35,12 @@ State *initState(int width, int height) {
     generateMap(st);
     int x, y; getPlayerInitialPosition(st->map, &x, &y);
     st->player = initPlayer(x,y);
-    
+
+    // Set the exit aka the gate keeper
+    st->map->cells[y+1][x]->symbol = EXIT_SYMBOL;
+    st->map->cells[y+1][x]->is_walkable = 0;
+    st->map->cells[y+1][x]->color = EXIT_COLOR;
+
     Item **items = generateItems(NUMBER_OF_ITEMS);
     distributeItems(st->map, items, NUMBER_OF_ITEMS);
 
@@ -71,11 +76,29 @@ void freeState(void *p) {
  */
 void updateState(State *st, int input_key) {
     calculateState(st, input_key);
-    if (st->mode == EXIT_MODE) {
-        // TODO: Winner / Loser / Quiter
+    if (st->mode == EXIT_MODE) { // TODO QUIT_MODE
+        // Winner / Loser
+        if (st->player->health <= 0) sendMenuMessage(st, "You died. Game over. (Press any key to exit.)");
+        else sendMenuMessage(st, "You payed the Gate Keeper and escaped the dungeon. (Press any key to exit.)");
+
+        getch(); // Press any key to exit 
         freeState(st);
         endwin();
         exit(EXIT_SUCCESS);
+    }
+    else if (st->mode == QUIT_MODE) {
+        sendMenuMessage(st, "Do you really want to quit? (y/n)");
+        char quit_input = getch();
+        if (quit_input == 'y') {
+            freeState(st);
+            endwin();
+            exit(EXIT_SUCCESS);
+        }
+        else {
+            sendMenuMessage(st, ""); // clear menu message
+            st->mode = VISION_MODE; // default mode
+            drawState(st);
+        }
     }
     else drawState(st);
 }
@@ -146,11 +169,12 @@ void calculateState(State *st, int input_key) {
         case 'u': useEquippedItem(st); return; // Use equipped item, potion or projectile
         // Menu keys
         case 'l': legendMenu(st);           return; // legend menu
-        case 'q': st->mode = EXIT_MODE;     return; // quit
+        case 'q': st->mode = QUIT_MODE;     return; // quit
         case 'v': st->mode = VISION_MODE;   return; // normal view         
         case 'b': st->mode = DISTANCE_MODE; return; // distance / monsters view (optional mode)
         case 'n': st->mode = NORMAL_MODE;   return; // normal view (optional mode)
         //case 'm': // TODO                 return; // menu view (optional mode) TODO: implement
+        default: return;
     }
     st->turn++;
     int x = st->player->x, y = st->player->y;
@@ -184,16 +208,56 @@ void calculateState(State *st, int input_key) {
         }
     }
     if (isCellMonster(st->map->cells[y][x])) {
+        int monster_index = st->map->cells[y][x]->monster_index;
+        Monster *monster = st->monsters[monster_index];
+
+        // TODO enhance damage with fight monster function (combat.h)
+        monster->health -= st->player->attack;
+        st->player->health -= monster->attack;
+
         char *message = (char *) malloc(sizeof(char) * st->map->width);
-        Monster *monster = st->monsters[st->map->cells[y][x]->monster_index];
         sprintf(message, "You attacked the \"%s\". Monster health: %d", monster->name, monster->health);
         sendMenuMessage(st, message);
         free(message);
-        // TODO combat monster (combat.h)
+
+        // Check for monster death
+        if (monster->health <= 0) {
+            // TODO: kill monster function
+            st->map->cells[y][x]->monster_index = -1;
+            // shift the mosnters to the left
+            for (int i = monster_index; i < st->nMonsters - 1; i++)
+                st->monsters[i] = st->monsters[i + 1];
+            st->nMonsters--;
+
+            // TODO: monster value gold
+
+            char *message = (char *) malloc(sizeof(char) * st->map->width);
+            sprintf(message, "You killed the \"%s\"", monster->name);
+            sendMenuMessage(st, message);
+            free(message);
+        }
+        
+        // Check for player death
+        if (st->player->health <= 0) {
+            st->mode = EXIT_MODE;
+            sendMenuMessage(st, "You died. Game over.");
+            drawState(st);
+            return;
+        }        
     }
-    /* if (isCellExit(st->map->cells[y][x])) {
-        st->mode = EXIT_MODE;
-    } */
+    if (isCellExit(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x])) {
+        // Pay the keeper to exit the dungeon
+        if (st->player->inventory->gold >= EXIT_COST) {
+            st->mode = EXIT_MODE;
+            return;
+        }
+        else {
+            char *message = (char *) malloc(sizeof(char) * st->map->width);
+            sprintf(message, "The Gate Keeper says: Give me %d gold to exit the dungeon.", EXIT_COST);
+            sendMenuMessage(st, message);
+            free(message);
+        }
+    }
     moveMonsters(st->map, st->monsters, st->nMonsters);
     updateProjectiles(st);
 }

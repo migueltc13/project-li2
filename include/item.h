@@ -55,7 +55,7 @@ typedef struct item {
 
 // Speficic item macros
 // Rock
-#define ROCK_VALUE 0
+#define ROCK_VALUE 1
 #define ROCK_DAMAGE_MIN 5
 #define ROCK_DAMAGE_MAX 7
 #define ROCK_SYMBOL ':'
@@ -70,16 +70,73 @@ typedef struct item {
 #define SMOKE_BOMB_SYMBOL '*'
 #define SMOKE_BOMB_TYPE PROJECTILE
 #define SMOKE_BOMB_RANGE 5 // cells
+// TODO SMOKE_BOMB_BLIND_TURNS 7
 #define SMOKE_BOMB_COLOR COLOR_WHITE
 
 // Fire bomb
 #define FIRE_BOMB_VALUE 50
-#define FIRE_BOMB_DAMAGE_MIN 20
-#define FIRE_BOMB_DAMAGE_MAX 30
+#define FIRE_BOMB_DAMAGE_MIN 15
+#define FIRE_BOMB_DAMAGE_MAX 25
 #define FIRE_BOMB_SYMBOL '*'
 #define FIRE_BOMB_TYPE PROJECTILE
 #define FIRE_BOMB_RANGE 6 // cells
+// TODO FIRE_BOMB_BURN_TURNS 5
 #define FIRE_BOMB_COLOR COLOR_RED
+
+// Ice bomb
+#define ICE_BOMB_VALUE 70
+#define ICE_BOMB_DAMAGE_MIN 20
+#define ICE_BOMB_DAMAGE_MAX 30
+#define ICE_BOMB_SYMBOL '*'
+#define ICE_BOMB_TYPE PROJECTILE
+#define ICE_BOMB_RANGE 7 // cells
+// TODO ICE_BOMB_FREEZE_TURNS 10
+#define ICE_BOMB_COLOR COLOR_CYAN
+
+// Iron sword
+#define IRON_SWORD_VALUE 20
+#define IRON_SWORD_DAMAGE_MIN 10
+#define IRON_SWORD_DAMAGE_MAX 15
+#define IRON_SWORD_SYMBOL 'l'
+#define IRON_SWORD_TYPE WEAPON
+#define IRON_SWORD_COLOR COLOR_WHITE
+
+// Gold sword
+#define GOLD_SWORD_VALUE 40
+#define GOLD_SWORD_DAMAGE_MIN 10
+#define GOLD_SWORD_DAMAGE_MAX 25
+#define GOLD_SWORD_SYMBOL 'l'
+#define GOLD_SWORD_TYPE WEAPON
+#define GOLD_SWORD_COLOR COLOR_YELLOW
+
+// Diamond sword
+#define DIAMOND_SWORD_VALUE 60
+#define DIAMOND_SWORD_DAMAGE_MIN 20
+#define DIAMOND_SWORD_DAMAGE_MAX 40
+#define DIAMOND_SWORD_SYMBOL 'l'
+#define DIAMOND_SWORD_TYPE WEAPON
+#define DIAMOND_SWORD_COLOR COLOR_CYAN
+
+// Leather armor
+#define LEATHER_ARMOR_VALUE 20
+#define LEATHER_ARMOR_DEFENSE 5
+#define LEATHER_ARMOR_SYMBOL 'T'
+#define LEATHER_ARMOR_TYPE ARMOR
+#define LEATHER_ARMOR_COLOR COLOR_WHITE
+
+// Chainmail armor
+#define CHAINMAIL_ARMOR_VALUE 40
+#define CHAINMAIL_ARMOR_DEFENSE 10
+#define CHAINMAIL_ARMOR_SYMBOL 'T'
+#define CHAINMAIL_ARMOR_TYPE ARMOR
+#define CHAINMAIL_ARMOR_COLOR COLOR_CYAN
+
+// Plate armor
+#define PLATE_ARMOR_VALUE 60
+#define PLATE_ARMOR_DEFENSE 15
+#define PLATE_ARMOR_SYMBOL 'T'
+#define PLATE_ARMOR_TYPE ARMOR
+#define PLATE_ARMOR_COLOR COLOR_MAGENTA
 
 // Potion of healing
 #define POTION_OF_HEALING_SYMBOL '!'
@@ -87,6 +144,26 @@ typedef struct item {
 #define POTION_OF_HEALING_VALUE 20
 #define POTION_OF_HEALING_HP 50
 #define POTION_OF_HEALING_COLOR COLOR_MAGENTA
+
+// Sensory potion
+#define SENSORY_POTION_SYMBOL '!'
+#define SENSORY_POTION_TYPE POTION
+#define SENSORY_POTION_VALUE 50
+#define SENSORY_POTION_VISION 5
+#define SENSORY_POTION_EARING 7
+// TODO SENSORY_POTION_TURNS 20
+#define SENSORY_POTION_RANGE 3 // cells
+#define SENSORY_POTION_COLOR COLOR_BLUE
+
+// Potion of invincibility
+#define POTION_OF_INVINCIBILITY_SYMBOL '!'
+#define POTION_OF_INVINCIBILITY_TYPE POTION
+#define POTION_OF_INVINCIBILITY_VALUE 100
+// TODO POTION_OF_INVINCIBILITY_TURNS 20
+#define POTION_OF_INVINCIBILITY_COLOR COLOR_YELLOW
+
+// TODO: Potion of strength
+// TODO: Potion of defense
 
 // Pot of gold
 #define POT_OF_GOLD_SYMBOL 'O'
@@ -101,6 +178,7 @@ void drawItem(Item *item);
 void drawAllItems(Item **items, int n);
 void drawVisibleItems(Map *map, Item **items, int n);
 Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y);
+int insertItem(Item **items, int nr_items, Item *item);
 void freeItem(void *i);
 
 #endif

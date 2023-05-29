@@ -2,7 +2,10 @@
 #define _MENU_H_
 
 #define MENU_HEIGHT 6
-#define MENU_BORDERS_COLOR COLOR_BLUE
+#define MENU_BORDERS_COLOR COLOR_CYAN
+
+#define LEGEND_MENU_WIDTH 35
+#define LEGEND_MENU_COLOR COLOR_GREEN
 
 typedef struct state State;
 
