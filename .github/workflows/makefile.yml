@@ -18,8 +18,6 @@ jobs:
       run: make install
     - name: make
       run: make
-    - name: play
-      run: ./jogo
     - name: make debug
       run: |
         make debug
