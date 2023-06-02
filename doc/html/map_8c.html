@@ -138,6 +138,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">distributeItems</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int nr_items)</td></tr>
 <tr class="memdesc:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute the items on the map.  <a href="map_8c.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">More...</a><br /></td></tr>
 <tr class="separator:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2887e74a07c3baae22fd605b6e4e0ede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a2887e74a07c3baae22fd605b6e4e0ede">getCloserMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memdesc:a2887e74a07c3baae22fd605b6e4e0ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the closer monster to the player.  <a href="map_8c.html#a2887e74a07c3baae22fd605b6e4e0ede">More...</a><br /></td></tr>
+<tr class="separator:a2887e74a07c3baae22fd605b6e4e0ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aed258adbea00a6b0d0cca38916e67aeb"></a>
@@ -216,8 +219,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td>Map to calculate the vision </td></tr>
-    <tr><td class="paramname">x</td><td>Starting x coordinate </td></tr>
-    <tr><td class="paramname">y</td><td>Starting y coordinate </td></tr>
+    <tr><td class="paramname">player</td><td>Player to calculate the vision </td></tr>
   </table>
   </dd>
 </dl>
@@ -363,6 +365,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a2887e74a07c3baae22fd605b6e4e0ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2887e74a07c3baae22fd605b6e4e0ede">&#9670;&nbsp;</a></span>getCloserMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a>* getCloserMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the closer monster to the player. </p>
+<p>The closer monster is the one with the minimum distance to the player. Return the first monster found if there are more than one with the same distance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>State to get the closer monster </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Monster* A close monster TODO: use for earing monsters and for attacking monsters (menu info) </dd></dl>
 
 </div>
 </div>
@@ -548,7 +578,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 07:29:52 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

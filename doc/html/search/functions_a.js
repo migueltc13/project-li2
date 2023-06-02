@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pickupitem_475',['pickUpItem',['../item_8c.html#a9b69e9087f0060bfb839f21caba8e556',1,'item.c']]]
+  ['pickupitem_454',['pickUpItem',['../item_8c.html#a9b69e9087f0060bfb839f21caba8e556',1,'item.c']]]
 ];

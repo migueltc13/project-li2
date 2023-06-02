@@ -1,8 +1,9 @@
 <map id="src/item.c" name="src/item.c">
-<area shape="rect" id="node1" title=" " alt="" coords="197,5,284,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="241,5,328,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="100,80,184,107"/>
 <area shape="rect" id="node4" href="$item_8h.html" title=" " alt="" coords="209,80,273,107"/>
 <area shape="rect" id="node5" href="$map_8h.html" title=" " alt="" coords="297,80,360,107"/>
 <area shape="rect" id="node6" href="$cell_8h.html" title=" " alt="" coords="384,80,441,107"/>
+<area shape="rect" id="node7" href="$inventory_8h.html" title=" " alt="" coords="465,80,560,107"/>
 </map>

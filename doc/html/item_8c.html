@@ -76,25 +76,27 @@ $(function() {
 <code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cell_8h_source.html">cell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventory_8h_source.html">inventory.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for item.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="item_8c__incl.png" border="0" usemap="#asrc_2item_8c" alt=""/></div>
 <map name="asrc_2item_8c" id="asrc_2item_8c">
-<area shape="rect" title=" " alt="" coords="197,5,284,32"/>
+<area shape="rect" title=" " alt="" coords="241,5,328,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,76,107"/>
 <area shape="rect" title=" " alt="" coords="100,80,184,107"/>
 <area shape="rect" href="item_8h.html" title=" " alt="" coords="209,80,273,107"/>
 <area shape="rect" href="map_8h.html" title=" " alt="" coords="297,80,360,107"/>
 <area shape="rect" href="cell_8h.html" title=" " alt="" coords="384,80,441,107"/>
+<area shape="rect" href="inventory_8h.html" title=" " alt="" coords="465,80,560,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a588b19dc935857b747e3ba3f78af6174"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a588b19dc935857b747e3ba3f78af6174">initItem</a> (char *name, char symbol, int type, int value, int is_picked_up, int x, int y, int damage, int defense, int hp, int color)</td></tr>
-<tr class="memdesc:a588b19dc935857b747e3ba3f78af6174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item.  <a href="item_8c.html#a588b19dc935857b747e3ba3f78af6174">More...</a><br /></td></tr>
-<tr class="separator:a588b19dc935857b747e3ba3f78af6174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cfb0988da3e888aef57965108a646a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a2cfb0988da3e888aef57965108a646a4">initItem</a> (char *name, char symbol, int type, int value, int x, int y, int damage, int defense, int hp, int color)</td></tr>
+<tr class="memdesc:a2cfb0988da3e888aef57965108a646a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item.  <a href="item_8c.html#a2cfb0988da3e888aef57965108a646a4">More...</a><br /></td></tr>
+<tr class="separator:a2cfb0988da3e888aef57965108a646a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80ec0b08ddc8ace6d33266205665dcc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2">initRock</a> ()</td></tr>
 <tr class="memdesc:a80ec0b08ddc8ace6d33266205665dcc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item: rock (weapon projectile)  <a href="item_8c.html#a80ec0b08ddc8ace6d33266205665dcc2">More...</a><br /></td></tr>
 <tr class="separator:a80ec0b08ddc8ace6d33266205665dcc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +140,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:abfc6dae1c459fa0cd688a79f6e5cb4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new item: Pot of gold.  <a href="item_8c.html#abfc6dae1c459fa0cd688a79f6e5cb4f0">More...</a><br /></td></tr>
 <tr class="separator:abfc6dae1c459fa0cd688a79f6e5cb4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb">generateItem</a> ()</td></tr>
-<tr class="memdesc:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random item.  <a href="item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb">More...</a><br /></td></tr>
+<tr class="memdesc:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a item randomly based on the probability of each item.  <a href="item_8c.html#ab07cd855a3a16dfa63834b4e6b0fcacb">More...</a><br /></td></tr>
 <tr class="separator:ab07cd855a3a16dfa63834b4e6b0fcacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc7910944cf9aaf581760187854e5e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="item_8c.html#a6dc7910944cf9aaf581760187854e5e7">generateItems</a> (int n)</td></tr>
 <tr class="memdesc:a6dc7910944cf9aaf581760187854e5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate n <em>random</em> items.  <a href="item_8c.html#a6dc7910944cf9aaf581760187854e5e7">More...</a><br /></td></tr>
@@ -317,8 +319,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a random item. </p>
-<p>TODO: Global variables for the probability of each item </p>
+<p>Generate a item randomly based on the probability of each item. </p>
+<p>TODO: Global variables for the probability of each item maybe </p><dl class="section return"><dt>Returns</dt><dd>Item* Item generated </dd></dl>
 
 </div>
 </div>
@@ -339,7 +341,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Generate n <em>random</em> items. </p>
-<p>Used to generate items to distribute on the map</p>
+<p>Used to generate items to distribute on the map.</p>
+<p><em>random</em> items are generated based on each item probability.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Number of items to generate </td></tr>
@@ -429,7 +432,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Diamond Sword (weapon body) </p>
-<p>TODO: Implement sword equipping </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Diamond Sword </dd></dl>
 
 </div>
 </div>
@@ -449,7 +452,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Fire bomb (weapon projectile) </p>
-<p>TODO: Implement fire bomb effect </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Fire bomb </dd></dl>
 
 </div>
 </div>
@@ -469,7 +472,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Gold Sword (weapon body) </p>
-<p>TODO: Implement sword equipping </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Gold Sword </dd></dl>
 
 </div>
 </div>
@@ -489,7 +492,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Ice bomb (weapon projectile) </p>
-<p>TODO: Implement ice bomb effect </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Ice bomb </dd></dl>
 
 </div>
 </div>
@@ -509,12 +512,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Iron Sword (weapon body) </p>
-<p>TODO: Implement sword equipping </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Iron Sword </dd></dl>
 
 </div>
 </div>
-<a id="a588b19dc935857b747e3ba3f78af6174"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a588b19dc935857b747e3ba3f78af6174">&#9670;&nbsp;</a></span>initItem()</h2>
+<a id="a2cfb0988da3e888aef57965108a646a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cfb0988da3e888aef57965108a646a4">&#9670;&nbsp;</a></span>initItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -542,12 +545,6 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>is_picked_up</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -602,7 +599,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">symbol</td><td>Item symbol </td></tr>
     <tr><td class="paramname">type</td><td>Item type </td></tr>
     <tr><td class="paramname">value</td><td>Item value </td></tr>
-    <tr><td class="paramname">is_picked_up</td><td>Is the item picked up? </td></tr>
     <tr><td class="paramname">damage</td><td>Item damage </td></tr>
     <tr><td class="paramname">defense</td><td>Item defense </td></tr>
     <tr><td class="paramname">hp</td><td>Item hp (Healing potion) </td></tr>
@@ -670,6 +666,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Potion of healing. </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Potion of healing </dd></dl>
 
 </div>
 </div>
@@ -689,7 +686,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Potion of invincibility. </p>
-<p>TODO: Implement potion of invincibility effect </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Potion of invincibility </dd></dl>
 
 </div>
 </div>
@@ -709,6 +706,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Pot of gold. </p>
+<p>Pot of gold is a special item that can be used to bribe the gate keeper.</p>
+<p>It's value is between 10 and 100 gold.</p>
+<p>It's added as gold to the player's inventory.</p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Pot of gold </dd></dl>
 
 </div>
 </div>
@@ -728,7 +729,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: rock (weapon projectile) </p>
-<p>Coords: 0, 0 (not on the map) </p>
+<dl class="section return"><dt>Returns</dt><dd>(Item *) Rock </dd></dl>
 
 </div>
 </div>
@@ -748,7 +749,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Sensory Potion. </p>
-<p>TODO: Implement sensory potion effect </p>
+<p>TODO: Implement sensory potion width effect </p><dl class="section return"><dt>Returns</dt><dd>(Item *) Sensory Potion </dd></dl>
 
 </div>
 </div>
@@ -768,7 +769,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new item: Smoke bomb (weapon projectile) </p>
-<p>TODO: Implement smoke bomb effect </p>
+<p>TODO: Implement smoke bomb effect in pathfinding functions to cut the line of sight </p><dl class="section return"><dt>Returns</dt><dd>(Item *) Smoke bomb </dd></dl>
 
 </div>
 </div>
@@ -805,6 +806,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>insert item into the items array (inventory) </p>
+<dl class="section return"><dt>Returns</dt><dd>int the number of items in the array </dd></dl>
 
 </div>
 </div>
@@ -828,7 +830,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 07:29:52 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

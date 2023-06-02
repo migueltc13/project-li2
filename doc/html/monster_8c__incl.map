@@ -1,11 +1,12 @@
 <map id="src/monster.c" name="src/monster.c">
-<area shape="rect" id="node1" title=" " alt="" coords="342,5,451,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="387,5,497,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="100,80,184,107"/>
 <area shape="rect" id="node4" href="$monster_8h.html" title=" " alt="" coords="208,80,295,107"/>
 <area shape="rect" id="node5" href="$state_8h.html" title=" " alt="" coords="319,80,386,107"/>
 <area shape="rect" id="node6" href="$map_8h.html" title=" " alt="" coords="411,80,473,107"/>
 <area shape="rect" id="node7" href="$cell_8h.html" title=" " alt="" coords="497,80,555,107"/>
-<area shape="rect" id="node8" href="$combat_8h.html" title=" " alt="" coords="579,80,662,107"/>
-<area shape="rect" id="node9" href="$menu_8h.html" title=" " alt="" coords="687,80,757,107"/>
+<area shape="rect" id="node8" href="$item_8h.html" title=" " alt="" coords="579,80,643,107"/>
+<area shape="rect" id="node9" href="$combat_8h.html" title=" " alt="" coords="667,80,750,107"/>
+<area shape="rect" id="node10" href="$menu_8h.html" title=" " alt="" coords="775,80,845,107"/>
 </map>

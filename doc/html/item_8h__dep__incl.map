@@ -1,10 +1,12 @@
 <map id="include/item.h" name="include/item.h">
-<area shape="rect" id="node1" title=" " alt="" coords="371,5,486,32"/>
-<area shape="rect" id="node2" href="$combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
-<area shape="rect" id="node3" href="$inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
-<area shape="rect" id="node4" href="$item_8c.html" title=" " alt="" coords="275,80,361,107"/>
-<area shape="rect" id="node5" href="$map_8c.html" title=" " alt="" coords="386,80,471,107"/>
-<area shape="rect" id="node6" href="$menu_8c.html" title=" " alt="" coords="495,80,589,107"/>
-<area shape="rect" id="node7" href="$player_8c.html" title=" " alt="" coords="613,80,709,107"/>
-<area shape="rect" id="node8" href="$state_8c.html" title=" " alt="" coords="733,80,823,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="474,5,589,32"/>
+<area shape="rect" id="node2" href="$cell_8c.html" title=" " alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$combat_8c.html" title=" " alt="" coords="108,80,213,107"/>
+<area shape="rect" id="node4" href="$inventory_8c.html" title=" " alt="" coords="237,80,353,107"/>
+<area shape="rect" id="node5" href="$item_8c.html" title=" " alt="" coords="377,80,464,107"/>
+<area shape="rect" id="node6" href="$map_8c.html" title=" " alt="" coords="489,80,574,107"/>
+<area shape="rect" id="node7" href="$menu_8c.html" title=" " alt="" coords="598,80,691,107"/>
+<area shape="rect" id="node8" href="$monster_8c.html" title=" " alt="" coords="715,80,825,107"/>
+<area shape="rect" id="node9" href="$player_8c.html" title=" " alt="" coords="849,80,945,107"/>
+<area shape="rect" id="node10" href="$state_8c.html" title=" " alt="" coords="969,80,1059,107"/>
 </map>
