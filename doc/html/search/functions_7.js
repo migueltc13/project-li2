@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['legendmenu_439',['legendMenu',['../menu_8h.html#aa59df74ae8256ad1100369237b6d0672',1,'legendMenu(State *st):&#160;menu.c'],['../menu_8c.html#aa59df74ae8256ad1100369237b6d0672',1,'legendMenu(State *st):&#160;menu.c']]]
+  ['killmonster_466',['killMonster',['../combat_8h.html#a72fbfbf35fba3b1981a56f78618b3eb4',1,'killMonster(State *st, int x, int y):&#160;combat.c'],['../combat_8c.html#a72fbfbf35fba3b1981a56f78618b3eb4',1,'killMonster(State *st, int x, int y):&#160;combat.c']]]
 ];

@@ -132,9 +132,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aed258adbea00a6b0d0cca38916e67aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#aed258adbea00a6b0d0cca38916e67aeb">calculateDistances</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
 <tr class="memdesc:aed258adbea00a6b0d0cca38916e67aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the distances from the player to all the cells.  <a href="map_8c.html#aed258adbea00a6b0d0cca38916e67aeb">More...</a><br /></td></tr>
 <tr class="separator:aed258adbea00a6b0d0cca38916e67aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9193d5804bfa8285e1650794f8c9050e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a9193d5804bfa8285e1650794f8c9050e">calculateVision</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
-<tr class="memdesc:a9193d5804bfa8285e1650794f8c9050e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible field in the cells.  <a href="map_8c.html#a9193d5804bfa8285e1650794f8c9050e">More...</a><br /></td></tr>
-<tr class="separator:a9193d5804bfa8285e1650794f8c9050e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264fe292f6742d7714ee5e2d23fa1178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a264fe292f6742d7714ee5e2d23fa1178">calculateVision</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *<a class="el" href="structplayer.html">player</a>)</td></tr>
+<tr class="memdesc:a264fe292f6742d7714ee5e2d23fa1178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible field in the cells.  <a href="map_8c.html#a264fe292f6742d7714ee5e2d23fa1178">More...</a><br /></td></tr>
+<tr class="separator:a264fe292f6742d7714ee5e2d23fa1178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">distributeItems</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int nr_items)</td></tr>
 <tr class="memdesc:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute the items on the map.  <a href="map_8c.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">More...</a><br /></td></tr>
 <tr class="separator:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,8 +185,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9193d5804bfa8285e1650794f8c9050e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9193d5804bfa8285e1650794f8c9050e">&#9670;&nbsp;</a></span>calculateVision()</h2>
+<a id="a264fe292f6742d7714ee5e2d23fa1178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264fe292f6742d7714ee5e2d23fa1178">&#9670;&nbsp;</a></span>calculateVision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,14 +200,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -554,7 +548,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

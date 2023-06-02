@@ -1,7 +1,15 @@
 var searchData=
 [
-  ['updateprojectile_313',['updateProjectile',['../combat_8c.html#a7c74d7d7228b057b768298b078fab060',1,'combat.c']]],
-  ['updateprojectiles_314',['updateProjectiles',['../combat_8h.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c'],['../combat_8c.html#a5643d2845d06f765b94bcd1628f5ffed',1,'updateProjectiles(State *st):&#160;combat.c']]],
-  ['updatestate_315',['updateState',['../state_8h.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c'],['../state_8c.html#a2d5371342aa920f618224b2ba7b01116',1,'updateState(State *st, int input_key):&#160;state.c']]],
-  ['useequippeditem_316',['useEquippedItem',['../inventory_8h.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c'],['../inventory_8c.html#a014c1f54ecde3aedb64e90249f5b4f9b',1,'useEquippedItem(State *st):&#160;inventory.c']]]
+  ['throwfirebomb_326',['throwFirebomb',['../combat_8c.html#adbacd67b8d84b13e1ac63aa06c1d6237',1,'combat.c']]],
+  ['throwicebomb_327',['throwIcebomb',['../combat_8c.html#a7edda70a83899670f3121fa1b355d628',1,'combat.c']]],
+  ['throwprojectile_328',['throwProjectile',['../combat_8h.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c'],['../combat_8c.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c']]],
+  ['throwrock_329',['throwRock',['../combat_8h.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c'],['../combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c']]],
+  ['throwsmokebomb_330',['throwSmokebomb',['../combat_8c.html#a865443f929aab23a5f0cfe4dd82b00be',1,'combat.c']]],
+  ['troll_5fcolor_331',['TROLL_COLOR',['../monster_8h.html#a2042333b5d2a8623da129d9333313648',1,'monster.h']]],
+  ['troll_5fgold_5fmax_332',['TROLL_GOLD_MAX',['../monster_8h.html#aa67a558abb560e4249a316903278f237',1,'monster.h']]],
+  ['troll_5fgold_5fmin_333',['TROLL_GOLD_MIN',['../monster_8h.html#ad506facf08f2fa5b3198fb2bb7cdbfb6',1,'monster.h']]],
+  ['troll_5fsymbol_334',['TROLL_SYMBOL',['../monster_8h.html#a08dcac73397d448ef6309f18c9d2c7d5',1,'monster.h']]],
+  ['turn_335',['turn',['../structstate.html#af0b70a44c5801fe6529730fec4c7c7ac',1,'state']]],
+  ['turns_5fleft_336',['turns_left',['../structprojectile.html#a3d501c2a5e8e66a5d6f1bcf4443ea06b',1,'projectile']]],
+  ['type_337',['type',['../structitem.html#a932f3f0cefdda86cbc43d699337114aa',1,'item']]]
 ];

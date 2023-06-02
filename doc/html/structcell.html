@@ -96,6 +96,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7d0efd3ba16669971675f8f0f23e2a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad75d683b636605bb03e15e116fe26990"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#ad75d683b636605bb03e15e116fe26990">monster_index</a></td></tr>
 <tr class="separator:ad75d683b636605bb03e15e116fe26990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae00ddebc54219f7c3dff5faa276a285"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#aae00ddebc54219f7c3dff5faa276a285">effect</a></td></tr>
+<tr class="separator:aae00ddebc54219f7c3dff5faa276a285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1ffa32480d33a01c2524b104a89a414"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#ae1ffa32480d33a01c2524b104a89a414">effect_duration</a></td></tr>
+<tr class="separator:ae1ffa32480d33a01c2524b104a89a414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca19b21960f06b4fbfd5549af2622710"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html#aca19b21960f06b4fbfd5549af2622710">color</a></td></tr>
 <tr class="separator:aca19b21960f06b4fbfd5549af2622710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -112,10 +116,17 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">is_visible</td><td>1 if the cell is visible, 0 otherwise </td></tr>
     <tr><td class="paramname">distance_to_player</td><td>Distance to the player, initialized to -1 </td></tr>
     <tr><td class="paramname">has_item</td><td>1 if the cell has an item, 0 otherwise </td></tr>
-    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
     <tr><td class="paramname">has_player</td><td>1 if the cell has the player, 0 otherwise </td></tr>
-    <tr><td class="paramname">color</td><td>Color of the cell TODO:</td></tr>
-    <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL </td></tr>
+    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
+    <tr><td class="paramname">effect</td><td>Effect of the cell caused by projectiles (0 by default) </td></tr>
+    <tr><td class="paramname">effect_duration</td><td>Duration of the effect if any (0 by default) </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the cell</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>TODO:</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL instead of monster_index </td></tr>
   </table>
   </dd>
 </dl>
@@ -156,6 +167,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int cell::distance_to_player</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae00ddebc54219f7c3dff5faa276a285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae00ddebc54219f7c3dff5faa276a285">&#9670;&nbsp;</a></span>effect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cell::effect</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1ffa32480d33a01c2524b104a89a414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ffa32480d33a01c2524b104a89a414">&#9670;&nbsp;</a></span>effect_duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cell::effect_duration</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,7 +319,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

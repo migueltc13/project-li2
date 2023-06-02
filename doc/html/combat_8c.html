@@ -158,6 +158,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a382a071812386c8d56d38641ed254eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a382a071812386c8d56d38641ed254eb0">drawProjectiles</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
 <tr class="memdesc:a382a071812386c8d56d38641ed254eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all visible projectiles.  <a href="combat_8c.html#a382a071812386c8d56d38641ed254eb0">More...</a><br /></td></tr>
 <tr class="separator:a382a071812386c8d56d38641ed254eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a72fbfbf35fba3b1981a56f78618b3eb4">killMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int x, int y)</td></tr>
+<tr class="memdesc:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to kill a monster with his coordinates.  <a href="combat_8c.html#a72fbfbf35fba3b1981a56f78618b3eb4">More...</a><br /></td></tr>
+<tr class="separator:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ac8d36819f4d293e453482f3b58276e0c"></a>
@@ -403,6 +406,51 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72fbfbf35fba3b1981a56f78618b3eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72fbfbf35fba3b1981a56f78618b3eb4">&#9670;&nbsp;</a></span>killMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void killMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to kill a monster with his coordinates. </p>
+<p>The monster is removed from the map and the monsters array</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate of the monster </td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate of the monster </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -658,7 +706,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

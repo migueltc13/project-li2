@@ -78,13 +78,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8h__dep__incl.png" border="0" usemap="#ainclude_2map_8hdep" alt=""/></div>
 <map name="ainclude_2map_8hdep" id="ainclude_2map_8hdep">
-<area shape="rect" title=" " alt="" coords="287,5,402,32"/>
+<area shape="rect" title=" " alt="" coords="371,5,486,32"/>
 <area shape="rect" href="combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
-<area shape="rect" href="item_8c.html" title=" " alt="" coords="135,80,221,107"/>
-<area shape="rect" href="map_8c.html" title=" " alt="" coords="246,80,331,107"/>
-<area shape="rect" href="menu_8c.html" title=" " alt="" coords="355,80,449,107"/>
-<area shape="rect" href="monster_8c.html" title=" " alt="" coords="473,80,582,107"/>
-<area shape="rect" href="state_8c.html" title=" " alt="" coords="607,80,696,107"/>
+<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
+<area shape="rect" href="item_8c.html" title=" " alt="" coords="275,80,361,107"/>
+<area shape="rect" href="map_8c.html" title=" " alt="" coords="386,80,471,107"/>
+<area shape="rect" href="menu_8c.html" title=" " alt="" coords="495,80,589,107"/>
+<area shape="rect" href="monster_8c.html" title=" " alt="" coords="613,80,722,107"/>
+<area shape="rect" href="state_8c.html" title=" " alt="" coords="747,80,836,107"/>
 </map>
 </div>
 </div>
@@ -104,6 +105,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a5a015017629833d016e38b49dca7b1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9007ca88cf4d3425bfc53b599de25066"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structitem.html">item</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a></td></tr>
 <tr class="separator:a9007ca88cf4d3425bfc53b599de25066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfbfbd6ace468c21c5128fced4e632c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structplayer.html">player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a></td></tr>
+<tr class="separator:aacfbfbd6ace468c21c5128fced4e632c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d36819f4d293e453482f3b58276e0c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structprojectile.html">projectile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a></td></tr>
 <tr class="separator:ac8d36819f4d293e453482f3b58276e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8967383654d2c24444433ae32cdadb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structmap.html">map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td></tr>
@@ -133,9 +136,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aed258adbea00a6b0d0cca38916e67aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">calculateDistances</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
 <tr class="memdesc:aed258adbea00a6b0d0cca38916e67aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the distances from the player to all the cells.  <a href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">More...</a><br /></td></tr>
 <tr class="separator:aed258adbea00a6b0d0cca38916e67aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9193d5804bfa8285e1650794f8c9050e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a9193d5804bfa8285e1650794f8c9050e">calculateVision</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
-<tr class="memdesc:a9193d5804bfa8285e1650794f8c9050e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible field in the cells.  <a href="map_8h.html#a9193d5804bfa8285e1650794f8c9050e">More...</a><br /></td></tr>
-<tr class="separator:a9193d5804bfa8285e1650794f8c9050e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264fe292f6742d7714ee5e2d23fa1178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a264fe292f6742d7714ee5e2d23fa1178">calculateVision</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *<a class="el" href="structplayer.html">player</a>)</td></tr>
+<tr class="memdesc:a264fe292f6742d7714ee5e2d23fa1178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible field in the cells.  <a href="map_8h.html#a264fe292f6742d7714ee5e2d23fa1178">More...</a><br /></td></tr>
+<tr class="separator:a264fe292f6742d7714ee5e2d23fa1178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">distributeItems</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int nr_items)</td></tr>
 <tr class="memdesc:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute the items on the map.  <a href="map_8h.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">More...</a><br /></td></tr>
 <tr class="separator:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +199,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aacfbfbd6ace468c21c5128fced4e632c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfbfbd6ace468c21c5128fced4e632c">&#9670;&nbsp;</a></span>Player</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structplayer.html">player</a> <a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -273,8 +290,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9193d5804bfa8285e1650794f8c9050e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9193d5804bfa8285e1650794f8c9050e">&#9670;&nbsp;</a></span>calculateVision()</h2>
+<a id="a264fe292f6742d7714ee5e2d23fa1178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264fe292f6742d7714ee5e2d23fa1178">&#9670;&nbsp;</a></span>calculateVision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,14 +305,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -590,7 +601,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

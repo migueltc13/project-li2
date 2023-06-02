@@ -77,26 +77,30 @@ $(function() {
 <code>#include &quot;<a class="el" href="state_8h_source.html">state.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cell_8h_source.html">cell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="combat_8h_source.html">combat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for monster.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="monster_8c__incl.png" border="0" usemap="#asrc_2monster_8c" alt=""/></div>
 <map name="asrc_2monster_8c" id="asrc_2monster_8c">
-<area shape="rect" title=" " alt="" coords="247,5,357,32"/>
+<area shape="rect" title=" " alt="" coords="342,5,451,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,76,107"/>
 <area shape="rect" title=" " alt="" coords="100,80,184,107"/>
 <area shape="rect" href="monster_8h.html" title=" " alt="" coords="208,80,295,107"/>
 <area shape="rect" href="state_8h.html" title=" " alt="" coords="319,80,386,107"/>
 <area shape="rect" href="map_8h.html" title=" " alt="" coords="411,80,473,107"/>
 <area shape="rect" href="cell_8h.html" title=" " alt="" coords="497,80,555,107"/>
+<area shape="rect" href="combat_8h.html" title=" " alt="" coords="579,80,662,107"/>
+<area shape="rect" href="menu_8h.html" title=" " alt="" coords="687,80,757,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a98e5f65392c9560b2ce1d7d3f29de7ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a98e5f65392c9560b2ce1d7d3f29de7ef">initMonster</a> (int x, int y, int health, int attack, int defense, char symbol, char *name, int color, int pathfinding, int index)</td></tr>
-<tr class="memdesc:a98e5f65392c9560b2ce1d7d3f29de7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new monster.  <a href="monster_8c.html#a98e5f65392c9560b2ce1d7d3f29de7ef">More...</a><br /></td></tr>
-<tr class="separator:a98e5f65392c9560b2ce1d7d3f29de7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7299e14e32ae3adc45ad6c8e68b379"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a2c7299e14e32ae3adc45ad6c8e68b379">initMonster</a> (int x, int y, int health, int attack, int defense, char symbol, char *name, int color, int pathfinding, int gold, int index)</td></tr>
+<tr class="memdesc:a2c7299e14e32ae3adc45ad6c8e68b379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new monster.  <a href="monster_8c.html#a2c7299e14e32ae3adc45ad6c8e68b379">More...</a><br /></td></tr>
+<tr class="separator:a2c7299e14e32ae3adc45ad6c8e68b379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8b9f212558737e9abcc2d015a86bab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a7d8b9f212558737e9abcc2d015a86bab">initRat</a> (int x, int y, int index)</td></tr>
 <tr class="memdesc:a7d8b9f212558737e9abcc2d015a86bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new monster: rat.  <a href="monster_8c.html#a7d8b9f212558737e9abcc2d015a86bab">More...</a><br /></td></tr>
 <tr class="separator:a7d8b9f212558737e9abcc2d015a86bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,27 +122,27 @@ Functions</h2></td></tr>
 <tr class="memitem:a67b441a3c2eb91e979bb9ba96d4e03b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a67b441a3c2eb91e979bb9ba96d4e03b7">drawMonsters</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:a67b441a3c2eb91e979bb9ba96d4e03b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all the monsters on the map.  <a href="monster_8c.html#a67b441a3c2eb91e979bb9ba96d4e03b7">More...</a><br /></td></tr>
 <tr class="separator:a67b441a3c2eb91e979bb9ba96d4e03b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a788baef72029f40016476d3f32df8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a2a788baef72029f40016476d3f32df8d">moveMonster</a> (<a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>, <a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
-<tr class="memdesc:a2a788baef72029f40016476d3f32df8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the monster to the given coordinates.  <a href="monster_8c.html#a2a788baef72029f40016476d3f32df8d">More...</a><br /></td></tr>
-<tr class="separator:a2a788baef72029f40016476d3f32df8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555e844c0077e4165cc294cf18bd81b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a555e844c0077e4165cc294cf18bd81b7">moveMonsterRandom</a> (<a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>, <a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
-<tr class="memdesc:a555e844c0077e4165cc294cf18bd81b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the monster randomly.  <a href="monster_8c.html#a555e844c0077e4165cc294cf18bd81b7">More...</a><br /></td></tr>
-<tr class="separator:a555e844c0077e4165cc294cf18bd81b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30dade9f1ceaace6d092c2b8c72a7b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a30dade9f1ceaace6d092c2b8c72a7b8e">monsterPathfinding</a> (<a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>, <a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
-<tr class="memdesc:a30dade9f1ceaace6d092c2b8c72a7b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pathfinding algorithm to find the shortest path to the player.  <a href="monster_8c.html#a30dade9f1ceaace6d092c2b8c72a7b8e">More...</a><br /></td></tr>
-<tr class="separator:a30dade9f1ceaace6d092c2b8c72a7b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af03c4673c2d81df10cd82cec6e8918b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#af03c4673c2d81df10cd82cec6e8918b0">monsterPathfindingAway</a> (<a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>, <a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
-<tr class="memdesc:af03c4673c2d81df10cd82cec6e8918b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pathfinding algorithm to find the furthest path to the player.  <a href="monster_8c.html#af03c4673c2d81df10cd82cec6e8918b0">More...</a><br /></td></tr>
-<tr class="separator:af03c4673c2d81df10cd82cec6e8918b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43dc4bc9bf4583492a241a802645fff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a43dc4bc9bf4583492a241a802645fff3">moveMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>, int x, int y)</td></tr>
+<tr class="memdesc:a43dc4bc9bf4583492a241a802645fff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the monster to the given coordinates.  <a href="monster_8c.html#a43dc4bc9bf4583492a241a802645fff3">More...</a><br /></td></tr>
+<tr class="separator:a43dc4bc9bf4583492a241a802645fff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3c9e603c64c62d2f79199cf09ac557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#aba3c9e603c64c62d2f79199cf09ac557">moveMonsterRandom</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memdesc:aba3c9e603c64c62d2f79199cf09ac557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the monster randomly.  <a href="monster_8c.html#aba3c9e603c64c62d2f79199cf09ac557">More...</a><br /></td></tr>
+<tr class="separator:aba3c9e603c64c62d2f79199cf09ac557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5304007b37543cbd1f42abca4148e0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#ae5304007b37543cbd1f42abca4148e0f">monsterPathfinding</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memdesc:ae5304007b37543cbd1f42abca4148e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pathfinding algorithm to find the shortest path to the player.  <a href="monster_8c.html#ae5304007b37543cbd1f42abca4148e0f">More...</a><br /></td></tr>
+<tr class="separator:ae5304007b37543cbd1f42abca4148e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a0d98d64c95d8eb670a48252cd0f45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#ad7a0d98d64c95d8eb670a48252cd0f45">monsterPathfindingAway</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memdesc:ad7a0d98d64c95d8eb670a48252cd0f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pathfinding algorithm to find the furthest path to the player.  <a href="monster_8c.html#ad7a0d98d64c95d8eb670a48252cd0f45">More...</a><br /></td></tr>
+<tr class="separator:ad7a0d98d64c95d8eb670a48252cd0f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafcfc30f57384153acaade6a7f6a7ec3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#aafcfc30f57384153acaade6a7f6a7ec3">generateMonster</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int index)</td></tr>
 <tr class="memdesc:aafcfc30f57384153acaade6a7f6a7ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate one monster randomly.  <a href="monster_8c.html#aafcfc30f57384153acaade6a7f6a7ec3">More...</a><br /></td></tr>
 <tr class="separator:aafcfc30f57384153acaade6a7f6a7ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af43d7f6f15ecb65735a6bc9deb49fcbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#af43d7f6f15ecb65735a6bc9deb49fcbc">generateMonsters</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>)</td></tr>
 <tr class="memdesc:af43d7f6f15ecb65735a6bc9deb49fcbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate monsters array randomly.  <a href="monster_8c.html#af43d7f6f15ecb65735a6bc9deb49fcbc">More...</a><br /></td></tr>
 <tr class="separator:af43d7f6f15ecb65735a6bc9deb49fcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9575b4c2b7e6ed5135d5907177fea161"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a9575b4c2b7e6ed5135d5907177fea161">moveMonsters</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> **monsters, int nMonsters)</td></tr>
-<tr class="memdesc:a9575b4c2b7e6ed5135d5907177fea161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move all the monsters.  <a href="monster_8c.html#a9575b4c2b7e6ed5135d5907177fea161">More...</a><br /></td></tr>
-<tr class="separator:a9575b4c2b7e6ed5135d5907177fea161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27627a7ef4adebdae2ebbcf6c10a6ec4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a27627a7ef4adebdae2ebbcf6c10a6ec4">moveMonsters</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> **monsters, int nMonsters)</td></tr>
+<tr class="memdesc:a27627a7ef4adebdae2ebbcf6c10a6ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move all the monsters.  <a href="monster_8c.html#a27627a7ef4adebdae2ebbcf6c10a6ec4">More...</a><br /></td></tr>
+<tr class="separator:a27627a7ef4adebdae2ebbcf6c10a6ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e7a1e017091a69a49b4bf5a6687e816"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monster_8c.html#a0e7a1e017091a69a49b4bf5a6687e816">freeMonster</a> (void *p)</td></tr>
 <tr class="memdesc:a0e7a1e017091a69a49b4bf5a6687e816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the monster.  <a href="monster_8c.html#a0e7a1e017091a69a49b4bf5a6687e816">More...</a><br /></td></tr>
 <tr class="separator:a0e7a1e017091a69a49b4bf5a6687e816"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -388,8 +392,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a98e5f65392c9560b2ce1d7d3f29de7ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98e5f65392c9560b2ce1d7d3f29de7ef">&#9670;&nbsp;</a></span>initMonster()</h2>
+<a id="a2c7299e14e32ae3adc45ad6c8e68b379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7299e14e32ae3adc45ad6c8e68b379">&#9670;&nbsp;</a></span>initMonster()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,6 +456,12 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>&#160;</td>
         </tr>
         <tr>
@@ -474,6 +484,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">name</td><td>Monster name </td></tr>
     <tr><td class="paramname">color</td><td>Monster color </td></tr>
     <tr><td class="paramname">pathfinding</td><td>Monster pathfinding type </td></tr>
+    <tr><td class="paramname">gold</td><td>Monster gold value when killed </td></tr>
     <tr><td class="paramname">index</td><td>Monster index in the monsters array also stored in the cell (used as a pointer) </td></tr>
   </table>
   </dd>
@@ -617,8 +628,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a30dade9f1ceaace6d092c2b8c72a7b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30dade9f1ceaace6d092c2b8c72a7b8e">&#9670;&nbsp;</a></span>monsterPathfinding()</h2>
+<a id="ae5304007b37543cbd1f42abca4148e0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5304007b37543cbd1f42abca4148e0f">&#9670;&nbsp;</a></span>monsterPathfinding()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,14 +637,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void monsterPathfinding </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
-          <td class="paramname"><em>monster</em>, </td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramname"><em>monster</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -647,16 +658,16 @@ Functions</h2></td></tr>
 <p>Calculates the path if any else return a message to the menu. Moves the monster to the cell in the path with the lowest distance to the player.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">monster</td><td></td></tr>
-    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster to move </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af03c4673c2d81df10cd82cec6e8918b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af03c4673c2d81df10cd82cec6e8918b0">&#9670;&nbsp;</a></span>monsterPathfindingAway()</h2>
+<a id="ad7a0d98d64c95d8eb670a48252cd0f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a0d98d64c95d8eb670a48252cd0f45">&#9670;&nbsp;</a></span>monsterPathfindingAway()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -664,14 +675,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void monsterPathfindingAway </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
-          <td class="paramname"><em>monster</em>, </td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramname"><em>monster</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -685,16 +696,16 @@ Functions</h2></td></tr>
 <p>Checks the distance field of the cells around the monster and moves to the cell with the highest distance to the player.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">monster</td><td></td></tr>
-    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster to move </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a2a788baef72029f40016476d3f32df8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a788baef72029f40016476d3f32df8d">&#9670;&nbsp;</a></span>moveMonster()</h2>
+<a id="a43dc4bc9bf4583492a241a802645fff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43dc4bc9bf4583492a241a802645fff3">&#9670;&nbsp;</a></span>moveMonster()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -702,14 +713,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void moveMonster </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
-          <td class="paramname"><em>monster</em>, </td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
+          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramname"><em>monster</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -735,18 +746,18 @@ Functions</h2></td></tr>
 <p>Update the monster's coordinates and the cell's monster_index</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">monster</td><td></td></tr>
-    <tr><td class="paramname">map</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster to move </td></tr>
+    <tr><td class="paramname">x</td><td>X coordinates to move the monster to </td></tr>
+    <tr><td class="paramname">y</td><td>Y coordinates to move the monster to </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a555e844c0077e4165cc294cf18bd81b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555e844c0077e4165cc294cf18bd81b7">&#9670;&nbsp;</a></span>moveMonsterRandom()</h2>
+<a id="aba3c9e603c64c62d2f79199cf09ac557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3c9e603c64c62d2f79199cf09ac557">&#9670;&nbsp;</a></span>moveMonsterRandom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -754,14 +765,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void moveMonsterRandom </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
-          <td class="paramname"><em>monster</em>, </td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramname"><em>monster</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -775,16 +786,16 @@ Functions</h2></td></tr>
 <p>Checks the available walkable cells around the monster and moves the monster randomly to one of them.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">monster</td><td></td></tr>
-    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster to move randomly </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a9575b4c2b7e6ed5135d5907177fea161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9575b4c2b7e6ed5135d5907177fea161">&#9670;&nbsp;</a></span>moveMonsters()</h2>
+<a id="a27627a7ef4adebdae2ebbcf6c10a6ec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27627a7ef4adebdae2ebbcf6c10a6ec4">&#9670;&nbsp;</a></span>moveMonsters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -792,8 +803,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void moveMonsters </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -832,7 +843,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

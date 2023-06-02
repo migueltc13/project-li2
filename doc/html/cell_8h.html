@@ -258,10 +258,17 @@ Functions</h2></td></tr>
     <tr><td class="paramname">is_visible</td><td>1 if the cell is visible, 0 otherwise </td></tr>
     <tr><td class="paramname">distance_to_player</td><td>Distance to the player, initialized to -1 </td></tr>
     <tr><td class="paramname">has_item</td><td>1 if the cell has an item, 0 otherwise </td></tr>
-    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
     <tr><td class="paramname">has_player</td><td>1 if the cell has the player, 0 otherwise </td></tr>
-    <tr><td class="paramname">color</td><td>Color of the cell TODO:</td></tr>
-    <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL </td></tr>
+    <tr><td class="paramname">monster_index</td><td>1 if the cell has a monster, 0 otherwise </td></tr>
+    <tr><td class="paramname">effect</td><td>Effect of the cell caused by projectiles (0 by default) </td></tr>
+    <tr><td class="paramname">effect_duration</td><td>Duration of the effect if any (0 by default) </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the cell</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>TODO:</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">monster</td><td>Monster in this cell, if not NULL instead of monster_index </td></tr>
   </table>
   </dd>
 </dl>
@@ -353,7 +360,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">symbol</td><td>Cell symbol </td></tr>
     <tr><td class="paramname">is_walkable</td><td>Is the cell walkable? </td></tr>
     <tr><td class="paramname">block_light</td><td>Is the cell blocking light? </td></tr>
-    <tr><td class="paramname">color</td><td>Cell color TODO </td></tr>
+    <tr><td class="paramname">color</td><td>Cell color</td></tr>
   </table>
   </dd>
 </dl>
@@ -577,7 +584,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

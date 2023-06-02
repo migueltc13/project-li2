@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['wall_5fcolor_320',['WALL_COLOR',['../cell_8h.html#a47eb681b9f2c5a8f4f63891a58ab8e2d',1,'cell.h']]],
-  ['wall_5fprob_321',['wall_prob',['../structstate.html#a305feef1cde04ce9471e83cb472c0b01',1,'state']]],
-  ['wall_5fsymbol_322',['WALL_SYMBOL',['../cell_8h.html#ab0a9fa8f982b6403d8b98ad6be3dc879',1,'cell.h']]],
-  ['weapon_323',['WEAPON',['../item_8h.html#a520f43eff993fc00cc6277024d53fa47',1,'item.h']]],
-  ['width_324',['width',['../structmap.html#a34b43c4ecce8de3a5228b7f4e6d66740',1,'map']]],
-  ['window_2ec_325',['window.c',['../window_8c.html',1,'']]],
-  ['window_2eh_326',['window.h',['../window_8h.html',1,'']]]
+  ['value_343',['value',['../structitem.html#a48e03a66deef7b4ec95296391a17a420',1,'item']]],
+  ['vision_344',['vision',['../structplayer.html#a002ad0026a5847221f836a2172c887e0',1,'player']]],
+  ['vision_5fmode_345',['VISION_MODE',['../state_8h.html#af4bbb90a8308b1e280415a62de208dec',1,'state.h']]],
+  ['vision_5fwidth_346',['vision_width',['../structplayer.html#ab786c787c282f4aa647782c9d843409a',1,'player']]]
 ];

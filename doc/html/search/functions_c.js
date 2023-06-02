@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['throwfirebomb_454',['throwFirebomb',['../combat_8c.html#adbacd67b8d84b13e1ac63aa06c1d6237',1,'combat.c']]],
-  ['throwicebomb_455',['throwIcebomb',['../combat_8c.html#a7edda70a83899670f3121fa1b355d628',1,'combat.c']]],
-  ['throwprojectile_456',['throwProjectile',['../combat_8h.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c'],['../combat_8c.html#af2ccb67f5b1c049ddfb03f1cf667bee2',1,'throwProjectile(State *st):&#160;combat.c']]],
-  ['throwrock_457',['throwRock',['../combat_8h.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c'],['../combat_8c.html#abff1af54e4cb9fccc38d1a27fafe0cd0',1,'throwRock(State *st):&#160;combat.c']]],
-  ['throwsmokebomb_458',['throwSmokebomb',['../combat_8c.html#a865443f929aab23a5f0cfe4dd82b00be',1,'combat.c']]]
+  ['sellequippeditem_479',['sellEquippedItem',['../inventory_8h.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d',1,'sellEquippedItem(State *st, Inventory *i):&#160;inventory.c'],['../inventory_8c.html#a1b4082fcd4bb2bce71899d1c4fbf0e9d',1,'sellEquippedItem(State *st, Inventory *i):&#160;inventory.c']]],
+  ['sendmenumessage_480',['sendMenuMessage',['../menu_8h.html#aa7ab6967d6b12df56f62e7fcb70a7146',1,'sendMenuMessage(State *st, char *message):&#160;menu.c'],['../menu_8c.html#aa7ab6967d6b12df56f62e7fcb70a7146',1,'sendMenuMessage(State *st, char *message):&#160;menu.c']]],
+  ['switchequippeditem_481',['switchEquippedItem',['../inventory_8h.html#a5770d9ff8818daabdf39121ef7513dae',1,'switchEquippedItem(Inventory *i):&#160;inventory.c'],['../inventory_8c.html#a5770d9ff8818daabdf39121ef7513dae',1,'switchEquippedItem(Inventory *i):&#160;inventory.c']]]
 ];

@@ -78,11 +78,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="combat_8h__dep__incl.png" border="0" usemap="#ainclude_2combat_8hdep" alt=""/></div>
 <map name="ainclude_2combat_8hdep" id="ainclude_2combat_8hdep">
-<area shape="rect" title=" " alt="" coords="188,5,323,32"/>
-<area shape="rect" href="combat_8c.html" title=" " alt="" coords="5,80,111,107"/>
-<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="135,80,251,107"/>
-<area shape="rect" href="map_8c.html" title=" " alt="" coords="275,80,361,107"/>
-<area shape="rect" href="state_8c.html" title=" " alt="" coords="385,80,475,107"/>
+<area shape="rect" title=" " alt="" coords="291,5,425,32"/>
+<area shape="rect" href="cell_8c.html" title=" " alt="" coords="5,80,84,107"/>
+<area shape="rect" href="combat_8c.html" title=" " alt="" coords="108,80,213,107"/>
+<area shape="rect" href="inventory_8c.html" title=" " alt="" coords="237,80,353,107"/>
+<area shape="rect" href="map_8c.html" title=" " alt="" coords="378,80,463,107"/>
+<area shape="rect" href="monster_8c.html" title=" " alt="" coords="487,80,597,107"/>
+<area shape="rect" href="state_8c.html" title=" " alt="" coords="621,80,711,107"/>
 </map>
 </div>
 </div>
@@ -90,7 +92,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:adbc131e9b147b67d84003e054b355365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#adbc131e9b147b67d84003e054b355365">MAX_PROJECTILES</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:adbc131e9b147b67d84003e054b355365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#adbc131e9b147b67d84003e054b355365">MAX_PROJECTILES</a>&#160;&#160;&#160;20</td></tr>
 <tr class="separator:adbc131e9b147b67d84003e054b355365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -116,6 +118,9 @@ Functions</h2></td></tr>
 <tr class="separator:a5643d2845d06f765b94bcd1628f5ffed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862eb7ef45e61ac443f4473effd15cf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#a862eb7ef45e61ac443f4473effd15cf9">freeProjectile</a> (void *p)</td></tr>
 <tr class="separator:a862eb7ef45e61ac443f4473effd15cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#a72fbfbf35fba3b1981a56f78618b3eb4">killMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int x, int y)</td></tr>
+<tr class="memdesc:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to kill a monster with his coordinates.  <a href="combat_8h.html#a72fbfbf35fba3b1981a56f78618b3eb4">More...</a><br /></td></tr>
+<tr class="separator:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="adbc131e9b147b67d84003e054b355365"></a>
@@ -125,7 +130,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_PROJECTILES&#160;&#160;&#160;10</td>
+          <td class="memname">#define MAX_PROJECTILES&#160;&#160;&#160;20</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -220,6 +225,51 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a72fbfbf35fba3b1981a56f78618b3eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72fbfbf35fba3b1981a56f78618b3eb4">&#9670;&nbsp;</a></span>killMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void killMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to kill a monster with his coordinates. </p>
+<p>The monster is removed from the map and the monsters array</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate of the monster </td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate of the monster </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="af2ccb67f5b1c049ddfb03f1cf667bee2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2ccb67f5b1c049ddfb03f1cf667bee2">&#9670;&nbsp;</a></span>throwProjectile()</h2>
 
@@ -287,7 +337,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 29 2023 04:46:51 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 2 2023 05:24:39 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
