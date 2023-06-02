@@ -1,17 +1,17 @@
 # Roguelite
 
 ## Requirements
-  - [Ncurses](https://en.wikipedia.org/wiki/Ncurses)
+  - [ncurses](#install-ncurses)
 
-## Install Ncurses
+## Install ncurses
 
-Install Ncurses using apt with:
+Install ncurses using apt with:
 
 ```sh
 sudo apt install libncurses5-dev libncursesw5-dev
 ```
 
-More on Ncurses library [here](https://en.wikipedia.org/wiki/Ncurses).
+More on ncurses library [here](https://en.wikipedia.org/wiki/Ncurses).
 
 ## Tools
 
@@ -21,7 +21,7 @@ Install all tools used in the development of this game with:
 make install
 ```
 
-- [GDB](https://www.sourceware.org/gdb/): Debugger
+- [gdb](https://www.sourceware.org/gdb/): Debugger
 - [Valgrind](https://valgrind.org/): Memory management tool 
 - [Doxygen](https://www.doxygen.nl/): Documentation generator
 
