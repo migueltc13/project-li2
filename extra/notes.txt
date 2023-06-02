@@ -1,13 +1,10 @@
-- Monsters speed TODO
-- Mob:
-	- Queue de Mobs
-		- Spawn Mobs 
+- Monsters speed TODO:
+	- Spawn Mobs done 
 	- HP
 	- Armor + Def
 	- ATT | ATT | FIREBALL ...
 	- Criticos (Diff att/def)
-	- Kind
-	- Time
+	- speed TODO
 - cell / tile
 	- is walkable done
 	- is_visible to was_visible TODO update Cell add was_visible
@@ -15,19 +12,27 @@
 	- objects (items) done
 	- monster_index done (-1 if none)
 - Combat
-	- 2D4 (2->nr de dados, 4->nr de faces) TODO
 	- Attack defense relations
+	- TODO: defense vary from 0 to 100 and it's the percentage of damage blocked
+	- TODO: body to body functions
+	- TODO: some mobs throw projectiles 
 - items
-	- increase NUMBER_OF_ITEMS
-	- increase max vision range TODO
-	- facas espadas clavas TODO (swords done)
+	- increase NUMBER_OF_ITEMS done
+	- increase max vision range done
+	- swords done
 	- Life healing:
 		- Potion of Healing done
-		- Other ? yes sensory and invincibility
-- Mapa fix copy cells array for even distribution done
-- Count nr de turnos done ? (print in menu TODO)
+		- Healing fonts TODO: generateMap + implementation
+- items (Potions)
+	- Potion of Healing done
+	- Sensory Potion done
+	- Potion of Invincibility done
+- Mapa fix copy cells array for even distribution done (TODO: iter inner map instead of including inner walls)
 - Get last digit for distance modes in a faster way TODO
-- TODO bomb effects iter map and monsters
-- TODO equiped_sword/armor when is not NULL case
-- TODO fix Items seg fault when pressing N
-- TODO Kill monster with projectiles
+- DONE Kill monsters with projectiles (burning + explosions)
+- TODO Implement vision range
+- TODO Implement better vision by adding was_visible field and updating is_visible field
+- TODO Gate Keeper becomes a monster
+- TODO Use getCloserMonster for earing monsters and for attacking monsters (menu info)
+- TODO remove/replace stdbool
+- TODO more documentation
