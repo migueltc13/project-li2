@@ -1,4 +1,4 @@
-# project-li2
+# Roguelite
 
 ## Requirements
   - [Ncurses](https://en.wikipedia.org/wiki/Ncurses)
