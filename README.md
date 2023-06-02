@@ -15,15 +15,12 @@ Alternatively, install all tools used in this project with:
 make install
 ```
 
-<details>
-  <summary>Tools used in this project</summary>
+### Tools used
 
-  - [Ncurses](https://en.wikipedia.org/wiki/Ncurses): Window management, required to play
-  - [GDB](https://www.sourceware.org/gdb/): Debugger
-  - [Valgrind](https://valgrind.org/): Memory management tool 
-  - [Doxygen](https://www.doxygen.nl/): Documentation generator
-
-</details>
+- [Ncurses](https://en.wikipedia.org/wiki/Ncurses): Window management (required to play)
+- [GDB](https://www.sourceware.org/gdb/): Debugger
+- [Valgrind](https://valgrind.org/): Memory management tool 
+- [Doxygen](https://www.doxygen.nl/): Documentation generator
 
 ## Play
 
