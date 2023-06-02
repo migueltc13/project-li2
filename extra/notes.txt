@@ -36,3 +36,4 @@
 - TODO Use getCloserMonster for earing monsters and for attacking monsters (menu info)
 - TODO remove/replace stdbool
 - TODO more documentation
+- TODO more colors ncurses
