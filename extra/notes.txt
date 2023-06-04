@@ -29,14 +29,15 @@
 	- Potion of Invincibility done
 - Mapa fix copy cells array for even distribution done (TODO: iter inner map instead of including inner walls)
 - Get last digit for distance modes in a faster way TODO
+- DONE Implement better vision by adding was_visible field and updating is_visible field
 - TODO Enhance draw map by dont using attroff
 - TODO Implement vision range
-- TODO Implement better vision by adding was_visible field and updating is_visible field
 - TODO Use getCloserMonster for earing monsters and for attacking monsters (menu info)
 - TODO remove/replace stdbool
 - TODO more documentation and cleaniing + iter functions
 - TODO more colors (ncurses)
-- TOOD remove NULL checks when iter items and monsters since arrays are left shifted
+- TODO remove NULL checks when iter items and monsters since arrays are left shifted
+- TODO print effect and effect_duration in menu
 
 ---
 
