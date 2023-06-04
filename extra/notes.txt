@@ -5,7 +5,7 @@
 	- ATT | ATT | FIREBALL ...
 	- Criticos (Diff att/def)
 	- speed TODO
-- cell / tile
+- Cell
 	- is walkable done
 	- is_visible to was_visible TODO update Cell add was_visible
 	- blocks_light done
@@ -29,11 +29,15 @@
 	- Potion of Invincibility done
 - Mapa fix copy cells array for even distribution done (TODO: iter inner map instead of including inner walls)
 - Get last digit for distance modes in a faster way TODO
-- DONE Kill monsters with projectiles (burning + explosions)
+- TODO Enhance draw map by dont using attroff
 - TODO Implement vision range
 - TODO Implement better vision by adding was_visible field and updating is_visible field
-- TODO Gate Keeper becomes a monster
 - TODO Use getCloserMonster for earing monsters and for attacking monsters (menu info)
 - TODO remove/replace stdbool
-- TODO more documentation
-- TODO more colors ncurses
+- TODO more documentation and cleaniing + iter functions
+- TODO more colors (ncurses)
+- TOOD remove NULL checks when iter items and monsters since arrays are left shifted
+
+---
+
+- Update Makefile to -O3
