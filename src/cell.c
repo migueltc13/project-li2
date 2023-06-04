@@ -23,6 +23,7 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
     cell->is_walkable = is_walkable;
     cell->block_light = block_light;
     cell->distance_to_player = -1;
+    cell->was_visible = 0; // Not visible by default
     cell->is_visible = 0; // Not visible by default
     cell->has_item = 0; // No item by default
     cell->monster_index = -1; // No monster by default
@@ -127,6 +128,7 @@ void freeCell(void *p) {
     cell->symbol = '\0';
     cell->is_walkable = 0;
     cell->block_light = 0;
+    cell->was_visible = 0;
     cell->is_visible = 0;
     cell->has_item = 0;
     cell->color = 0;

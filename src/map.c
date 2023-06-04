@@ -10,6 +10,7 @@
 #include "monster.h"
 #include "item.h"
 #include "combat.h"
+#include "inventory.h" // function pickUpItem
 #include "menu.h" // macro for height of the menu
 
 /**
@@ -67,8 +68,12 @@ void freeMap(void *p) {
         if (map->items[i] != NULL)
             freeItem(map->items[i]);
     }
-    // TODO free items and projectiles if any
     free(map->items);
+    for (int i = 0; i < map->nr_projectiles; i++) {
+        if (map->projectiles[i] != NULL)
+            freeProjectile(map->projectiles[i]);
+    }
+    free(map->projectiles);
     free(map);
 }
 
@@ -225,7 +230,7 @@ void drawMap(Map *map, int mode) {
     else if (mode == VISION_MODE) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
-                if(map->cells[i][j]->is_visible == 1) {
+                if(map->cells[i][j]->was_visible == 1) {
                     attron(COLOR_PAIR(map->cells[i][j]->color));
                     mvaddch(i, j, map->cells[i][j]->symbol);
                     attroff(COLOR_PAIR(map->cells[i][j]->color));
@@ -237,9 +242,16 @@ void drawMap(Map *map, int mode) {
     else {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
-                attron(COLOR_PAIR(map->cells[i][j]->color));
-                mvaddch(i, j, map->cells[i][j]->symbol);
-                attroff(COLOR_PAIR(map->cells[i][j]->color));
+                if (map->cells[i][j]->is_visible == 1) {
+                    attron(COLOR_PAIR(map->cells[i][j]->color));
+                    mvaddch(i, j, map->cells[i][j]->symbol);
+                    attroff(COLOR_PAIR(map->cells[i][j]->color));
+                } else {
+                    int color = COLOR_WHITE; // TODO make darker color
+                    attron(COLOR_PAIR(color));
+                    mvaddch(i, j, map->cells[i][j]->symbol);
+                    attroff(COLOR_PAIR(color));
+                }
             }
         }
     }
@@ -300,11 +312,13 @@ void getRandomCoordinates(Map* map, int* x, int* y) {
 }
 
 /**
- * @brief Calculate the distances from the player to all the cells
+ * @brief Calculate the distances from the player to all the cells,
+ * also updates the effect and effect_duration and color of the effected cells.
+ * Finally updates the is_visible field in the cells
  * 
  * @details The distance is calculated as the maximum between the x and y distance
  * 
- * @param map Map to calculate the distances
+ * @param map Map to calculate
  * @param x Starting x coordinate
  * @param y Starting y coordinate
 */
@@ -331,93 +345,106 @@ void calculateDistances(Map* map, int x, int y) {
                 }
                 else cell->effect_duration--;
             }
+
+            // Update the cell is_visble field
+            cell->is_visible = 0;
+            
+            // Update the exit cell color
+            cell->color = (cell->symbol == EXIT_SYMBOL) ? EXIT_COLOR : cell->color;
         }
     }
 }
 
-/** 
- * @brief Calculate the vision of the player and updates the is_visible field in the cells
+/**
+ * @brief Calculates the vision for one line of sight
  * 
- * Based on the player position and the distance to the cells, the is_visible field is updated
+ * @details Recursive function given a starting position, a direction and a distance
+ * 
+ * @param map Map to calculate the specific line of sight
+ * @param x Starting x coordinate
+ * @param y Starting y coordinate
+ * @param direction Direction of the line of sight
+ * @param n Distance of the line of sight
+*/
+void calculateVisionAux(Map *map, int x, int y, int direction, int n) {
+    // Break conditions
+    if (n == 0)
+        return;
+    if (x < 0 || x >= map->width || y < 0 || y >= map->height)
+        return;
+
+    // Update the cell visibility
+    map->cells[y][x]->was_visible = 1;
+    map->cells[y][x]->is_visible = 1;
+
+    // If the cell is a wall or smoke, stop
+    if (isCellBlockingLight(map->cells[y][x]))
+        return;
+    
+    // Calculate the next cell x, y
+    int dR = 0, dC = 0;
+    switch (direction) {
+        case 0:  // Right
+            dR = 0;
+            dC = 1;
+            break;
+        case 1:  // Up-Right
+            dR = -1;
+            dC = 1;
+            break;
+        case 2:  // Up
+            dR = -1;
+            dC = 0;
+            break;
+        case 3:  // Up-Left
+            dR = -1;
+            dC = -1;
+            break;
+        case 4:  // Left
+            dR = 0;
+            dC = -1;
+            break;
+        case 5:  // Down-Left
+            dR = 1;
+            dC = -1;
+            break;
+        case 6:  // Down
+            dR = 1;
+            dC = 0;
+            break;
+        case 7:  // Down-Right
+            dR = 1;
+            dC = 1;
+            break;
+    }
+
+    calculateVisionAux(map, x + dC, y + dR, direction, n - 1);
+}
+
+/**
+ * @brief Calculate the vision of the player and updates the is_visible and was_visible field in the cells
+ * 
+ * @details Uses the calculateVisionAux() function to calculate the vision for all eight directions
+ * @details Based on the player vision width calculates the number adjacent lines of sight
  * 
  * @param map Map to calculate the vision
  * @param player Player to calculate the vision
 */
-// TODO: update a range using PLAYER_VISION_WIDTH 
-// Traverse in the current direction 
-// until the vision limit is reached or a blocking cell is encountered
-// Using a PLAYER_VISION_WIDTH set to 1 as default
 void calculateVision(Map* map, Player* player) {
-    // Start from the player position
-    int R = player->y;
-    int C = player->x;
 
     // Iterate over all eight directions
     for (int dir = 0; dir < 8; dir++) {
-        int dR, dC;
-        // Set the direction offsets based on the current direction
-        switch (dir) {
-            case 0:  // Right
-                dR = 0;
-                dC = 1;
-                break;
-            case 1:  // Up-Right
-                dR = -1;
-                dC = 1;
-                break;
-            case 2:  // Up
-                dR = -1;
-                dC = 0;
-                break;
-            case 3:  // Up-Left
-                dR = -1;
-                dC = -1;
-                break;
-            case 4:  // Left
-                dR = 0;
-                dC = -1;
-                break;
-            case 5:  // Down-Left
-                dR = 1;
-                dC = -1;
-                break;
-            case 6:  // Down
-                dR = 1;
-                dC = 0;
-                break;
-            case 7:  // Down-Right
-                dR = 1;
-                dC = 1;
-                break;
-            default:
-                break;
-        }
-
-        // Reset R and C to the player position
-        R = player->y;
-        C = player->x;
-
-        // Reset the vision distance
-        int visionDistance = 0;
-
-        // Calculate the vision distance
-        while (visionDistance < player->vision) {
-            R += dR;
-            C += dC;
-
-            // Check if the new position is within the map boundaries
-            if (R < 0 || R >= map->height || C < 0 || C >= map->width)
-                break;
-
-            // Update the cell visibility
-            map->cells[R][C]->is_visible = 1;
-
-            // If the cell is a wall or smoke, stop
-            if (isCellBlockingLight(map->cells[R][C]))
-                break;
-
-            // Increment the vision distance
-            visionDistance++;
+        // Calculate the vision for the current direction
+        calculateVisionAux(map, player->x, player->y, dir, player->vision);
+        // Based on the player direction determine the adjacent cells to calculate the lines of sight
+        int dx = 0, dy = 0;
+        if (dir == 0 || dir == 4) { dx = 0; dy = 1; }
+        else { dx = 1; dy = 0; }
+ 
+        // Calculate the vision for the adjacent lines of sight
+        for (int i = 1; i <= player->vision_width; i++) {
+            calculateVisionAux(map, player->x + (dx * i), player->y + (dy * i), dir, player->vision);
+            calculateVisionAux(map, player->x - (dx * i), player->y - (dy * i), dir, player->vision);
         }
     }
 }
@@ -425,11 +452,11 @@ void calculateVision(Map* map, Player* player) {
 /**
  * @brief Distribute the items on the map
  * 
+ * @details Distribute the items randomly on the map, avoiding the player, monsters and other items
+ * 
  * @param map Map to distribute the items
  * @param items Array of items to distribute
  * @param nr_items Number of items in the array
- * 
- * TODO: replace this function with a better one
 */
 void distributeItems(Map* map, Item** items, int nr_items) {
     int height = map->height;
@@ -456,134 +483,36 @@ void distributeItems(Map* map, Item** items, int nr_items) {
     }
 }
 
-/* void distributeItems(Map* map, Item** items, int nr_items) {
-    int height = map->height;
-    int width = map->width;
-    int missing_items = 0;
-    for (int i = 0; i < nr_items; i++) {
-        int x = (width / nr_items) * i;
-        if (x >= width) x = width - 2;
-        if (x <= 0) x = 1;
-        int y = 0;
-        // y has 4 options:
-        // 1. 0 -> height - 1
-        // 2. height - 1 -> 0
-        // 3. height / 2 -> height - 1, height / 2 -> 0
-        // 4. height - 1 -> height / 2, 0 -> height / 2
-        int option = rand() % 4;
-        if (option == 0) {
-            for (y = 0; y < height; y++) {
-                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                    map->items[i] = items[i];
-                    break;
-                }
-            }
-            // TODO updateItem function 
-            if (y < height) {
-                items[i]->x = x;
-                items[i]->y = y;
-                map->cells[y][x]->has_item = 1;
-                map->items[i] = items[i];
-                map->nr_items++;
-            }
-            else {
-                missing_items++;
-            }
-            // else TODO try again
-        }
-        else if (option == 1) {
-            for (y = height - 1; y >= 0; y--) {
-                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                    map->items[i] = items[i];
-                    break;
-                }
-            }
-            if (y >= 0) {
-                items[i]->x = x;
-                items[i]->y = y;
-                map->cells[y][x]->has_item = 1;
-                map->items[i] = items[i];
-                map->nr_items++;
-            }
-            else {
-                missing_items++;
-            }
-            // else TODO try again
-        }
-        else if (option == 2) {
-            int found = 0;
-            for (y = height / 2; y < height; y++) {
-                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                    map->items[i] = items[i];
-                    found = 1;
-                    break;
-                }
-            }
-            // if y is not found, search from the top
-            if (!found) {
-                for (y = height / 2; y >= 0; y--) {
-                    if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                        map->items[i] = items[i];
-                        break;
-                    }
-                }
-            }
-            if (y >= 0 && y < height) { 
-                items[i]->x = x;
-                items[i]->y = y;
-                map->cells[y][x]->has_item = 1;
-                map->items[i] = items[i];
-                map->nr_items++;
-            }
-            // else TODO try again
-            else {
-                missing_items++;
-            }
-        }
-        else {
-            for (y = height - 1; y >= height / 2; y--) {
-                if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                    map->items[i] = items[i];
-                    break;
-                }
-            }
-            if (map->cells[y][x]->symbol != '.') {
-                for (y = 0; y < height / 2; y++) {
-                    if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0) {
-                        map->items[i] = items[i];
-                        break;
-                    }
-                }
-            }
-            if (y >= 0 && y < height) {
-                items[i]->x = x;
-                items[i]->y = y;
-                map->cells[y][x]->has_item = 1;
-                map->items[i] = items[i];
-                map->nr_items++;
-            }
-            // else TODO try again
-            else {
-                missing_items++;
-            }
-        }
-    }
-    // random for missing items
-    while (missing_items > 0) {
-        int x = rand() % width;
-        int y = rand() % height;
-        if (map->cells[y][x]->symbol == '.' && map->cells[y][x]->has_player == 0 && map->cells[y][x]->has_item == 0) {
-            map->items[nr_items - missing_items] = items[nr_items - missing_items];
-            items[nr_items - missing_items]->x = x;
-            items[nr_items - missing_items]->y = y;
-            map->cells[y][x]->has_item = 1;
-            map->items[nr_items - missing_items] = items[nr_items - missing_items];
-            map->nr_items++;
-            missing_items--;
-        }
+/**
+ * @brief Get the item on the player position
+ * 
+ * @details Removes the item from the map and adds it to the player inventory
+ * 
+ * @param st The game state
+*/
+void pickUpItem(State *st) {
+    Item *item = getItem(st->map->items, st->map->nr_items, st->player->x, st->player->y);
+    if (item != NULL) {
+        char *menu_message = (char *) malloc(sizeof(char) * st->map->width);
+        // Send message to the menu: Item name and value
+        if (item->type == POT_OF_GOLD_TYPE)
+            snprintf(menu_message, st->map->width, "You picked up %d gold.", item->value);
+        else
+            snprintf(menu_message, st->map->width, "You picked up \"%s\". Valued at %d gold.", item->name, item->value);
+        sendMenuMessage(st, menu_message);
+        free(menu_message);    
+
+        // Add the item to the player inventory and remove it from the map
+        addItem(st->player->inventory, item);
+        st->map->nr_items--;
+        // getItem removes the item from the map->items array by shifting the items to the left
+        // so we only need to decrease the number of items in the map
+    
+        // If there's no equiped item, equip the new item except if it is a pot of gold
+        if (st->player->inventory->equipped_item == NULL && item->type != POT_OF_GOLD_TYPE)
+            st->player->inventory->equipped_item = item;
     }
 }
-*/
 
 /**
  * @brief Get the closer monster to the player

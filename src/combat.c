@@ -11,7 +11,7 @@
 #include "menu.h"
 
 /**
- * @brief Structure of a thrown projectile
+ * @brief (private) Structure of a thrown projectile
  * 
  * @param x The current x coordinate of the projectile
  * @param y The current y coordinate of the projectile
@@ -82,29 +82,30 @@ void moveProjectile(Projectile *p) {
     return;
 }
 
+/**
+ * @brief Inserts a projectile into the map
+ * 
+ * @param map The map to insert the projectile
+ * @param p The projectile to insert
+*/
 void insertProjectile(Map *map, Projectile *p) {
     map->projectiles[map->nr_projectiles++] = p;
 }
 
+/**
+ * @brief Removes a projectile from the map
+ * 
+ * @param map The map to remove the projectile
+ * @param index The index of the projectile in the map
+*/
 void removeProjectile(Map *map, int index) {
     free(map->projectiles[index]);
-    map->projectiles[index] = NULL;
+    map->projectiles[index] = NULL; // unnecessary
     // shift left
     for (int i = index; i < map->nr_projectiles - 1; i++)
         map->projectiles[i] = map->projectiles[i + 1];
     map->nr_projectiles--;
 }
-
-/* 
-TODO: implement
-moveProjectiles(State *st) {
-
-}
-
-throwProjectile() {
-
-}
-*/
 
 /**
  * @brief Explodes a projectile
@@ -112,7 +113,7 @@ throwProjectile() {
  * @details The explosion is a star shape with radius 5
  * Various effects are applied to the cells within the explosion
  * 
- * TODO: remove effects when the turns are over
+ * TODO: visual effects for monsters
  * 
  * @param st The game state
  * @param projectile The projectile to explode
@@ -122,33 +123,38 @@ void explodeProjectile(State *st, Projectile *projectile) {
         for (int j = -5; j <= 5; j++) {
             if (i*i + j*j <= 25) {
                 // Check coordinates dont go out of bounds
-                if (projectile->y + i < 0 || projectile->y + i >= st->map->height) continue;
-                else if (projectile->x + j < 0 || projectile->x + j >= st->map->width) continue;
-                else if (st->map->cells[projectile->y + i][projectile->x + j] == NULL) continue;
-                else if (isCellWalkable(st->map->cells[projectile->y + i][projectile->x + j])) {
+                if ((projectile->y + i < 0 || projectile->y + i >= st->map->height) ||
+                    (projectile->x + j < 0 || projectile->x + j >= st->map->width)) break;
+                // if (st->map->cells[projectile->y + i][projectile->x + j] == NULL) break; // unnecessary
+                
+                Cell *cell = st->map->cells[projectile->y + i][projectile->x + j];
+                if (isCellWalkable(cell)) {
                     if (projectile->effect == SMOKE_BOMB_EFFECT) {
-                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 0;
-                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect = SMOKE_BOMB_EFFECT;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect_duration = SMOKE_BOMB_DURATION;
+                        cell->is_visible = 0;
+                        cell->was_visible = 0;
+                        cell->color = projectile->color;
+                        cell->effect = SMOKE_BOMB_EFFECT;
+                        cell->effect_duration = SMOKE_BOMB_DURATION;
                     }
                     else if (projectile->effect == FIRE_BOMB_EFFECT) {
-                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 1;
-                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect = FIRE_BOMB_EFFECT;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect_duration = FIRE_BOMB_DURATION;
+                        cell->is_visible = 1;
+                        cell->was_visible = 1;
+                        cell->color = projectile->color;
+                        cell->effect = FIRE_BOMB_EFFECT;
+                        cell->effect_duration = FIRE_BOMB_DURATION;
                     }
                     else if (projectile->effect == ICE_BOMB_EFFECT) {
-                        st->map->cells[projectile->y + i][projectile->x + j]->is_visible = 1;
-                        st->map->cells[projectile->y + i][projectile->x + j]->color = projectile->color;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect = ICE_BOMB_EFFECT;
-                        st->map->cells[projectile->y + i][projectile->x + j]->effect_duration = ICE_BOMB_DURATION;
+                        cell->is_visible = 1;
+                        cell->was_visible = 1;
+                        cell->color = projectile->color;
+                        cell->effect = ICE_BOMB_EFFECT;
+                        cell->effect_duration = ICE_BOMB_DURATION;
                     }
-                    if (isCellMonster(st->map->cells[projectile->y + i][projectile->x + j])) {
-                        int monster_index = st->map->cells[projectile->y + i][projectile->x + j]->monster_index;
+                    if (isCellMonster(cell)) {
+                        int monster_index = cell->monster_index;
                         Monster *monster = st->monsters[monster_index];
 
-                        // TODO effect in monsters
+                        // TODO visual effect in monsters: drawMonster
 
                         // Update monster health with projectile damage
                         monster->health -= projectile->damage;
@@ -176,15 +182,11 @@ void explodeProjectile(State *st, Projectile *projectile) {
  * @param st The game state
  * @param projectile The projectile to update
  * @param index The index of the projectile in the map
- * @return void
- * 
- * TODO: clear projectiles
  */
 void updateProjectile(State *st, Projectile *projectile, int index) {
     if (projectile == NULL) return;
     if (projectile->turns_left == 0) {
         if (projectile->effect != 0) explodeProjectile(st, projectile);
-        // freeProjectile(projectile); // TODO check this
         removeProjectile(st->map, index);
     }
     else { 
@@ -333,8 +335,8 @@ void drawProjectiles(Map *map) {
     for (int i = 0; i < MAX_PROJECTILES; i++) {
         if (i > map->nr_projectiles) break;
         if (map->projectiles[i] != NULL) drawProjectile(map->projectiles[i]);
-        // note if (map->cells[map->projectiles[i]->y][map->projectiles[i]->x]->is_visible)
-        // drawProjectile independently of the cell visibility (is_visible field)
+        // note if (map->cells[map->projectiles[i]->y][map->projectiles[i]->x]->is/was_visible)
+        // drawProjectile independently of the cell visibility (is/was_visible field)
     }
 }
 
@@ -346,14 +348,18 @@ void drawProjectiles(Map *map) {
  * @param st The game state
  * @param x The x coordinate of the monster
  * @param y The y coordinate of the monster
+ * TODO: change to monster instead of coordinates
 */
 void killMonster(State *st, int x, int y) {
     int monster_index = st->map->cells[y][x]->monster_index;
     Monster *monster = st->monsters[monster_index];
+    
     // Set monster index in cell to -1 (unique value for no monster)
     st->map->cells[y][x]->monster_index = -1;
+    
     // Add gold to player inventory
     st->player->inventory->gold += monster->gold;
+    
     // Free monster
     freeMonster(monster);
     monster = NULL;
@@ -361,18 +367,36 @@ void killMonster(State *st, int x, int y) {
     // left shift monsters
     for (int i = monster_index; i < st->nMonsters - 1; i++) {
         st->monsters[i] = st->monsters[i + 1];
+        
         // update monster->index
         st->monsters[i]->index--;
-    }
 
-    // iter the map to update the monster indexes (Better option: (Monster *) inside cell)
-    for (int i = 0; i < st->map->height; i++) {
-        for (int j = 0; j < st->map->width; j++) {
-            if (st->map->cells[i][j] == NULL) continue;
-            else if (st->map->cells[i][j]->monster_index > monster_index)
-                st->map->cells[i][j]->monster_index--;
-        }
+        // update monster_index in cell
+        st->map->cells[st->monsters[i]->y][st->monsters[i]->x]->monster_index--;
     }
-
     st->nMonsters--;
 }
+
+// TODO
+void monsterAttacksPlayer(State *st, Monster *monster) {
+    
+    st->player->health -= monster->attack; // TODO defense
+    if (st->player->health <= 0) {
+        // TODO game over function
+        return;
+    }
+
+    monster->health -= st->player->attack; // TODO defense
+    if (monster->health <= 0) {
+        // send message: monster attack you and died + gold
+        killMonster(st, monster->x, monster->y);
+        return;
+    }
+
+    char *msg = (char *) malloc(sizeof(char) * st->map->width);
+    snprintf(msg, st->map->width, "A \"%s\" attacked you!", monster->name);
+    sendMenuMessage(st, msg);
+    free(msg);
+}
+
+// TODO playerAttacksMonster(State *st, Monster *monster) {}

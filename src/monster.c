@@ -120,7 +120,7 @@ Monster *initDragon(int x, int y, int index) {
 */
 void drawMonster(State* st, Monster *monster, int mode) {
     if (mode == VISION_MODE) {
-        if (st->map->cells[monster->y][monster->x]->is_visible) {
+        if (st->map->cells[monster->y][monster->x]->is_visible) { // See all monsters within vision
             attron(COLOR_PAIR(monster->color));
             mvaddch(monster->y, monster->x, monster->symbol);
             attroff(COLOR_PAIR(monster->color));
@@ -206,14 +206,6 @@ void moveMonster(State *st, Monster *monster, int x, int y) {
         map->cells[y][x]->monster_index = monster->index;
     }
 }
-
-/* // TODO
-void monsterAttacksPlayer(Monster *monster, Player *player) { // State *st, Monster *monster
-    // calculate damage combat.c
-    // send message to the menu: (Monster->name)"%s" attacked you for %d damage, it lost %d health, sucker!
-    // player->health -= damage;
-    // if (player->health <= 0) { player->is_alive = 0; return; } // TODO set st->mode = EXIT_MODE
-} */
 
 /**
  * @brief Move the monster randomly.

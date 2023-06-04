@@ -254,9 +254,9 @@ void useEquippedItem(State *st) {
         else if (equipped_item->symbol == SENSORY_POTION_SYMBOL &&
                  equipped_item->color  == SENSORY_POTION_COLOR) 
         {
-            // Encrease player's vision by SENSORY_POTION_VISION (5)
-            st->player->vision = SENSORY_POTION_VISION;
-            st->player->vision_width = SENSORY_POTION_VISION; // TODO: implement vision width
+            // Encrease player's vision (and earing TODO)
+            st->player->vision += SENSORY_POTION_VISION_RANGE;
+            st->player->vision_width = SENSORY_POTION_VISION_WIDTH;
             st->player->sensory_potion_turns = SENSORY_POTION_TURNS;
             st->player->color = SENSORY_POTION_COLOR;
             removeItem(st->player->inventory, equipped_item);

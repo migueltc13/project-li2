@@ -41,7 +41,6 @@ void freeMap(void *p);
 
 void drawMap(Map *map, int mode);
 
-//void generateMap(Map *map, int *x, int *y);
 void generateMap(State *st);
 
 void getPlayerInitialPosition(Map *map, int *x, int *y);
@@ -50,6 +49,7 @@ void getRandomCoordinates(Map* map, int* x, int* y);
 void calculateDistances(Map* map, int x, int y);
 void calculateVision(Map* map, Player* player);
 
-void distributeItems(Map* map, Item** items, int nr_items); 
+void distributeItems(Map* map, Item** items, int nr_items);
+void pickUpItem(State *st);
 
 #endif

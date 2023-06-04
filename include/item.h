@@ -150,7 +150,8 @@ typedef struct item {
 #define SENSORY_POTION_SYMBOL '!'
 #define SENSORY_POTION_TYPE POTION
 #define SENSORY_POTION_VALUE 50
-#define SENSORY_POTION_VISION 5
+#define SENSORY_POTION_VISION_RANGE 10 // cells
+#define SENSORY_POTION_VISION_WIDTH 3 // adjacent cells
 #define SENSORY_POTION_EARING 7
 #define SENSORY_POTION_TURNS 60 // turns
 #define SENSORY_POTION_RANGE 3 // cells

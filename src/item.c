@@ -271,10 +271,6 @@ Item** generateItems(int n) {
     return items;
 }
 
-void pickUpItem() {
-    // TODO
-}
-
 /**
  * @brief Draw an item
  * 
@@ -312,7 +308,7 @@ void drawVisibleItems(Map* map, Item **items, int n) {
     for (int i = 0; i < n; i++) {
         if (items[i] != NULL) {
             if (map->cells[items[i]->y][items[i]->x] != NULL) { 
-                if (map->cells[items[i]->y][items[i]->x]->is_visible)
+                if (map->cells[items[i]->y][items[i]->x]->was_visible) // any cell that's already visible
                     drawItem(items[i]);
             }
         }

@@ -12,6 +12,7 @@
  * @param y Y coordinate
  * @param is_walkable 1 if the cell is walkable, 0 otherwise
  * @param block_light 1 if the cell blocks light, 0 otherwise
+ * @param was_visible 1 if the cell was visible, 0 otherwise
  * @param is_visible 1 if the cell is visible, 0 otherwise
  * @param distance_to_player Distance to the player, initialized to -1
  * @param has_item 1 if the cell has an item, 0 otherwise
@@ -29,6 +30,7 @@ typedef struct cell {
     unsigned int y;
     unsigned int is_walkable;
     unsigned int block_light; // is this cell blocking light?
+    unsigned int was_visible; // was this cell visible?
     unsigned int is_visible; // is this cell visible?
     int distance_to_player; // initialized to -1
     unsigned int has_item; // does this cell have an item?

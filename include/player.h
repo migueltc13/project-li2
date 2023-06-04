@@ -4,9 +4,10 @@
 #define PLAYER_SYMBOL '@'
 #define PLAYER_COLOR COLOR_WHITE
 #define MAX_HEALTH 100
-#define PLAYER_VISION 16 // cells
-#define PLAYER_VISION_WIDTH 3 // cells (total range = 2 * PLAYER_VISION_WIDTH + 1)
+#define PLAYER_VISION 10 // cells
+#define PLAYER_VISION_WIDTH 1 // cells (nr adjacent lines of sight = 2 * PLAYER_VISION_WIDTH)
 #define PLAYER_STARTING_ATTACK 5
+// TODO: #define PLAYER_STARTING_DEFENSE 2
 
 typedef struct inventory Inventory;
 

@@ -80,8 +80,7 @@ void generateMenu(State *st) {
         attroff(COLOR_PAIR(st->player->inventory->equipped_item->color));
     }
     else {
-        // Clear previous equipped item
-        printw(" | No equipped item");
+        printw(" | Empty");
     }
 
     attron(COLOR_PAIR(MENU_BORDERS_COLOR));
@@ -197,7 +196,7 @@ void legendMenu(State *st) {
     wattron(legend_menu, COLOR_PAIR(SENSORY_POTION_COLOR));
     wprintw(legend_menu, "  %c", SENSORY_POTION_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(SENSORY_POTION_COLOR));
-    wprintw(legend_menu, " Sensory Potion: +%d vis +%d ear\n", SENSORY_POTION_VISION, SENSORY_POTION_EARING);
+    wprintw(legend_menu, " Sensory Potion: +%d vis +%d ear\n", SENSORY_POTION_VISION_RANGE, SENSORY_POTION_EARING);
 
     wattron(legend_menu, COLOR_PAIR(POTION_OF_INVINCIBILITY_COLOR));
     wprintw(legend_menu, "  %c", POTION_OF_INVINCIBILITY_SYMBOL);
