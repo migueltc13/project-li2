@@ -1,29 +1,29 @@
-# project-li2
+# Roguelite
 
 ## Requirements
-  - [Ncurses](https://en.wikipedia.org/wiki/Ncurses)
+  - [ncurses](#install-ncurses)
 
-## Install Ncurses (apt)
+## Install ncurses
+
+Install ncurses using apt with:
 
 ```sh
-apt install libncurses5-dev libncursesw5-dev
+sudo apt install libncurses5-dev libncursesw5-dev
 ```
 
-Alternatively, install all tools used in this project with:
+More on ncurses library [here](https://en.wikipedia.org/wiki/Ncurses).
+
+## Tools
+
+Install all tools used in the development of this game with:
 
 ```sh
 make install
 ```
 
-<details>
-  <summary>Tools used in this project</summary>
-
-  - [Ncurses](https://en.wikipedia.org/wiki/Ncurses): Window management, required to play
-  - [GDB](https://www.sourceware.org/gdb/): Debugger
-  - [Valgrind](https://valgrind.org/): Memory management tool 
-  - [Doxygen](https://www.doxygen.nl/): Documentation generator
-
-</details>
+- [gdb](https://www.sourceware.org/gdb/): Debugger
+- [Valgrind](https://valgrind.org/): Memory management tool 
+- [Doxygen](https://www.doxygen.nl/): Documentation generator
 
 ## Play
 
