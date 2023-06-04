@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
-#include <stdbool.h>
-// #include <mybool.h> TODO: implement replace
 #include "state.h"
 #include "player.h"
 #include "map.h"
@@ -31,7 +29,7 @@ State *initState(int width, int height)
     st->first_pass = 4;
     st->second_pass = 4;
     st->wall_prob = 40;
-    st->mode = VISION_MODE; // default mode
+    st->mode = DEFAULT_MODE;
 
     // Set the map
     st->map = initMap(width, height);
@@ -64,14 +62,13 @@ State *initState(int width, int height)
 
 /**
  * @brief Free the game state
- *
+ * 
  * @details Free the map, the player and the monsters
- *
- * @param p a pointer to the State to free
+ * 
+ * @param p a pointer to the State to free 
  */
-void freeState(void *p)
-{
-    State *st = (State *)p;
+void freeState(void *p) {
+    State *st = (State *) p;
     freeMap(st->map);
     freePlayer(st->player);
     for (int i = 0; i < st->nMonsters; i++)
@@ -82,18 +79,16 @@ void freeState(void *p)
 
 /**
  * @brief Update the game state. Used in the main loop.
- *
+ * 
  * @details Calculates the new state based on the input key.
  * Handles the exit and quit modes, then draws the new state.
- *
+ * 
  * @param st The game state to update
  * @param input_key The input key from player
  */
-void updateState(State *st, int input_key)
-{
+void updateState(State *st, int input_key) {
     calculateState(st, input_key);
-    if (st->mode == EXIT_MODE)
-    {
+    if (st->mode == EXIT_MODE) {
         // Winner / Loser
         if (st->player->health <= 0) {
             attron(COLOR_PAIR(COLOR_RED));
@@ -111,8 +106,7 @@ void updateState(State *st, int input_key)
         endwin();
         exit(EXIT_SUCCESS);
     }
-    else if (st->mode == QUIT_MODE)
-    {
+    else if (st->mode == QUIT_MODE) {
         attron(COLOR_PAIR(COLOR_YELLOW));
         sendMenuMessage(st, "Do you really want to quit? (y/n)");
         attroff(COLOR_PAIR(COLOR_YELLOW));
@@ -124,21 +118,19 @@ void updateState(State *st, int input_key)
         }
         else {
             sendMenuMessage(st, ""); // clear menu message
-            st->mode = VISION_MODE;  // default mode
+            st->mode = VISION_MODE; // default mode
             drawState(st);
         }
     }
-    else
-        drawState(st);
+    else drawState(st);
 }
 
 /**
  * @brief Draw the game state
- *
+ * 
  * @param st The game state to draw
  */
-void drawState(State *st)
-{
+void drawState(State *st) {
     // clear();
     drawMap(st->map, st->mode); // TODO: mode outside drawMap()
     // draw projectiles in all modes
@@ -159,116 +151,62 @@ void drawState(State *st)
 
 /**
  * @brief Calulates the state based on the input key
- *
+ * 
  * @param st Calculated state
  * @param input_key Input keyboard key
- * @return void
+ * @return void 
  * (0: normal view, 1: distance view enabled, -1: the player win/lost/quit)
- */
-void calculateState(State *st, int input_key)
-{
+*/
+void calculateState(State *st, int input_key) {
 
     int dx = 0, dy = 0, direction = 0;
-    switch (input_key)
-    {
-    // Movement keys, numpad, awsd and arrows keys
-    case KEY_A1:
-    case '7':
-        dx = -1;
-        dy = -1;
-        direction = 7;
-        break;
-    case KEY_UP:
-    case 'w':
-    case '8':
-        dx = 0;
-        dy = -1;
-        direction = 8;
-        break;
-    case KEY_A3:
-    case '9':
-        dx = 1;
-        dy = -1;
-        direction = 9;
-        break;
-    case KEY_LEFT:
-    case 'a':
-    case '4':
-        dx = -1;
-        dy = 0;
-        direction = 4;
-        break;
-    case KEY_B2:
-    case '5':
-        break;
-    case KEY_RIGHT:
-    case 'd':
-    case '6':
-        dx = 1;
-        dy = 0;
-        direction = 6;
-        break;
-    case KEY_C1:
-    case '1':
-        dx = -1;
-        dy = 1;
-        direction = 1;
-        break;
-    case KEY_DOWN:
-    case 's':
-    case '2':
-        dx = 0;
-        dy = 1;
-        direction = 2;
-        break;
-    case KEY_C3:
-    case '3':
-        dx = 1;
-        dy = 1;
-        direction = 3;
-        break;
-    // Inventory keys
-    case 'i':
-        switchEquippedItem(st->player->inventory);
-        return; // switch equipped item
-    case 'o':
-        sellEquippedItem(st, st->player->inventory);
-        return; // sell equiped item
-    // Combat + Inventory keys
-    case KEY_ENTER:
-    case ' ':
-    case 'u':
-        useEquippedItem(st);
-        return; // Use equipped item
-    // Menu keys
-    case 'l':
-        legendMenu(st);
-        return; // legend menu
-    case 'q':
-        st->mode = QUIT_MODE;
-        return; // quit
-    case 'v':
-        st->mode = VISION_MODE;
-        return; // normal view
-    case 'b':
-        st->mode = DISTANCE_MODE;
-        return; // distance / monsters view (optional mode)
-    case 'n':
-        st->mode = NORMAL_MODE;
-        return; // normal view (optional mode)
-    default:
-        return;
+    switch(input_key) {
+        // Movement keys, numpad, awsd and arrows keys
+        case KEY_A1:
+        case '7': dx = -1; dy = -1; direction = 7; break;
+        case KEY_UP:
+        case 'w':
+        case '8': dx =  0; dy = -1; direction = 8; break;
+        case KEY_A3:
+        case '9': dx =  1; dy = -1; direction = 9; break;
+        case KEY_LEFT:
+        case 'a':
+        case '4': dx = -1; dy =  0; direction = 4; break;
+        case KEY_B2:
+        case '5': break;
+        case KEY_RIGHT:
+        case 'd':
+        case '6': dx =  1; dy =  0; direction = 6; break;
+        case KEY_C1:
+        case '1': dx = -1; dy =  1; direction = 1; break;
+        case KEY_DOWN:
+        case 's':
+        case '2': dx =  0; dy =  1; direction = 2; break;
+        case KEY_C3:
+        case '3': dx =  1; dy =  1; direction = 3; break;
+        // Inventory keys
+        case 'i': switchEquippedItem(st->player->inventory);   return; // switch equipped item
+        case 'o': sellEquippedItem(st, st->player->inventory); return; // sell equiped item
+        // Combat + Inventory keys
+        case KEY_ENTER:
+        case ' ':
+        case 'u': useEquippedItem(st); return; // Use equipped item
+        // Menu keys
+        case 'l': legendMenu(st);           return; // legend menu
+        case 'q': st->mode = QUIT_MODE;     return; // quit
+        case 'v': st->mode = VISION_MODE;   return; // normal view         
+        case 'b': st->mode = DISTANCE_MODE; return; // distance / monsters view (optional mode)
+        case 'n': st->mode = NORMAL_MODE;   return; // normal view (optional mode)
+        default: return;
     }
     // If the cell is not walkable, don't update the state
-    if (!isCellWalkable(st->map->cells[st->player->y + dy][st->player->x + dx]))
-        return;
+    if (!isCellWalkable(st->map->cells[st->player->y + dy][st->player->x + dx])) return;
 
     // Increment the turn number
     st->turn++;
 
     // Update the player direction
-    if (direction != 0)
-        st->player->direction = direction;
+    if (direction != 0) st->player->direction = direction;
 
     // Update the player potion effects
     updatePotionEffects(st->player);
@@ -277,8 +215,7 @@ void calculateState(State *st, int input_key)
     int x = st->player->x + dx;
     int y = st->player->y + dy;
 
-    if (!isCellMonster(st->map->cells[y][x]))
-    {
+    if (!isCellMonster(st->map->cells[y][x])) {
         // Moves the player
         st->map->cells[st->player->y][st->player->x]->has_player = 0; // false
         st->player->x = x;
@@ -290,10 +227,9 @@ void calculateState(State *st, int input_key)
     }
 
     if (isCellItem(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x]))
-        pickUpItem(st);
+        pickUpItem(st);        
 
-    if (isCellMonster(st->map->cells[y][x]))
-    {
+    if (isCellMonster(st->map->cells[y][x])) {
         int monster_index = st->map->cells[y][x]->monster_index;
         Monster *monster = st->monsters[monster_index];
 
@@ -302,16 +238,15 @@ void calculateState(State *st, int input_key)
         st->player->health -= monster->attack;
 
         // Send message to the menu: Monster name and health
-        char *message = (char *)malloc(sizeof(char) * st->map->width);
+        char *message = (char *) malloc(sizeof(char) * st->map->width);
         snprintf(message, st->map->width, "You attacked the \"%s\". Monster health: %d", monster->name, monster->health);
         sendMenuMessage(st, message);
         free(message);
 
         // Check if the monster is death
-        if (monster->health <= 0)
-        {
+        if (monster->health <= 0) {
             // Send message to the menu: Monster name and gold value
-            char *message = (char *)malloc(sizeof(char) * st->map->width);
+            char *message = (char *) malloc(sizeof(char) * st->map->width);
             snprintf(message, st->map->width, "You killed the \"%s\" and got %d gold!", monster->name, monster->gold);
             sendMenuMessage(st, message);
             free(message);
@@ -319,27 +254,23 @@ void calculateState(State *st, int input_key)
             // Kill and remove the monster from the map
             killMonster(st, monster->x, monster->y);
         }
-
+        
         // Check for player death
-        if (st->player->health <= 0)
-        {
+        if (st->player->health <= 0) {
             sendMenuMessage(st, "You died. Game over.");
             st->mode = EXIT_MODE;
             drawState(st);
             return;
-        }
+        }        
     }
-    if (isCellExit(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x]))
-    {
+    if (isCellExit(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x])) {
         // Pay the keeper to exit the dungeon
-        if (st->player->inventory->gold >= EXIT_COST)
-        {
+        if (st->player->inventory->gold >= EXIT_COST) {
             st->mode = EXIT_MODE;
             return;
         }
-        else
-        {
-            char *message = (char *)malloc(sizeof(char) * st->map->width);
+        else {
+            char *message = (char *) malloc(sizeof(char) * st->map->width);
             snprintf(message, st->map->width, "The Gate Keeper says: \"Give me %d gold to exit now!\"", EXIT_COST);
             sendMenuMessage(st, message);
             free(message);
