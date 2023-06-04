@@ -11,7 +11,7 @@ Install ncurses using apt with:
 sudo apt install libncurses5-dev libncursesw5-dev
 ```
 
-More on ncurses library [here](https://en.wikipedia.org/wiki/Ncurses).
+More on [ncurses](https://en.wikipedia.org/wiki/Ncurses).
 
 ## Tools
 
