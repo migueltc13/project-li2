@@ -26,8 +26,8 @@ State *initState(int width, int height) {
     State *st = (State *) malloc(sizeof(struct state));
 
     st->turn = 0;
-    st->first_pass = 3;
-    st->second_pass = 3;
+    st->first_pass = 4;
+    st->second_pass = 4;
     st->wall_prob = 40;
     st->mode = VISION_MODE;
 
@@ -49,7 +49,8 @@ State *initState(int width, int height) {
     st->monsters = generateMonsters(st->map);
 
     calculateDistances(st->map, x, y);
-    calculateVision(st->map, x, y);
+    calculateVision(st->map, st->player);
+
     return st;
 }
 
@@ -110,6 +111,7 @@ void updateState(State *st, int input_key) {
  * @return void
  */
 void drawState(State *st) {
+    // clear();
     drawMap(st->map, st->mode); // TODO: mode outside drawMap()
     // draw projectiles in all modes
     drawProjectiles(st->map);
@@ -118,6 +120,7 @@ void drawState(State *st) {
         drawVisibleItems(st->map, st->map->items, st->map->nr_items);
     else if (st->mode == NORMAL_MODE)
         drawAllItems(st->map->items, st->map->nr_items);
+    // No items in distance mode
 
     drawMonsters(st);
     drawPlayer(st->player);
@@ -165,7 +168,8 @@ void calculateState(State *st, int input_key) {
         case 'i': switchEquippedItem(st->player->inventory); return;   // switch equipped item
         case 'o': sellEquippedItem(st, st->player->inventory); return; // sell equiped item
         // Combat / Potions keys
-        case KEY_ENTER: // or space
+        case KEY_ENTER:
+        case ' ':
         case 'u': useEquippedItem(st); return; // Use equipped item, potion or projectile
         // Menu keys
         case 'l': legendMenu(st);           return; // legend menu
@@ -173,10 +177,18 @@ void calculateState(State *st, int input_key) {
         case 'v': st->mode = VISION_MODE;   return; // normal view         
         case 'b': st->mode = DISTANCE_MODE; return; // distance / monsters view (optional mode)
         case 'n': st->mode = NORMAL_MODE;   return; // normal view (optional mode)
-        //case 'm': // TODO                 return; // menu view (optional mode) TODO: implement
         default: return;
     }
+    // Update the turn number
     st->turn++;
+
+    // Update the player direction
+    if (direction != 0) st->player->direction = direction;
+
+    // Update the player potion effects
+    updatePotionEffects(st->player);
+
+    // Update the player position and the map
     int x = st->player->x, y = st->player->y;
     x += dx; y += dy;
 
@@ -186,25 +198,33 @@ void calculateState(State *st, int input_key) {
         st->player->x = x;
         st->player->y = y;
         st->map->cells[y][x]->has_player = 1; // true
-        st->player->direction = direction;
         // if the player moves we recalculate the distances and is_visible
         calculateDistances(st->map, x, y); // TODO enhance this (unnecessary calculations) by using updateDistances function
-        calculateVision(st->map, x, y);
+        calculateVision(st->map, st->player);
     }
     if (isCellItem(st->map->cells[y][x]) && !isCellMonster(st->map->cells[y][x])) {
         // TODO pick up item (inventory.h)
         // Find the item in the map->items array
         Item *item = getItem(st->map->items, st->map->nr_items, x, y);
         if (item != NULL) {
+            char *menu_message = (char *) malloc(sizeof(char) * st->map->width);
+            // Send message to the menu: Item name and value
+            if (item->type == POT_OF_GOLD_TYPE)
+                snprintf(menu_message, st->map->width, "You picked up %d gold.", item->value);
+            else
+                snprintf(menu_message, st->map->width, "You picked up \"%s\". Valued at %d gold.", item->name, item->value);
+            sendMenuMessage(st, menu_message);
+            free(menu_message);    
+
+            // Add the item to the player inventory and remove it from the map
             addItem(st->player->inventory, item);
             st->map->nr_items--;
             // getItem removes the item from the map->items array by shifting the items to the left
             // so we only need to decrease the number of items in the map
-
-            char *menu_message = (char *) malloc(sizeof(char) * st->map->width);
-            sprintf(menu_message, "You picked up \"%s\"", item->name);
-            sendMenuMessage(st, menu_message);
-            free(menu_message);
+        
+            // If there's no equiped item, equip the new item
+            if (st->player->inventory->equipped_item == NULL && item->type != POT_OF_GOLD_TYPE)
+                st->player->inventory->equipped_item = item;
         }
     }
     if (isCellMonster(st->map->cells[y][x])) {
@@ -215,32 +235,28 @@ void calculateState(State *st, int input_key) {
         monster->health -= st->player->attack;
         st->player->health -= monster->attack;
 
+        // Send message to the menu: Monster name and health
         char *message = (char *) malloc(sizeof(char) * st->map->width);
-        sprintf(message, "You attacked the \"%s\". Monster health: %d", monster->name, monster->health);
+        snprintf(message, st->map->width, "You attacked the \"%s\". Monster health: %d", monster->name, monster->health);
         sendMenuMessage(st, message);
         free(message);
 
-        // Check for monster death
+        // Check if the monster is death
         if (monster->health <= 0) {
-            // TODO: kill monster function
-            st->map->cells[y][x]->monster_index = -1;
-            // shift the mosnters to the left
-            for (int i = monster_index; i < st->nMonsters - 1; i++)
-                st->monsters[i] = st->monsters[i + 1];
-            st->nMonsters--;
-
-            // TODO: monster value gold
-
+            // Send message to the menu: Monster name and gold value
             char *message = (char *) malloc(sizeof(char) * st->map->width);
-            sprintf(message, "You killed the \"%s\"", monster->name);
+            snprintf(message, st->map->width, "You killed the \"%s\" and got %d gold!", monster->name, monster->gold);
             sendMenuMessage(st, message);
             free(message);
+
+            // Kill and remove the monster from the map
+            killMonster(st, monster->x, monster->y);
         }
         
         // Check for player death
         if (st->player->health <= 0) {
-            st->mode = EXIT_MODE;
             sendMenuMessage(st, "You died. Game over.");
+            st->mode = EXIT_MODE;
             drawState(st);
             return;
         }        
@@ -253,11 +269,11 @@ void calculateState(State *st, int input_key) {
         }
         else {
             char *message = (char *) malloc(sizeof(char) * st->map->width);
-            sprintf(message, "The Gate Keeper says: Give me %d gold to exit the dungeon.", EXIT_COST);
+            snprintf(message, st->map->width, "The Gate Keeper says: \"Give me %d gold to exit now!\"", EXIT_COST);
             sendMenuMessage(st, message);
             free(message);
         }
     }
-    moveMonsters(st->map, st->monsters, st->nMonsters);
+    moveMonsters(st, st->monsters, st->nMonsters);
     updateProjectiles(st);
 }

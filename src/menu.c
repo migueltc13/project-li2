@@ -29,6 +29,7 @@ void sendMenuMessage(State *st, char *message) {
  * @return void
  */
 void generateMenu(State *st) {
+    // TODO: use another window for the menu (easy to clear)
     // Clear the menu except the Menu message
     for (int i = 0; i < MENU_HEIGHT; i++) {
         for (int j = 0; j < st->map->width; j++) {
@@ -46,23 +47,15 @@ void generateMenu(State *st) {
 
     // First line -> Player stats
     char *player_stats = (char *) malloc(sizeof(char) * st->map->width);
-    sprintf(player_stats, "HP: %d/%d | Attack: %d | Defense: %d | Gold: %d | Items: %d",
+    // Using snprintf instead of sprintf to avoid buffer overflow
+    snprintf(player_stats, st->map->width, "Health: %d/%d | Attack: %d | Defense: %d | Gold: %d | Turn: %ld",
         st->player->health, st->player->max_health,
         st->player->attack,
         st->player->defense,
         st->player->inventory->gold,
-        st->player->inventory->nr_items
-        );
+        st->turn);
     mvprintw(st->map->height + MENU_HEIGHT - 5, 2, "%s", player_stats);
     free(player_stats);
-
-    if (st->player->inventory->equipped_item != NULL) {
-        printw(" | Equipped: ");
-        attron(COLOR_PAIR(st->player->inventory->equipped_item->color));
-        printw("%s", st->player->inventory->equipped_item->name);
-        attroff(COLOR_PAIR(st->player->inventory->equipped_item->color));
-    }
-    printw(" | Turn: %d", st->turn);
 
     attron(COLOR_PAIR(MENU_BORDERS_COLOR));
     mvaddch(st->map->height + MENU_HEIGHT - 5, 0, '*');
@@ -70,14 +63,25 @@ void generateMenu(State *st) {
     attroff(COLOR_PAIR(MENU_BORDERS_COLOR));
 
     // Second line -> Player inventory
-    mvprintw(st->map->height + MENU_HEIGHT - 4, 2, "Inventory ");
+    mvprintw(st->map->height + MENU_HEIGHT - 4, 2, "Inventory");
     // print (name_item) x(item_count) for each item in inventory
     for (int i = 0; i < st->player->inventory->nr_items; i++) {
-        printw("| '");
+        printw(" | '");
         attron(COLOR_PAIR(st->player->inventory->items[i]->color));
         printw("%c", st->player->inventory->items[i]->symbol);
         attroff(COLOR_PAIR(st->player->inventory->items[i]->color));
-        printw("' x%d ", st->player->inventory->items[i]->count);
+        printw("' x%d", st->player->inventory->items[i]->count);
+    }
+
+    if (st->player->inventory->equipped_item != NULL) {
+        printw(" | Equipped: ");
+        attron(COLOR_PAIR(st->player->inventory->equipped_item->color));
+        printw("%s", st->player->inventory->equipped_item->name);
+        attroff(COLOR_PAIR(st->player->inventory->equipped_item->color));
+    }
+    else {
+        // Clear previous equipped item
+        printw(" | No equipped item");
     }
 
     attron(COLOR_PAIR(MENU_BORDERS_COLOR));
@@ -87,7 +91,7 @@ void generateMenu(State *st) {
 
     // Third line -> Menu: Modes, inventory, combat
     char *menu_options = (char *) malloc(sizeof(char) * st->map->width);
-    sprintf(menu_options, "'i' Switch items | 'o' Sell equipped items | 'u' Use equipped item | 'l' Legend menu | 'q' Quit\n");
+    snprintf(menu_options, st->map->width, "'i' Switch items | 'o' Sell equipped items | 'u' Use equipped item | 'l' Legend menu | 'q' Quit\n");
     mvprintw(st->map->height + MENU_HEIGHT - 3, 2, "%s", menu_options);
     free(menu_options);
 
@@ -98,7 +102,6 @@ void generateMenu(State *st) {
 
     // Fourth line -> Menu message
     // clear message
-
     attron(COLOR_PAIR(MENU_BORDERS_COLOR));
     mvaddch(st->map->height + MENU_HEIGHT - 2, 0, '*');
     mvaddch(st->map->height + MENU_HEIGHT - 2, st->map->width - 1, '*');
@@ -237,7 +240,7 @@ void legendMenu(State *st) {
     wattron(legend_menu, COLOR_PAIR(POT_OF_GOLD_COLOR));
     wprintw(legend_menu, "  %c", POT_OF_GOLD_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(POT_OF_GOLD_COLOR));
-    wprintw(legend_menu, " Pot of Gold: %d-%d gold\n", POT_OF_GOLD_VALUE_MIN, POT_OF_GOLD_VALUE_MAX);
+    wprintw(legend_menu, " Pot of Gold: %d-%d gold\n", POT_OF_GOLD_VALUE_MIN * 10, POT_OF_GOLD_VALUE_MAX * 10);
 
     // monsters legend
     wprintw(legend_menu, "  -------------------------------\n");

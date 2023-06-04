@@ -4,6 +4,7 @@
 typedef struct state State;
 typedef struct cell Cell;
 typedef struct item Item;
+typedef struct player Player;
 typedef struct projectile Projectile;
 
 /**
@@ -47,7 +48,7 @@ void getPlayerInitialPosition(Map *map, int *x, int *y);
 void getRandomCoordinates(Map* map, int* x, int* y);
 
 void calculateDistances(Map* map, int x, int y);
-void calculateVision(Map* map, int x, int y);
+void calculateVision(Map* map, Player* player);
 
 void distributeItems(Map* map, Item** items, int nr_items); 
 

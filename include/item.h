@@ -16,7 +16,6 @@ typedef struct map Map;
  * @param symbol the symbol that represents the item
  * @param type the type of item
  * @param value the value of the item in gold
- * @param is_picked_up whether the item has been picked up
  * @param x the x coordinate of the item
  * @param y the y coordinate of the item
  * @param damage the damage of the item if it is a weapon
@@ -31,8 +30,6 @@ typedef struct item {
     char symbol;
     int type; // 0: body weapon, 1: projectile weapon, 2: armor, 3: potion, 4: gold
     int value;
-    // int is_equipped;
-    int is_picked_up;
     unsigned int x;
     unsigned int y;
     int damage;
@@ -70,8 +67,9 @@ typedef struct item {
 #define SMOKE_BOMB_SYMBOL '*'
 #define SMOKE_BOMB_TYPE PROJECTILE
 #define SMOKE_BOMB_RANGE 5 // cells
-// TODO SMOKE_BOMB_BLIND_TURNS 7
 #define SMOKE_BOMB_COLOR COLOR_WHITE
+#define SMOKE_BOMB_EFFECT 1
+#define SMOKE_BOMB_DURATION 5 // turns
 
 // Fire bomb
 #define FIRE_BOMB_VALUE 50
@@ -80,8 +78,10 @@ typedef struct item {
 #define FIRE_BOMB_SYMBOL '*'
 #define FIRE_BOMB_TYPE PROJECTILE
 #define FIRE_BOMB_RANGE 6 // cells
-// TODO FIRE_BOMB_BURN_TURNS 5
 #define FIRE_BOMB_COLOR COLOR_RED
+#define FIRE_BOMB_EFFECT 2
+#define FIRE_BOMB_EFFECT_DAMAGE 5 // hp
+#define FIRE_BOMB_DURATION 5 // turns
 
 // Ice bomb
 #define ICE_BOMB_VALUE 70
@@ -90,8 +90,9 @@ typedef struct item {
 #define ICE_BOMB_SYMBOL '*'
 #define ICE_BOMB_TYPE PROJECTILE
 #define ICE_BOMB_RANGE 7 // cells
-// TODO ICE_BOMB_FREEZE_TURNS 10
 #define ICE_BOMB_COLOR COLOR_CYAN
+#define ICE_BOMB_EFFECT 3
+#define ICE_BOMB_DURATION 7 // turns
 
 // Iron sword
 #define IRON_SWORD_VALUE 20
@@ -151,7 +152,7 @@ typedef struct item {
 #define SENSORY_POTION_VALUE 50
 #define SENSORY_POTION_VISION 5
 #define SENSORY_POTION_EARING 7
-// TODO SENSORY_POTION_TURNS 20
+#define SENSORY_POTION_TURNS 60 // turns
 #define SENSORY_POTION_RANGE 3 // cells
 #define SENSORY_POTION_COLOR COLOR_BLUE
 
@@ -159,7 +160,8 @@ typedef struct item {
 #define POTION_OF_INVINCIBILITY_SYMBOL '!'
 #define POTION_OF_INVINCIBILITY_TYPE POTION
 #define POTION_OF_INVINCIBILITY_VALUE 100
-// TODO POTION_OF_INVINCIBILITY_TURNS 20
+#define POTION_OF_INVINCIBILITY_TURNS 40 // turns
+#define POTION_OF_INVINCIBILITY_DEFENSE 100 // MAX_DEFENSE
 #define POTION_OF_INVINCIBILITY_COLOR COLOR_YELLOW
 
 // TODO: Potion of strength
@@ -168,8 +170,8 @@ typedef struct item {
 // Pot of gold
 #define POT_OF_GOLD_SYMBOL 'O'
 #define POT_OF_GOLD_TYPE GOLD
-#define POT_OF_GOLD_VALUE_MIN 10
-#define POT_OF_GOLD_VALUE_MAX 100
+#define POT_OF_GOLD_VALUE_MIN 1 // * 10
+#define POT_OF_GOLD_VALUE_MAX 10 // * 10
 #define POT_OF_GOLD_COLOR COLOR_YELLOW
 
 Item** generateItems(int n);

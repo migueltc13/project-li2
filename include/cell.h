@@ -15,10 +15,13 @@
  * @param is_visible 1 if the cell is visible, 0 otherwise
  * @param distance_to_player Distance to the player, initialized to -1
  * @param has_item 1 if the cell has an item, 0 otherwise
- * @param monster_index 1 if the cell has a monster, 0 otherwise
  * @param has_player 1 if the cell has the player, 0 otherwise
+ * @param monster_index 1 if the cell has a monster, 0 otherwise
+ * @param effect Effect of the cell caused by projectiles (0 by default)
+ * @param effect_duration Duration of the effect if any (0 by default) 
  * @param color Color of the cell
- * TODO: @param monster Monster in this cell, if not NULL
+ * 
+ * TODO: @param monster Monster in this cell, if not NULL instead of monster_index
  */
 typedef struct cell {
     char symbol;
@@ -31,6 +34,8 @@ typedef struct cell {
     unsigned int has_item; // does this cell have an item?
     unsigned int has_player; // does this cell have the player?
     int monster_index; // does this cell have a monster? -1 if not else index in the monster array
+    int effect; // effect of the cell caused by projectiles (0 by default)
+    int effect_duration; // duration of the effect if any (0 by default)
     int color;
 } Cell;
 

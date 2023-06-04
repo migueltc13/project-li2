@@ -67,7 +67,7 @@ void freeMap(void *p) {
         if (map->items[i] != NULL)
             freeItem(map->items[i]);
     }
-    // TODO free items and projectilesif any
+    // TODO free items and projectiles if any
     free(map->items);
     free(map);
 }
@@ -294,7 +294,7 @@ void getRandomCoordinates(Map* map, int* x, int* y) {
     while (true) {
         *x = rand() % width;
         *y = rand() % height;
-        if (map->cells[*y][*x]->symbol == '.' && map->cells[*y][*x]->has_player == 0)
+        if (map->cells[*y][*x]->symbol == FLOOR_SYMBOL && map->cells[*y][*x]->has_player == 0)
             return;
     }
 }
@@ -311,10 +311,26 @@ void getRandomCoordinates(Map* map, int* x, int* y) {
 void calculateDistances(Map* map, int x, int y) {
     for (int R = 0; R < map->height; R++) {
         for (int C = 0; C < map->width; C++) {
+            
+            // Calculate the distance to the player
             int dy = abs(R - y);
             int dx = abs(C - x);
             int distance = (dx > dy) ? dx : dy;
-            map->cells[R][C]->distance_to_player = distance;
+            Cell *cell = map->cells[R][C];
+            cell->distance_to_player = distance;
+            
+            // Calculate the (projectile) effect
+            // 70 % chance to update cell
+            int effect_prob = rand() % 100;
+            if (effect_prob < 70) {
+                if (cell->effect_duration == 0) {
+                    cell->effect = 0; // No effect by default
+                    // Set cell color back to normal color
+                    cell->color = (cell->symbol == '.') ? FLOOR_COLOR : WALL_COLOR; // Floor or Wall
+                    cell->color = (cell->symbol == EXIT_SYMBOL) ? EXIT_COLOR : cell->color; // or Gate Keeper
+                }
+                else cell->effect_duration--;
+            }
         }
     }
 }
@@ -325,13 +341,16 @@ void calculateDistances(Map* map, int x, int y) {
  * Based on the player position and the distance to the cells, the is_visible field is updated
  * 
  * @param map Map to calculate the vision
- * @param x Starting x coordinate
- * @param y Starting y coordinate
-*/ 
-void calculateVision(Map* map, int x, int y) {
+ * @param player Player to calculate the vision
+*/
+// TODO: update a range using PLAYER_VISION_WIDTH 
+// Traverse in the current direction 
+// until the vision limit is reached or a blocking cell is encountered
+// Using a PLAYER_VISION_WIDTH set to 1 as default
+void calculateVision(Map* map, Player* player) {
     // Start from the player position
-    int R = y;
-    int C = x;
+    int R = player->y;
+    int C = player->x;
 
     // Iterate over all eight directions
     for (int dir = 0; dir < 8; dir++) {
@@ -375,13 +394,14 @@ void calculateVision(Map* map, int x, int y) {
         }
 
         // Reset R and C to the player position
-        R = y;
-        C = x;
+        R = player->y;
+        C = player->x;
 
-        // TODO: update a ranged grid length 5x5
-        // Traverse in the current direction until the vision limit is reached or a blocking cell is encountered
+        // Reset the vision distance
         int visionDistance = 0;
-        while (visionDistance < PLAYER_VISION) {
+
+        // Calculate the vision distance
+        while (visionDistance < player->vision) {
             R += dR;
             C += dC;
 
@@ -412,6 +432,31 @@ void calculateVision(Map* map, int x, int y) {
  * TODO: replace this function with a better one
 */
 void distributeItems(Map* map, Item** items, int nr_items) {
+    int height = map->height;
+    int width = map->width;
+    int i = 0;
+    // Random distribution
+    while (nr_items > 0) {
+        int x = rand() % width;
+        int y = rand() % height;
+        if (map->cells[y][x]->symbol == '.'
+         && map->cells[y][x]->has_player == 0
+         && map->cells[y][x]->has_item == 0
+         && map->cells[y][x]->monster_index == -1)
+        {
+            map->items[i] = items[i];
+            items[i]->x = x;
+            items[i]->y = y;
+            map->cells[y][x]->has_item = 1;
+            map->items[i] = items[i];
+            map->nr_items++;
+            nr_items--;
+            i++;
+        }
+    }
+}
+
+/* void distributeItems(Map* map, Item** items, int nr_items) {
     int height = map->height;
     int width = map->width;
     int missing_items = 0;
@@ -537,4 +582,34 @@ void distributeItems(Map* map, Item** items, int nr_items) {
             missing_items--;
         }
     }
+}
+*/
+
+/**
+ * @brief Get the closer monster to the player
+ * 
+ * @details The closer monster is the one with the minimum distance to the player.
+ * Return the first monster found if there are more than one with the same distance.
+ * 
+ * @param st State to get the closer monster
+ * @return Monster* A close monster
+ * TODO: use for earing monsters and for attacking monsters (menu info)
+*/
+Monster *getCloserMonster(State *st) {
+
+    Monster *closer_monster = NULL;
+
+    Map *map = st->map;
+    int min_distance = map->width + map->height;
+
+    for (int i = 0; i < st->nMonsters; i++) {
+        Monster *monster = st->monsters[i];
+        Cell *cell = map->cells[monster->y][monster->x];
+        int distance = cell->distance_to_player;
+        if (distance < min_distance) {
+            min_distance = distance;
+            closer_monster = monster;
+        }
+    }
+    return closer_monster;
 }

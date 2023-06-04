@@ -4,15 +4,22 @@
 #define NORMAL_MODE 0
 #define DISTANCE_MODE 1
 #define VISION_MODE 2 // default
-#define CAVERN_MODE 3 // TODO: implement cavern mode
+// #define CAVERN_MODE 3 // TODO: implement cavern mode
 #define EXIT_MODE -1
-#define QUIT_MODE -2
+#define QUIT_MODE -2 // When the player quits the game
 
+/** 
+ * @brief The cost of the exit
+ * 
+ * @details The cost of the exit the maze is 500 gold.
+ * It's the only way to win the game.
+ * Pay the cost by stepping on the Gate Keeper.
+*/
 #define EXIT_COST 500 // gold
 
-typedef struct map Map; // or #include "map.h"
-typedef struct player Player; // or #include "player.h"
-typedef struct monster Monster; // or #include "monster.h"
+typedef struct map Map;
+typedef struct player Player;
+typedef struct monster Monster;
 
 /**
  * @brief Sructure of the game state
@@ -28,7 +35,7 @@ typedef struct monster Monster; // or #include "monster.h"
  * @param nMonsters The number of monsters
 */
 typedef struct state {
-    int turn;
+    unsigned long int turn;
     int mode;
 
     Map *map;

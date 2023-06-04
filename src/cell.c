@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "cell.h"
+#include "item.h" // macros
 
 /**
  * @brief Initializes a new cell. Allocates memory for a new cell and initializes its fields.
@@ -10,7 +11,8 @@
  * @param symbol Cell symbol
  * @param is_walkable Is the cell walkable?
  * @param block_light Is the cell blocking light?
- * @param color Cell color TODO
+ * @param color Cell color
+ * 
  * @return Cell* Initialized cell
  */
 Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int color) {
@@ -24,7 +26,9 @@ Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int 
     cell->is_visible = 0; // Not visible by default
     cell->has_item = 0; // No item by default
     cell->monster_index = -1; // No monster by default
-    cell->color = color; // TODO
+    cell->effect = 0; // No effect by default (global variable NO_EFFECT defined in combat.h as 0)
+    cell->effect_duration = 0; // No effect by default
+    cell->color = color;
     return cell;
 }
 
@@ -71,7 +75,7 @@ int isCellWalkable(Cell *cell) {
  * @return int 1 if the cell is blocking light, 0 otherwise
  */
 int isCellBlockingLight(Cell *cell) {
-    return cell->block_light;
+    return cell->block_light == 1 || cell->effect == SMOKE_BOMB_EFFECT;
 }
 
 /**

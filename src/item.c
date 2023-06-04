@@ -3,6 +3,7 @@
 #include "item.h"
 #include "map.h"
 #include "cell.h"
+#include "inventory.h" // macro INVENTORY_SIZE
 
 /**
  * @brief Initialize a new item
@@ -13,7 +14,6 @@
  * @param symbol Item symbol
  * @param type Item type
  * @param value Item value
- * @param is_picked_up Is the item picked up?
  * @param damage Item damage
  * @param defense Item defense
  * @param hp Item hp (Healing potion)
@@ -24,7 +24,6 @@ Item *initItem(char *name,
                char symbol,
                int type,
                int value,
-               int is_picked_up,
                int x,
                int y,
                int damage,
@@ -37,7 +36,6 @@ Item *initItem(char *name,
     i->symbol = symbol;
     i->type = type;
     i->value = value;
-    i->is_picked_up = is_picked_up;
     i->x = x;
     i->y = y;
     i->damage = damage;
@@ -51,71 +49,72 @@ Item *initItem(char *name,
 /**
  * @brief Initialize a new item: rock (weapon projectile)
  * 
- * Coords: 0, 0 (not on the map)
+ * @return (Item *) Rock
  */
 Item *initRock() {
     int damage = ROCK_DAMAGE_MIN + rand() % (ROCK_DAMAGE_MAX - ROCK_DAMAGE_MIN + 1);
-    return initItem("Rock", ROCK_SYMBOL, ROCK_TYPE, ROCK_VALUE, 0, 0, 0, damage, 0, 0, ROCK_COLOR);
+    return initItem("Rock", ROCK_SYMBOL, ROCK_TYPE, ROCK_VALUE, 0, 0, damage, 0, 0, ROCK_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Smoke bomb (weapon projectile)
  * 
- * TODO: Implement smoke bomb effect
+ * TODO: Implement smoke bomb effect in pathfinding functions to cut the line of sight 
+ * @return (Item *) Smoke bomb
  */
 Item *initSmokeBomb() {
     int damage = SMOKE_BOMB_DAMAGE_MIN + rand() % (SMOKE_BOMB_DAMAGE_MAX - SMOKE_BOMB_DAMAGE_MIN + 1);
-    return initItem("Smoke bomb", SMOKE_BOMB_SYMBOL, SMOKE_BOMB_TYPE, SMOKE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, SMOKE_BOMB_COLOR);
+    return initItem("Smoke bomb", SMOKE_BOMB_SYMBOL, SMOKE_BOMB_TYPE, SMOKE_BOMB_VALUE, 0, 0, damage, 0, 0, SMOKE_BOMB_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Fire bomb (weapon projectile)
  *
- * TODO: Implement fire bomb effect
+ * @return (Item *) Fire bomb
  */
 Item *initFireBomb() {
     int damage = FIRE_BOMB_DAMAGE_MIN + rand() % (FIRE_BOMB_DAMAGE_MAX - FIRE_BOMB_DAMAGE_MIN + 1);
-    return initItem("Fire bomb", FIRE_BOMB_SYMBOL, FIRE_BOMB_TYPE, FIRE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, FIRE_BOMB_COLOR);
+    return initItem("Fire bomb", FIRE_BOMB_SYMBOL, FIRE_BOMB_TYPE, FIRE_BOMB_VALUE, 0, 0, damage, 0, 0, FIRE_BOMB_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Ice bomb (weapon projectile)
  * 
- * TODO: Implement ice bomb effect
+ * @return (Item *) Ice bomb
  */
 Item *initIceBomb() {
     int damage = ICE_BOMB_DAMAGE_MIN + rand() % (ICE_BOMB_DAMAGE_MAX - ICE_BOMB_DAMAGE_MIN + 1);
-    return initItem("Ice bomb", ICE_BOMB_SYMBOL, ICE_BOMB_TYPE, ICE_BOMB_VALUE, 0, 0, 0, damage, 0, 0, ICE_BOMB_COLOR);
+    return initItem("Ice bomb", ICE_BOMB_SYMBOL, ICE_BOMB_TYPE, ICE_BOMB_VALUE, 0, 0, damage, 0, 0, ICE_BOMB_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Iron Sword (weapon body)
  * 
- * TODO: Implement sword equipping
+ * @return (Item *) Iron Sword
  */
 Item *initIronSword() {
     int attack = IRON_SWORD_DAMAGE_MIN + rand() % (IRON_SWORD_DAMAGE_MAX - IRON_SWORD_DAMAGE_MIN + 1);
-    return initItem("Iron Sword", IRON_SWORD_SYMBOL, IRON_SWORD_TYPE, IRON_SWORD_VALUE, 0, 0, 0, attack, 0, 0, IRON_SWORD_COLOR);
+    return initItem("Iron Sword", IRON_SWORD_SYMBOL, IRON_SWORD_TYPE, IRON_SWORD_VALUE, 0, 0, attack, 0, 0, IRON_SWORD_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Gold Sword (weapon body)
  * 
- * TODO: Implement sword equipping
+ * @return (Item *) Gold Sword
  */
 Item *initGoldSword() {
     int attack = GOLD_SWORD_DAMAGE_MIN + rand() % (GOLD_SWORD_DAMAGE_MAX - GOLD_SWORD_DAMAGE_MIN + 1);
-    return initItem("Gold Sword", GOLD_SWORD_SYMBOL, GOLD_SWORD_TYPE, GOLD_SWORD_VALUE, 0, 0, 0, attack, 0, 0, GOLD_SWORD_COLOR);
+    return initItem("Gold Sword", GOLD_SWORD_SYMBOL, GOLD_SWORD_TYPE, GOLD_SWORD_VALUE, 0, 0, attack, 0, 0, GOLD_SWORD_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Diamond Sword (weapon body)
  *
- * TODO: Implement sword equipping
+ * @return (Item *) Diamond Sword
  */
 Item *initDiamondSword() {
     int attack = DIAMOND_SWORD_DAMAGE_MIN + rand() % (DIAMOND_SWORD_DAMAGE_MAX - DIAMOND_SWORD_DAMAGE_MIN + 1);
-    return initItem("Diamond Sword", DIAMOND_SWORD_SYMBOL, DIAMOND_SWORD_TYPE, DIAMOND_SWORD_VALUE, 0, 0, 0, attack, 0, 0, DIAMOND_SWORD_COLOR);
+    return initItem("Diamond Sword", DIAMOND_SWORD_SYMBOL, DIAMOND_SWORD_TYPE, DIAMOND_SWORD_VALUE, 0, 0, attack, 0, 0, DIAMOND_SWORD_COLOR);
 }
 
 /**
@@ -124,7 +123,7 @@ Item *initDiamondSword() {
  * @return (Item *) Leather armor 
  */
 Item *initLeatherArmor() {
-    return initItem("Leather Armor", LEATHER_ARMOR_SYMBOL, LEATHER_ARMOR_TYPE, LEATHER_ARMOR_VALUE, 0, 0, 0, 0, LEATHER_ARMOR_DEFENSE, 0, LEATHER_ARMOR_COLOR);
+    return initItem("Leather Armor", LEATHER_ARMOR_SYMBOL, LEATHER_ARMOR_TYPE, LEATHER_ARMOR_VALUE, 0, 0, 0, LEATHER_ARMOR_DEFENSE, 0, LEATHER_ARMOR_COLOR);
 }
 
 /**
@@ -133,7 +132,7 @@ Item *initLeatherArmor() {
  * @return (Item *) Chainmail armor 
  */
 Item *initChainmailArmor() {
-    return initItem("Chainmail Armor", CHAINMAIL_ARMOR_SYMBOL, CHAINMAIL_ARMOR_TYPE, CHAINMAIL_ARMOR_VALUE, 0, 0, 0, 0, CHAINMAIL_ARMOR_DEFENSE, 0, CHAINMAIL_ARMOR_COLOR);
+    return initItem("Chainmail Armor", CHAINMAIL_ARMOR_SYMBOL, CHAINMAIL_ARMOR_TYPE, CHAINMAIL_ARMOR_VALUE, 0, 0, 0, CHAINMAIL_ARMOR_DEFENSE, 0, CHAINMAIL_ARMOR_COLOR);
 }
 
 /**
@@ -142,48 +141,58 @@ Item *initChainmailArmor() {
  * @return (Item *) Plate armor 
  */
 Item *initPlateArmor() {
-    return initItem("Plate Armor", PLATE_ARMOR_SYMBOL, PLATE_ARMOR_TYPE, PLATE_ARMOR_VALUE, 0, 0, 0, 0, PLATE_ARMOR_DEFENSE, 0, PLATE_ARMOR_COLOR);
+    return initItem("Plate Armor", PLATE_ARMOR_SYMBOL, PLATE_ARMOR_TYPE, PLATE_ARMOR_VALUE, 0, 0, 0, PLATE_ARMOR_DEFENSE, 0, PLATE_ARMOR_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Potion of healing
+ * 
+ * @return (Item *) Potion of healing
  */
 Item *initPotionOfHealing() {
-    return initItem("Potion of Healing", POTION_OF_HEALING_SYMBOL, POTION_OF_HEALING_TYPE, POTION_OF_HEALING_VALUE, 0, 0, 0, 0, 0, POTION_OF_HEALING_HP, POTION_OF_HEALING_COLOR);
+    return initItem("Potion of Healing", POTION_OF_HEALING_SYMBOL, POTION_OF_HEALING_TYPE, POTION_OF_HEALING_VALUE, 0, 0, 0, 0, POTION_OF_HEALING_HP, POTION_OF_HEALING_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Sensory Potion
  *
- * TODO: Implement sensory potion effect
+ * TODO: Implement sensory potion width effect
+ * @return (Item *) Sensory Potion
  */
 Item *initSensoryPotion() {
-    return initItem("Sensory Potion", SENSORY_POTION_SYMBOL, SENSORY_POTION_TYPE, SENSORY_POTION_VALUE, 0, 0, 0, 0, 0, 0, SENSORY_POTION_COLOR);
+    return initItem("Sensory Potion", SENSORY_POTION_SYMBOL, SENSORY_POTION_TYPE, SENSORY_POTION_VALUE, 0, 0, 0, 0, 0, SENSORY_POTION_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Potion of invincibility
  * 
- * TODO: Implement potion of invincibility effect
+ * @return (Item *) Potion of invincibility
  */
 Item *initPotionOfInvincibility() {
-    return initItem("Potion of Invincibility", POTION_OF_INVINCIBILITY_SYMBOL, POTION_OF_INVINCIBILITY_TYPE, POTION_OF_INVINCIBILITY_VALUE, 0, 0, 0, 0, 0, 0, POTION_OF_INVINCIBILITY_COLOR);
+    return initItem("Potion of Invincibility", POTION_OF_INVINCIBILITY_SYMBOL, POTION_OF_INVINCIBILITY_TYPE, POTION_OF_INVINCIBILITY_VALUE, 0, 0, 0, 0, 0, POTION_OF_INVINCIBILITY_COLOR);
 }
 
 /**
  * @brief Initialize a new item: Pot of gold
+ * 
+ * @details Pot of gold is a special item that can be used to bribe the gate keeper.
+ * @details It's value is between 10 and 100 gold.
+ * @details It's added as gold to the player's inventory.
+ * 
+ * @return (Item *) Pot of gold
  */
 Item *initPotOfGold() {
-    int value = POT_OF_GOLD_VALUE_MIN + rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1);
-    return initItem("Pot of Gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, 0, POT_OF_GOLD_COLOR);
+    int value = POT_OF_GOLD_VALUE_MIN * 10 + (rand() % (POT_OF_GOLD_VALUE_MAX - POT_OF_GOLD_VALUE_MIN + 1)) * 10;
+    return initItem("Pot of Gold", POT_OF_GOLD_SYMBOL, POT_OF_GOLD_TYPE, value, 0, 0, 0, 0, 0, POT_OF_GOLD_COLOR);
 }
 
 // ----------------
 
 /**
- * @brief Generate a random item
+ * @brief Generate a item randomly based on the probability of each item
  * 
- * TODO: Global variables for the probability of each item
+ * TODO: Global variables for the probability of each item maybe
+ * @return Item* Item generated
 */
 Item* generateItem() {
     int r = rand() % 100;
@@ -247,7 +256,8 @@ Item* generateItem() {
 /**
  * @brief Generate n *random* items
  * 
- * @details Used to generate items to distribute on the map
+ * @details Used to generate items to distribute on the map.
+ * @details *random* items are generated based on each item probability.
  * 
  * @param n Number of items to generate
  * @return Item** Array of items
@@ -322,7 +332,6 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
             for (int j = i; j < nr_items - 1; j++)
                 items[j] = items[j + 1];
             items[nr_items - 1] = NULL;
-            // TODO: free item and remove it from the map
             return item;
         }
     }
@@ -331,10 +340,13 @@ Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y) {
 
 /**
  * @brief insert item into the items array (inventory)
+ *
  * 
+ * @return int the number of items in the array 
 */
 int insertItem(Item **items, int nr_items, Item *item) {
-    for (int i = 0; i < nr_items; i++) {
+    // Copy item to the first empty slot in the array
+    for (int i = 0; i < INVENTORY_SIZE; i++) {
         if (items[i] == NULL) {
             items[i] = item;
             nr_items++;
