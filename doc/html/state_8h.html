@@ -100,6 +100,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ab9c800875296f23bd616d7d273ff16d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#ab9c800875296f23bd616d7d273ff16d7">DEFAULT_MODE</a>&#160;&#160;&#160;<a class="el" href="state_8h.html#af4bbb90a8308b1e280415a62de208dec">VISION_MODE</a></td></tr>
+<tr class="separator:ab9c800875296f23bd616d7d273ff16d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa045b6864425ecb90f2c253e8440d21c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#aa045b6864425ecb90f2c253e8440d21c">NORMAL_MODE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aa045b6864425ecb90f2c253e8440d21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf03150cb283b35c2e17e6f50c20e8c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#abf03150cb283b35c2e17e6f50c20e8c8">DISTANCE_MODE</a>&#160;&#160;&#160;1</td></tr>
@@ -135,7 +137,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa213845b6ea1ac7c1e8feea118117a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the game state.  <a href="state_8h.html#aa213845b6ea1ac7c1e8feea118117a72">More...</a><br /></td></tr>
 <tr class="separator:aa213845b6ea1ac7c1e8feea118117a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
-<tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state.  <a href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
+<tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state. Used in the main loop.  <a href="state_8h.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
 <tr class="separator:a2d5371342aa920f618224b2ba7b01116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:aa3fd511fa3b3109efdfb5864c9923bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game state.  <a href="state_8h.html#aa3fd511fa3b3109efdfb5864c9923bac">More...</a><br /></td></tr>
@@ -145,6 +147,20 @@ Functions</h2></td></tr>
 <tr class="separator:af53922b589069acb84e4df013d6207d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ab9c800875296f23bd616d7d273ff16d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c800875296f23bd616d7d273ff16d7">&#9670;&nbsp;</a></span>DEFAULT_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_MODE&#160;&#160;&#160;<a class="el" href="state_8h.html#af4bbb90a8308b1e280415a62de208dec">VISION_MODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abf03150cb283b35c2e17e6f50c20e8c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf03150cb283b35c2e17e6f50c20e8c8">&#9670;&nbsp;</a></span>DISTANCE_MODE</h2>
 
@@ -172,7 +188,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The cost of the exit. </p>
-<p>The cost of the exit the maze is 500 gold. It's the only way to win the game. Pay the cost by stepping on the Gate Keeper. </p>
+<p>The cost of the maze exit is 500 gold. It's the only way to win the game. Pay the cost by stepping on the Gate Keeper. </p>
 
 </div>
 </div>
@@ -290,14 +306,14 @@ Functions</h2></td></tr>
 <p>Sructure of the game state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">turn</td><td>The turn of the game </td></tr>
+    <tr><td class="paramname">turn</td><td>The current turn of the game </td></tr>
     <tr><td class="paramname">mode</td><td>The mode of the game, 0: normal, 1: distance, 2 vision, -1: exit mode </td></tr>
-    <tr><td class="paramname">map</td><td>The map of the game </td></tr>
+    <tr><td class="paramname">map</td><td>The map of the game, contains the cells, items and projectiles </td></tr>
     <tr><td class="paramname">first_pass</td><td>The first pass is used in the generation of the map </td></tr>
     <tr><td class="paramname">second_pass</td><td>The second pass is used in the generation of the map as well </td></tr>
     <tr><td class="paramname">wall_prob</td><td>The probability of a wall to be generated, default is 40% </td></tr>
-    <tr><td class="paramname">player</td><td>The player of the game </td></tr>
-    <tr><td class="paramname">monsters</td><td>The monsters of the game </td></tr>
+    <tr><td class="paramname">player</td><td>The player of the game, contains the inventory </td></tr>
+    <tr><td class="paramname">monsters</td><td>The monsters of the game (array of pointers) </td></tr>
     <tr><td class="paramname">nMonsters</td><td>The number of monsters </td></tr>
   </table>
   </dd>
@@ -363,11 +379,10 @@ Functions</h2></td></tr>
 <p>Draw the game state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state to draw </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -388,13 +403,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Free the game state. </p>
+<p>Free the map, the player and the monsters</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>a pointer to the State to free </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -456,11 +471,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update the game state. </p>
+<p>Update the game state. Used in the main loop. </p>
+<p>Calculates the new state based on the input key. Handles the exit and quit modes, then draws the new state.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">st</td><td></td></tr>
-    <tr><td class="paramname">input_key</td><td></td></tr>
+    <tr><td class="paramname">st</td><td>The game state to update </td></tr>
+    <tr><td class="paramname">input_key</td><td>The input key from player </td></tr>
   </table>
   </dd>
 </dl>
@@ -470,7 +486,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 2 2023 07:29:52 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

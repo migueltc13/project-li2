@@ -134,14 +134,17 @@ Functions</h2></td></tr>
 <tr class="memdesc:a32ffb4ee443f17d3de749b3e5e8eddaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get random coordinates for monsters.  <a href="map_8h.html#a32ffb4ee443f17d3de749b3e5e8eddaa">More...</a><br /></td></tr>
 <tr class="separator:a32ffb4ee443f17d3de749b3e5e8eddaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed258adbea00a6b0d0cca38916e67aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">calculateDistances</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, int x, int y)</td></tr>
-<tr class="memdesc:aed258adbea00a6b0d0cca38916e67aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the distances from the player to all the cells.  <a href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">More...</a><br /></td></tr>
+<tr class="memdesc:aed258adbea00a6b0d0cca38916e67aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the distances from the player to all the cells, also updates the effect and effect_duration and color of the effected cells. Finally updates the is_visible field in the cells.  <a href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">More...</a><br /></td></tr>
 <tr class="separator:aed258adbea00a6b0d0cca38916e67aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a264fe292f6742d7714ee5e2d23fa1178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a264fe292f6742d7714ee5e2d23fa1178">calculateVision</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="map_8h.html#aacfbfbd6ace468c21c5128fced4e632c">Player</a> *<a class="el" href="structplayer.html">player</a>)</td></tr>
-<tr class="memdesc:a264fe292f6742d7714ee5e2d23fa1178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible field in the cells.  <a href="map_8h.html#a264fe292f6742d7714ee5e2d23fa1178">More...</a><br /></td></tr>
+<tr class="memdesc:a264fe292f6742d7714ee5e2d23fa1178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the vision of the player and updates the is_visible and was_visible field in the cells.  <a href="map_8h.html#a264fe292f6742d7714ee5e2d23fa1178">More...</a><br /></td></tr>
 <tr class="separator:a264fe292f6742d7714ee5e2d23fa1178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">distributeItems</a> (<a class="el" href="combat_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a> *<a class="el" href="structmap.html">map</a>, <a class="el" href="inventory_8h.html#a9007ca88cf4d3425bfc53b599de25066">Item</a> **items, int nr_items)</td></tr>
 <tr class="memdesc:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute the items on the map.  <a href="map_8h.html#a5384e1fbf23f1511fd5f96fa43ce0a5c">More...</a><br /></td></tr>
 <tr class="separator:a5384e1fbf23f1511fd5f96fa43ce0a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#aac6ebf269e1ed88f87038d51ff8b4ad1">pickUpItem</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memdesc:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item on the player position.  <a href="map_8h.html#aac6ebf269e1ed88f87038d51ff8b4ad1">More...</a><br /></td></tr>
+<tr class="separator:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a5a015017629833d016e38b49dca7b1c3"></a>
@@ -277,11 +280,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate the distances from the player to all the cells. </p>
+<p>Calculate the distances from the player to all the cells, also updates the effect and effect_duration and color of the effected cells. Finally updates the is_visible field in the cells. </p>
 <p>The distance is calculated as the maximum between the x and y distance</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">map</td><td>Map to calculate the distances </td></tr>
+    <tr><td class="paramname">map</td><td>Map to calculate </td></tr>
     <tr><td class="paramname">x</td><td>Starting x coordinate </td></tr>
     <tr><td class="paramname">y</td><td>Starting y coordinate </td></tr>
   </table>
@@ -316,8 +319,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate the vision of the player and updates the is_visible field in the cells. </p>
-<p>Based on the player position and the distance to the cells, the is_visible field is updated</p>
+<p>Calculate the vision of the player and updates the is_visible and was_visible field in the cells. </p>
+<p>Uses the <a class="el" href="map_8c.html#a1cc738e324fd6d7dcf955ce07cb86b3e" title="Calculates the vision for one line of sight.">calculateVisionAux()</a> function to calculate the vision for all eight directions</p>
+<p>Based on the player vision width calculates the number adjacent lines of sight</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td>Map to calculate the vision </td></tr>
@@ -361,15 +365,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Distribute the items on the map. </p>
+<p>Distribute the items randomly on the map, avoiding the player, monsters and other items</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td>Map to distribute the items </td></tr>
     <tr><td class="paramname">items</td><td>Array of items to distribute </td></tr>
-    <tr><td class="paramname">nr_items</td><td>Number of items in the array</td></tr>
+    <tr><td class="paramname">nr_items</td><td>Number of items in the array </td></tr>
   </table>
   </dd>
 </dl>
-<p>TODO: replace this function with a better one </p>
 
 </div>
 </div>
@@ -597,10 +601,37 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aac6ebf269e1ed88f87038d51ff8b4ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6ebf269e1ed88f87038d51ff8b4ad1">&#9670;&nbsp;</a></span>pickUpItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pickUpItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the item on the player position. </p>
+<p>Removes the item from the map and adds it to the player inventory</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 2 2023 07:29:52 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

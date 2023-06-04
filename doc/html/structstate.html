@@ -83,7 +83,7 @@ Collaboration diagram for state:</div>
 <area shape="rect" href="structitem.html" title="Item structure represents an item in the game." alt="" coords="59,5,111,32"/>
 <area shape="rect" href="structinventory.html" title="Inventory structure represents the player inventory." alt="" coords="33,139,117,165"/>
 <area shape="rect" href="structcell.html" title="Structure of a cell." alt="" coords="205,5,250,32"/>
-<area shape="rect" href="structprojectile.html" title="Structure of a thrown projectile." alt="" coords="274,5,357,32"/>
+<area shape="rect" href="structprojectile.html" title="(private) Structure of a thrown projectile" alt="" coords="274,5,357,32"/>
 <area shape="rect" href="structmonster.html" title="Structure of a monster." alt="" coords="236,228,312,255"/>
 <area shape="rect" href="structplayer.html" title="Structure of a player." alt="" coords="57,228,120,255"/>
 </map>
@@ -114,14 +114,14 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Sructure of the game state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">turn</td><td>The turn of the game </td></tr>
+    <tr><td class="paramname">turn</td><td>The current turn of the game </td></tr>
     <tr><td class="paramname">mode</td><td>The mode of the game, 0: normal, 1: distance, 2 vision, -1: exit mode </td></tr>
-    <tr><td class="paramname">map</td><td>The map of the game </td></tr>
+    <tr><td class="paramname">map</td><td>The map of the game, contains the cells, items and projectiles </td></tr>
     <tr><td class="paramname">first_pass</td><td>The first pass is used in the generation of the map </td></tr>
     <tr><td class="paramname">second_pass</td><td>The second pass is used in the generation of the map as well </td></tr>
     <tr><td class="paramname">wall_prob</td><td>The probability of a wall to be generated, default is 40% </td></tr>
-    <tr><td class="paramname">player</td><td>The player of the game </td></tr>
-    <tr><td class="paramname">monsters</td><td>The monsters of the game </td></tr>
+    <tr><td class="paramname">player</td><td>The player of the game, contains the inventory </td></tr>
+    <tr><td class="paramname">monsters</td><td>The monsters of the game (array of pointers) </td></tr>
     <tr><td class="paramname">nMonsters</td><td>The number of monsters </td></tr>
   </table>
   </dd>
@@ -259,7 +259,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 2 2023 07:29:52 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

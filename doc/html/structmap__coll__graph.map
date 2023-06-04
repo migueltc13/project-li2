@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Structure that represents a map in the game." alt="" coords="79,95,130,121"/>
 <area shape="rect" id="node2" href="$structitem.html" title="Item structure represents an item in the game." alt="" coords="5,5,57,32"/>
 <area shape="rect" id="node3" href="$structcell.html" title="Structure of a cell." alt="" coords="82,5,127,32"/>
-<area shape="rect" id="node4" href="$structprojectile.html" title="Structure of a thrown projectile." alt="" coords="151,5,234,32"/>
+<area shape="rect" id="node4" href="$structprojectile.html" title="(private) Structure of a thrown projectile" alt="" coords="151,5,234,32"/>
 </map>
