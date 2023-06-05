@@ -33,6 +33,7 @@ make
 ```
 
 ![play.png](extra/img/play.png)
+![all.png](extra/img/all.png)
 
 ## Documentation
 
