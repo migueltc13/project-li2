@@ -74,6 +74,8 @@ WINDOW *initWindow(int *ncols, int *nrows) {
 	intrflush(window, false); // Disable flushing on interrupt
 	keypad(window, true);     // Enable keypad input
     curs_set(0);              // Disable cursor
+    //nodelay(window, true);    // Disable blocking on getch()
+    //box(window, 1, 1);      // Draw border around window
     initColor();              // Enable color and set color pairs
 
     return window;

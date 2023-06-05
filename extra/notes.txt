@@ -54,6 +54,7 @@ O que poderia ser feito melhor:
 		- inserção / remover em O(1) em vez de O(N) com arrays
 	- Optimizar a função drawMap, ao guardar is_changed dentro de cada cell, e apenas desenhar cell that is_changed == 1
 	- Usar implentação de queue (pasta extra) para melhorar o pathfinding dos monstros (exemplo: BFS)
+	- Handling mouse inputs
 
 ---
 
