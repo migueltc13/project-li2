@@ -22,23 +22,28 @@
  * @param color Monster color
  * @param pathfinding Monster pathfinding type
  * @param gold Monster gold value when killed
+ * @param noise Monster noise
  * @param index Monster index in the monsters array also stored in the cell (used as a pointer)
  * @return Monster*
  */
-Monster *initMonster(int x, int y, int health, int attack, int defense, char symbol, char *name, int color, int pathfinding, int gold, int index) {
+Monster *initMonster(int x, int y, int health, int attack, int defense, char symbol, char *name, int color, int pathfinding, int gold, const char *noise, int index) {
     Monster *monster = (Monster *) malloc(sizeof(struct monster));
     monster->x = x;
     monster->y = y;
     monster->health = health;
+    monster->max_health = health;
     monster->attack = attack;
     monster->defense = defense;
-    //monster->speed = speed; // TODO
+    // TODO: speed implementation: st->turn % (MAX_SPEED - speed) == 0; at moveMonster functions
+    //monster->speed = speed; 
     monster->is_alive = 1;
     monster->symbol = symbol;
     monster->name = name;
     monster->color = color;
+    monster->default_color = color;
     monster->pathfinding = pathfinding;
     monster->gold = gold;
+    monster->noise = noise;
     monster->index = index;
     return monster;
 }
@@ -55,7 +60,7 @@ Monster *initMonster(int x, int y, int health, int attack, int defense, char sym
  */
 Monster *initRat(int x, int y, int index) {
     int gold = RAT_GOLD_MIN * 10 + rand() % (RAT_GOLD_MAX - RAT_GOLD_MIN + 1) * 10;
-    return initMonster(x, y, 10, 1, 1, RAT_SYMBOL, "rat", RAT_COLOR, PATHFINDING_RANDOM, gold, index);
+    return initMonster(x, y, RAT_HEALTH, RAT_ATTACK, RAT_DEFENSE, RAT_SYMBOL, "rat", RAT_COLOR, PATHFINDING_RANDOM, gold, RAT_NOISE, index);
 }
 
 /**
@@ -68,7 +73,7 @@ Monster *initRat(int x, int y, int index) {
  */
 Monster *initGoblin(int x, int y, int index) {
     int gold = GOBLIN_GOLD_MIN * 10 + (rand() % (GOBLIN_GOLD_MAX - GOBLIN_GOLD_MIN + 1)) * 10;
-    return initMonster(x, y, 20, 2, 2, GOBLIN_SYMBOL, "goblin", GOBLIN_COLOR, PATHFINDING_RANDOM, gold, index);
+    return initMonster(x, y, GOBLIN_HEALTH, GOBLIN_ATTACK, GOBLIN_DEFENSE, GOBLIN_SYMBOL, "goblin", GOBLIN_COLOR, PATHFINDING_RANDOM, gold, GOBLIN_NOISE, index);
 }
 
 /**
@@ -81,7 +86,7 @@ Monster *initGoblin(int x, int y, int index) {
  */
 Monster *initOrc(int x, int y, int index) {
     int gold = ORC_GOLD_MIN * 10 + (rand() % (ORC_GOLD_MAX - ORC_GOLD_MIN + 1)) * 10;
-    return initMonster(x, y, 30, 3, 3, ORC_SYMBOL, "orc", ORC_COLOR, PATHFINDING_SEARCHING, gold, index);
+    return initMonster(x, y, ORC_HEALTH, ORC_ATTACK, ORC_DEFENSE, ORC_SYMBOL, "orc", ORC_COLOR, PATHFINDING_SEARCHING, gold, "a malefic \"MUHAHA\"", index);
 }
 
 /**
@@ -95,7 +100,7 @@ Monster *initOrc(int x, int y, int index) {
 Monster *initTroll(int x, int y, int index) {
     int gold = TROLL_GOLD_MIN * 10 + (rand() % (TROLL_GOLD_MAX - TROLL_GOLD_MIN + 1)) * 10;
     // fun: PATHFINING_RECRUITING or PATHFINDING_AWAY_FROM_PLAYER
-    return initMonster(x, y, 40, 4, 4, TROLL_SYMBOL, "troll", TROLL_COLOR, PATHFINDING_SEARCHING, gold, index);
+    return initMonster(x, y, TROLL_HEALTH, TROLL_ATTACK, TROLL_DEFENSE, TROLL_SYMBOL, "troll", TROLL_COLOR, PATHFINDING_SEARCHING, gold, "laughs", index);
 }
 
 /**
@@ -108,7 +113,7 @@ Monster *initTroll(int x, int y, int index) {
  */
 Monster *initDragon(int x, int y, int index) {
     int gold = DRAGON_GOLD_MIN * 10 + (rand() % (DRAGON_GOLD_MAX - DRAGON_GOLD_MIN + 1)) * 10;
-    return initMonster(x, y, 50, 5, 5, DRAGON_SYMBOL, "dragon", DRAGON_COLOR, PATHFINDING_SEARCHING, gold, index);
+    return initMonster(x, y, DRAGON_HEALTH, DRAGON_ATTACK, DRAGON_DEFENSE, DRAGON_SYMBOL, "dragon", DRAGON_COLOR, PATHFINDING_SEARCHING, gold, "a tremendous roar", index);
 }
 
 /**
@@ -162,24 +167,26 @@ void drawMonsters(State* st) {
  */
 void moveMonster(State *st, Monster *monster, int x, int y) {
     Map *map = st->map;
+
     if (x < 0 || x >= map->width || y < 0 || y >= map->height) return;
     if (!map->cells[y][x]->is_walkable) return;
     if (map->cells[y][x]->monster_index != -1) return;
-    if (map->cells[y][x]->has_player) /* TODO: monsterAttacksPlayer */ return;
+    if (map->cells[y][x]->has_player) { monsterAttacksPlayer(st, monster); /* no bomb effects */ return; }
     
     // Map (Projectiles) effects
     if (map->cells[monster->y][monster->x]->effect == FIRE_BOMB_EFFECT) {
-        monster->health -= FIRE_BOMB_EFFECT_DAMAGE;
+        monster->health -= calculateDamage(FIRE_BOMB_EFFECT_DAMAGE, monster->defense, st->turn);
+        monster->color = FIRE_BOMB_COLOR;
         if (monster->health <= 0) {
             // Send menu message: (Monster->name)"%s" died from the fire!
             char *msg = (char *) malloc(sizeof(char) * st->map->width);
-            snprintf(msg, st->map->width, "%s died from the fire!", monster->name);
+            snprintf(msg, st->map->width, "A %s died from the fire!", monster->name);
             sendMenuMessage(st, msg);
             free(msg);
             
             // Kill the monster
             killMonster(st, monster->x, monster->y);
-            // Optional, remove effect with: map->cells[y][x]->effect_duration = 0;
+            // Optional: remove effect with: map->cells[y][x]->effect_duration = 0;
             return;
         }
         // Update the previous cell's monster_index
@@ -190,12 +197,20 @@ void moveMonster(State *st, Monster *monster, int x, int y) {
         // Update the cell's to monster_index
         map->cells[y][x]->monster_index = monster->index;
     }
-    else if (map->cells[monster->y][monster->x]->effect == ICE_BOMB_EFFECT 
-            || map->cells[monster->y][monster->x]->effect == SMOKE_BOMB_EFFECT) {
-        return; // dont move the monster if it is frozen
+    else if (map->cells[monster->y][monster->x]->effect == ICE_BOMB_EFFECT) {
+        monster->color = ICE_BOMB_COLOR;
+        return; // dont move the monster if it's frozen        
+    }
+
+    else if (map->cells[monster->y][monster->x]->effect == SMOKE_BOMB_EFFECT) {
+        monster->color = SMOKE_BOMB_COLOR;
+        return; // dont move the monster if it's smoked
     }
     else {
         // Normal movement: no effects
+
+        // Change the monster color to default
+        monster->color = monster->default_color;
 
         // Update the previous cell's monster_index
         map->cells[monster->y][monster->x]->monster_index = -1;
@@ -341,10 +356,7 @@ void monsterPathfinding(State *st, Monster* monster) {
         moveMonster(st, monster, min_distance_x, min_distance_y);
     }
     else {
-        // Send a message to the menu that the monster can't find the player
-        // clearMessageLine(map->height + 5 - 2, map->width - 2);
-        mvprintw(map->height + 5 - 2, 2, "%s", "The monster can't find the player");
-        moveMonsterRandom(st, monster); // Implement moveMonsterRandom function if necessary
+        moveMonsterRandom(st, monster);
     }
 }
 
@@ -407,6 +419,12 @@ void monsterPathfindingAway(State *st, Monster *monster) {
 
 /**
  * @brief Generate one monster randomly
+ * 
+ * @details Same probability for each monster type.
+ * 
+ * @param map The game map
+ * @param index Monster index relative to the monsters array
+ * @return Monster* The generated monster
 */
 Monster *generateMonster(Map *map, int index) {
     int random = rand() % 5; // 5 types of monsters
@@ -440,9 +458,6 @@ Monster **generateMonsters(Map* map) {
     Monster **monsters = (Monster **) malloc(sizeof(Monster *) * NUMBER_OF_MONSTERS);
     for (int i = 0; i < NUMBER_OF_MONSTERS; i++) {
         monsters[i] = generateMonster(map, i);
-        /* if (monsters[i] == NULL) {
-            i--; // unnecessary
-        } */
     }
     return monsters;
 }
@@ -460,7 +475,9 @@ Monster **generateMonsters(Map* map) {
  */
 void moveMonsters(State *st, Monster **monsters, int nMonsters) {
     for (int i = 0; i < nMonsters; i++) {
-        if (!monsters[i]->is_alive) continue;
+        if (!monsters[i]->is_alive) break;
+
+        // Move the monster depending on the pathfinding type
         switch (monsters[i]->pathfinding)
         {
         case PATHFINDING_RANDOM:
@@ -477,13 +494,17 @@ void moveMonsters(State *st, Monster **monsters, int nMonsters) {
         case PATHFINDING_AWAY_FROM_PLAYER:
             monsterPathfindingAway(st, monsters[i]);
             break;
+        case PATHFINDING_RECRUITING:
+            // TODO
+            break;
         }
     }
 }
 
 
-// TODO monster attack functions
-// TODO monster death function
+// TODO: monster attack functions
+
+// Monster death function killMonster at combat.h
 
 /**
  * @brief Free the monster

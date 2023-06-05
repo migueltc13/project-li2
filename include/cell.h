@@ -45,8 +45,9 @@ typedef struct cell {
 #define EXIT_COLOR COLOR_YELLOW
 #define FLOOR_SYMBOL '.'
 #define FLOOR_COLOR COLOR_GREEN
-#define WALL_SYMBOL  '#'
-#define WALL_COLOR COLOR_BLUE
+#define WALL_SYMBOL '#'
+#define WALL_COLOR COLOR_CYAN
+#define COLOR_SHADOW COLOR_BLUE
 
 Cell *initCell(int x, int y, char symbol, int is_walkable, int block_light, int color);
 Cell *initCellFloor(int x, int y);

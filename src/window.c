@@ -23,6 +23,24 @@ void initColor() {
     init_pair(COLOR_MAGENTA, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(COLOR_CYAN, COLOR_CYAN, COLOR_BLACK);
     init_pair(COLOR_WHITE, COLOR_WHITE, COLOR_BLACK);
+    
+    init_pair(COLOR_BLACK + 8, COLOR_BLACK, COLOR_WHITE);
+    init_pair(COLOR_RED + 8, COLOR_RED, COLOR_WHITE);
+    init_pair(COLOR_GREEN + 8, COLOR_GREEN, COLOR_WHITE);
+    init_pair(COLOR_YELLOW + 8, COLOR_YELLOW, COLOR_WHITE);
+    init_pair(COLOR_BLUE + 8, COLOR_BLUE, COLOR_WHITE);
+    init_pair(COLOR_MAGENTA + 8, COLOR_MAGENTA, COLOR_WHITE);
+    init_pair(COLOR_CYAN + 8, COLOR_CYAN, COLOR_WHITE);
+    init_pair(COLOR_WHITE + 8, COLOR_WHITE, COLOR_WHITE);
+
+    /* init_pair(COLOR_BLACK + 16, COLOR_BLACK, COLOR_YELLOW);
+    init_pair(COLOR_RED + 16, COLOR_RED, COLOR_YELLOW);
+    init_pair(COLOR_GREEN + 16, COLOR_GREEN, COLOR_YELLOW);
+    init_pair(COLOR_YELLOW + 16, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(COLOR_BLUE + 16, COLOR_BLUE, COLOR_YELLOW);
+    init_pair(COLOR_MAGENTA + 16, COLOR_MAGENTA, COLOR_YELLOW);
+    init_pair(COLOR_CYAN + 16, COLOR_CYAN, COLOR_YELLOW);
+    init_pair(COLOR_WHITE + 16, COLOR_WHITE, COLOR_YELLOW); */
 }
 
 /**
@@ -38,8 +56,8 @@ void initColor() {
 WINDOW *initWindow(int *ncols, int *nrows) {
     WINDOW *window = initscr();
     if (window == NULL) {
-        fprintf(stderr, "Error initialising ncurses.\n");
-        return NULL;
+        fprintf(stderr, "Fatal: Error initializing ncurses window with initscr().\n");
+        exit(EXIT_FAILURE);
     }
 
     // Get window dimensions
@@ -53,8 +71,9 @@ WINDOW *initWindow(int *ncols, int *nrows) {
 	cbreak();                 // Disable line buffering
 	noecho();                 // Disable input echoing
 	nonl();                   // Disable newline translation
-	intrflush(stdscr, false); // Disable flushing on interrupt
-	keypad(stdscr, true);     // Enable keypad input
+	intrflush(window, false); // Disable flushing on interrupt
+	keypad(window, true);     // Enable keypad input
+    curs_set(0);              // Disable cursor
     initColor();              // Enable color and set color pairs
 
     return window;

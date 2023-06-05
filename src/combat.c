@@ -130,9 +130,9 @@ void explodeProjectile(State *st, Projectile *projectile) {
                 Cell *cell = st->map->cells[projectile->y + i][projectile->x + j];
                 if (isCellWalkable(cell)) {
                     if (projectile->effect == SMOKE_BOMB_EFFECT) {
-                        cell->is_visible = 0;
-                        cell->was_visible = 0;
-                        cell->color = projectile->color;
+                        // cell->is_visible = 0; // TODO for monsters
+                        // cell->was_visible = 0;
+                        cell->color = projectile->color + 8;
                         cell->effect = SMOKE_BOMB_EFFECT;
                         cell->effect_duration = SMOKE_BOMB_DURATION;
                     }
@@ -154,10 +154,8 @@ void explodeProjectile(State *st, Projectile *projectile) {
                         int monster_index = cell->monster_index;
                         Monster *monster = st->monsters[monster_index];
 
-                        // TODO visual effect in monsters: drawMonster
-
                         // Update monster health with projectile damage
-                        monster->health -= projectile->damage;
+                        monster->health -= calculateDamage(projectile->damage, monster->defense, st->turn);
 
                         if (monster->health <= 0) {
                             // Send menu message: Monster name and gold value
@@ -197,7 +195,7 @@ void updateProjectile(State *st, Projectile *projectile, int index) {
         if (isCellMonster(st->map->cells[projectile->y][projectile->x])) {
             int monster_index = st->map->cells[projectile->y][projectile->x]->monster_index;
             Monster *monster = st->monsters[monster_index];
-            monster->health -= projectile->damage;
+            monster->health -= calculateDamage(projectile->damage, monster->defense, st->turn);
             if (monster->health <= 0) { // Monster died from the projectile            
                 // Send menu message: Monster name and gold value
                 char *msg = (char *) malloc(sizeof(char) * st->map->width);
@@ -221,9 +219,9 @@ void updateProjectile(State *st, Projectile *projectile, int index) {
 
 void updateProjectiles(State *st) {
     for (int i = 0; i < MAX_PROJECTILES; i++) {
-        if (st->map->projectiles[i] == NULL) continue;
-        else if (i > st->map->nr_projectiles) break;
-        updateProjectile(st, st->map->projectiles[i], i);
+        if (i > st->map->nr_projectiles) break;
+        if (st->map->projectiles[i] != NULL)
+            updateProjectile(st, st->map->projectiles[i], i);
     }
     // TODO iter map and monsters to clean effects  
 }
@@ -334,9 +332,9 @@ void drawProjectile(Projectile *p) {
 void drawProjectiles(Map *map) {
     for (int i = 0; i < MAX_PROJECTILES; i++) {
         if (i > map->nr_projectiles) break;
-        if (map->projectiles[i] != NULL) drawProjectile(map->projectiles[i]);
-        // note if (map->cells[map->projectiles[i]->y][map->projectiles[i]->x]->is/was_visible)
-        // drawProjectile independently of the cell visibility (is/was_visible field)
+        if (map->projectiles[i] != NULL)
+            drawProjectile(map->projectiles[i]);
+        // drawProjectile is independent of the cell visibility (is/was_visible field)
     }
 }
 
@@ -377,18 +375,54 @@ void killMonster(State *st, int x, int y) {
     st->nMonsters--;
 }
 
-// TODO
+/**
+ * @brief Calculates the damage of an attack
+ * 
+ * If the st->turn % 5 == 0 the attack is a critical hit
+ * attack = attack * 1.5
+ * 1.5 is the critical hit multiplier
+ * 5 is the number of turns between critical hits
+ * 
+ * NOTE: Per example a potion of strength could increase the critical hit multiplier,
+ * or reduce the number of turns between critical hits.
+ * 
+ * @details The damage is calculated with the formula:
+ * damage = attack * (100 - defense) / 100
+ * 
+ * @param attack The attack of the attacker
+ * @param defense The defense of the defender
+ * @param turn The current turn
+ * @return int The damage of the attack to retrieved from the defender health
+*/
+int calculateDamage(int attack, int defense, int turn) {
+    if (defense >= 100) return 0; // because POTION_OF_INVINCIBILITY_DEFENSE = 100
+    if (turn % 5 == 0) attack *= 1.5;
+    return attack * (100 - defense) / 100;
+}
+
+/**
+ * @brief Function that attacks a player first
+ * 
+ * @details First the monster attacks the player, then the player attacks the monster.
+ * If the monster dies, the player earns gold and the monster is removed from the map.
+ * If the player dies, the game is over.
+ * A message is sent to the menu to be displayed in either case.
+ * 
+ * @param st The game state
+ * @param monster The monster that attacks the player first
+*/
 void monsterAttacksPlayer(State *st, Monster *monster) {
     
-    st->player->health -= monster->attack; // TODO defense
+    st->player->health -= calculateDamage(monster->attack, st->player->defense, st->turn);
     if (st->player->health <= 0) {
-        // TODO game over function
+        st->mode = EXIT_MODE;
         return;
     }
 
-    monster->health -= st->player->attack; // TODO defense
+    monster->health -= calculateDamage(st->player->attack, monster->defense, st->turn);
     if (monster->health <= 0) {
-        // send message: monster attack you and died + gold
+        char *msg = (char *) malloc(sizeof(char) * st->map->width);
+        snprintf(msg, st->map->width, "You killed attacker \"%s\" and earned %d gold!", monster->name, monster->gold);
         killMonster(st, monster->x, monster->y);
         return;
     }
@@ -399,4 +433,34 @@ void monsterAttacksPlayer(State *st, Monster *monster) {
     free(msg);
 }
 
-// TODO playerAttacksMonster(State *st, Monster *monster) {}
+/**
+ * @brief Function that attacks a monster first
+ * 
+ * @details First the player attacks the monster, then the monster attacks the player.
+ * Similar to monsterAttacksPlayer(State *st, Monster *monster) function.
+ * 
+ * @param st The game state
+ * @param monster The monster that is attacked by the player first
+*/
+void playerAttacksMonster(State *st, Monster *monster) {
+    monster->health -= calculateDamage(st->player->attack, monster->defense, st->turn);
+    if (monster->health <= 0) {
+        char *msg = (char *) malloc(sizeof(char) * st->map->width);
+        snprintf(msg, st->map->width, "You killed \"%s\" and earned %d gold!", monster->name, monster->gold);
+        killMonster(st, monster->x, monster->y);
+        sendMenuMessage(st, msg);
+        free(msg);
+        return;
+    }
+
+    st->player->health -= calculateDamage(monster->attack, st->player->defense, st->turn);
+    if (st->player->health <= 0) {
+        st->mode = EXIT_MODE;
+        return;
+    }
+
+    char *msg = (char *) malloc(sizeof(char) * st->map->width);
+    snprintf(msg, st->map->width, "You attacked \"%s\"!", monster->name);
+    sendMenuMessage(st, msg);
+    free(msg);
+}

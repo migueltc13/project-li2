@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "state.h"
 #include "map.h"
+#include "cell.h"
 #include "player.h"
 #include "inventory.h"
 #include "item.h"
@@ -63,24 +64,39 @@ void generateMenu(State *st) {
     attroff(COLOR_PAIR(MENU_BORDERS_COLOR));
 
     // Second line -> Player inventory
-    mvprintw(st->map->height + MENU_HEIGHT - 4, 2, "Inventory");
+    Inventory *inv = st->player->inventory;
+    char *equipped_item_name;
+    if (inv->equipped_item != NULL) {
+        equipped_item_name = inv->equipped_item->name;
+        mvprintw(st->map->height + MENU_HEIGHT - 4, 2, "Equipped: ");
+        attron(COLOR_PAIR(inv->equipped_item->color));
+        printw("%s", equipped_item_name);
+        attroff(COLOR_PAIR(inv->equipped_item->color));
+    } else 
+        mvprintw(st->map->height + MENU_HEIGHT - 4, 2, "No item equipped");
+    
     // print (name_item) x(item_count) for each item in inventory
-    for (int i = 0; i < st->player->inventory->nr_items; i++) {
-        printw(" | '");
-        attron(COLOR_PAIR(st->player->inventory->items[i]->color));
-        printw("%c", st->player->inventory->items[i]->symbol);
-        attroff(COLOR_PAIR(st->player->inventory->items[i]->color));
-        printw("' x%d", st->player->inventory->items[i]->count);
-    }
+    Item *equipped_item = inv->equipped_item;
 
-    if (st->player->inventory->equipped_item != NULL) {
-        printw(" | Equipped: ");
-        attron(COLOR_PAIR(st->player->inventory->equipped_item->color));
-        printw("%s", st->player->inventory->equipped_item->name);
-        attroff(COLOR_PAIR(st->player->inventory->equipped_item->color));
-    }
-    else {
-        printw(" | Empty");
+    for (int i = 0; i < inv->nr_items; i++) {
+        printw(" | '");
+        if (equipped_item != NULL &&
+            inv->items[i]->symbol == equipped_item->symbol &&
+            inv->items[i]->color == equipped_item->color &&
+            inv->items[i]->damage == equipped_item->damage &&
+            inv->items[i]->defense == equipped_item->defense &&
+            inv->items[i]->range == equipped_item->range &&
+            inv->items[i]->type == equipped_item->type &&
+            inv->items[i]->value == equipped_item->value) {
+            attron(COLOR_PAIR(equipped_item->color + 8)); // + 8 to invert bg and fg
+        }
+        else {
+            attron(COLOR_PAIR(inv->items[i]->color));
+        }
+        printw("%c", inv->items[i]->symbol);
+        attroff(COLOR_PAIR(inv->items[i]->color));
+        attroff(COLOR_PAIR(inv->items[i]->color + 8));
+        printw("' x%d", inv->items[i]->count);
     }
 
     attron(COLOR_PAIR(MENU_BORDERS_COLOR));
@@ -144,7 +160,7 @@ void legendMenu(State *st) {
     init_pair(COLOR_BLACK, COLOR_BLACK, COLOR_BLACK);
 
     // Print the legend menu title
-    wprintw(legend_menu, "\n           Legend Menu\n");
+    wprintw(legend_menu, "\n           Legend menu\n");
     
     /*
     wprintw(legend_menu, "  -------------------------------\n");
@@ -183,6 +199,8 @@ void legendMenu(State *st) {
     wattroff(legend_menu, COLOR_PAIR(ICE_BOMB_COLOR));
     wprintw(legend_menu, " Ice Bomb: %d-%d damage\n", ICE_BOMB_DAMAGE_MIN, ICE_BOMB_DAMAGE_MAX);
 
+    wprintw(legend_menu, "\n");
+
     // potions
     wattron(legend_menu, COLOR_PAIR(POTION_OF_HEALING_COLOR));
     wprintw(legend_menu, "  %c", POTION_OF_HEALING_SYMBOL);
@@ -191,17 +209,18 @@ void legendMenu(State *st) {
     
     // wprintw(legend_menu, "Potion of Strength: +%d strength\n", POTION_OF_STRENGTH_STR);
     // wprintw(legend_menu, "Potion of Defense: +%d defense\n", POTION_OF_DEFENSE_DEF);
-    // wprintw(legend_menu, "Sensory Potion: +%d vison +%d earing\n", SENSORY_POTION_VISION, SENSORY_POTION_EARING);
 
     wattron(legend_menu, COLOR_PAIR(SENSORY_POTION_COLOR));
     wprintw(legend_menu, "  %c", SENSORY_POTION_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(SENSORY_POTION_COLOR));
-    wprintw(legend_menu, " Sensory Potion: +%d vis +%d ear\n", SENSORY_POTION_VISION_RANGE, SENSORY_POTION_EARING);
+    wprintw(legend_menu, " Sensory Potion: +%d v +%d e\n", SENSORY_POTION_VISION_RANGE, SENSORY_POTION_EARING_RANGE);
 
     wattron(legend_menu, COLOR_PAIR(POTION_OF_INVINCIBILITY_COLOR));
     wprintw(legend_menu, "  %c", POTION_OF_INVINCIBILITY_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(POTION_OF_INVINCIBILITY_COLOR));
-    wprintw(legend_menu, " Potion of Invincibility: turns\n"); // POTION_OF_INVINCIBILITY_TURNS
+    wprintw(legend_menu, " Potion of Invincibility: %d t\n", POTION_OF_INVINCIBILITY_TURNS);
+
+    wprintw(legend_menu, "\n");
 
     // weapons
     wattron(legend_menu, COLOR_PAIR(IRON_SWORD_COLOR));
@@ -219,6 +238,8 @@ void legendMenu(State *st) {
     wattroff(legend_menu, COLOR_PAIR(DIAMOND_SWORD_COLOR));
     wprintw(legend_menu, " Diamond Sword: %d-%d damage\n", DIAMOND_SWORD_DAMAGE_MIN, DIAMOND_SWORD_DAMAGE_MAX);
 
+    wprintw(legend_menu, "\n");
+
     // armor
     wattron(legend_menu, COLOR_PAIR(LEATHER_ARMOR_COLOR));
     wprintw(legend_menu, "  %c", LEATHER_ARMOR_SYMBOL);
@@ -235,6 +256,8 @@ void legendMenu(State *st) {
     wattroff(legend_menu, COLOR_PAIR(PLATE_ARMOR_COLOR));
     wprintw(legend_menu, " Plate Armor: %d defense\n", PLATE_ARMOR_DEFENSE);
 
+    wprintw(legend_menu, "\n");
+
     // gold
     wattron(legend_menu, COLOR_PAIR(POT_OF_GOLD_COLOR));
     wprintw(legend_menu, "  %c", POT_OF_GOLD_SYMBOL);
@@ -250,33 +273,41 @@ void legendMenu(State *st) {
     wprintw(legend_menu, "  %c", RAT_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(RAT_COLOR));
     // TODO: add monster stats
-    wprintw(legend_menu, " Rat:    %d atk %d def %d hp TODO\n", 0, 0, 0);
+    wprintw(legend_menu, " Rat:    %2d atk %2d def %d hp\n", RAT_ATTACK, RAT_DEFENSE, RAT_HEALTH);
 
     wattron(legend_menu, COLOR_PAIR(GOBLIN_COLOR));
     wprintw(legend_menu, "  %c", GOBLIN_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(GOBLIN_COLOR));
     // TODO: add monster stats
-    wprintw(legend_menu, " Goblin: %d atk %d def %d hp TODO\n", 0, 0, 0);
+    wprintw(legend_menu, " Goblin: %2d atk %2d def %2d hp\n", GOBLIN_ATTACK, GOBLIN_DEFENSE, GOBLIN_HEALTH);
 
     wattron(legend_menu, COLOR_PAIR(ORC_COLOR));
     wprintw(legend_menu, "  %c", ORC_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(ORC_COLOR));
     // TODO: add monster stats
-    wprintw(legend_menu, " Orc:    %d atk %d def %d hp TODO\n", 0, 0, 0);
+    wprintw(legend_menu, " Orc:    %2d atk %2d def %2d hp\n", ORC_ATTACK, ORC_DEFENSE, ORC_HEALTH);
 
     wattron(legend_menu, COLOR_PAIR(TROLL_COLOR));
     wprintw(legend_menu, "  %c", TROLL_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(TROLL_COLOR));
     // TODO: add monster stats
-    wprintw(legend_menu, " Troll:  %d atk %d def %d hp TODO\n", 0, 0, 0);
+    wprintw(legend_menu, " Troll:  %2d atk %2d def %2d hp\n", TROLL_ATTACK, TROLL_DEFENSE, TROLL_HEALTH);
 
     wattron(legend_menu, COLOR_PAIR(DRAGON_COLOR));
     wprintw(legend_menu, "  %c", DRAGON_SYMBOL);
     wattroff(legend_menu, COLOR_PAIR(DRAGON_COLOR));
     // TODO: add monster stats
-    wprintw(legend_menu, " Dragon: %d atk %d def %d hp TODO\n", 0, 0, 0);
+    wprintw(legend_menu, " Dragon: %2d atk %2d def %2d hp\n", DRAGON_ATTACK, DRAGON_DEFENSE, DRAGON_HEALTH);
 
     wprintw(legend_menu, "  -------------------------------\n");
+
+    wattron(legend_menu, COLOR_PAIR(EXIT_COLOR));
+    wprintw(legend_menu, "  %c", EXIT_SYMBOL);
+    wattroff(legend_menu, COLOR_PAIR(EXIT_COLOR));
+    wprintw(legend_menu, " Exit: 500 gold\n");
+
+    wprintw(legend_menu, "  -------------------------------\n");    
+
     wprintw(legend_menu, "  Press any key to close...");
 
     // Print the legend menu borders

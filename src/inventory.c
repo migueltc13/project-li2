@@ -80,6 +80,7 @@ void removeItem(Inventory *i, Item *item) {
                     }
                     i->items[i->nr_items - 1] = NULL;
                     i->nr_items--;
+                    switchEquippedItem(i); // switch to the next item
                 }
                 break;
             }
@@ -199,7 +200,6 @@ void useEquippedItem(State *st) {
             sendMenuMessage(st, "You threw a rock.");
             throwRock(st);
             // Remove the rock from the inventory
-            // TODO: remove 1 from count of items, then if count == 0 remove item
             removeItem(st->player->inventory, equipped_item);
             equipped_item = NULL;
         }
@@ -254,9 +254,15 @@ void useEquippedItem(State *st) {
         else if (equipped_item->symbol == SENSORY_POTION_SYMBOL &&
                  equipped_item->color  == SENSORY_POTION_COLOR) 
         {
-            // Encrease player's vision (and earing TODO)
+            // Encrease player's vision
             st->player->vision += SENSORY_POTION_VISION_RANGE;
             st->player->vision_width = SENSORY_POTION_VISION_WIDTH;
+
+            // Encrease player's earing range
+            st->player->earing_range_close += SENSORY_POTION_EARING_RANGE;
+            st->player->earing_range_far += SENSORY_POTION_EARING_RANGE;
+            st->player->earing_prob = SENSORY_POTION_EARING_PROB;
+
             st->player->sensory_potion_turns = SENSORY_POTION_TURNS;
             st->player->color = SENSORY_POTION_COLOR;
             removeItem(st->player->inventory, equipped_item);
@@ -323,5 +329,4 @@ void useEquippedItem(State *st) {
         // Add the armor defense to the player defense
         st->player->defense += st->player->inventory->equipped_armor->defense;
     }
-    switchEquippedItem(st->player->inventory);
 }

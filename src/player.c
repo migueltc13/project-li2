@@ -17,13 +17,16 @@ Player *initPlayer(int x, int y) {
     p->y = y;
     p->symbol = PLAYER_SYMBOL;
     p->health = MAX_HEALTH;
-    p->defense = 0;
+    p->max_health = MAX_HEALTH;
+    p->defense = PLAYER_STARTING_DEFENSE;
     p->attack = PLAYER_STARTING_ATTACK;
     p->vision = PLAYER_VISION;
     p->vision_width = PLAYER_VISION_WIDTH;
+    p->earing_range_close = PLAYER_EARING_RANGE_CLOSE;
+    p->earing_range_far = PLAYER_EARING_RANGE_FAR;
+    p->earing_prob = PLAYER_EARING_PROB;
     p->sensory_potion_turns = -1; // -1 means no sensory potion effect
     p->potion_invincibility_turns = -1; // -1 means no invincibility potion effect
-    p->max_health = MAX_HEALTH;
     p->direction = 0;
     p->inventory = initInventory();
     return p;
@@ -60,7 +63,13 @@ void updatePotionEffects(Player *p) {
         // Reset player vision to default
         p->vision = PLAYER_VISION;
         p->vision_width = PLAYER_VISION_WIDTH;
-        p->color = PLAYER_COLOR; // Reset player color to default
+        
+        // Reset player earing to default
+        p->earing_range_close = PLAYER_EARING_RANGE_CLOSE;
+        p->earing_range_far = PLAYER_EARING_RANGE_FAR;
+        p->earing_prob = PLAYER_EARING_PROB;
+
+        p->color = PLAYER_COLOR;      // Reset player color to default
         p->sensory_potion_turns = -1; // Reset potion effect
     }
 
@@ -69,7 +78,7 @@ void updatePotionEffects(Player *p) {
     }
     if (p->potion_invincibility_turns == 0) {
         p->defense -= POTION_OF_INVINCIBILITY_DEFENSE;
-        p->color = PLAYER_COLOR; // Reset player color to default
+        p->color = PLAYER_COLOR;            // Reset player color to default
         p->potion_invincibility_turns = -1; // Reset potion effect
     }
 }

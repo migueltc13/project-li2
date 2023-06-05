@@ -80,7 +80,7 @@ typedef struct item {
 #define FIRE_BOMB_RANGE 6 // cells
 #define FIRE_BOMB_COLOR COLOR_RED
 #define FIRE_BOMB_EFFECT 2
-#define FIRE_BOMB_EFFECT_DAMAGE 5 // hp
+#define FIRE_BOMB_EFFECT_DAMAGE 7 // hp
 #define FIRE_BOMB_DURATION 5 // turns
 
 // Ice bomb
@@ -97,22 +97,22 @@ typedef struct item {
 // Iron sword
 #define IRON_SWORD_VALUE 20
 #define IRON_SWORD_DAMAGE_MIN 10
-#define IRON_SWORD_DAMAGE_MAX 15
+#define IRON_SWORD_DAMAGE_MAX 20
 #define IRON_SWORD_SYMBOL 'l'
 #define IRON_SWORD_TYPE WEAPON
 #define IRON_SWORD_COLOR COLOR_WHITE
 
 // Gold sword
 #define GOLD_SWORD_VALUE 40
-#define GOLD_SWORD_DAMAGE_MIN 10
-#define GOLD_SWORD_DAMAGE_MAX 25
+#define GOLD_SWORD_DAMAGE_MIN 20
+#define GOLD_SWORD_DAMAGE_MAX 30
 #define GOLD_SWORD_SYMBOL 'l'
 #define GOLD_SWORD_TYPE WEAPON
 #define GOLD_SWORD_COLOR COLOR_YELLOW
 
 // Diamond sword
 #define DIAMOND_SWORD_VALUE 60
-#define DIAMOND_SWORD_DAMAGE_MIN 20
+#define DIAMOND_SWORD_DAMAGE_MIN 30
 #define DIAMOND_SWORD_DAMAGE_MAX 40
 #define DIAMOND_SWORD_SYMBOL 'l'
 #define DIAMOND_SWORD_TYPE WEAPON
@@ -120,21 +120,21 @@ typedef struct item {
 
 // Leather armor
 #define LEATHER_ARMOR_VALUE 20
-#define LEATHER_ARMOR_DEFENSE 5
+#define LEATHER_ARMOR_DEFENSE 20
 #define LEATHER_ARMOR_SYMBOL 'T'
 #define LEATHER_ARMOR_TYPE ARMOR
 #define LEATHER_ARMOR_COLOR COLOR_WHITE
 
 // Chainmail armor
 #define CHAINMAIL_ARMOR_VALUE 40
-#define CHAINMAIL_ARMOR_DEFENSE 10
+#define CHAINMAIL_ARMOR_DEFENSE 40
 #define CHAINMAIL_ARMOR_SYMBOL 'T'
 #define CHAINMAIL_ARMOR_TYPE ARMOR
-#define CHAINMAIL_ARMOR_COLOR COLOR_CYAN
+#define CHAINMAIL_ARMOR_COLOR COLOR_GREEN
 
 // Plate armor
 #define PLATE_ARMOR_VALUE 60
-#define PLATE_ARMOR_DEFENSE 15
+#define PLATE_ARMOR_DEFENSE 60
 #define PLATE_ARMOR_SYMBOL 'T'
 #define PLATE_ARMOR_TYPE ARMOR
 #define PLATE_ARMOR_COLOR COLOR_MAGENTA
@@ -150,11 +150,12 @@ typedef struct item {
 #define SENSORY_POTION_SYMBOL '!'
 #define SENSORY_POTION_TYPE POTION
 #define SENSORY_POTION_VALUE 50
-#define SENSORY_POTION_VISION_RANGE 10 // cells
-#define SENSORY_POTION_VISION_WIDTH 3 // adjacent cells
-#define SENSORY_POTION_EARING 7
+#define SENSORY_POTION_VISION_RANGE 10 // + cells
+#define SENSORY_POTION_VISION_WIDTH 2  // + adjacent cells
+#define SENSORY_POTION_EARING_RANGE 20 // + cells
+#define SENSORY_POTION_EARING_PROB 60 // = (60%)
 #define SENSORY_POTION_TURNS 60 // turns
-#define SENSORY_POTION_RANGE 3 // cells
+#define SENSORY_POTION_RANGE 10 // cells
 #define SENSORY_POTION_COLOR COLOR_BLUE
 
 // Potion of invincibility
@@ -163,10 +164,7 @@ typedef struct item {
 #define POTION_OF_INVINCIBILITY_VALUE 100
 #define POTION_OF_INVINCIBILITY_TURNS 40 // turns
 #define POTION_OF_INVINCIBILITY_DEFENSE 100 // MAX_DEFENSE
-#define POTION_OF_INVINCIBILITY_COLOR COLOR_YELLOW
-
-// TODO: Potion of strength
-// TODO: Potion of defense
+#define POTION_OF_INVINCIBILITY_COLOR COLOR_GREEN
 
 // Pot of gold
 #define POT_OF_GOLD_SYMBOL 'O'
@@ -176,8 +174,6 @@ typedef struct item {
 #define POT_OF_GOLD_COLOR COLOR_YELLOW
 
 Item** generateItems(int n);
-
-void drawItem(Item *item);
 void drawAllItems(Item **items, int n);
 void drawVisibleItems(Map *map, Item **items, int n);
 Item* getItem(Item **items, int nr_items, unsigned int x, unsigned int y);

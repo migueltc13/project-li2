@@ -348,6 +348,13 @@ int insertItem(Item **items, int nr_items, Item *item) {
             nr_items++;
             return nr_items;
         }
+        else if (
+            items[i]->symbol == item->symbol &&
+            items[i]->color == item->color)
+        {
+            items[i]->count++;
+            return nr_items++;
+        }
     }
     return nr_items;
 }

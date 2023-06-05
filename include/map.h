@@ -6,6 +6,7 @@ typedef struct cell Cell;
 typedef struct item Item;
 typedef struct player Player;
 typedef struct projectile Projectile;
+typedef struct monster Monster;
 
 /**
  * @brief Structure that represents a map in the game
@@ -51,5 +52,7 @@ void calculateVision(Map* map, Player* player);
 
 void distributeItems(Map* map, Item** items, int nr_items);
 void pickUpItem(State *st);
+
+Monster *getCloserUnhurtMonster(State *st);
 
 #endif

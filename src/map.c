@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 #include <ncurses.h>
 #include "map.h"
 #include "cell.h"
@@ -16,9 +15,14 @@
 /**
  * @brief Initialize a new map
  * 
+ * @details Allocates memory for the map and its cells,
+ * items and projectiles arrays.
+ * 
+ * 
+ * 
  * @param width Map width
  * @param height Map height
- * @return Map*
+ * @return Map pointer to the new map
  */
 Map *initMap(int width, int height) {
     Map *map = (Map *) malloc(sizeof(struct map));
@@ -32,20 +36,40 @@ Map *initMap(int width, int height) {
         map->has_menu = 0; // false no menu
         map->height = height;
     }
-    // TODO: check if malloc fails
+
     map->cells = (Cell ***) malloc(sizeof(Cell **) * height);
+    if (map->cells == NULL) {
+        endwin();
+        fprintf(stderr, "Fatal: could not allocate memory for map cells matrix\n");
+        exit(EXIT_FAILURE);
+    }
     for (int i = 0; i < height; i++) {
         map->cells[i] = (Cell **) malloc(sizeof(Cell *) * width);
+        if (map->cells[i] == NULL) {
+            endwin();
+            fprintf(stderr, "Fatal: could not allocate memory for map cells row\n");
+            exit(EXIT_FAILURE);
+        }
         for (int j = 0; j < width; j++) {
             map->cells[i][j] = initCellFloor(j, i);
         }
     }
     // Initialize the items array
     map->items = (Item **) malloc(sizeof(Item *) * MAX_ITEMS);
+    if (map->items == NULL) {
+        endwin();
+        fprintf(stderr, "Fatal: could not allocate memory for items array\n");
+        exit(EXIT_FAILURE);
+    }
     map->nr_items = 0;
 
     // Initialize the projectiles array
     map->projectiles = (Projectile **) malloc(sizeof(Projectile *) * MAX_PROJECTILES);
+    if (map->projectiles == NULL) {
+        endwin();
+        fprintf(stderr, "Fatal: could not allocate memory for projectiles array\n");
+        exit(EXIT_FAILURE);
+    }
     map->nr_projectiles = 0;
     return map;
 }
@@ -199,6 +223,9 @@ void generateMap(State *st) {
 /**
  * @brief Draw the map according to the mode
  * 
+ * NOTE: This could be improved by only drawing the cells that have changed
+ * This could be implemented by storing bool value in a cell, per example: is_changed
+ * 
  * @param map Map to draw
  * @param mode normal mode, vision mode or distance mode 
  * @return void
@@ -230,28 +257,25 @@ void drawMap(Map *map, int mode) {
     else if (mode == VISION_MODE) {
         for (int i = 0; i < map->height; i++) {
             for (int j = 0; j < map->width; j++) {
-                if(map->cells[i][j]->was_visible == 1) {
-                    attron(COLOR_PAIR(map->cells[i][j]->color));
-                    mvaddch(i, j, map->cells[i][j]->symbol);
-                    attroff(COLOR_PAIR(map->cells[i][j]->color));
-                } else
-                    mvaddch(i, j, ' ');
-            }
-        }
-    }
-    else {
-        for (int i = 0; i < map->height; i++) {
-            for (int j = 0; j < map->width; j++) {
                 if (map->cells[i][j]->is_visible == 1) {
                     attron(COLOR_PAIR(map->cells[i][j]->color));
                     mvaddch(i, j, map->cells[i][j]->symbol);
                     attroff(COLOR_PAIR(map->cells[i][j]->color));
-                } else {
-                    int color = COLOR_WHITE; // TODO make darker color
-                    attron(COLOR_PAIR(color));
+                } else if (map->cells[i][j]->was_visible == 1) {
+                    attron(COLOR_PAIR(COLOR_SHADOW));
                     mvaddch(i, j, map->cells[i][j]->symbol);
-                    attroff(COLOR_PAIR(color));
-                }
+                    attroff(COLOR_PAIR(COLOR_SHADOW));
+                } else 
+                    mvaddch(i, j, ' ');   
+            }
+        }
+    }
+    else { // NORMAL_MODE
+        for (int i = 0; i < map->height; i++) {
+            for (int j = 0; j < map->width; j++) {
+                attron(COLOR_PAIR(map->cells[i][j]->color));
+                mvaddch(i, j, map->cells[i][j]->symbol);
+                attroff(COLOR_PAIR(map->cells[i][j]->color));
             }
         }
     }
@@ -271,7 +295,7 @@ void getPlayerInitialPosition(Map* map, int* x, int* y) {
 
     for (int j = 2; j < width - 2; j++) {
         for (int i = 2; i < height - 2; i++) {
-            bool isValidPosition = true;
+            int isValidPosition = true;
             
             for (int di = -1; di <= 1; di++) {
                 for (int dj = -1; dj <= 1; dj++) {
@@ -462,8 +486,9 @@ void distributeItems(Map* map, Item** items, int nr_items) {
     int height = map->height;
     int width = map->width;
     int i = 0;
+    int max_tries = 1000, current_tries = 0;
     // Random distribution
-    while (nr_items > 0) {
+    while (nr_items > 0 && current_tries < max_tries) {
         int x = rand() % width;
         int y = rand() % height;
         if (map->cells[y][x]->symbol == '.'
@@ -480,14 +505,19 @@ void distributeItems(Map* map, Item** items, int nr_items) {
             nr_items--;
             i++;
         }
+        current_tries++;
     }
 }
 
 /**
  * @brief Get the item on the player position
  * 
- * @details Removes the item from the map and adds it to the player inventory
+ * @details Removes the item from the map, 
+ * adds it to the player inventory
+ * and equips it if there's no equipped item.
  * 
+ * Also sends a message to the menu.
+ *  
  * @param st The game state
 */
 void pickUpItem(State *st) {
@@ -541,4 +571,34 @@ Monster *getCloserMonster(State *st) {
         }
     }
     return closer_monster;
+}
+
+
+/**
+ * @brief Get the closer unhurt monster to the player
+ * 
+ * @details The closer monster is the one with the minimum distance to the player.
+ * Except if the monster is hurt or too close to the player (2 cells away).
+ * This function is used to determine which monster to ear.
+ * 
+ * @param st State to get the monster
+ * @return Monster* A close monster unhurt and 3+ cells away
+*/
+Monster *getCloserUnhurtMonster(State *st) {
+    
+        Monster *closer_monster = NULL;
+    
+        Map *map = st->map;
+        int min_distance = map->width + map->height;
+    
+        for (int i = 0; i < st->nMonsters; i++) {
+            Monster *monster = st->monsters[i];
+            Cell *cell = map->cells[monster->y][monster->x];
+            int distance = cell->distance_to_player;
+            if (distance < min_distance && distance > 2 && monster->health == monster->max_health) {
+                min_distance = distance;
+                closer_monster = monster;
+            }
+        }
+        return closer_monster;
 }
