@@ -29,16 +29,63 @@
 	- Potion of Invincibility done
 - Mapa fix copy cells array for even distribution done (TODO: iter inner map instead of including inner walls)
 - Get last digit for distance modes in a faster way TODO
-- DONE Implement better vision by adding was_visible field and updating is_visible field
+- Done Implement better vision by adding was_visible field and updating is_visible field
+- Done removed stdbool
+- Done Implement vision range + earing (TODO: vision width)
+- Done Use getCloserMonster for earing monsters and TODO: for attacking monsters (menu info)
 - TODO Enhance draw map by dont using attroff
-- TODO Implement vision range
-- TODO Use getCloserMonster for earing monsters and for attacking monsters (menu info)
-- TODO remove/replace stdbool
 - TODO more documentation and cleaniing + iter functions
-- TODO more colors (ncurses)
 - TODO remove NULL checks when iter items and monsters since arrays are left shifted
 - TODO print effect and effect_duration in menu
 
 ---
 
 - Update Makefile to -O3
+- Change BIN name
+
+---
+
+O que poderia ser feito melhor:
+	- Funções (globais) para ciclos for (por exemplo: mapa, visão, estrela projectiles, etc)
+		- Mais legível
+		- Mais facilidade em criar funcoes que atualizem variaveis com estas funcoes
+		(em vez de iterar (exemplo: mapa) na totalidade a calcular a visao [is_visible])
+	- Implementar o inventario do jogador com uma lista ligada de Item's em vez de uma array
+		- inserção / remover em O(1) em vez de O(N) com arrays
+	- Optimizar a função drawMap, ao guardar is_changed dentro de cada cell, e apenas desenhar cell that is_changed == 1
+	- Usar implentação de queue (pasta extra) para melhorar o pathfinding dos monstros (exemplo: BFS)
+
+---
+
+O que foi feito: TODO
+- Gerar mapa aleatóriamente: algoritmo com 2 passagens e 40% paredes
+- Gerar jogador e posicao initial
+- Monstros (generation, distribution, pathfinding modes)
+- Gerar items pseudo-aleatóriamente
+- visao
+- audicao: mensagens no menu
+- inventario: trocar item equipado
+- Items:
+	- Vender items
+	- Usar:
+		- Potions: Healing, Sensory and Invincibility
+		- Projectiles: Items do tipo projectiles sao transformados para serem atirados no mapa
+			- Non-explosive:
+				- Rock (simple hit damage)
+			- Bombs:
+				- Smoke: Effect monsters and player
+				- Ice: Effect monsters
+				- Fire: Burning damage for monsters
+					- Bombs have a fade animation
+		- Swords
+		- Armour
+	- Pot of gold
+- Modos (apenas para desenvolvimento do jogo):
+	- NORMAL_MODE
+	- VISION_MODE // default
+	- DISTANCE_MODE
+- Menus:
+	- Menu Principal: game and player stats
+	- Menu legenda: items, monsters and keys
+- Exit / The gate keeper:
+	- Winning condition
