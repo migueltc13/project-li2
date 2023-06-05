@@ -102,6 +102,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a002ad0026a5847221f836a2172c887e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab786c787c282f4aa647782c9d843409a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#ab786c787c282f4aa647782c9d843409a">vision_width</a></td></tr>
 <tr class="separator:ab786c787c282f4aa647782c9d843409a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a83550492ebcdbec15e0a2b01b33f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a10a83550492ebcdbec15e0a2b01b33f7">earing_range_close</a></td></tr>
+<tr class="separator:a10a83550492ebcdbec15e0a2b01b33f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985dba6d4683d36925d9f2045d7e95aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a985dba6d4683d36925d9f2045d7e95aa">earing_range_far</a></td></tr>
+<tr class="separator:a985dba6d4683d36925d9f2045d7e95aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b882243ab6c74501320161a00fcb578"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a9b882243ab6c74501320161a00fcb578">earing_prob</a></td></tr>
+<tr class="separator:a9b882243ab6c74501320161a00fcb578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45b75862d151600e7a7c9bf726420471"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a45b75862d151600e7a7c9bf726420471">sensory_potion_turns</a></td></tr>
 <tr class="separator:a45b75862d151600e7a7c9bf726420471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43bb1ef2dfceeba557ba595d48030d50"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html#a43bb1ef2dfceeba557ba595d48030d50">potion_invincibility_turns</a></td></tr>
@@ -124,13 +130,16 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">x</td><td>player x coordinate </td></tr>
     <tr><td class="paramname">y</td><td>player y coordinate </td></tr>
     <tr><td class="paramname">health</td><td>Health of the player </td></tr>
+    <tr><td class="paramname">max_health</td><td>Maximum health of the player set to MAX_HEALTH macro </td></tr>
     <tr><td class="paramname">defense</td><td>Defense of the player </td></tr>
     <tr><td class="paramname">attack</td><td>Attack of the player </td></tr>
-    <tr><td class="paramname">vision</td><td>Vision of the player set to PLAYER_VISION macro </td></tr>
-    <tr><td class="paramname">vision_width</td><td>Vision width of the player set to PLAYER_VISION_WIDTH macro </td></tr>
+    <tr><td class="paramname">vision</td><td>Vision of the player in cells </td></tr>
+    <tr><td class="paramname">vision_width</td><td>Vision width of the player in cells </td></tr>
+    <tr><td class="paramname">earing_range_close</td><td>Earling range of the player in cells </td></tr>
+    <tr><td class="paramname">earing_range_far</td><td>Earling range of the player in cells </td></tr>
+    <tr><td class="paramname">earing_prob</td><td>Probability of hearing a close monster when a player moves (in %) </td></tr>
     <tr><td class="paramname">sensory_potion_turns</td><td>Number of turns the player has sensory potion effect </td></tr>
     <tr><td class="paramname">potion_invincibility_turns</td><td>Number of turns the player has invincibility potion effect </td></tr>
-    <tr><td class="paramname">max_health</td><td>Maximum health of the player set to MAX_HEALTH macro </td></tr>
     <tr><td class="paramname">direction</td><td>Direction of the player (used for throwing projectiles) </td></tr>
     <tr><td class="paramname">color</td><td>Color of the player changes when he takes damage or uses a potion </td></tr>
     <tr><td class="paramname">inventory</td><td>Inventory of the player </td></tr>
@@ -188,6 +197,48 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int player::direction</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b882243ab6c74501320161a00fcb578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b882243ab6c74501320161a00fcb578">&#9670;&nbsp;</a></span>earing_prob</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int player::earing_prob</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10a83550492ebcdbec15e0a2b01b33f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a83550492ebcdbec15e0a2b01b33f7">&#9670;&nbsp;</a></span>earing_range_close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int player::earing_range_close</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a985dba6d4683d36925d9f2045d7e95aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985dba6d4683d36925d9f2045d7e95aa">&#9670;&nbsp;</a></span>earing_range_far</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int player::earing_range_far</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -340,7 +391,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jun 5 2023 08:15:06 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

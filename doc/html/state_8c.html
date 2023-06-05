@@ -118,12 +118,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa213845b6ea1ac7c1e8feea118117a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#aa213845b6ea1ac7c1e8feea118117a72">freeState</a> (void *p)</td></tr>
 <tr class="memdesc:aa213845b6ea1ac7c1e8feea118117a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the game state.  <a href="state_8c.html#aa213845b6ea1ac7c1e8feea118117a72">More...</a><br /></td></tr>
 <tr class="separator:aa213845b6ea1ac7c1e8feea118117a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
-<tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state. Used in the main loop.  <a href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
-<tr class="separator:a2d5371342aa920f618224b2ba7b01116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#aa3fd511fa3b3109efdfb5864c9923bac">drawState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:aa3fd511fa3b3109efdfb5864c9923bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game state.  <a href="state_8c.html#aa3fd511fa3b3109efdfb5864c9923bac">More...</a><br /></td></tr>
 <tr class="separator:aa3fd511fa3b3109efdfb5864c9923bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5371342aa920f618224b2ba7b01116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">updateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
+<tr class="memdesc:a2d5371342aa920f618224b2ba7b01116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game state. Used in the main loop.  <a href="state_8c.html#a2d5371342aa920f618224b2ba7b01116">More...</a><br /></td></tr>
+<tr class="separator:a2d5371342aa920f618224b2ba7b01116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af53922b589069acb84e4df013d6207d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#af53922b589069acb84e4df013d6207d7">calculateState</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int input_key)</td></tr>
 <tr class="memdesc:af53922b589069acb84e4df013d6207d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulates the state based on the input key.  <a href="state_8c.html#af53922b589069acb84e4df013d6207d7">More...</a><br /></td></tr>
 <tr class="separator:af53922b589069acb84e4df013d6207d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,6 +199,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw the game state. </p>
+<p>Draws the map, the player, the monsters, the items and the projectiles</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">st</td><td>The game state to draw </td></tr>
@@ -262,7 +263,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new game state. </p>
-<p>Generates the map, the player and the monsters</p>
+<p>Generates the map, the player and the monsters Returns NULL if the state could not be initialized</p>
 <dl class="section return"><dt>Returns</dt><dd>State* </dd></dl>
 
 </div>
@@ -308,7 +309,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jun 5 2023 08:15:06 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -72,6 +72,10 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>calculateDamage()
+: <a class="el" href="combat_8h.html#a4eed6b7b64cc369fa24072223659b30b">combat.h</a>
+, <a class="el" href="combat_8c.html#a4eed6b7b64cc369fa24072223659b30b">combat.c</a>
+</li>
 <li>calculateDistances()
 : <a class="el" href="map_8h.html#aed258adbea00a6b0d0cca38916e67aeb">map.h</a>
 , <a class="el" href="map_8c.html#aed258adbea00a6b0d0cca38916e67aeb">map.c</a>
@@ -100,8 +104,7 @@ $(function() {
 , <a class="el" href="item_8c.html#a9855354d8821f3a5f7e4bedb9d79efee">item.c</a>
 </li>
 <li>drawItem()
-: <a class="el" href="item_8h.html#ad80079b4decdc5f923f51622ad8ba883">item.h</a>
-, <a class="el" href="item_8c.html#aa2b5c80c5e8454e6893bf30a8efd18b4">item.c</a>
+: <a class="el" href="item_8c.html#aa2b5c80c5e8454e6893bf30a8efd18b4">item.c</a>
 </li>
 <li>drawMap()
 : <a class="el" href="map_8h.html#a0475999880c83a81a8887854a5922531">map.h</a>
@@ -199,11 +202,15 @@ $(function() {
 : <a class="el" href="monster_8c.html#aafcfc30f57384153acaade6a7f6a7ec3">monster.c</a>
 </li>
 <li>generateMonsters()
-: <a class="el" href="monster_8h.html#af43d7f6f15ecb65735a6bc9deb49fcbc">monster.h</a>
-, <a class="el" href="monster_8c.html#af43d7f6f15ecb65735a6bc9deb49fcbc">monster.c</a>
+: <a class="el" href="monster_8c.html#af43d7f6f15ecb65735a6bc9deb49fcbc">monster.c</a>
+, <a class="el" href="monster_8h.html#af43d7f6f15ecb65735a6bc9deb49fcbc">monster.h</a>
 </li>
 <li>getCloserMonster()
 : <a class="el" href="map_8c.html#a2887e74a07c3baae22fd605b6e4e0ede">map.c</a>
+</li>
+<li>getCloserUnhurtMonster()
+: <a class="el" href="map_8h.html#acc140a81aa27c38dd66d541c259c36e4">map.h</a>
+, <a class="el" href="map_8c.html#acc140a81aa27c38dd66d541c259c36e4">map.c</a>
 </li>
 <li>getItem()
 : <a class="el" href="item_8h.html#a553ba87bf2c0d4f6e9365778dbd3c30a">item.h</a>
@@ -275,8 +282,8 @@ $(function() {
 , <a class="el" href="map_8c.html#ab52408e79480eba894d6ac546b2db176">map.c</a>
 </li>
 <li>initMonster()
-: <a class="el" href="monster_8h.html#a2c7299e14e32ae3adc45ad6c8e68b379">monster.h</a>
-, <a class="el" href="monster_8c.html#a2c7299e14e32ae3adc45ad6c8e68b379">monster.c</a>
+: <a class="el" href="monster_8h.html#aa01283f8beaa6bfe413f6482f8146a5b">monster.h</a>
+, <a class="el" href="monster_8c.html#aa01283f8beaa6bfe413f6482f8146a5b">monster.c</a>
 </li>
 <li>initOrc()
 : <a class="el" href="monster_8c.html#a178c7351711f24a5777ced98e6b52c0e">monster.c</a>
@@ -374,7 +381,8 @@ $(function() {
 : <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main.c</a>
 </li>
 <li>monsterAttacksPlayer()
-: <a class="el" href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe">combat.c</a>
+: <a class="el" href="combat_8h.html#ad2802253f767d5dcb5336182bbfcbcbe">combat.h</a>
+, <a class="el" href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe">combat.c</a>
 </li>
 <li>monsterPathfinding()
 : <a class="el" href="monster_8c.html#ae5304007b37543cbd1f42abca4148e0f">monster.c</a>
@@ -403,6 +411,10 @@ $(function() {
 <li>pickUpItem()
 : <a class="el" href="map_8h.html#aac6ebf269e1ed88f87038d51ff8b4ad1">map.h</a>
 , <a class="el" href="map_8c.html#aac6ebf269e1ed88f87038d51ff8b4ad1">map.c</a>
+</li>
+<li>playerAttacksMonster()
+: <a class="el" href="combat_8h.html#a3e30bfc098aee2a8d75ea63ef15da706">combat.h</a>
+, <a class="el" href="combat_8c.html#a3e30bfc098aee2a8d75ea63ef15da706">combat.c</a>
 </li>
 </ul>
 
@@ -482,7 +494,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jun 5 2023 08:15:06 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

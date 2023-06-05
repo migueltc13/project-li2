@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['map_350',['map',['../structmap.html',1,'']]],
-  ['monster_351',['monster',['../structmonster.html',1,'']]]
+  ['map_383',['map',['../structmap.html',1,'']]],
+  ['monster_384',['monster',['../structmonster.html',1,'']]]
 ];

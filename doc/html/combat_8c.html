@@ -163,8 +163,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a72fbfbf35fba3b1981a56f78618b3eb4">killMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, int x, int y)</td></tr>
 <tr class="memdesc:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to kill a monster with his coordinates.  <a href="combat_8c.html#a72fbfbf35fba3b1981a56f78618b3eb4">More...</a><br /></td></tr>
 <tr class="separator:a72fbfbf35fba3b1981a56f78618b3eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2802253f767d5dcb5336182bbfcbcbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe">monsterAttacksPlayer</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memitem:a4eed6b7b64cc369fa24072223659b30b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a4eed6b7b64cc369fa24072223659b30b">calculateDamage</a> (int attack, int defense, int turn)</td></tr>
+<tr class="memdesc:a4eed6b7b64cc369fa24072223659b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the damage of an attack.  <a href="combat_8c.html#a4eed6b7b64cc369fa24072223659b30b">More...</a><br /></td></tr>
+<tr class="separator:a4eed6b7b64cc369fa24072223659b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2802253f767d5dcb5336182bbfcbcbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe">monsterAttacksPlayer</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memdesc:ad2802253f767d5dcb5336182bbfcbcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that attacks a player first.  <a href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe">More...</a><br /></td></tr>
 <tr class="separator:ad2802253f767d5dcb5336182bbfcbcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e30bfc098aee2a8d75ea63ef15da706"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a3e30bfc098aee2a8d75ea63ef15da706">playerAttacksMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st, <a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *<a class="el" href="structmonster.html">monster</a>)</td></tr>
+<tr class="memdesc:a3e30bfc098aee2a8d75ea63ef15da706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that attacks a monster first.  <a href="combat_8c.html#a3e30bfc098aee2a8d75ea63ef15da706">More...</a><br /></td></tr>
+<tr class="separator:a3e30bfc098aee2a8d75ea63ef15da706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ac8d36819f4d293e453482f3b58276e0c"></a>
@@ -196,6 +203,54 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a4eed6b7b64cc369fa24072223659b30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eed6b7b64cc369fa24072223659b30b">&#9670;&nbsp;</a></span>calculateDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calculateDamage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>defense</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>turn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the damage of an attack. </p>
+<p>If the st-&gt;turn % 5 == 0 the attack is a critical hit attack = attack * 1.5 1.5 is the critical hit multiplier 5 is the number of turns between critical hits</p>
+<p>NOTE: Per example a potion of strength could increase the critical hit multiplier, or reduce the number of turns between critical hits.</p>
+<p>The damage is calculated with the formula: damage = attack * (100 - defense) / 100</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attack</td><td>The attack of the attacker </td></tr>
+    <tr><td class="paramname">defense</td><td>The defense of the defender </td></tr>
+    <tr><td class="paramname">turn</td><td>The current turn </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int The damage of the attack to retrieved from the defender health </dd></dl>
+
+</div>
+</div>
 <a id="a83de671b1f5f05dc80551f7e0c830f30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83de671b1f5f05dc80551f7e0c830f30">&#9670;&nbsp;</a></span>drawProjectile()</h2>
 
@@ -482,7 +537,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="monster_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
           <td class="paramname"><em>monster</em>&#160;</td>
         </tr>
         <tr>
@@ -492,6 +547,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Function that attacks a player first. </p>
+<p>First the monster attacks the player, then the player attacks the monster. If the monster dies, the player earns gold and the monster is removed from the map. If the player dies, the game is over. A message is sent to the menu to be displayed in either case.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster that attacks the player first </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -519,6 +584,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3e30bfc098aee2a8d75ea63ef15da706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e30bfc098aee2a8d75ea63ef15da706">&#9670;&nbsp;</a></span>playerAttacksMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void playerAttacksMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td>
+          <td class="paramname"><em>monster</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that attacks a monster first. </p>
+<p>First the player attacks the monster, then the monster attacks the player. Similar to <a class="el" href="combat_8c.html#ad2802253f767d5dcb5336182bbfcbcbe" title="Function that attacks a player first.">monsterAttacksPlayer(State *st, Monster *monster)</a> function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>The game state </td></tr>
+    <tr><td class="paramname">monster</td><td>The monster that is attacked by the player first </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -754,7 +857,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jun 5 2023 08:15:06 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

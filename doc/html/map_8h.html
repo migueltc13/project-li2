@@ -109,6 +109,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:aacfbfbd6ace468c21c5128fced4e632c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d36819f4d293e453482f3b58276e0c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structprojectile.html">projectile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#ac8d36819f4d293e453482f3b58276e0c">Projectile</a></td></tr>
 <tr class="separator:ac8d36819f4d293e453482f3b58276e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49cf34ee173cfa7de303912374de77e5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structmonster.html">monster</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a></td></tr>
+<tr class="separator:a49cf34ee173cfa7de303912374de77e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8967383654d2c24444433ae32cdadb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structmap.html">map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a5a8967383654d2c24444433ae32cdadb">Map</a></td></tr>
 <tr class="memdesc:a5a8967383654d2c24444433ae32cdadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents a map in the game.  <a href="map_8h.html#a5a8967383654d2c24444433ae32cdadb">More...</a><br /></td></tr>
 <tr class="separator:a5a8967383654d2c24444433ae32cdadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +147,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#aac6ebf269e1ed88f87038d51ff8b4ad1">pickUpItem</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
 <tr class="memdesc:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item on the player position.  <a href="map_8h.html#aac6ebf269e1ed88f87038d51ff8b4ad1">More...</a><br /></td></tr>
 <tr class="separator:aac6ebf269e1ed88f87038d51ff8b4ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc140a81aa27c38dd66d541c259c36e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#acc140a81aa27c38dd66d541c259c36e4">getCloserUnhurtMonster</a> (<a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *st)</td></tr>
+<tr class="memdesc:acc140a81aa27c38dd66d541c259c36e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the closer unhurt monster to the player.  <a href="map_8h.html#acc140a81aa27c38dd66d541c259c36e4">More...</a><br /></td></tr>
+<tr class="separator:acc140a81aa27c38dd66d541c259c36e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a5a015017629833d016e38b49dca7b1c3"></a>
@@ -202,6 +207,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a49cf34ee173cfa7de303912374de77e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49cf34ee173cfa7de303912374de77e5">&#9670;&nbsp;</a></span>Monster</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structmonster.html">monster</a> <a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -404,6 +423,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw the map according to the mode. </p>
+<p>NOTE: This could be improved by only drawing the cells that have changed This could be implemented by storing bool value in a cell, per example: is_changed</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td>Map to draw </td></tr>
@@ -471,6 +491,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="acc140a81aa27c38dd66d541c259c36e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc140a81aa27c38dd66d541c259c36e4">&#9670;&nbsp;</a></span>getCloserUnhurtMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="combat_8h.html#a49cf34ee173cfa7de303912374de77e5">Monster</a>* getCloserUnhurtMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="combat_8h.html#a8763d8a99781dd928e6f2dc5c128a329">State</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the closer unhurt monster to the player. </p>
+<p>The closer monster is the one with the minimum distance to the player. Except if the monster is hurt or too close to the player (2 cells away). This function is used to determine which monster to ear.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>State to get the monster </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Monster* A close monster unhurt and 3+ cells away </dd></dl>
 
 </div>
 </div>
@@ -590,6 +638,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a new map. </p>
+<p>Allocates memory for the map and its cells, items and projectiles arrays.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">width</td><td>Map width </td></tr>
@@ -597,7 +646,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Map* </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Map pointer to the new map </dd></dl>
 
 </div>
 </div>
@@ -618,7 +667,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the item on the player position. </p>
-<p>Removes the item from the map and adds it to the player inventory</p>
+<p>Removes the item from the map, adds it to the player inventory and equips it if there's no equipped item.</p>
+<p>Also sends a message to the menu.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">st</td><td>The game state </td></tr>
@@ -631,7 +681,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 4 2023 22:08:01 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jun 5 2023 08:15:06 for LI2 Roguelite by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
