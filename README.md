@@ -3,7 +3,7 @@
 
 # Roguelite
 
-Project description: [projeto.pdf](extra/projeto.pdf)
+Project description at [projeto.pdf](extra/projeto.pdf).
 
 ## Requirements
   - [ncurses](#install-ncurses)
@@ -42,4 +42,4 @@ make
 
 ## Documentation
 
-Doxygen documentation [here](https://migueltc13.github.io/project-li2/).
+Doxygen documentation at [migueltc13.github.io/project-li2/](https://migueltc13.github.io/project-li2/).
