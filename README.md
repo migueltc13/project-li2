@@ -3,6 +3,8 @@
 
 # Roguelite
 
+Project description: [projeto.pdf](extra/projeto.pdf)
+
 ## Requirements
   - [ncurses](#install-ncurses)
 
