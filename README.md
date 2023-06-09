@@ -1,3 +1,6 @@
+[![Test Makefile](https://github.com/migueltc13/project-li2/actions/workflows/makefile.yml/badge.svg)](https://github.com/migueltc13/project-li2/actions/workflows/makefile.yml)
+[![Deploy Pages](https://github.com/migueltc13/project-li2/actions/workflows/static.yml/badge.svg)](https://github.com/migueltc13/project-li2/actions/workflows/static.yml)
+
 # Roguelite
 
 ## Requirements
