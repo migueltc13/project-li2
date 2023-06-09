@@ -32,7 +32,7 @@ make install
 
 ```sh
 make
-./jogo
+./play
 ```
 
 ![play.png](extra/img/play.png)

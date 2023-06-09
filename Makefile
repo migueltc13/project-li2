@@ -1,10 +1,9 @@
 CC=gcc
-CFLAGS=-Iinclude -Wall -Wextra -pedantic -O2
+CFLAGS=-Iinclude -Wall -Wextra -pedantic -O3 # -O2
 DFLAGS=-Iinclude -Wall -Wextra -pedantic -g
 LFLAGS=-lm -lncurses
 
-BIN=jogo
-#BIN=play
+BIN=play
 
 SRC_DIR=src
 OBJ_DIR=obj
