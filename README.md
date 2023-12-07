@@ -47,3 +47,5 @@ Doxygen documentation at [migueltc13.github.io/project-li2/](https://migueltc13.
 ## Author
 
 - [Miguel Carvalho](https://github.com/migueltc13)
+
+**Final grade:** 18
