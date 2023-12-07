@@ -43,3 +43,7 @@ make
 ## Documentation
 
 Doxygen documentation at [migueltc13.github.io/project-li2/](https://migueltc13.github.io/project-li2/).
+
+## Author
+
+- [Miguel Carvalho](https://github.com/migueltc13)
